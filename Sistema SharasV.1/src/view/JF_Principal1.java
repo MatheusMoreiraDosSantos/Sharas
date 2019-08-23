@@ -6,6 +6,7 @@
 package view;
 
 import controller.*;
+import funcoes.F_JF_principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
@@ -21,7 +22,7 @@ import java.awt.Toolkit;
  * @author Aluno 02
  */
 public class JF_Principal1 extends javax.swing.JFrame {
-
+    
 //*********** GET's e SET's ***********/
     Usuario usuario = new Usuario();
     Animal animal = new Animal(); 
@@ -34,6 +35,8 @@ public class JF_Principal1 extends javax.swing.JFrame {
     Feno feno = new Feno();
     Calendario calendario = new Calendario(); 
     Racao racao = new Racao();
+ /********************Funções ***************************/   
+    F_JF_principal f_principal = new F_JF_principal();
     
 /****************** DAOS***************************/
     FinanceiroDAO financeiroDao = new FinanceiroDAO();
@@ -3555,68 +3558,19 @@ public class JF_Principal1 extends javax.swing.JFrame {
         }
     }
     private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_celeiroActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.remove(Jcadastrar);
-        jTabbedPane1.remove(Jcadanimal);
-        jTabbedPane1.remove(Jtreino);
-        jTabbedPane1.add(Jceleiro);
-        jTabbedPane1.remove(Jveterinario);
-        jTabbedPane1.remove(Jfinanceiro);
-        jTabbedPane1.remove(Jpastagem);
-        jTabbedPane1.remove(Jrh);
-        jTabbedPane1.remove(Jferra);
-        jTabbedPane1.remove(Jlog);
-        jTabbedPane1.remove(Jcalendario);
-        jTabbedPane1.remove(Jhome);
+        f_principal.removerPainel(jTabbedPane1, Jceleiro);  
     }//GEN-LAST:event_btn_celeiroActionPerformed
 
     private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pastagemActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.remove(Jcadastrar);
-        jTabbedPane1.remove(Jcadanimal);
-        jTabbedPane1.remove(Jtreino);
-        jTabbedPane1.remove(Jceleiro);
-        jTabbedPane1.remove(Jveterinario);
-        jTabbedPane1.remove(Jfinanceiro);
-        jTabbedPane1.add(Jpastagem);
-        jTabbedPane1.remove(Jrh);
-        jTabbedPane1.remove(Jferra);
-        jTabbedPane1.remove(Jlog);
-        jTabbedPane1.remove(Jcalendario);
-        jTabbedPane1.remove(Jhome);
+        f_principal.removerPainel(jTabbedPane1, Jpastagem);    
     }//GEN-LAST:event_btn_pastagemActionPerformed
 
     private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarioActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.add(Jcadastrar);
-        jTabbedPane1.remove(Jcadanimal);
-        jTabbedPane1.remove(Jtreino);
-        jTabbedPane1.remove(Jceleiro);
-        jTabbedPane1.remove(Jveterinario);
-        jTabbedPane1.remove(Jfinanceiro);
-        jTabbedPane1.remove(Jpastagem);
-        jTabbedPane1.remove(Jrh);
-        jTabbedPane1.remove(Jferra);
-        jTabbedPane1.remove(Jlog);
-        jTabbedPane1.remove(Jcalendario);
-        jTabbedPane1.remove(Jhome);
-
+        f_principal.removerPainel(jTabbedPane1, Jcadastrar);
     }//GEN-LAST:event_btn_usuarioActionPerformed
 
     private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calendarioActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.remove(Jcadastrar);
-        jTabbedPane1.remove(Jcadanimal);
-        jTabbedPane1.remove(Jtreino);
-        jTabbedPane1.remove(Jceleiro);
-        jTabbedPane1.remove(Jveterinario);
-        jTabbedPane1.remove(Jfinanceiro);
-        jTabbedPane1.remove(Jpastagem);
-        jTabbedPane1.remove(Jrh);
-        jTabbedPane1.remove(Jferra);
-        jTabbedPane1.remove(Jlog);
-        jTabbedPane1.add(Jcalendario);
-        jTabbedPane1.remove(Jhome);
+         f_principal.removerPainel(jTabbedPane1, Jcalendario);
     }//GEN-LAST:event_btn_calendarioActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -3627,9 +3581,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
         Timer timer = new Timer(1000, new hora());
         timer.start();
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jhome);
+        f_principal.removerPainel(jTabbedPane1, Jhome);
         btn_excluiranimal.setEnabled(false);
         btn_alteraranimal.setEnabled(false);
         btn_excluir.setEnabled(false);
@@ -3671,63 +3623,36 @@ public class JF_Principal1 extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animaisActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jcadanimal);
-
-
+        f_principal.removerPainel(jTabbedPane1,Jcadanimal);     
     }//GEN-LAST:event_btn_animaisActionPerformed
 
     private void btn_treinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_treinamentoActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jtreino);
-
+        f_principal.removerPainel(jTabbedPane1, Jtreino);
     }//GEN-LAST:event_btn_treinamentoActionPerformed
 
     private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinarioActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jveterinario);
-
+        f_principal.removerPainel(jTabbedPane1, Jveterinario);       
     }//GEN-LAST:event_btn_veterinarioActionPerformed
 
     private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_financeiroActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jfinanceiro);
-
+        f_principal.removerPainel(jTabbedPane1,Jfinanceiro);
     }//GEN-LAST:event_btn_financeiroActionPerformed
 
     private void btn_rhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_rhActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jrh);
-
-
+       f_principal.removerPainel(jTabbedPane1, Jrh);
     }//GEN-LAST:event_btn_rhActionPerformed
 
     private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ferrajamentoActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jferra);
-
+       f_principal.removerPainel(jTabbedPane1, Jferra);
     }//GEN-LAST:event_btn_ferrajamentoActionPerformed
 
     private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jlog);
-
+        f_principal.removerPainel(jTabbedPane1, Jlog);
         logDao.consultarVeterinario(txt_pesquisa_log, tab_log, this);
-
     }//GEN-LAST:event_btn_logActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        jTabbedPane1.setVisible(true);
-        jTabbedPane1.removeAll();
-        jTabbedPane1.add(Jhome);
-
+        f_principal.removerPainel(jTabbedPane1, Jhome);
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed

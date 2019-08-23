@@ -5,9 +5,8 @@
  */
 package funcoes;
 
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javax.swing.*;
+
 
 /**
  *
@@ -15,7 +14,11 @@ import javax.swing.JTextField;
  */
 public class F_JF_principal {
     
-    
+    public void removerPainel(JTabbedPane telas ,JPanel painel){
+       telas.setVisible(true);
+       telas.removeAll();
+       telas.add(painel);
+    }
     public static boolean camponull(String campo){
         if(campo == null){
            System.out.println(""+campo);
