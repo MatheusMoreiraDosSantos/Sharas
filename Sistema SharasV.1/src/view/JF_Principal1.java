@@ -351,8 +351,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
         sem_quantidade_pasto = new javax.swing.JLabel();
         sem_numero_pasto2 = new javax.swing.JLabel();
         Jrh = new javax.swing.JPanel();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jPanel18 = new javax.swing.JPanel();
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         txt_manutencao_nome = new javax.swing.JTextField();
@@ -459,6 +457,23 @@ public class JF_Principal1 extends javax.swing.JFrame {
         jnome = new javax.swing.JTextField();
         jLabel84 = new javax.swing.JLabel();
         jSeparator22 = new javax.swing.JSeparator();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        atalho_animais = new javax.swing.JMenuItem();
+        atalho_treinamento = new javax.swing.JMenuItem();
+        atalho_consulta = new javax.swing.JMenuItem();
+        atalho_finaceiro = new javax.swing.JMenuItem();
+        atalho_rh = new javax.swing.JMenuItem();
+        atalho_ferrajamento = new javax.swing.JMenuItem();
+        atalho_log = new javax.swing.JMenuItem();
+        atalho_pastagem = new javax.swing.JMenuItem();
+        atalho_usuario = new javax.swing.JMenuItem();
+        atalho_calendario = new javax.swing.JMenuItem();
+        atalho_celeiro = new javax.swing.JMenu();
+        atalho_feno = new javax.swing.JMenuItem();
+        atalho_racao = new javax.swing.JMenuItem();
+        atalho_serragem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Home");
@@ -2557,8 +2572,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Pastagem", Jpastagem);
 
-        Jrh.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel63.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel63.setText("Funcionarios:");
 
@@ -2672,67 +2685,67 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
         sem_setor_rh.setForeground(new java.awt.Color(255, 0, 0));
 
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
+        javax.swing.GroupLayout JrhLayout = new javax.swing.GroupLayout(Jrh);
+        Jrh.setLayout(JrhLayout);
+        JrhLayout.setHorizontalGroup(
+            JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JrhLayout.createSequentialGroup()
+                .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JrhLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel63))
-                    .addGroup(jPanel18Layout.createSequentialGroup()
+                    .addGroup(JrhLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel66)
                             .addComponent(jLabel64)
                             .addComponent(jLabel65)
                             .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cb_manutencao_setor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(sem_funsao_rh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txt_manutencao_salario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                                 .addComponent(txt_manutencao_nome, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(sem_nome_rh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel18Layout.createSequentialGroup()
-                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(JrhLayout.createSequentialGroup()
+                                .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(sem_setor_rh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JrhLayout.createSequentialGroup()
                                         .addComponent(btn_manutencao_cadastrar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btn_manutencao_excluir)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_manutencao_alterar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel68)
-                            .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txt_manutencao_id, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel67, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
-                            .addGroup(jPanel18Layout.createSequentialGroup()
-                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+                            .addGroup(JrhLayout.createSequentialGroup()
+                                .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel69)
                                     .addComponent(btn_buscar_manutencao)
                                     .addComponent(txt_manutencao_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
+        JrhLayout.setVerticalGroup(
+            JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JrhLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel63)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JrhLayout.createSequentialGroup()
                         .addComponent(jLabel64)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_manutencao_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2753,12 +2766,12 @@ public class JF_Principal1 extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(sem_setor_rh, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_manutencao_cadastrar)
                             .addComponent(btn_manutencao_excluir)
                             .addComponent(btn_manutencao_alterar)))
                     .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
+                    .addGroup(JrhLayout.createSequentialGroup()
                         .addComponent(jLabel68)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_manutencao_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2767,7 +2780,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel18Layout.createSequentialGroup()
+                    .addGroup(JrhLayout.createSequentialGroup()
                         .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel69)
@@ -2778,20 +2791,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane3.addTab("", jPanel18);
-
-        javax.swing.GroupLayout JrhLayout = new javax.swing.GroupLayout(Jrh);
-        Jrh.setLayout(JrhLayout);
-        JrhLayout.setHorizontalGroup(
-            JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-        JrhLayout.setVerticalGroup(
-            JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-
-        jTabbedPane1.addTab("RH", Jrh);
+        jTabbedPane1.addTab("", Jrh);
 
         Jferra.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -3524,6 +3524,114 @@ public class JF_Principal1 extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Atalho ");
+
+        atalho_animais.setText("Animais ");
+        atalho_animais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_animaisActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_animais);
+
+        atalho_treinamento.setText("Treinamento ");
+        atalho_treinamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_treinamentoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_treinamento);
+
+        atalho_consulta.setText("Consulta ");
+        atalho_consulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_veterinarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_consulta);
+
+        atalho_finaceiro.setText("Financeiro ");
+        atalho_finaceiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_financeiroActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_finaceiro);
+
+        atalho_rh.setText("RH");
+        atalho_rh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_rhActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_rh);
+
+        atalho_ferrajamento.setText("Ferrajamento");
+        atalho_ferrajamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ferrajamentoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_ferrajamento);
+
+        atalho_log.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        atalho_log.setText("Historioco de ação ");
+        atalho_log.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_logActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_log);
+
+        atalho_pastagem.setText("Pastagem ");
+        atalho_pastagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_pastagemActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_pastagem);
+
+        atalho_usuario.setText("Cadastro de usuário");
+        atalho_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_usuarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(atalho_usuario);
+
+        atalho_calendario.setText("Calendário");
+        jMenu2.add(atalho_calendario);
+
+        atalho_celeiro.setText("Celeiro ");
+        atalho_celeiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_celeiroActionPerformed(evt);
+            }
+        });
+
+        atalho_feno.setText("Feno");
+        atalho_feno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atalho_fenoActionPerformed(evt);
+            }
+        });
+        atalho_celeiro.add(atalho_feno);
+
+        atalho_racao.setText("Ração ");
+        atalho_celeiro.add(atalho_racao);
+
+        atalho_serragem.setText("Serragem ");
+        atalho_celeiro.add(atalho_serragem);
+
+        jMenu2.add(atalho_celeiro);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -3575,49 +3683,47 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         int tipo = LoginDAO.tipo;
-
         String nome_notificacao = jnome.getText();
         usuDao.consultarUsuarioNotificacao(nome_notificacao, txt_notificacao_home, this);
-
         Timer timer = new Timer(1000, new hora());
         timer.start();
         f_principal.removerPainel(jTabbedPane1, Jhome);
-        btn_excluiranimal.setEnabled(false);
-        btn_alteraranimal.setEnabled(false);
-        btn_excluir.setEnabled(false);
-        btn_alterar.setEnabled(false);
-        btn_excluir_treinamento.setEnabled(false);
-        btn_alterar_treinamento.setEnabled(false);
-        btn_excluir_pastagem.setEnabled(false);
-        btn_alterar_pastagem.setEnabled(false);
-        btn_excluir_ferrajamento.setEnabled(false);
-        btn_alterar_ferrajamento.setEnabled(false);
-        btn_manutencao_excluir.setEnabled(false);
-        btn_manutencao_alterar.setEnabled(false);
-        btn_veterinario_excluir.setEnabled(false);
-        btn_veterinario_alterar.setEnabled(false);
-        btn_serragem_excluir.setEnabled(false);
-        btn_serragem_alterar.setEnabled(false);
-        btn_feno_excluir.setEnabled(false);
-        btn_feno_alterar.setEnabled(false);
-        btn_racao_excluir.setEnabled(false);
-        btn_racao_alterar.setEnabled(false);
-
+        //Tela de animais 
+        f_principal.desabilitarbotao( btn_excluiranimal, btn_alteraranimal);
+        //Tela de usuario 
+        f_principal.desabilitarbotao( btn_excluir, btn_alterar);
+        //Tela de treinamento 
+        f_principal.desabilitarbotao( btn_excluir_treinamento, btn_alterar_treinamento);
+        //tela de pastagem 
+        f_principal.desabilitarbotao( btn_excluir_pastagem, btn_alterar_pastagem);
+        //tela de ferrajamento 
+        f_principal.desabilitarbotao( btn_excluir_ferrajamento, btn_alterar_ferrajamento);
+        //tela de excluir 
+        f_principal.desabilitarbotao(  btn_manutencao_excluir, btn_manutencao_alterar);
+        //tela de veterinario
+        f_principal.desabilitarbotao(  btn_veterinario_excluir, btn_veterinario_alterar);
+        //tela de serragem
+        f_principal.desabilitarbotao(  btn_serragem_excluir, btn_serragem_alterar);
+        //tela de feno 
+        f_principal.desabilitarbotao(  btn_feno_excluir, btn_feno_alterar);
+        //tela de ação
+        f_principal.desabilitarbotao(  btn_racao_excluir, btn_racao_alterar);
+        
         if (tipo == 0) {
-            btn_veterinario.setEnabled(false);
-            btn_financeiro.setEnabled(false);
-            btn_rh.setEnabled(false);
-            btn_usuario.setEnabled(false);
-            btn_log.setEnabled(false);
+           btn_veterinario.setVisible(false);atalho_consulta.setVisible(false);
+           btn_financeiro.setVisible(false);atalho_finaceiro.setVisible(false);
+           btn_rh.setVisible(false);atalho_rh.setVisible(false);
+           btn_usuario.setVisible(false);atalho_usuario.setVisible(false);
+           btn_log.setVisible(false);atalho_log.setVisible(false);
         } else if (tipo == 3) {
-            btn_treinamento.setEnabled(false);
-            btn_financeiro.setEnabled(false);
-            btn_rh.setEnabled(false);
-            btn_celeiro.setEnabled(false);
-            btn_usuario.setEnabled(false);
-            btn_log.setEnabled(false);
-            btn_pastagem.setEnabled(false);
-            btn_ferrajamento.setEnabled(false);
+          btn_treinamento.setVisible(false);atalho_treinamento.setVisible(false);
+          btn_financeiro.setVisible(false);atalho_finaceiro.setVisible(false);
+          btn_rh.setVisible(false);atalho_rh.setVisible(false);
+          btn_celeiro.setVisible(false);atalho_celeiro.setVisible(false);
+          btn_usuario.setVisible(false);atalho_usuario.setVisible(false);
+          btn_log.setVisible(false);atalho_log.setVisible(false);
+          btn_pastagem.setVisible(false);atalho_pastagem.setVisible(false);
+          btn_ferrajamento.setVisible(false);atalho_ferrajamento.setVisible(false);
         }
 
     }//GEN-LAST:event_formWindowOpened
@@ -5013,6 +5119,12 @@ public class JF_Principal1 extends javax.swing.JFrame {
         logDao.consultarVeterinario(txt_pesquisa_log, tab_log, this);
     }//GEN-LAST:event_jButton30ActionPerformed
 
+    private void atalho_fenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_fenoActionPerformed
+            f_principal.removerPainel(jTabbedPane1, Jceleiro); 
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_atalho_fenoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -5038,6 +5150,20 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JPanel Jrh;
     private javax.swing.JPanel Jtreino;
     private javax.swing.JPanel Jveterinario;
+    private javax.swing.JMenuItem atalho_animais;
+    private javax.swing.JMenuItem atalho_calendario;
+    private javax.swing.JMenu atalho_celeiro;
+    private javax.swing.JMenuItem atalho_consulta;
+    private javax.swing.JMenuItem atalho_feno;
+    private javax.swing.JMenuItem atalho_ferrajamento;
+    private javax.swing.JMenuItem atalho_finaceiro;
+    private javax.swing.JMenuItem atalho_log;
+    private javax.swing.JMenuItem atalho_pastagem;
+    private javax.swing.JMenuItem atalho_racao;
+    private javax.swing.JMenuItem atalho_rh;
+    private javax.swing.JMenuItem atalho_serragem;
+    private javax.swing.JMenuItem atalho_treinamento;
+    private javax.swing.JMenuItem atalho_usuario;
     private javax.swing.JButton btn_alterar;
     private javax.swing.JButton btn_alterar_calendario;
     private javax.swing.JButton btn_alterar_ferrajamento;
@@ -5207,11 +5333,13 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -5257,7 +5385,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
     private com.toedter.calendar.JCalendar jcalendario_calendario;
     private javax.swing.JLabel jdata;
     private com.toedter.calendar.JDateChooser jdata_feno_compra;

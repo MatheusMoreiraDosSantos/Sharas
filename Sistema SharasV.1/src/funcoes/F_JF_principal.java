@@ -14,6 +14,14 @@ import javax.swing.*;
  */
 public class F_JF_principal {
     
+    public void nivelacesso(JButton a,JButton b,JButton c){
+    
+    
+    }
+    public void desabilitarbotao(JButton excluir , JButton alterar){
+       excluir.setEnabled(false);
+       alterar.setEnabled(false);
+    }
     public void removerPainel(JTabbedPane telas ,JPanel painel){
        telas.setVisible(true);
        telas.removeAll();

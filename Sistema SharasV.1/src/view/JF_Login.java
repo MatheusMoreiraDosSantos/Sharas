@@ -207,12 +207,12 @@ public static int tipo;
         loginDao.consultarUsuarioLogin(txt_Login, txt_Senha, this, jfPrincipal1);
         //verificando se retornou algum erro
         if(loginDao.falha == 1){
-        nexiste.setText("usuario não encontrado");
+        nexiste.setText("senha ou suario não encontrado");
         }else if(loginDao.falha == 2){
          nexiste.setText("");
-        senhaerr.setText("senha incorreta");
+          nexiste.setText("senha ou suario não encontrado");
         }else if(loginDao.falha == 3){
-         senhaerr.setText("");
+             nexiste.setText("senha ou suario não encontrado");
          nexiste.setText("usuario desativado");
         }
 
