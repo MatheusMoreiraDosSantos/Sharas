@@ -4453,62 +4453,27 @@ public class JF_Principal1 extends javax.swing.JFrame {
 //cadatrar Animal 
         String nome = jnome.getText();
         String how = txtnomeanimal.getText();
-        animal.setAnimal_nome(txtnomeanimal.getText());
-        animal.setAnimal_registro(txtregistro.getText());
-        animal.setAnimal_proprietario(txtproprietario.getText());
-        animal.setAnimal_criador(txtcriador.getText());
-
-        java.sql.Date sqldate = new java.sql.Date(data_nascimento.getDate().getTime());
-        animal.setAnimal_nascimento(sqldate);
-
-        animal.setAnimal_sexo(txtsexo.getText());
-        animal.setAnimal_pelagem(txtpelagem.getText());
         animal.setAnimal_modalidade(txtmodalidade.getText());
         animal.setAnimal_treinador(txttreinador.getText());
-        animal.setAnimal_veterinario(txtveterinario.getText());
-
-        if (!"".equals(txtnomeanimal.getText())) {
-            if (!"".equals(data_nascimento)) {
-                if (!"".equals(txtregistro.getText())) {
-                    if (!"".equals(txtpelagem.getText())) {
-                        if (!"".equals(txtsexo.getText())) {
+        animal.setAnimal_veterinario(txtveterinario.getText());      
+        if (f_principal.camponull(txtnomeanimal, nomevazio)) {
+               animal.setAnimal_nome(txtnomeanimal.getText());             
+                if (f_principal.camponull(txtregistro,   registerro)) {
+                       animal.setAnimal_registro(txtregistro.getText());
+                    if (f_principal.camponull(txtpelagem,  sem_pelagem)) {
+                           animal.setAnimal_pelagem(txtpelagem.getText());
+                        if(f_principal.convertedata(data_nascimento, nasc) != null){
+                           animal.setAnimal_nascimento(f_principal.convertedata(data_nascimento, nasc) );
+                        if (f_principal.camponull(txtsexo,   sem_sexo)) {
+                            animal.setAnimal_sexo(txtsexo.getText());
+                            animal.setAnimal_proprietario(txtproprietario.getText());
+                            animal.setAnimal_criador(txtcriador.getText());
                             animalDao.salvarAnimal(animal, nome, how, this);
-                            txtnomeanimal.setText("");
-                            txtregistro.setText("");
-                            txtproprietario.setText("");
-                            txtcriador.setText("");
-                            data_nascimento.setCalendar(null);
-                            txtsexo.setText("");
-                            txtpelagem.setText("");
-                            txtmodalidade.setText("");
-                            txttreinador.setText("");
-                            txtveterinario.setText("");
-
-                            sem_sexo.setText("");
-                            sem_pelagem.setText("");
-                            registerro.setText("");
-                            nasc.setText("");
-                            nomevazio.setText("");
-
                             animalDao.consultarAnimalNome(txtpesquisa, tabAnimal, this);
-
-                        } else {
-                            sem_sexo.setText("Campo Obrigatório");
                         }
-
-                    } else {
-                        sem_pelagem.setText("Campo Obrigatório");
                     }
-
-                } else {
-                    registerro.setText("Campo Obrigatório");
-                }
-            } else {
-                nasc.setText("Campo Obrigatório");
+                }  
             }
-
-        } else {
-            nomevazio.setText("Campo Obrigatório");
         }
 
     }//GEN-LAST:event_btncadastrarActionPerformed

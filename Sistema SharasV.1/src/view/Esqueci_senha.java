@@ -5,8 +5,8 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
 import controller.UsuarioDAO;
+import funcoes.F_email;
 import model.Usuario;
 
 
@@ -38,6 +38,7 @@ public class Esqueci_senha extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txt_esqueci_login = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        emailerro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -46,7 +47,7 @@ public class Esqueci_senha extends javax.swing.JFrame {
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Digite o seu LOGIN:");
+        jLabel2.setText("Digite o seu email:");
 
         txt_esqueci_login.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -69,9 +70,10 @@ public class Esqueci_senha extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
-                            .addComponent(txt_esqueci_login, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_esqueci_login, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                            .addComponent(emailerro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(22, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -91,7 +93,9 @@ public class Esqueci_senha extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(txt_esqueci_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(emailerro, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
@@ -104,11 +108,14 @@ public class Esqueci_senha extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          JF_Login jfLogin = new JF_Login();
-         String nome = txt_esqueci_login.getText()+" esqueceu a senha";
-         usuario.setUsuario_notificacao(nome);
-         usuDao.alterarUsuarioNotificacao(usuario, this);
-         
-         this.dispose(); jfLogin.setVisible(true); 
+         F_email mail = new F_email();
+        if(mail.verificaEmail(txt_esqueci_login, emailerro)){
+            mail.Enviar(txt_esqueci_login);
+            this.dispose(); jfLogin.setVisible(true);
+        }else{
+        
+        }
+          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -147,6 +154,7 @@ public class Esqueci_senha extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel emailerro;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

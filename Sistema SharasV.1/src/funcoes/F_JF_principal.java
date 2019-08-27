@@ -5,8 +5,9 @@
  */
 package funcoes;
 
+import java.sql.Date;
 import javax.swing.*;
-
+import com.toedter.calendar.JDateChooser;
 
 /**
  *
@@ -18,6 +19,17 @@ public class F_JF_principal {
     
     
     }
+    //Converte a data e retorna nulo ser for inválida
+    public static Date convertedata(JDateChooser data, JLabel nasc){
+    try{
+        java.sql.Date sqldata = new java.sql.Date(data.getDate().getTime());    
+        nasc.setText("");
+       return sqldata;
+    }catch(Exception e){
+        nasc.setText("Data inválida");
+        return null;
+    }
+    }
     public void desabilitarbotao(JButton excluir , JButton alterar){
        excluir.setEnabled(false);
        alterar.setEnabled(false);
@@ -27,37 +39,43 @@ public class F_JF_principal {
        telas.removeAll();
        telas.add(painel);
     }
-    public static boolean camponull(String campo){
-        if(campo == null){
-           System.out.println(""+campo);
-            return (false);
-        }
-     
-        else{
-              System.out.println(""+campo);
-        return (true);
+    //retorna falso se o campo estiver vazio
+    public static boolean camponull(JTextField campo,JLabel erro){
+        if(!"".equals(campo.getText())){
+            erro.setText("");
+             System.out.println(""+campo.getText());
+            return(true);
+        }else{
+              erro.setText("preencha o capo acima");
+              System.out.println(""+campo.getText());
+              return (false);
         }
                 
     }
-    
-    public static boolean Verifsenha(String senha, String confirma_senha){
-      if(senha == null){
-       return (false);
-      }
-      if(senha.equals(confirma_senha)){
-       if(senha.length() >= 4 && senha.length() <= 15){    
-           return (true);
-      }else{
-           return (false);}}
-      return (false);   
+    //Verifica a senha e retorna verdadeiro ou falso 
+    public static boolean Verifsenha(JTextField senha, JTextField  confirma_senha,JLabel senhaerro ,JLabel senhaconf){
+        if(senha.getText().length() >= 4 && senha.getText().length() <= 15){
+            senhaerro.setText("");
+              if(senha.getText().equals(confirma_senha.getText())){
+                senhaconf.setText("");
+                  return (true);
+                 }else
+                    senhaconf.setText("Senhas diferentes");
+                        return (false);
+            }else{
+           return (false);
+        }
+        
     }
     
-   public static void main(String[] args){
+  /* 
+    //Main para testes 
+    public static void main(String[] args){
     String senha1= JOptionPane.showInputDialog(null, "senha1");
      String senha2= JOptionPane.showInputDialog(null, "senha2");
     if(camponull(senha1)){
        JOptionPane.showMessageDialog(null, "deuc certo");
     }
-   }
+   }*/
     
 }
