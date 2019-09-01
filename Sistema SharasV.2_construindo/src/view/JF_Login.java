@@ -5,10 +5,12 @@
  */
 package view;
 
+import controller.LogarDAO;
 import controller.LoginDAO;
 import javax.swing.*;
 import java.util.*;
 import java.lang.*;
+import model.Sessao;
 
 
 
@@ -197,24 +199,14 @@ public static int tipo;
 
     private void btn_acessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acessoActionPerformed
         // ACESSO AO SISTEMA
-         String nome = txt_Login.getText();
-         
-        JF_Principal1 jfPrincipal1 = new JF_Principal1();
-        LoginDAO loginDao = new LoginDAO();
-        jfPrincipal1.recebe_nome(nome);
-       
-       
-        loginDao.consultarUsuarioLogin(txt_Login, txt_Senha, this, jfPrincipal1);
-        //verificando se retornou algum erro
-        if(loginDao.falha == 1){
-        nexiste.setText("senha ou suario não encontrado");
-        }else if(loginDao.falha == 2){
-         nexiste.setText("");
-          nexiste.setText("senha ou suario não encontrado");
-        }else if(loginDao.falha == 3){
-             nexiste.setText("senha ou suario não encontrado");
-         nexiste.setText("usuario desativado");
+        Sessao sessao= new Sessao();
+        LogarDAO logar=new LogarDAO();
+        JF_Principal1 principal= new JF_Principal1();
+        if(logar.logarSistem(txt_Login, txt_Senha, nexiste, sessao)){
+           principal.setVisible(true);
+            this.dispose();
         }
+       
 
     }//GEN-LAST:event_btn_acessoActionPerformed
 

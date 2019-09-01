@@ -38,6 +38,27 @@ public class F_JF_principal {
     
     
     }
+    public boolean desativado(JComboBox campo){
+        if(campo.getSelectedIndex()==0){  
+        String opcoes[] = {"Sim", "Não"};
+        int opc = JOptionPane.showOptionDialog(null, "Deseja salvar usuário como 'Desativado ' ?", "Confirmação"
+                       , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[1]);
+        if (opc == 0) {
+                return (true);
+        } else{
+                return(false);
+        }
+        }
+        return (true);   
+    }
+    public boolean combonull(JComboBox campo){
+        String n = campo.getName();
+        System.out.println(""+n);
+        if(campo.getSelectedIndex() == 0){
+                    return (false);
+        }
+                    return(true);
+    }
     //Converte a data e retorna nulo ser for inválida
     public static Date convertedata(JDateChooser data, JLabel nasc){
     try{
