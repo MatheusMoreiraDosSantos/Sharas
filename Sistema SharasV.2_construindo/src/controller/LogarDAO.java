@@ -5,14 +5,17 @@
  */
 package controller;
 
+import funcoes.F_email;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import model.Sessao;
+import model.Usuario;
 
 /**
  *
@@ -23,10 +26,11 @@ public class LogarDAO {
     String sql;
     PreparedStatement pst;
     ResultSet rs;
+    F_email fmail = new F_email();
     public boolean logarSistem(JTextField login,JTextField senha,JLabel erro,Sessao sessao){
         try{
                 con=Conexao.conectar();
-                sql = "select usuario_status,usuario_id,usuario_login,usuario_tipo,pessoa_pessoa_id from usuario WHERE usuario_login =? and usuario_senha=md5(?)";
+                sql="SELECT * from vw_login WHERE usuario_login = ? and usuario_senha=md5(?)";
                 pst = con.prepareStatement(sql);
                 pst.setString(1, login.getText());
                 pst.setString(2, senha.getText());
@@ -42,10 +46,10 @@ public class LogarDAO {
                             return(true);
                         }else{
                         erro.setText("usuário desativado");
-                                   Conexao.desconectar();
+                        Conexao.desconectar();
                         return(false);
                         }
-                }
+                }else{erro.setText("usuário ou senha errados");}
         }catch(SQLException e ){
             JOptionPane.showMessageDialog(erro, "erro ao logar"+e);
                        Conexao.desconectar();
@@ -54,4 +58,42 @@ public class LogarDAO {
                    Conexao.desconectar();
         return (false);
     }
+    public boolean recuperarSenha(JTextField campo, Usuario usuario,JLabel erro){
+      try {
+            con = Conexao.conectar();
+            sql = "SELECT u.usuario_id from usuario u inner join pessoa p "
+                + "WHERE pessoa_pessoa_id=pessoa_id and  pessoa_email= ?";
+            pst = con.prepareStatement(sql);
+            pst.setString(1,campo.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                usuario.setUsuario_id(rs.getInt("usuario_id"));
+                Random r = new Random();
+                String senha_nova = Integer.toString(Math.abs(r.nextInt()), 36).substring(0, 6); 
+                usuario.setUsuario_senha(senha_nova);
+                sql = "update usuario u inner join pessoa p set u.usuario_senha=md5(?) "
+                    + "WHERE u.pessoa_pessoa_id=p.pessoa_id and p.pessoa_email =?";
+                pst = con.prepareStatement(sql);
+                pst.setString(1,senha_nova);
+                pst.setString(2,campo.getText());
+                pst.execute();
+                fmail.Enviar(campo,senha_nova);
+                Conexao.desconectar();
+                return(true);
+            }else{
+            Conexao.desconectar();
+            erro.setText("Email não cadastrado");
+            return (false);
+            }     
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao consultar: " + e);
+            Conexao.desconectar();
+            return(false);
+        }
+ 
+    }
+    
+    
+    
+    
 }

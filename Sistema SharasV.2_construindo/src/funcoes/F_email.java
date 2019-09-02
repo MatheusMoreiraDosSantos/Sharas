@@ -11,13 +11,15 @@ package funcoes;
  */
 
 
+import controller.Validacoes;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.swing.*;
 public class F_email {
-    public  void Enviar(JTextField email) {
+    Validacoes valid = new Validacoes();
+    public  void Enviar(JTextField email,String senha) {
       Properties props = new Properties();
 //Conectar com o servidor Gmail
     props.put("mail.smtp.host", "smtp.gmail.com");
@@ -48,7 +50,7 @@ public class F_email {
       message.setSubject("Senha do Sistema sharas");
       message.setText("Foi requisitado seu login ou senha no sistema Sharas.\n"
               + " por favor siga os sequintes passos \n"
-              + "\t\t 1° Logue no sistema com a senha: \t"+""+"\n"
+              + "\t\t 1° Logue no sistema com a senha: \t"+senha+"\n"
               + "\t\t 2° Altere a sua senha na parte de Gerenciamento de conta\n"
               + "Com os seguintes passos sera gerado uma nova senha");
       /**Método para enviar a mensagem criada*/
@@ -60,7 +62,8 @@ public class F_email {
         JOptionPane.showMessageDialog(null,"não enviado");
          throw new RuntimeException(f);
     }
-  }
+ 
+ }
   public boolean verificaEmail(JTextField email , JLabel emailerro){
         int c=0,c2=0;
         for(int i=0;i<email .getText().length();i++){
@@ -71,16 +74,16 @@ public class F_email {
               c2++;
            }
         }
-        if(c == 1 && c2>0){
-         return(true);
+        if(c == 1 && c2>0){        
+            return(true);
         }else{
           email.setText("");
           emailerro.setText("Email inválido");
         }    
       return (false);     
-  }
-  
-    
+  }  
+
+
 }
     
 

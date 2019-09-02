@@ -6,6 +6,7 @@
 package controller;
 
 import funcoes.F_JF_principal;
+import funcoes.F_email;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,8 +29,32 @@ public class Validacoes {
     ResultSet rs;
 
     F_JF_principal f_principal= new F_JF_principal();
+    
 //valida se existe no banco
- public  boolean verificaBanco(JTextField campo,JLabel erro,String tabela,String campo_tabela){
+ 
+ public boolean emailEnvio(JTextField campo,JLabel erro){
+         try {
+            con = Conexao.conectar();
+            sql = "select pessoa_email from pessoa where pessoa_email = ?";
+            pst = con.prepareStatement(sql);
+            pst.setString(1, campo.getText());
+            rs = pst.executeQuery();
+            if(rs.next()){
+                Conexao.desconectar();
+                return(true);
+            }
+           
+            erro.setText("Email não cadastrado");
+            Conexao.desconectar(); 
+            return (false);
+        } catch (SQLException e) {
+             erro.setText("Erro inesperado");
+             Conexao.desconectar();
+             return(false);
+        }
+   
+    }
+    public  boolean verificaBanco(JTextField campo,JLabel erro,String tabela,String campo_tabela){
     if(f_principal.camponull(campo, erro)){
         try {
             con = Conexao.conectar();

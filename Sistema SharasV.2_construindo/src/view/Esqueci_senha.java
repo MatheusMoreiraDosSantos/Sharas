@@ -5,8 +5,11 @@
  */
 package view;
 
+import controller.LogarDAO;
 import controller.UsuariosDAO;
+import controller.Validacoes;
 import funcoes.F_email;
+import model.Usuario;
 import model.Usuarios;
 
 
@@ -109,9 +112,11 @@ public class Esqueci_senha extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          JF_Login jfLogin = new JF_Login();
          F_email mail = new F_email();
+         LogarDAO logar = new LogarDAO();
+         Usuario usu = new Usuario();
         if(mail.verificaEmail(txt_esqueci_login, emailerro)){
-            mail.Enviar(txt_esqueci_login);
-            this.dispose(); jfLogin.setVisible(true);
+          if(logar.recuperarSenha(txt_esqueci_login, usu, emailerro)){
+           this.dispose(); jfLogin.setVisible(true);}
         }else{
         
         }

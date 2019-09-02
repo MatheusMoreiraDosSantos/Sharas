@@ -73,9 +73,11 @@ public static int tipo;
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_Login.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txt_Login.setText("maikon.rosa");
         txt_Login.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         txt_Senha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txt_Senha.setText("maikon");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Login:");
@@ -206,8 +208,6 @@ public static int tipo;
            principal.setVisible(true);
             this.dispose();
         }
-       
-
     }//GEN-LAST:event_btn_acessoActionPerformed
 
     private void btn_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroActionPerformed
