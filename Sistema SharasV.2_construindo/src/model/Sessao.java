@@ -10,10 +10,10 @@ package model;
  * @author maikon.rosa
  */
 public class Sessao {
-    private String login;
-    private int id_pessoa;
-    private int id_usuario;
-    private int usario_cargo;
+    private static String login;
+    private static int id_pessoa;
+    private static int id_usuario;
+    private static int usario_cargo;
 
     public String getLogin() {
         return login;

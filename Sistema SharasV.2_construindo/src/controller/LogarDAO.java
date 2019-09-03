@@ -27,7 +27,8 @@ public class LogarDAO {
     PreparedStatement pst;
     ResultSet rs;
     F_email fmail = new F_email();
-    public boolean logarSistem(JTextField login,JTextField senha,JLabel erro,Sessao sessao){
+    Sessao sessao = new Sessao();
+    public boolean logarSistem(JTextField login,JTextField senha,JLabel erro){
         try{
                 con=Conexao.conectar();
                 sql="SELECT * from vw_login WHERE usuario_login = ? and usuario_senha=md5(?)";
@@ -38,6 +39,7 @@ public class LogarDAO {
                 if(rs.next()){
                         int status = rs.getInt("usuario_status");
                         if(status == 1){
+                         
                             sessao.setId_pessoa(rs.getInt("pessoa_pessoa_id"));
                             sessao.setId_usuario(rs.getInt("usuario_id"));
                             sessao.setUsario_cargo(rs.getInt("usuario_tipo"));

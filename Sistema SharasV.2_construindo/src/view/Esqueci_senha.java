@@ -6,11 +6,10 @@
 package view;
 
 import controller.LogarDAO;
-import controller.UsuariosDAO;
 import controller.Validacoes;
 import funcoes.F_email;
 import model.Usuario;
-import model.Usuarios;
+
 
 
 /**
@@ -18,8 +17,7 @@ import model.Usuarios;
  * @author Matheus Moreira
  */
 public class Esqueci_senha extends javax.swing.JFrame {
-    Usuarios usuario = new Usuarios();
-    UsuariosDAO usuDao = new UsuariosDAO();
+
     /**
      * Creates new form Esqueci_senha
      */

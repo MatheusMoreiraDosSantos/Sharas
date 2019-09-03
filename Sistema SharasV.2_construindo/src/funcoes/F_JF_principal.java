@@ -74,6 +74,11 @@ public class F_JF_principal {
        excluir.setEnabled(false);
        alterar.setEnabled(false);
     }
+    public void removerTable(JTabbedPane telas ,JTabbedPane painel){
+       telas.setVisible(true);
+       telas.removeAll();
+       telas.add(painel);
+    }
     public void removerPainel(JTabbedPane telas ,JPanel painel){
        telas.setVisible(true);
        telas.removeAll();
@@ -87,6 +92,18 @@ public class F_JF_principal {
             return(true);
         }else{
               erro.setText("preencha o capo acima");
+              System.out.println(""+campo.getText());
+              return (false);
+        }
+                
+    }
+      public static boolean textareanull(JTextArea campo,JLabel erro){
+        if(!"".equals(campo.getText())){
+            erro.setText("");
+             System.out.println(""+campo.getText());
+            return(true);
+        }else{
+              erro.setText("preencha o capo ");
               System.out.println(""+campo.getText());
               return (false);
         }

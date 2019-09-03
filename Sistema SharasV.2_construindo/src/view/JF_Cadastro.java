@@ -6,9 +6,9 @@
 package view;
 
 
-import controller.UsuariosDAO;
-import javax.swing.JOptionPane;
-import model.Usuarios;
+
+
+
 
 /**
  *
@@ -18,8 +18,8 @@ public class JF_Cadastro extends javax.swing.JFrame {
     
     
 
-    Usuarios usuario = new Usuarios();
-    UsuariosDAO usuDao = new UsuariosDAO();
+    //Usuarios usuario = new Usuarios();
+    //UsuariosDAO usuDao = new UsuariosDAO();
     int flag;
     boolean test=false;
            
@@ -206,9 +206,9 @@ public class JF_Cadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_senha_cadastroActionPerformed
 
     private void btn_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroActionPerformed
-        usuario.setUsu_login(txtnome_cadastro.getText());
-        usuario.setUsu_senha(txt_senha_cadastro.getText());
-        usuario.setUsu_tipo(cbtipo_cadastro.getSelectedIndex());
+       // usuario.setUsu_login(txtnome_cadastro.getText());
+//        usuario.setUsu_senha(txt_senha_cadastro.getText());
+        //usuario.setUsu_tipo(cbtipo_cadastro.getSelectedIndex());
          String nome = txtnome_cadastro.getText();
         String how = txtnome_cadastro.getText();
         if (!"".equals(txtnome_cadastro.getText())) {
@@ -222,11 +222,11 @@ public class JF_Cadastro extends javax.swing.JFrame {
                      veri.setText("");
                    
                          veri.setText("");
-                        usuDao.salvarUsuario(usuario,nome, how, this);
-                        if(UsuariosDAO.verif=true){
+//                        usuDao.salvarUsuario(usuario,nome, how, this);
+//                        if(UsuariosDAO.verif=true){
                         
-                         veri.setText("nome já está sendo utilizado");
-                        }
+                        // veri.setText("nome já está sendo utilizado");
+                        //}
                         
                
                  }else{ 

@@ -6,10 +6,7 @@
 package view;
 
 import controller.LogarDAO;
-import controller.LoginDAO;
 import javax.swing.*;
-import java.util.*;
-import java.lang.*;
 import model.Sessao;
 
 
@@ -31,7 +28,9 @@ public static int tipo;
     //setIconImage(icon.getImage());
 
     }
-
+  Sessao sessao= new Sessao();
+        LogarDAO logar=new LogarDAO();
+        JF_Principal1 principal= new JF_Principal1();
     JF_Login(String nome) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -201,10 +200,8 @@ public static int tipo;
 
     private void btn_acessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acessoActionPerformed
         // ACESSO AO SISTEMA
-        Sessao sessao= new Sessao();
-        LogarDAO logar=new LogarDAO();
-        JF_Principal1 principal= new JF_Principal1();
-        if(logar.logarSistem(txt_Login, txt_Senha, nexiste, sessao)){
+      
+        if(logar.logarSistem(txt_Login, txt_Senha, nexiste)){
            principal.setVisible(true);
             this.dispose();
         }

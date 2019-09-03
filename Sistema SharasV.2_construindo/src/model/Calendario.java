@@ -54,7 +54,7 @@ public class Calendario {
     public void setCalendario_anotacao(String calendario_anotacao) {
         this.calendario_anotacao = calendario_anotacao;
     }
-    private int calendario_id;
+    private static int calendario_id;
     private Date calendario_data;
     private String calendario_anotacao;
 }
