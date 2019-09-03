@@ -42,7 +42,7 @@ public class LogarDAO {
                          
                             sessao.setId_pessoa(rs.getInt("pessoa_pessoa_id"));
                             sessao.setId_usuario(rs.getInt("usuario_id"));
-                            sessao.setUsario_cargo(rs.getInt("usuario_tipo"));
+                            sessao.setUsario_cargo(rs.getInt("usuario_cargo"));
                             sessao.setLogin(rs.getString("usuario_login")); 
                             Conexao.desconectar();
                             return(true);

@@ -23,7 +23,8 @@ public static int tipo;
      */
     public JF_Login() {
         initComponents();
-      //  getRootPane().setDefaultButton(btn_acesso);
+      //  
+   getRootPane().setDefaultButton(btn_acesso);
      //    ImageIcon icon = new ImageIcon(this.getClass().getResource("../icons/cavalo_icone.png"));
     //setIconImage(icon.getImage());
 
