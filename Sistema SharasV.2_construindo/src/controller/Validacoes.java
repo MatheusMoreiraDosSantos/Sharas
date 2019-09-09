@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import model.Misc;
 import net.proteanit.sql.DbUtils;
 import view.JF_Principal1;
 
@@ -27,7 +28,7 @@ public class Validacoes {
     String sql;
     PreparedStatement pst;
     ResultSet rs;
-
+  Misc misc = new Misc();
     F_JF_principal f_principal= new F_JF_principal();
     
 //valida se existe no banco
@@ -100,5 +101,20 @@ public class Validacoes {
     }
          return (false);
  }
+ public void Telefone(){
+   try{
+       for (String ddd : misc.getDdd()) {
+           System.out.println(""+ddd);
+       }
+   }catch(Exception e){
+   } 
+
+ }
+    public static void main(String[] args) {
+    
+    }
+   
+
+    
     
 }

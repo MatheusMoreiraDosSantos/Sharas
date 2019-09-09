@@ -5,49 +5,51 @@
  */
 package model;
 
-import java.text.NumberFormat;
-
 /**
  *
- * @author maiko
+ * @author maikon.rosa
  */
 public class Cargo {
-    private int cargoid;
-    private String cargonome;
-    private String cargodesc;
-    private float salariobase;
-
-    public String getCargonome() {
-        return cargonome;
+    private int cargo_id;
+    private String cargo_nome;
+    private String cargo_desc;
+    private float salario;
+   public Cargo(int cargo_id,String cargo_nome){
+   this.cargo_id=cargo_id;
+   this.cargo_nome = cargo_nome;
+   }
+    public int getCargo_id() {
+        return cargo_id;
     }
 
-    public void setCargonome(String cargonome) {
-        this.cargonome = cargonome;
+    public void setCargo_id(int cargo_id) {
+        this.cargo_id = cargo_id;
+    }
+    @Override
+    public String toString() {
+        return this.cargo_nome;
+    }
+    public String getCargo_nome() {
+        return cargo_nome;
     }
 
-    public int getCargoid() {
-        return cargoid;
+    public void setCargo_nome(String cargo_nome) {
+        this.cargo_nome = cargo_nome;
     }
 
-    public void setCargoid(int cargoid) {
-        this.cargoid = cargoid;
+    public String getCargo_desc() {
+        return cargo_desc;
     }
 
-    public String getCargodesc() {
-        return cargodesc;
+    public void setCargo_desc(String cargo_desc) {
+        this.cargo_desc = cargo_desc;
     }
 
-    public void setCargodesc(String cargodesc) {
-        this.cargodesc = cargodesc;
-    }
-
-    public String getSalariobase() {
-        NumberFormat nf = NumberFormat.getCurrencyInstance();
-        String salario = nf.format(salariobase);
+    public float getSalario() {
         return salario;
     }
 
-    public void setSalariobase(float salariobase) { 
-        this.salariobase = salariobase;
+    public void setSalario(float salario) {
+        this.salario = salario;
     }
 }

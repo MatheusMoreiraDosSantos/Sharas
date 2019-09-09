@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import model.Pessoa;
+import model.Misc;
 import model.Usuario;
 import net.proteanit.sql.DbUtils;
 
@@ -45,20 +45,20 @@ public class UsuarioDAO {
           }catch(SQLException e){                     
           }
       }
-       public void salvarUsuario(Usuario usuario, JFrame jfUsuario) {
+       public void salvarUsuario(Usuario usuario, Misc misc,JFrame jfUsuario) {
          try {
             pessoa.salvarPessoa(usuario, jfUsuario);
             selectpessoa(usuario);
              con = Conexao.conectar();
             sql = "INSERT INTO usuario (usuario_id, usuario_senha, usuario_tipo, usuario_status, usuario_notificacao, pessoa_pessoa_id, usuario_login) "
-                  + "VALUES (NULL, md5(?), '0', ?, ?, ?,?);";
+                  + "VALUES (NULL, md5(?), ?, ?, ?, ?,?);";
             pst = con.prepareStatement(sql);
             pst.setString(1, usuario.getUsuario_senha());
-            //pst.setInt(2, usuario.getUsuario_tipo());
-            pst.setInt(2, usuario.getUsuario_status());
-            pst.setString(3, usuario.getUsuario_notificacao());
-            pst.setInt(4, usuario.getPessoa_id());
-            pst.setString(5, usuario.getUsuario_login());
+            pst.setInt(2, usuario.getUsuario_tipo());
+            pst.setInt(3, usuario.getUsuario_status());
+            pst.setString(4, usuario.getUsuario_notificacao());
+            pst.setInt(5, usuario.getPessoa_id());
+            pst.setString(6, usuario.getUsuario_login());
             pst.execute();
             Conexao.desconectar();
             JOptionPane.showMessageDialog(jfUsuario, "Cadastrado com Sucesso!");
@@ -76,7 +76,7 @@ public class UsuarioDAO {
             pst.setString(2, "%"+campo.getText()+"%");
             rs=pst.executeQuery();
             tabela.setModel(DbUtils.resultSetToTableModel(rs));
-            Conexoes.desconectar();
+            Conexao.desconectar();
  
           }catch(SQLException e){                     
           System.out.println(""+e);
@@ -135,6 +135,19 @@ public class UsuarioDAO {
           System.out.println(""+e);
           }  
         }
-
+public void deletarUsuario(){
+ /*try{
+            con = Conexao.conectar();
+            sql = "delete from usuario";
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, campo.getSelectedIndex());
+            pst.setString(2, id); 
+            pst.execute();
+             JOptionPane.showMessageDialog(null, nome+" alterado com Sucesso!");
+          }catch(SQLException e){                     
+          System.out.println(""+e);
+          }  
+*/
+}
 
 }

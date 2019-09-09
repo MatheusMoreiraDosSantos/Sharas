@@ -182,7 +182,7 @@ public class CalendarioDAO {
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
             String dataFormatada = formato.format(calendario.getCalendario_data());
             con = Conexao.conectar();
-            sql = "SELECT Texto,Textoid from vw_agenda WHERE ID = ? and Data = ?";
+            sql = "SELECT Texto,Textoid from vw_agenda2 WHERE ID = ? and Data = ?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, sessao.getId_usuario());
             pst.setString(2, dataFormatada);
