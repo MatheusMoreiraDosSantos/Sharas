@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import model.Misc;
 import model.Usuario;
+import model.Pessoa;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -29,17 +30,16 @@ public class UsuarioDAO {
     String sql;
     PreparedStatement pst;
     ResultSet rs;
-    Usuario usu = new Usuario();
-    PessoaDAO pessoa = new PessoaDAO();
-      public void  selectpessoa(Usuario usuario){
+    Usuario usuario = new Usuario();
+      public void  selectusuario(Usuario usuario){
           try{
           con = Conexao.conectar();
-            sql = "SELECT pessoa_id from pessoa where pessoa_cpfcnpj=?";
+            sql = "SELECT usuario_id from usuario where usuario_id = ?";
             pst = con.prepareStatement(sql);
-            pst.setString(1, usuario.getPessoa_cpfcnpj());  
+            pst.setInt(1, usuario.getUsuario_id());  
           rs=pst.executeQuery();
           if(rs.next()){
-              usuario.setPessoa_id(rs.getInt("pessoa_id"));
+              usuario.setUsuario_id(rs.getInt("usuario_id"));
           }
           Conexao.desconectar();
           }catch(SQLException e){                     
@@ -47,18 +47,31 @@ public class UsuarioDAO {
       }
        public void salvarUsuario(Usuario usuario, Misc misc,JFrame jfUsuario) {
          try {
-            pessoa.salvarPessoa(usuario, jfUsuario);
-            selectpessoa(usuario);
+            selectusuario(usuario);
              con = Conexao.conectar();
-            sql = "INSERT INTO usuario (usuario_id, usuario_senha, usuario_tipo, usuario_status, usuario_notificacao, pessoa_pessoa_id, usuario_login) "
-                  + "VALUES (NULL, md5(?), ?, ?, ?, ?,?);";
+            sql = "INSERT INTO `bd_sharas`.`usuario` "
+                    + "(`usuario_id`,"
+                    + "`usuario_login`,"
+                    + "`usuario_senha`,"
+                    + "`usuario_tipo`,"
+                    + "`usuario_status`"
+                    + ",`usuario_notificacao`"
+                    + ",`pessoa_pessoa_id`)"
+                  + "VALUES"
+                    + "(null,"
+                    + " ?, "
+                    + "md5('?'),"
+                    + " ?,"
+                    + "?,"
+                    + "?,"
+                    + "?)";
             pst = con.prepareStatement(sql);
-            pst.setString(1, usuario.getUsuario_senha());
-            pst.setInt(2, usuario.getUsuario_tipo());
-            pst.setInt(3, usuario.getUsuario_status());
-            pst.setString(4, usuario.getUsuario_notificacao());
-            pst.setInt(5, usuario.getPessoa_id());
-            pst.setString(6, usuario.getUsuario_login());
+            pst.setString(2, usuario.getUsuario_senha());
+            pst.setInt(3, usuario.getUsuario_tipo());
+            pst.setInt(4, usuario.getUsuario_status());
+            pst.setString(5, usuario.getUsuario_notificacao());
+            pst.setInt(6, usuario.getPessoa_pessoa_id());
+            pst.setString(1, usuario.getUsuario_login());
             pst.execute();
             Conexao.desconectar();
             JOptionPane.showMessageDialog(jfUsuario, "Cadastrado com Sucesso!");
@@ -72,7 +85,7 @@ public class UsuarioDAO {
            con = Conexao.conectar();
             sql = "SELECT * from vw_tab_atualiza_usu WHERE (Nome LIKE ?)OR(CPF like ?)";
             pst = con.prepareStatement(sql);
-            pst.setString(1, "%"+campo.getText()+"%"); 
+            pst.setString(1, "%"+campo.getText()+"%");  
             pst.setString(2, "%"+campo.getText()+"%");
             rs=pst.executeQuery();
             tabela.setModel(DbUtils.resultSetToTableModel(rs));

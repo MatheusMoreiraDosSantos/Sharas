@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import model.Usuario;
+import model.Pessoa;
 
 /**
  *
@@ -24,15 +24,15 @@ public class PessoaDAO {
     PreparedStatement pst;
     ResultSet rs;
    
-      public void salvarPessoa(Usuario usuario, JFrame jfUsuario) {
+      public void salvarPessoa(Pessoa pessoa, JFrame jfUsuario) {
          try {
             con = Conexao.conectar();
-            sql = "INSERT INTO pessoa (pessoa_id , pessoa_ind, pessoa_cpfcnpj, pessoa_nome, pessoa_email,pesoa_cargo)"
-                   +" VALUES (NULL, 'pf', ?, ?, ?, '1');";
+            sql = "INSERT INTO pessoa (pessoa_id , pessoa_ind, pessoa_cpfcnpj, pessoa_nome, pessoa_email)"
+                   +" VALUES (NULL, 'pf', ?, ?, ?);";
             pst = con.prepareStatement(sql);
-            pst.setString(1, usuario.getPessoa_cpfcnpj());
-            pst.setString(2, usuario.getPessoa_nome());
-            pst.setString(3, usuario.getPessoa_email());
+            pst.setString(1, pessoa.getPessoa_cpfcnpj());
+            pst.setString(2, pessoa.getPessoa_nome());
+            pst.setString(3, pessoa.getPessoa_email());
             //pst.setInt(4, usuario.getPessoa_cargo());
             pst.execute();
             Conexao.desconectar();
@@ -41,8 +41,8 @@ public class PessoaDAO {
                  JOptionPane.showMessageDialog(jfUsuario, "Erro ao cadastrar!");
         }
     }
-              public void alterarUsu(JTextField campo,Usuario usuario,String campotabela,String nome,UsuarioDAO usu){
-          System.out.println(""+usu.id);
+              public void alterarUsu(JTextField campo,Pessoa pessoa,String campotabela,String nome,PessoaDAO pes){
+          System.out.println(""+pes.pessoa_id);
                   try{
            con = Conexao.conectar();
             sql = "update  pessoa  set "+campotabela+"=? where pessoa_cpfcnpj =?";

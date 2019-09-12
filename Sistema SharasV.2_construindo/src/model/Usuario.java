@@ -5,11 +5,13 @@
  */
 package model;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author maikon.rosa
  */
-public class Usuario extends Pessoa {
+public class Usuario {
        private int usuario_id;
        private String usuario_login; 
        private String  usuario_senha;
@@ -64,5 +66,13 @@ public class Usuario extends Pessoa {
 
     public void setUsuario_notificacao(String usuario_notificacao) {
         this.usuario_notificacao = usuario_notificacao;
+    }
+
+    public int getPessoa_pessoa_id() {
+        return pessoa_pessoa_id;
+    }
+
+    public void setPessoa_pessoa_id(int pessoa_pessoa_id) {
+        this.pessoa_pessoa_id = pessoa_pessoa_id;
     }
 }
