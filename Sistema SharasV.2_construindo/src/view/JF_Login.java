@@ -73,8 +73,12 @@ public static int tipo;
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         txt_Login.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txt_Login.setText("maikon.rosa");
         txt_Login.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txt_Login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_LoginActionPerformed(evt);
+            }
+        });
 
         txt_Senha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txt_Senha.setText("maikon");
@@ -240,6 +244,10 @@ public static int tipo;
         
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
+
+    private void txt_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_LoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_LoginActionPerformed
 
     /**
      * @param args the command line arguments
