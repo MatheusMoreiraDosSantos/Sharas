@@ -41,8 +41,8 @@ public class PessoaDAO {
                  JOptionPane.showMessageDialog(jfUsuario, "Erro ao cadastrar!");
         }
     }
-              public void alterarUsu(JTextField campo,Pessoa pessoa,String campotabela,String nome,PessoaDAO pes){
-          System.out.println(""+pes.pessoa_id);
+          /*    public void alterarPesssoa(JTextField campo,String campotabela,String nome){
+         
                   try{
            con = Conexao.conectar();
             sql = "update  pessoa  set "+campotabela+"=? where pessoa_cpfcnpj =?";
@@ -55,5 +55,5 @@ public class PessoaDAO {
           System.out.println(""+e);
           }  
         
-        }
+        }*/
 }

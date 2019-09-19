@@ -34,10 +34,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
     Ferrajamento ferrajamento = new Ferrajamento();
     Manutencao manutencao = new Manutencao();
     Veterinario veterinario = new Veterinario();
-    Serragem serragem = new Serragem();
-    Feno feno = new Feno();
     Calendario calendario = new Calendario();
-    Racao racao = new Racao();
     Sessao se = new Sessao();
 
     /**
@@ -55,15 +52,13 @@ public class JF_Principal1 extends javax.swing.JFrame {
     FinanceiroDAO financeiroDao = new FinanceiroDAO();
     LogDAO logDao = new LogDAO();
     FerrajamentoDAO ferrajamentoDao = new FerrajamentoDAO();
-    TreinamentoDAO treinamentoDao = new TreinamentoDAO();
+   
     AnimalDAO animalDao = new AnimalDAO();
     PastagemDAO pastagemDao = new PastagemDAO();
     ManutencaoDAO manutencaoDao = new ManutencaoDAO();
     VeterinarioDAO veterinarioDao = new VeterinarioDAO();
-    SerragemDAO serragemDao = new SerragemDAO();
-    FenoDAO fenoDao = new FenoDAO();
     CalendarioDAO calendarioDao = new CalendarioDAO();
-    RacaoDAO racaoDao = new RacaoDAO();
+   
 
     int flag;
 
@@ -111,7 +106,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btn_animais = new javax.swing.JButton();
-        btn_treinamento = new javax.swing.JButton();
         btn_celeiro = new javax.swing.JButton();
         btn_veterinario = new javax.swing.JButton();
         btn_financeiro = new javax.swing.JButton();
@@ -138,7 +132,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jTextField5 = new javax.swing.JTextField();
         jhome = new javax.swing.JPanel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
@@ -162,7 +156,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         cad_usu_senha = new javax.swing.JPasswordField();
         jLabel112 = new javax.swing.JLabel();
         jLabel113 = new javax.swing.JLabel();
-        cad_usu_status = new javax.swing.JComboBox<String>();
+        cad_usu_status = new javax.swing.JComboBox<>();
         usu_senhaerro = new javax.swing.JLabel();
         jLabel116 = new javax.swing.JLabel();
         jLabel119 = new javax.swing.JLabel();
@@ -171,7 +165,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         cad_usu_login = new javax.swing.JTextField();
         cad_usu_conf = new javax.swing.JPasswordField();
         jLabel124 = new javax.swing.JLabel();
-        cad_usu_cargo = new javax.swing.JComboBox<String>();
+        cad_usu_cargo = new javax.swing.JComboBox<>();
         cad_usu_senhaerro = new javax.swing.JLabel();
         cad_usu_conferro = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -193,9 +187,9 @@ public class JF_Principal1 extends javax.swing.JFrame {
         at_usu_login = new javax.swing.JTextField();
         cad_usu_loginerro1 = new javax.swing.JLabel();
         jLabel127 = new javax.swing.JLabel();
-        at_usu_cargo = new javax.swing.JComboBox<String>();
+        at_usu_cargo = new javax.swing.JComboBox<>();
         jLabel128 = new javax.swing.JLabel();
-        at_usu_status = new javax.swing.JComboBox<String>();
+        at_usu_status = new javax.swing.JComboBox<>();
         at_usu_btn = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         conf_at_nome = new javax.swing.JCheckBox();
@@ -242,120 +236,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         nasc = new javax.swing.JLabel();
         sem_pelagem = new javax.swing.JLabel();
         sem_sexo = new javax.swing.JLabel();
-        Jtreino = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        txtanimal = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        txtTreinador = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        txttreinamentomodalidade = new javax.swing.JTextField();
-        btncadastrartreinamento = new javax.swing.JButton();
-        btn_excluir_treinamento = new javax.swing.JButton();
-        btn_alterar_treinamento = new javax.swing.JButton();
-        jSeparator5 = new javax.swing.JSeparator();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tabtreinamento = new javax.swing.JTable();
-        jLabel24 = new javax.swing.JLabel();
-        txttreinamentovalor = new javax.swing.JTextField();
-        jSeparator6 = new javax.swing.JSeparator();
-        jLabel25 = new javax.swing.JLabel();
-        txtpesquisatreinamento = new javax.swing.JTextField();
-        btnpesquisatreinamento = new javax.swing.JButton();
-        jLabel57 = new javax.swing.JLabel();
-        txttreinamentoid = new javax.swing.JTextField();
-        data_treinamento_inicio = new com.toedter.calendar.JDateChooser();
-        data_treinamento_termino = new com.toedter.calendar.JDateChooser();
-        sem_animal_treinamento = new javax.swing.JLabel();
-        sem_modalidade_treinamento = new javax.swing.JLabel();
-        sem_treinador_treinamento = new javax.swing.JLabel();
         Jceleiro = new javax.swing.JPanel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel75 = new javax.swing.JLabel();
-        txt_feno_id = new javax.swing.JTextField();
-        jLabel76 = new javax.swing.JLabel();
-        txt_feno_quantidade = new javax.swing.JTextField();
-        jLabel77 = new javax.swing.JLabel();
-        cb_feno_qualidade = new javax.swing.JComboBox<String>();
-        btn_feno_cadastrar = new javax.swing.JButton();
-        btn_feno_excluir = new javax.swing.JButton();
-        btn_feno_alterar = new javax.swing.JButton();
-        jSeparator14 = new javax.swing.JSeparator();
-        jLabel78 = new javax.swing.JLabel();
-        txt_feno_fornecedor = new javax.swing.JTextField();
-        jLabel79 = new javax.swing.JLabel();
-        txt_feno_valor = new javax.swing.JTextField();
-        jLabel80 = new javax.swing.JLabel();
-        jdata_feno_compra = new com.toedter.calendar.JDateChooser();
-        jSeparator15 = new javax.swing.JSeparator();
-        jScrollPane18 = new javax.swing.JScrollPane();
-        tab_feno = new javax.swing.JTable();
-        jLabel81 = new javax.swing.JLabel();
-        txt_feno_pesquisa = new javax.swing.JTextField();
-        jButton20 = new javax.swing.JButton();
-        jLabel82 = new javax.swing.JLabel();
-        jdata_feno_duracao = new com.toedter.calendar.JDateChooser();
-        sem_quantidade_feno = new javax.swing.JLabel();
-        sem_fornecedor_feno = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel74 = new javax.swing.JLabel();
-        txt_racao_id = new javax.swing.JTextField();
-        jLabel95 = new javax.swing.JLabel();
-        jdata_racao_compra = new com.toedter.calendar.JDateChooser();
-        jLabel96 = new javax.swing.JLabel();
-        jdata_racao_duracao = new com.toedter.calendar.JDateChooser();
-        jLabel97 = new javax.swing.JLabel();
-        txt_racao_fornecedor = new javax.swing.JTextField();
-        jSeparator19 = new javax.swing.JSeparator();
-        jLabel98 = new javax.swing.JLabel();
-        txt_racao_quantidade = new javax.swing.JTextField();
-        jLabel99 = new javax.swing.JLabel();
-        txt_racao_valor = new javax.swing.JTextField();
-        jLabel101 = new javax.swing.JLabel();
-        jScrollPane20 = new javax.swing.JScrollPane();
-        txt_racao_descricao = new javax.swing.JTextArea();
-        jSeparator20 = new javax.swing.JSeparator();
-        jScrollPane21 = new javax.swing.JScrollPane();
-        tab_racao = new javax.swing.JTable();
-        btn_racao_cadastrar = new javax.swing.JButton();
-        btn_racao_excluir = new javax.swing.JButton();
-        btn_racao_alterar = new javax.swing.JButton();
-        jLabel100 = new javax.swing.JLabel();
-        txt_racao_pesquisa = new javax.swing.JTextField();
-        jButton23 = new javax.swing.JButton();
-        sem_fornecedor_racao = new javax.swing.JLabel();
-        sem_quantidade_racao = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        txt_serragem_tipo = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        txt_serragem_fornecedor = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
-        txt_serragem_metros = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        txt_serragem_bais = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tab_serragem = new javax.swing.JTable();
-        jLabel32 = new javax.swing.JLabel();
-        btn_serragem_cadastrar = new javax.swing.JButton();
-        btn_serragem_excluir = new javax.swing.JButton();
-        jLabel33 = new javax.swing.JLabel();
-        txt_serragem_pesquisa = new javax.swing.JTextField();
-        btn_serragem_busca = new javax.swing.JButton();
-        btn_serragem_alterar = new javax.swing.JButton();
-        jSeparator7 = new javax.swing.JSeparator();
-        jdate_serragem_compra = new com.toedter.calendar.JDateChooser();
-        jdate_serragem_duracao = new com.toedter.calendar.JDateChooser();
-        jLabel71 = new javax.swing.JLabel();
-        txt_serragem_id = new javax.swing.JTextField();
-        txt_serragem_valor = new javax.swing.JTextField();
-        jLabel72 = new javax.swing.JLabel();
-        sem_tipo_serragem = new javax.swing.JLabel();
-        sem_fornecedor_serragem = new javax.swing.JLabel();
         Jveterinario = new javax.swing.JPanel();
         jLabel34 = new javax.swing.JLabel();
         txt_veterinario_animal = new javax.swing.JTextField();
@@ -399,8 +280,8 @@ public class JF_Principal1 extends javax.swing.JFrame {
         btncadastrarpastagem = new javax.swing.JButton();
         btn_excluir_pastagem = new javax.swing.JButton();
         btn_alterar_pastagem = new javax.swing.JButton();
-        cbpastagemnumero = new javax.swing.JComboBox<String>();
-        cbpastagemqualidade = new javax.swing.JComboBox<String>();
+        cbpastagemnumero = new javax.swing.JComboBox<>();
+        cbpastagemqualidade = new javax.swing.JComboBox<>();
         jSeparator11 = new javax.swing.JSeparator();
         jScrollPane12 = new javax.swing.JScrollPane();
         tabpastagem = new javax.swing.JTable();
@@ -436,7 +317,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         btn_manutencao_alterar = new javax.swing.JButton();
         jLabel68 = new javax.swing.JLabel();
         txt_manutencao_id = new javax.swing.JTextField();
-        cb_manutencao_setor = new javax.swing.JComboBox<String>();
+        cb_manutencao_setor = new javax.swing.JComboBox<>();
         jLabel69 = new javax.swing.JLabel();
         txt_manutencao_pesquisa = new javax.swing.JTextField();
         btn_buscar_manutencao = new javax.swing.JButton();
@@ -564,15 +445,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
         btn_animais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_animaisActionPerformed(evt);
-            }
-        });
-
-        btn_treinamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_treinamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/country.png"))); // NOI18N
-        btn_treinamento.setText("Treinamento");
-        btn_treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_treinamentoActionPerformed(evt);
             }
         });
 
@@ -723,7 +595,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
         jLabel5.setText("Telefones");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jTextField5.setText("jTextField5");
 
@@ -1004,7 +876,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         jLabel124.setText("Confirmar senha :");
 
         cad_usu_cargo.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        cad_usu_cargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cad_usu_cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cad_usu_cargo.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
         cad_usu_cargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1051,7 +923,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel112)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 693, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 668, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1137,11 +1009,11 @@ public class JF_Principal1 extends javax.swing.JFrame {
                 .addComponent(jLabel121)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cad_usu_cod_pessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         telas_cad_usu.addTab("Cadastros ", jPanel3);
@@ -1222,7 +1094,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         jLabel127.setText("Cargo:");
 
         at_usu_cargo.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        at_usu_cargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        at_usu_cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         at_usu_cargo.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
         at_usu_cargo.setEditable(false);
 
@@ -1287,7 +1159,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                             .addComponent(at_usu_status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(at_usuarioLayout.createSequentialGroup()
                                 .addComponent(at_usu_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(at_usuarioLayout.createSequentialGroup()
                                 .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1310,7 +1182,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                             .addComponent(at_usu_cargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 765, Short.MAX_VALUE)
+                    .addComponent(jScrollPane22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
                     .addGroup(at_usuarioLayout.createSequentialGroup()
                         .addComponent(jLabel102)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1685,901 +1557,17 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
         home.addTab("Animais", Jcadanimal);
 
-        Jtreino.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel19.setText("Animal:");
-
-        txtanimal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel20.setText("Treinador:");
-
-        txtTreinador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel21.setText("Data de inicio:");
-
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel22.setText("Data de término:");
-
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel23.setText("Modalidade:");
-
-        txttreinamentomodalidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        btncadastrartreinamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btncadastrartreinamento.setText("Cadastrar");
-        btncadastrartreinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncadastrartreinamentoActionPerformed(evt);
-            }
-        });
-
-        btn_excluir_treinamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_excluir_treinamento.setText("Excluir");
-        btn_excluir_treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_excluir_treinamentoActionPerformed(evt);
-            }
-        });
-
-        btn_alterar_treinamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_alterar_treinamento.setText("Alterar");
-        btn_alterar_treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_alterar_treinamentoActionPerformed(evt);
-            }
-        });
-
-        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        tabtreinamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tabtreinamento.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "ANIMAL", "TREINADOR", "MODALIDADE", "VALOR TREINAMENTO", "ID"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabtreinamento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabtreinamentoMouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(tabtreinamento);
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel24.setText("Valor do Treinamento p/mês :");
-
-        txttreinamentovalor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txttreinamentovalor.setText("0.00");
-        txttreinamentovalor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txttreinamentovalorActionPerformed(evt);
-            }
-        });
-
-        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel25.setText("Pesquisar:");
-
-        txtpesquisatreinamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        btnpesquisatreinamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnpesquisatreinamento.setText("Buscar");
-        btnpesquisatreinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpesquisatreinamentoActionPerformed(evt);
-            }
-        });
-
-        jLabel57.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel57.setText("ID:");
-
-        txttreinamentoid.setEditable(false);
-        txttreinamentoid.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        data_treinamento_inicio.setToolTipText("");
-
-        sem_animal_treinamento.setForeground(new java.awt.Color(255, 0, 0));
-
-        sem_modalidade_treinamento.setForeground(new java.awt.Color(255, 0, 0));
-
-        sem_treinador_treinamento.setForeground(new java.awt.Color(255, 0, 0));
-
-        javax.swing.GroupLayout JtreinoLayout = new javax.swing.GroupLayout(Jtreino);
-        Jtreino.setLayout(JtreinoLayout);
-        JtreinoLayout.setHorizontalGroup(
-            JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JtreinoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JtreinoLayout.createSequentialGroup()
-                        .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel19)
-                                .addComponent(txtanimal)
-                                .addComponent(jLabel20)
-                                .addComponent(txtTreinador)
-                                .addComponent(jLabel21)
-                                .addComponent(jLabel22)
-                                .addComponent(jLabel23)
-                                .addComponent(txttreinamentomodalidade, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                                .addComponent(data_treinamento_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(data_treinamento_termino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sem_animal_treinamento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(sem_treinador_treinamento, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel57)
-                            .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txttreinamentoid, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txttreinamentovalor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))
-                        .addGap(27, 27, 27)
-                        .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
-                            .addGroup(JtreinoLayout.createSequentialGroup()
-                                .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25)
-                                    .addComponent(txtpesquisatreinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnpesquisatreinamento))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(JtreinoLayout.createSequentialGroup()
-                        .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JtreinoLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(btncadastrartreinamento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_excluir_treinamento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_alterar_treinamento))
-                            .addComponent(sem_modalidade_treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        JtreinoLayout.setVerticalGroup(
-            JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JtreinoLayout.createSequentialGroup()
-                .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JtreinoLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txttreinamentovalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel57)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txttreinamentoid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(214, 214, 214))
-                    .addGroup(JtreinoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jSeparator6)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JtreinoLayout.createSequentialGroup()
-                                    .addComponent(jLabel19)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtanimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(5, 5, 5)
-                                    .addComponent(sem_animal_treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel20)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtTreinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(sem_treinador_treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(5, 5, 5)
-                                    .addComponent(jLabel21)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(data_treinamento_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(21, 21, 21)
-                                    .addComponent(jLabel22)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(data_treinamento_termino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(21, 21, 21)
-                                    .addComponent(jLabel23)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txttreinamentomodalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGroup(JtreinoLayout.createSequentialGroup()
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel25)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtpesquisatreinamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnpesquisatreinamento)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sem_modalidade_treinamento, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(JtreinoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btncadastrartreinamento)
-                    .addComponent(btn_excluir_treinamento)
-                    .addComponent(btn_alterar_treinamento))
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
-
-        home.addTab("Treinamento", Jtreino);
-
         Jceleiro.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel75.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel75.setText("ID:");
-
-        txt_feno_id.setEditable(false);
-        txt_feno_id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel76.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel76.setText("Quantidade:");
-
-        txt_feno_quantidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_feno_quantidade.setText("0");
-
-        jLabel77.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel77.setText("Qualidade:");
-
-        cb_feno_qualidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cb_feno_qualidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECIONE", "A", "B", "C", "D" }));
-
-        btn_feno_cadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_feno_cadastrar.setText("Cadastrar");
-        btn_feno_cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_feno_cadastrarActionPerformed(evt);
-            }
-        });
-
-        btn_feno_excluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_feno_excluir.setText("Excluir");
-        btn_feno_excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_feno_excluirActionPerformed(evt);
-            }
-        });
-
-        btn_feno_alterar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_feno_alterar.setText("Alterar");
-        btn_feno_alterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_feno_alterarActionPerformed(evt);
-            }
-        });
-
-        jSeparator14.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel78.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel78.setText("Fornecedor:");
-
-        txt_feno_fornecedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel79.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel79.setText("Valor:");
-
-        txt_feno_valor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_feno_valor.setText("0.00");
-
-        jLabel80.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel80.setText("Data da compra:");
-
-        jSeparator15.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        tab_feno.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tab_feno.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "QUANTIDATE", "QUALIDADE", "VALOR"
-            }
-        ));
-        tab_feno.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tab_fenoMouseClicked(evt);
-            }
-        });
-        jScrollPane18.setViewportView(tab_feno);
-
-        jLabel81.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel81.setText("Pesquisar:");
-
-        txt_feno_pesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jButton20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton20.setText("Buscar");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
-            }
-        });
-
-        jLabel82.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel82.setText("Data estimada de duração:");
-
-        sem_quantidade_feno.setForeground(new java.awt.Color(255, 0, 0));
-
-        sem_fornecedor_feno.setForeground(new java.awt.Color(255, 0, 0));
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel75)
-                            .addComponent(txt_feno_id, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(jLabel76)
-                            .addComponent(txt_feno_quantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(jLabel77)
-                            .addComponent(cb_feno_qualidade, 0, 162, Short.MAX_VALUE)
-                            .addComponent(sem_quantidade_feno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btn_feno_cadastrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_feno_excluir)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_feno_alterar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel78)
-                    .addComponent(txt_feno_fornecedor)
-                    .addComponent(jLabel79)
-                    .addComponent(txt_feno_valor)
-                    .addComponent(jLabel80)
-                    .addComponent(jdata_feno_compra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel82, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jdata_feno_duracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sem_fornecedor_feno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(121, 121, 121)
-                .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel81)
-                            .addComponent(txt_feno_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton20))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel75)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_feno_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel76)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_feno_quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(sem_quantidade_feno, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel77)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cb_feno_qualidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel78)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_feno_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(sem_fornecedor_feno, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel79)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_feno_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel80)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdata_feno_compra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel82)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdata_feno_duracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator15, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel81)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_feno_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton20)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_feno_cadastrar)
-                    .addComponent(btn_feno_excluir)
-                    .addComponent(btn_feno_alterar))
-                .addGap(128, 128, 128))
-        );
-
-        jTabbedPane2.addTab("FENO", jPanel13);
-
-        jLabel74.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel74.setText("ID:");
-
-        txt_racao_id.setEditable(false);
-        txt_racao_id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel95.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel95.setText("Data da compra:");
-
-        jLabel96.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel96.setText("Data estimada de duração:");
-
-        jLabel97.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel97.setText("Fornecedor:");
-
-        txt_racao_fornecedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jSeparator19.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel98.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel98.setText("Quantidade de sacos:");
-
-        txt_racao_quantidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_racao_quantidade.setText("0");
-
-        jLabel99.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel99.setText("Valor total da compra:");
-
-        txt_racao_valor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_racao_valor.setText("0.00");
-
-        jLabel101.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel101.setText("Descrição da Compra:");
-
-        txt_racao_descricao.setColumns(20);
-        txt_racao_descricao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_racao_descricao.setRows(5);
-        jScrollPane20.setViewportView(txt_racao_descricao);
-
-        jSeparator20.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        tab_racao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tab_racao.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "QUANTIDADE", "DATA", "VALOR"
-            }
-        ));
-        tab_racao.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tab_racaoMouseClicked(evt);
-            }
-        });
-        jScrollPane21.setViewportView(tab_racao);
-
-        btn_racao_cadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_racao_cadastrar.setText("Cadastrar");
-        btn_racao_cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_racao_cadastrarActionPerformed(evt);
-            }
-        });
-
-        btn_racao_excluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_racao_excluir.setText("Excluir");
-        btn_racao_excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_racao_excluirActionPerformed(evt);
-            }
-        });
-
-        btn_racao_alterar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_racao_alterar.setText("Alterar");
-        btn_racao_alterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_racao_alterarActionPerformed(evt);
-            }
-        });
-
-        jLabel100.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel100.setText("Pesquisar:");
-
-        txt_racao_pesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jButton23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton23.setText("Buscar");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
-            }
-        });
-
-        sem_fornecedor_racao.setForeground(new java.awt.Color(255, 0, 0));
-
-        sem_quantidade_racao.setForeground(new java.awt.Color(255, 0, 0));
-
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel74)
-                            .addComponent(txt_racao_id, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel95)
-                            .addComponent(jLabel96)
-                            .addComponent(jLabel97)
-                            .addComponent(jdata_racao_compra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jdata_racao_duracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_racao_fornecedor)
-                            .addComponent(sem_fornecedor_racao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(29, 29, 29)
-                        .addComponent(jSeparator19, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel14Layout.createSequentialGroup()
-                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel98)
-                                    .addComponent(jLabel99)
-                                    .addComponent(jLabel101)
-                                    .addComponent(txt_racao_quantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                    .addComponent(txt_racao_valor)
-                                    .addComponent(sem_quantidade_racao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(159, 159, 159))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
-                                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
-                        .addComponent(jSeparator20, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel100)
-                            .addComponent(txt_racao_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton23)))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btn_racao_cadastrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_racao_excluir)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_racao_alterar)))
-                .addContainerGap(143, Short.MAX_VALUE))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel14Layout.createSequentialGroup()
-                                    .addComponent(jLabel74)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txt_racao_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel95)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jdata_racao_compra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel96)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jdata_racao_duracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel97)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txt_racao_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(sem_fornecedor_racao, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jSeparator19)
-                                .addComponent(jSeparator20))
-                            .addGroup(jPanel14Layout.createSequentialGroup()
-                                .addComponent(jLabel98)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_racao_quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sem_quantidade_racao, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel99)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_racao_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel101)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_racao_cadastrar)
-                            .addComponent(btn_racao_excluir)
-                            .addComponent(btn_racao_alterar))
-                        .addGap(75, 75, 75))
-                    .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel100)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_racao_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton23)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-
-        jTabbedPane2.addTab("RAÇÃO", jPanel14);
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel26.setText("Data da Compra:");
-
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel27.setText("Tipo:");
-
-        txt_serragem_tipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel28.setText("Fornecedor:");
-
-        txt_serragem_fornecedor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel29.setText("Quantidade em metros:");
-
-        txt_serragem_metros.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_serragem_metros.setText("0");
-
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel30.setText("Quantidade de baias que utilizarão : ");
-
-        txt_serragem_bais.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_serragem_bais.setText("0");
-
-        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel31.setText("Data estimada de duração:");
-
-        tab_serragem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tab_serragem.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Data Compra", "Fornecedor", "Quantidade", "Valor"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tab_serragem.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tab_serragemMouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(tab_serragem);
-
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel32.setText("Carga:");
-
-        btn_serragem_cadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_serragem_cadastrar.setText("Cadastrar");
-        btn_serragem_cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_serragem_cadastrarActionPerformed(evt);
-            }
-        });
-
-        btn_serragem_excluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_serragem_excluir.setText("Excluir");
-        btn_serragem_excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_serragem_excluirActionPerformed(evt);
-            }
-        });
-
-        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel33.setText("Pesquisar: ");
-
-        txt_serragem_pesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        btn_serragem_busca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_serragem_busca.setText("Buscar");
-        btn_serragem_busca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_serragem_buscaActionPerformed(evt);
-            }
-        });
-
-        btn_serragem_alterar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_serragem_alterar.setText("Alterar");
-        btn_serragem_alterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_serragem_alterarActionPerformed(evt);
-            }
-        });
-
-        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel71.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel71.setText("ID:");
-
-        txt_serragem_id.setEditable(false);
-        txt_serragem_id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        txt_serragem_valor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_serragem_valor.setText("0.00");
-
-        jLabel72.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel72.setText("Valor:");
-
-        sem_tipo_serragem.setForeground(new java.awt.Color(255, 0, 0));
-
-        sem_fornecedor_serragem.setForeground(new java.awt.Color(255, 0, 0));
-
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel32)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addComponent(jdate_serragem_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27)
-                            .addComponent(txt_serragem_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sem_tipo_serragem, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28)
-                            .addComponent(txt_serragem_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sem_fornecedor_serragem, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel29)
-                            .addComponent(txt_serragem_metros, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel30)
-                            .addComponent(txt_serragem_bais, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel15Layout.createSequentialGroup()
-                                .addComponent(btn_serragem_cadastrar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_serragem_excluir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_serragem_alterar)))))
-                .addGap(25, 25, 25)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel71)
-                    .addComponent(txt_serragem_id, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31)
-                    .addComponent(jdate_serragem_duracao, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel72)
-                    .addComponent(txt_serragem_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 629, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(txt_serragem_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_serragem_busca))))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel26)
-                        .addGap(6, 6, 6)
-                        .addComponent(jdate_serragem_compra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel27)
-                        .addGap(6, 6, 6)
-                        .addComponent(txt_serragem_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
-                        .addComponent(sem_tipo_serragem, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel28)
-                        .addGap(3, 3, 3)
-                        .addComponent(txt_serragem_fornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(sem_fornecedor_serragem, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel29)
-                        .addGap(6, 6, 6)
-                        .addComponent(txt_serragem_metros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel30)
-                        .addGap(6, 6, 6)
-                        .addComponent(txt_serragem_bais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel71)
-                        .addGap(6, 6, 6)
-                        .addComponent(txt_serragem_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel31)
-                        .addGap(6, 6, 6)
-                        .addComponent(jdate_serragem_duracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel72)
-                        .addGap(6, 6, 6)
-                        .addComponent(txt_serragem_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_serragem_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_serragem_busca)))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_serragem_cadastrar)
-                            .addComponent(btn_serragem_excluir)
-                            .addComponent(btn_serragem_alterar))))
-                .addGap(54, 54, 54))
-        );
-
-        jTabbedPane2.addTab("SERRAGEM", jPanel15);
 
         javax.swing.GroupLayout JceleiroLayout = new javax.swing.GroupLayout(Jceleiro);
         Jceleiro.setLayout(JceleiroLayout);
         JceleiroLayout.setHorizontalGroup(
             JceleiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addGap(0, 1150, Short.MAX_VALUE)
         );
         JceleiroLayout.setVerticalGroup(
             JceleiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2)
+            .addGap(0, 533, Short.MAX_VALUE)
         );
 
         home.addTab("Celeiro", Jceleiro);
@@ -2846,7 +1834,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                 .addGroup(JveterinarioLayout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(118, Short.MAX_VALUE)))
+                    .addContainerGap(107, Short.MAX_VALUE)))
         );
 
         home.addTab("Veterinário", Jveterinario);
@@ -2900,7 +1888,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         });
 
         cbpastagemnumero.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbpastagemnumero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Número do Pasto", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
+        cbpastagemnumero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número do Pasto", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" }));
         cbpastagemnumero.setToolTipText("");
         cbpastagemnumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2909,7 +1897,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         });
 
         cbpastagemqualidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbpastagemqualidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione", "Ruim", "Regular", "Bom", "Muito Bom" }));
+        cbpastagemqualidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Ruim", "Regular", "Bom", "Muito Bom" }));
 
         jSeparator11.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -3096,7 +2084,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                 .addGroup(JpastagemLayout.createSequentialGroup()
                     .addGap(198, 198, 198)
                     .addComponent(sem_numero_pasto2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(326, Short.MAX_VALUE)))
+                    .addContainerGap(315, Short.MAX_VALUE)))
         );
 
         home.addTab("Pastagem", Jpastagem);
@@ -3193,7 +2181,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         txt_manutencao_id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         cb_manutencao_setor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cb_manutencao_setor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SELECIONE O SETOR", "HARAS", "PASTAGEM", "JARDIM/SEDE" }));
+        cb_manutencao_setor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE O SETOR", "HARAS", "PASTAGEM", "JARDIM/SEDE" }));
 
         jLabel69.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel69.setText("Pesquisar:");
@@ -3319,7 +2307,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                         .addComponent(txt_manutencao_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_buscar_manutencao)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         home.addTab("R.h", Jrh);
@@ -3526,7 +2514,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                                 .addComponent(btn_excluir_ferrajamento)
                                 .addComponent(btn_alterar_ferrajamento)))
                         .addComponent(jSeparator10)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         home.addTab("Ferrajamento", Jferra);
@@ -3594,7 +2582,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                 .addComponent(txt_pesquisa_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton30)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         home.addTab("Log", Jlog);
@@ -3888,7 +2876,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
                             .addComponent(jLabel92)
                             .addComponent(txt_financeiro_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jSeparator17, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         home.addTab("Financeiro", Jfinanceiro);
@@ -3941,26 +2929,25 @@ public class JF_Principal1 extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btn_animais, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btn_animais1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(btn_calendario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btn_celeiro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(btn_treinamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btn_animais, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btn_animais1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btn_calendario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn_celeiro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btn_ferrajamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btn_rh, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_pastagem, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(btn_financeiro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_veterinario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btn_veterinario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btn_log, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_rh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_log)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(10, 10, 10)
                         .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_home))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jnome, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3985,6 +2972,11 @@ public class JF_Principal1 extends javax.swing.JFrame {
                             .addComponent(jLabel84))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator2)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(44, 44, 44)
@@ -3999,26 +2991,20 @@ public class JF_Principal1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_celeiro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_treinamento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_ferrajamento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_pastagem)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_veterinario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_financeiro))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator2)))))
+                                .addComponent(btn_financeiro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_rh))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(jdata, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_rh)
                     .addComponent(btn_log)
                     .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -4187,8 +3173,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
         f_principal.removerTable(home, tela_home);
         //Tela de animais 
         f_principal.desabilitarbotao(btn_excluiranimal, btn_alteraranimal);
-        //Tela de treinamento 
-        f_principal.desabilitarbotao(btn_excluir_treinamento, btn_alterar_treinamento);
         //tela de pastagem 
         f_principal.desabilitarbotao(btn_excluir_pastagem, btn_alterar_pastagem);
         //tela de ferrajamento 
@@ -4198,11 +3182,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         //tela de veterinario
         f_principal.desabilitarbotao(btn_veterinario_excluir, btn_veterinario_alterar);
         //tela de serragem
-        f_principal.desabilitarbotao(btn_serragem_excluir, btn_serragem_alterar);
-        //tela de feno 
-        f_principal.desabilitarbotao(btn_feno_excluir, btn_feno_alterar);
-        //tela de ação
-        f_principal.desabilitarbotao(btn_racao_excluir, btn_racao_alterar);
+       
 
         /*  if (tipo == 0) {
          btn_veterinario.setVisible(false);atalho_consulta.setVisible(false);
@@ -4228,7 +3208,8 @@ public class JF_Principal1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_animaisActionPerformed
 
     private void btn_treinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_treinamentoActionPerformed
-        f_principal.removerPainel(home, Jtreino);
+ 
+        
     }//GEN-LAST:event_btn_treinamentoActionPerformed
 
     private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinarioActionPerformed
@@ -4583,261 +3564,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_veterinario_nomeActionPerformed
 
-    private void btn_serragem_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_serragem_alterarActionPerformed
-        String nome = jnome.getText();
-        String how = txt_serragem_id.getText();
-        java.sql.Date sqldate_compra = new java.sql.Date(jdate_serragem_compra.getDate().getTime());
-        serragem.setSerragem_compra(sqldate_compra);
-        serragem.setSerragem_id(Integer.valueOf(txt_serragem_id.getText()));
-        serragem.setSerragem_tipo(txt_serragem_tipo.getText());
-        serragem.setSerragem_fornecedor(txt_serragem_fornecedor.getText());
-        serragem.setSerragem_metros(Float.valueOf(txt_serragem_metros.getText()));
-        serragem.setSerragem_bais(Integer.valueOf(txt_serragem_bais.getText()));
-
-        java.sql.Date sqldate_duracao = new java.sql.Date(jdate_serragem_duracao.getDate().getTime());
-        serragem.setSerragem_duracao(sqldate_duracao);
-        serragem.setSerragem_valor(Float.valueOf(txt_serragem_valor.getText()));
-
-        if (!"".equals(txt_serragem_fornecedor.getText())) {
-            if (!"".equals(txt_serragem_tipo.getText())) {
-                serragemDao.alterarSerragem(serragem, nome, how, this);
-                serragemDao.consultarSerragem(txt_serragem_pesquisa, tab_serragem, this);
-                txt_serragem_tipo.setText("");
-                txt_serragem_fornecedor.setText("");
-                jdate_serragem_compra.setCalendar(null);
-                jdate_serragem_duracao.setCalendar(null);
-                txt_serragem_metros.setText("0");
-                txt_serragem_bais.setText("0");
-                txt_serragem_valor.setText("0.00");
-                sem_fornecedor_serragem.setText("");
-                sem_tipo_serragem.setText("");
-            } else {
-                sem_tipo_serragem.setText("Campo obrigatório");
-            }
-
-        } else {
-            sem_fornecedor_serragem.setText("Campop obrigatório");
-        }
-    }//GEN-LAST:event_btn_serragem_alterarActionPerformed
-
-    private void btn_serragem_buscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_serragem_buscaActionPerformed
-        serragemDao.consultarSerragem(txt_serragem_pesquisa, tab_serragem, this);
-        txt_serragem_tipo.setText("");
-        txt_serragem_fornecedor.setText("");
-        jdate_serragem_compra.setCalendar(null);
-        jdate_serragem_duracao.setCalendar(null);
-        txt_serragem_metros.setText("0");
-        txt_serragem_bais.setText("0");
-        txt_serragem_valor.setText("0.00");
-        txt_serragem_id.setText("");
-        btn_serragem_cadastrar.setEnabled(true);
-        btn_serragem_excluir.setEnabled(false);
-        btn_serragem_alterar.setEnabled(false);
-        sem_fornecedor_serragem.setText("");
-        sem_tipo_serragem.setText("");
-    }//GEN-LAST:event_btn_serragem_buscaActionPerformed
-
-    private void btn_serragem_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_serragem_excluirActionPerformed
-        String nome = jnome.getText();
-        String how = txt_serragem_id.getText();
-        serragem.setSerragem_id(Integer.valueOf(txt_serragem_id.getText()));
-        serragemDao.apagarSerragem(serragem, nome, how, this);
-        txt_serragem_tipo.setText("");
-        txt_serragem_fornecedor.setText("");
-        jdate_serragem_compra.setCalendar(null);
-        jdate_serragem_duracao.setCalendar(null);
-        txt_serragem_metros.setText("0");
-        txt_serragem_bais.setText("0");
-        txt_serragem_valor.setText("0.00");
-        txt_serragem_id.setText("");
-        serragemDao.consultarSerragem(txt_serragem_pesquisa, tab_serragem, this);
-    }//GEN-LAST:event_btn_serragem_excluirActionPerformed
-
-    private void btn_serragem_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_serragem_cadastrarActionPerformed
-        String nome = jnome.getText();
-        java.sql.Date sqldate_compra = new java.sql.Date(jdate_serragem_compra.getDate().getTime());
-        serragem.setSerragem_compra(sqldate_compra);
-
-        serragem.setSerragem_tipo(txt_serragem_tipo.getText());
-        serragem.setSerragem_fornecedor(txt_serragem_fornecedor.getText());
-        serragem.setSerragem_metros(Float.valueOf(txt_serragem_metros.getText()));
-        serragem.setSerragem_bais(Integer.valueOf(txt_serragem_bais.getText()));
-
-        java.sql.Date sqldate_duracao = new java.sql.Date(jdate_serragem_duracao.getDate().getTime());
-        serragem.setSerragem_duracao(sqldate_duracao);
-        serragem.setSerragem_valor(Float.valueOf(txt_serragem_valor.getText()));
-
-        if (!"".equals(txt_serragem_fornecedor.getText())) {
-            if (!"".equals(txt_serragem_tipo.getText())) {
-                serragemDao.salvarSerragem(serragem, nome, this);
-                serragemDao.consultarSerragem(txt_serragem_pesquisa, tab_serragem, this);
-                txt_serragem_tipo.setText("");
-                txt_serragem_fornecedor.setText("");
-                jdate_serragem_compra.setCalendar(null);
-                jdate_serragem_duracao.setCalendar(null);
-                txt_serragem_metros.setText("0");
-                txt_serragem_bais.setText("0");
-                txt_serragem_valor.setText("0.00");
-                sem_fornecedor_serragem.setText("");
-                sem_tipo_serragem.setText("");
-            } else {
-                sem_tipo_serragem.setText("Campo obrigatório");
-            }
-
-        } else {
-            sem_fornecedor_serragem.setText("Campop obrigatório");
-        }
-
-    }//GEN-LAST:event_btn_serragem_cadastrarActionPerformed
-
-    private void tab_serragemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_serragemMouseClicked
-        int linha = tab_serragem.getSelectedRow();
-        String valor = String.valueOf(tab_serragem.getValueAt(linha, 0));
-        int serragemID = Integer.valueOf(valor);
-        serragemDao.consultarSerragemID(serragemID, txt_serragem_id, jdate_serragem_compra, txt_serragem_tipo, txt_serragem_fornecedor, txt_serragem_metros, txt_serragem_bais, jdate_serragem_duracao, txt_serragem_valor, this);
-        btn_serragem_cadastrar.setEnabled(false);
-        btn_serragem_excluir.setEnabled(true);
-        btn_serragem_alterar.setEnabled(true);
-    }//GEN-LAST:event_tab_serragemMouseClicked
-
-    private void btnpesquisatreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesquisatreinamentoActionPerformed
-        treinamentoDao.consultarTreinamento(txtpesquisatreinamento, tabtreinamento, this);
-        txttreinamentoid.setText("");
-        txtTreinador.setText("");
-        txtanimal.setText("");
-        data_treinamento_inicio.setCalendar(null);
-        data_treinamento_termino.setCalendar(null);
-        txttreinamentomodalidade.setText("");
-        txttreinamentovalor.setText("0.00");
-        btncadastrartreinamento.setEnabled(true);
-        btn_excluir_treinamento.setEnabled(false);
-        btn_alterar_treinamento.setEnabled(false);
-        sem_modalidade_treinamento.setText("");
-        sem_animal_treinamento.setText("");
-        sem_modalidade_treinamento.setText("");
-        sem_treinador_treinamento.setText("");
-    }//GEN-LAST:event_btnpesquisatreinamentoActionPerformed
-
-    private void txttreinamentovalorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttreinamentovalorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txttreinamentovalorActionPerformed
-
-    private void tabtreinamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabtreinamentoMouseClicked
-        int linha = tabtreinamento.getSelectedRow();
-        String valor = String.valueOf(tabtreinamento.getValueAt(linha, 0));
-        int treinamentoID = Integer.valueOf(valor);
-        treinamentoDao.consultarTreinamentoID(treinamentoID, txttreinamentoid, txtTreinador, txtanimal, data_treinamento_inicio, data_treinamento_termino, txttreinamentomodalidade, txttreinamentovalor, this);
-        btncadastrartreinamento.setEnabled(false);
-        btn_excluir_treinamento.setEnabled(true);
-        btn_alterar_treinamento.setEnabled(true);
-        sem_modalidade_treinamento.setText("");
-        sem_animal_treinamento.setText("");
-        sem_modalidade_treinamento.setText("");
-        sem_treinador_treinamento.setText("");
-    }//GEN-LAST:event_tabtreinamentoMouseClicked
-
-    private void btn_alterar_treinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterar_treinamentoActionPerformed
-        String nome = jnome.getText();
-        String how = txtanimal.getText();
-        treinamento.setTreinamento_id(Integer.valueOf(txttreinamentoid.getText()));
-        treinamento.setTreinamento_treinador(txtTreinador.getText());
-        treinamento.setTreinamento_animal(txtanimal.getText());
-        java.sql.Date sqldate_inicio = new java.sql.Date(data_treinamento_inicio.getDate().getTime());
-        treinamento.setTreinamento_inicio(sqldate_inicio);
-
-        java.sql.Date sqldate_termino = new java.sql.Date(data_treinamento_termino.getDate().getTime());
-        treinamento.setTreinamento_termino(sqldate_termino);
-        treinamento.setTreinamento_modalidade(txttreinamentomodalidade.getText());
-        treinamento.setTreinamento_valor(Float.valueOf(txttreinamentovalor.getText()));
-
-        if (!"".equals(txtTreinador.getText())) {
-            if (!"".equals(txtanimal.getText())) {
-                if (!"".equals(txttreinamentomodalidade.getText())) {
-                    treinamentoDao.alterarTreinamento(treinamento, nome, how, this);
-                    treinamentoDao.consultarTreinamento(txtpesquisatreinamento, tabtreinamento, this);
-                    txtTreinador.setText("");
-                    txtanimal.setText("");
-                    data_treinamento_inicio.setCalendar(null);
-                    data_treinamento_termino.setCalendar(null);
-                    txttreinamentomodalidade.setText("");
-                    txttreinamentovalor.setText("0.00");
-
-                    sem_modalidade_treinamento.setText("");
-                    sem_animal_treinamento.setText("");
-                    sem_modalidade_treinamento.setText("");
-                    sem_treinador_treinamento.setText("");
-                } else {
-                    sem_modalidade_treinamento.setText("Campo obrigatório");
-                }
-
-            } else {
-                sem_animal_treinamento.setText("Campo Obrigatório");
-            }
-
-        } else {
-            sem_treinador_treinamento.setText("Campo Obrigatório");
-        }
-    }//GEN-LAST:event_btn_alterar_treinamentoActionPerformed
-
-    private void btn_excluir_treinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluir_treinamentoActionPerformed
-        String nome = jnome.getText();
-        String how = txtanimal.getText();
-        treinamento.setTreinamento_id(Integer.valueOf(txttreinamentoid.getText()));
-        treinamentoDao.apagarTreinamento(treinamento, nome, how, this);
-        txttreinamentoid.setText("");
-        txtTreinador.setText("");
-        txtanimal.setText("");
-        data_treinamento_inicio.setCalendar(null);
-        data_treinamento_termino.setCalendar(null);
-        txttreinamentomodalidade.setText("");
-        txttreinamentovalor.setText("0.00");
-        sem_treinador_treinamento.setText("");
-        treinamentoDao.consultarTreinamento(txtpesquisatreinamento, tabtreinamento, this);
-
-    }//GEN-LAST:event_btn_excluir_treinamentoActionPerformed
-
-    private void btncadastrartreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadastrartreinamentoActionPerformed
-        String nome = jnome.getText();
-        String how = txtanimal.getText();
-        treinamento.setTreinamento_treinador(txtTreinador.getText());
-        treinamento.setTreinamento_animal(txtanimal.getText());
-        java.sql.Date sqldate_inicio = new java.sql.Date(data_treinamento_inicio.getDate().getTime());
-        treinamento.setTreinamento_inicio(sqldate_inicio);
-
-        java.sql.Date sqldate_termino = new java.sql.Date(data_treinamento_termino.getDate().getTime());
-        treinamento.setTreinamento_termino(sqldate_termino);
-        treinamento.setTreinamento_modalidade(txttreinamentomodalidade.getText());
-        treinamento.setTreinamento_valor(Float.valueOf(txttreinamentovalor.getText()));
-
-        if (!"".equals(txtTreinador.getText())) {
-            if (!"".equals(txtanimal.getText())) {
-                if (!"".equals(txttreinamentomodalidade.getText())) {
-                    treinamentoDao.salvarTreinamento(treinamento, nome, how, this);
-                    txtTreinador.setText("");
-                    txtanimal.setText("");
-                    data_treinamento_inicio.setCalendar(null);
-                    data_treinamento_termino.setCalendar(null);
-                    txttreinamentomodalidade.setText("");
-                    txttreinamentovalor.setText("0.00");
-                    treinamentoDao.consultarTreinamento(txtpesquisatreinamento, tabtreinamento, this);
-                    sem_modalidade_treinamento.setText("");
-                    sem_animal_treinamento.setText("");
-                    sem_modalidade_treinamento.setText("");
-                    sem_treinador_treinamento.setText("");
-                } else {
-                    sem_modalidade_treinamento.setText("Campo obrigatório");
-                }
-
-            } else {
-                sem_animal_treinamento.setText("Campo Obrigatório");
-            }
-
-        } else {
-            sem_treinador_treinamento.setText("Campo Obrigatório");
-        }
-
-    }//GEN-LAST:event_btncadastrartreinamentoActionPerformed
-
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         animalDao.consultarAnimalNome(txtpesquisa, tabAnimal, this);
         btncadastrar.setEnabled(true);
@@ -5010,124 +3736,12 @@ public class JF_Principal1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
-    private void btn_feno_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_feno_cadastrarActionPerformed
-        String nome = jnome.getText();
-        java.sql.Date sqldate_feno_compra = new java.sql.Date(jdata_feno_compra.getDate().getTime());
-        feno.setFeno_compra(sqldate_feno_compra);
-
-        feno.setFeno_quantidade(Integer.valueOf(txt_feno_quantidade.getText()));
-        feno.setFeno_qualidade(cb_feno_qualidade.getSelectedIndex());
-        feno.setFeno_fornecedor(txt_feno_fornecedor.getText());
-        feno.setFeno_valor(Float.valueOf(txt_feno_valor.getText()));
-
-        java.sql.Date sqldate_feno_duracao = new java.sql.Date(jdata_feno_duracao.getDate().getTime());
-        feno.setFeno_duracao(sqldate_feno_duracao);
-
-        if (!"".equals(txt_feno_fornecedor.getText())) {
-            if (!"".equals(txt_feno_quantidade.getText())) {
-                fenoDao.salvarFeno(feno, nome, this);
-                fenoDao.consultarFeno(txt_feno_pesquisa, tab_feno, this);
-                txt_feno_quantidade.setText("0");
-                cb_feno_qualidade.setSelectedIndex(0);
-                jdata_feno_compra.setCalendar(null);
-                jdata_feno_duracao.setCalendar(null);
-                txt_feno_fornecedor.setText("");
-                txt_feno_valor.setText("0.00");
-                sem_quantidade_feno.setText("");
-                sem_fornecedor_feno.setText("");
-            } else {
-                sem_quantidade_feno.setText("Campo obrigatório");
-            }
-
-        } else {
-            sem_fornecedor_feno.setText("Campo obrigatório");
-        }
-
-    }//GEN-LAST:event_btn_feno_cadastrarActionPerformed
-
-    private void btn_feno_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_feno_excluirActionPerformed
-        String nome = jnome.getText();
-        String how = txt_feno_id.getText();
-        feno.setFeno_id(Integer.valueOf(txt_feno_id.getText()));
-        fenoDao.apagarFeno(feno, nome, how, this);
-        txt_feno_quantidade.setText("0");
-        cb_feno_qualidade.setSelectedIndex(0);
-        jdata_feno_compra.setCalendar(null);
-        jdata_feno_duracao.setCalendar(null);
-        txt_feno_fornecedor.setText("");
-        txt_feno_valor.setText("0.00");
-        fenoDao.consultarFeno(txt_feno_pesquisa, tab_feno, this);
-    }//GEN-LAST:event_btn_feno_excluirActionPerformed
-
-    private void btn_feno_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_feno_alterarActionPerformed
-        String nome = jnome.getText();
-        String how = txt_feno_id.getText();
-        java.sql.Date sqldate_feno_compra = new java.sql.Date(jdata_feno_compra.getDate().getTime());
-        feno.setFeno_compra(sqldate_feno_compra);
-        feno.setFeno_id(Integer.valueOf(txt_feno_id.getText()));
-        feno.setFeno_quantidade(Integer.valueOf(txt_feno_quantidade.getText()));
-        feno.setFeno_qualidade(cb_feno_qualidade.getSelectedIndex());
-        feno.setFeno_fornecedor(txt_feno_fornecedor.getText());
-        feno.setFeno_valor(Float.valueOf(txt_feno_valor.getText()));
-
-        java.sql.Date sqldate_feno_duracao = new java.sql.Date(jdata_feno_duracao.getDate().getTime());
-        feno.setFeno_duracao(sqldate_feno_duracao);
-
-        if (!"".equals(txt_feno_fornecedor.getText())) {
-            if (!"".equals(txt_feno_quantidade.getText())) {
-                fenoDao.alterarFeno(feno, nome, how, this);
-                fenoDao.consultarFeno(txt_feno_pesquisa, tab_feno, this);
-                txt_feno_quantidade.setText("0");
-                cb_feno_qualidade.setSelectedIndex(0);
-                jdata_feno_compra.setCalendar(null);
-                jdata_feno_duracao.setCalendar(null);
-                txt_feno_fornecedor.setText("");
-                txt_feno_valor.setText("0.00");
-                sem_quantidade_feno.setText("");
-                sem_fornecedor_feno.setText("");
-            } else {
-                sem_quantidade_feno.setText("Campo obrigatório");
-            }
-
-        } else {
-            sem_fornecedor_feno.setText("Campo obrigatório");
-        }
-    }//GEN-LAST:event_btn_feno_alterarActionPerformed
-
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        fenoDao.consultarFeno(txt_feno_pesquisa, tab_feno, this);
-
-        txt_feno_quantidade.setText("0");
-        cb_feno_qualidade.setSelectedIndex(0);
-        jdata_feno_compra.setCalendar(null);
-        jdata_feno_duracao.setCalendar(null);
-        txt_feno_fornecedor.setText("");
-        txt_feno_valor.setText("0.00");
-        btn_feno_cadastrar.setEnabled(true);
-        btn_feno_excluir.setEnabled(false);
-        btn_feno_alterar.setEnabled(false);
-        sem_quantidade_feno.setText("");
-        sem_fornecedor_feno.setText("");
-    }//GEN-LAST:event_jButton20ActionPerformed
-
-    private void tab_fenoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_fenoMouseClicked
-        int linha = tab_feno.getSelectedRow();
-        String valor = String.valueOf(tab_feno.getValueAt(linha, 0));
-        int feno_id = Integer.valueOf(valor);
-        fenoDao.consultarFenoID(feno_id, txt_feno_id, txt_feno_quantidade, cb_feno_qualidade, txt_feno_fornecedor, txt_feno_valor, jdata_feno_compra, jdata_feno_duracao, this);
-        btn_feno_cadastrar.setEnabled(false);
-        btn_feno_excluir.setEnabled(true);
-        btn_feno_alterar.setEnabled(true);
-        sem_quantidade_feno.setText("");
-        sem_fornecedor_feno.setText("");
-    }//GEN-LAST:event_tab_fenoMouseClicked
-
     private void btn_cadastrar_calendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrar_calendarioActionPerformed
         String nome = jnome.getText();
 
         java.sql.Date sqldate_calendario = new java.sql.Date(jcalendario_calendario.getDate().getTime());
         calendario.setCalendario_data(sqldate_calendario);
-        calendario.setCalendario_anotacao(txt_anotacao_calendario.getText());
+        calendario.setCalendario_desc(txt_anotacao_calendario.getText());
         if (!"".equals(txt_anotacao_calendario.getText())) {
             calendarioDao.salvarCalendario(calendario, nome, this);
             sem_nota.setText("");
@@ -5158,7 +3772,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         calendario.setCalendario_id(Integer.valueOf(txt_calendario_id.getText()));
         java.sql.Date sqldate_calendario = new java.sql.Date(jcalendario_calendario.getDate().getTime());
         calendario.setCalendario_data(sqldate_calendario);
-        calendario.setCalendario_anotacao(txt_anotacao_calendario.getText());
+        calendario.setCalendario_desc(txt_anotacao_calendario.getText());
         if (!"".equals(txt_anotacao_calendario.getText())) {
             calendarioDao.alterarCalendario(calendario, nome, how, this);
         } else {
@@ -5177,122 +3791,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
         sem_nota.setText("");
 
     }//GEN-LAST:event_btn_excluir_calendarioActionPerformed
-
-    private void btn_racao_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_racao_cadastrarActionPerformed
-        String nome = jnome.getText();
-        java.sql.Date sqldate_calendario_racao = new java.sql.Date(jdata_racao_compra.getDate().getTime());
-        calendario.setCalendario_data(sqldate_calendario_racao);
-        racao.setRacao_compra(sqldate_calendario_racao);
-        java.sql.Date racao_duracao = new java.sql.Date(jdata_racao_duracao.getDate().getTime());
-        calendario.setCalendario_data(racao_duracao);
-        racao.setRacao_duracao(racao_duracao);
-        racao.setRacao_fornecedor(txt_racao_fornecedor.getText());
-        racao.setRacao_quantidade(Integer.valueOf(txt_racao_quantidade.getText()));
-        racao.setRacao_valor(Float.valueOf(txt_racao_valor.getText()));
-        racao.setRacao_descricao(txt_racao_descricao.getText());
-
-        if (!"".equals(txt_racao_fornecedor.getText())) {
-            if (!"".equals(txt_racao_quantidade.getText())) {
-                racaoDao.salvarRacao(racao, nome, this);
-                racaoDao.consultarRacao(txt_racao_pesquisa, tab_racao, this);
-
-                txt_racao_id.setText("");
-                jdata_racao_compra.setCalendar(null);
-                jdata_racao_duracao.setCalendar(null);
-                txt_racao_fornecedor.setText("");
-                txt_racao_quantidade.setText("0");
-                txt_racao_valor.setText("0.00");
-                txt_racao_descricao.setText("");
-                sem_quantidade_racao.setText("");
-                sem_fornecedor_racao.setText("");
-            } else {
-                sem_quantidade_racao.setText("Campo obrigatório");
-            }
-        } else {
-            sem_fornecedor_racao.setText("Campo obrigatório");
-        }
-    }//GEN-LAST:event_btn_racao_cadastrarActionPerformed
-
-    private void btn_racao_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_racao_excluirActionPerformed
-        String nome = jnome.getText();
-        String how = txt_racao_id.getText();
-        racao.setRacao_id((Integer.valueOf(txt_racao_id.getText())));
-
-        racaoDao.apagarRacao(racao, nome, how, this);
-        racaoDao.consultarRacao(txt_racao_pesquisa, tab_racao, this);
-        txt_racao_id.setText("");
-        jdata_racao_compra.setCalendar(null);
-        jdata_racao_duracao.setCalendar(null);
-        txt_racao_fornecedor.setText("");
-        txt_racao_quantidade.setText("0");
-        txt_racao_valor.setText("0.00");
-        txt_racao_descricao.setText("");
-    }//GEN-LAST:event_btn_racao_excluirActionPerformed
-
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-
-        racaoDao.consultarRacao(txt_racao_pesquisa, tab_racao, this);
-        txt_ferrajamento_id.setText("");
-        jdata_racao_compra.setCalendar(null);
-        jdata_racao_duracao.setCalendar(null);
-        txt_racao_fornecedor.setText("");
-        txt_racao_quantidade.setText("0");
-        txt_racao_valor.setText("0.00");
-        txt_racao_descricao.setText("");
-        btn_racao_cadastrar.setEnabled(true);
-        btn_racao_excluir.setEnabled(false);
-        btn_racao_alterar.setEnabled(false);
-        sem_quantidade_racao.setText("");
-        sem_fornecedor_racao.setText("");
-
-    }//GEN-LAST:event_jButton23ActionPerformed
-
-    private void tab_racaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_racaoMouseClicked
-        int linha = tab_racao.getSelectedRow();
-        String valor = String.valueOf(tab_racao.getValueAt(linha, 0));
-        int racao_id = Integer.valueOf(valor);
-        racaoDao.consultarRacaoID(racao_id, txt_racao_id, jdata_racao_compra, jdata_racao_duracao, txt_racao_fornecedor, txt_racao_quantidade, txt_racao_valor, txt_racao_descricao, this);
-        btn_racao_cadastrar.setEnabled(false);
-        btn_racao_excluir.setEnabled(true);
-        btn_racao_alterar.setEnabled(true);
-    }//GEN-LAST:event_tab_racaoMouseClicked
-
-    private void btn_racao_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_racao_alterarActionPerformed
-        String nome = jnome.getText();
-        String how = txt_racao_id.getText();
-        racao.setRacao_id(Integer.valueOf(txt_racao_id.getText()));
-        java.sql.Date sqldate_calendario_racao = new java.sql.Date(jdata_racao_compra.getDate().getTime());
-        calendario.setCalendario_data(sqldate_calendario_racao);
-        racao.setRacao_compra(sqldate_calendario_racao);
-        java.sql.Date racao_duracao = new java.sql.Date(jdata_racao_duracao.getDate().getTime());
-        calendario.setCalendario_data(racao_duracao);
-        racao.setRacao_duracao(racao_duracao);
-        racao.setRacao_fornecedor(txt_racao_fornecedor.getText());
-        racao.setRacao_quantidade(Integer.valueOf(txt_racao_quantidade.getText()));
-        racao.setRacao_valor(Float.valueOf(txt_racao_valor.getText()));
-        racao.setRacao_descricao(txt_racao_descricao.getText());
-
-        if (!"".equals(txt_racao_fornecedor.getText())) {
-            if (!"".equals(txt_racao_quantidade.getText())) {
-                racaoDao.alterarRacao(racao, nome, how, this);
-                racaoDao.consultarRacao(txt_racao_pesquisa, tab_racao, this);
-
-                txt_racao_id.setText("");
-                jdata_racao_compra.setCalendar(null);
-                jdata_racao_duracao.setCalendar(null);
-                txt_racao_fornecedor.setText("");
-                txt_racao_quantidade.setText("0");
-                txt_racao_valor.setText("0.00");
-                txt_racao_descricao.setText("");
-                sem_quantidade_racao.setText("");
-                sem_fornecedor_racao.setText("");
-            } else {
-                sem_quantidade_racao.setText("Campo obrigatório");
-            }
-        } else {
-            sem_fornecedor_racao.setText("Campo obrigatório");
-        }
-    }//GEN-LAST:event_btn_racao_alterarActionPerformed
 
     private void btn_buscar_manutencaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_manutencaoActionPerformed
         manutencaoDao.consultarManutencao(txt_manutencao_pesquisa, tab_manutencao, this);
@@ -5600,7 +4098,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JPanel Jlog;
     private javax.swing.JPanel Jpastagem;
     private javax.swing.JPanel Jrh;
-    private javax.swing.JPanel Jtreino;
     private javax.swing.JPanel Jveterinario;
     private javax.swing.JButton at_usu_btn;
     private javax.swing.JComboBox<String> at_usu_cargo;
@@ -5628,7 +4125,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_alterar_calendario;
     private javax.swing.JButton btn_alterar_ferrajamento;
     private javax.swing.JButton btn_alterar_pastagem;
-    private javax.swing.JButton btn_alterar_treinamento;
     private javax.swing.JButton btn_alteraranimal;
     private javax.swing.JButton btn_animais;
     private javax.swing.JButton btn_animais1;
@@ -5641,11 +4137,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_excluir_calendario;
     private javax.swing.JButton btn_excluir_ferrajamento;
     private javax.swing.JButton btn_excluir_pastagem;
-    private javax.swing.JButton btn_excluir_treinamento;
     private javax.swing.JButton btn_excluiranimal;
-    private javax.swing.JButton btn_feno_alterar;
-    private javax.swing.JButton btn_feno_cadastrar;
-    private javax.swing.JButton btn_feno_excluir;
     private javax.swing.JButton btn_ferrajamento;
     private javax.swing.JButton btn_financeiro;
     private javax.swing.JButton btn_home;
@@ -5654,15 +4146,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_manutencao_cadastrar;
     private javax.swing.JButton btn_manutencao_excluir;
     private javax.swing.JButton btn_pastagem;
-    private javax.swing.JButton btn_racao_alterar;
-    private javax.swing.JButton btn_racao_cadastrar;
-    private javax.swing.JButton btn_racao_excluir;
     private javax.swing.JButton btn_rh;
-    private javax.swing.JButton btn_serragem_alterar;
-    private javax.swing.JButton btn_serragem_busca;
-    private javax.swing.JButton btn_serragem_cadastrar;
-    private javax.swing.JButton btn_serragem_excluir;
-    private javax.swing.JButton btn_treinamento;
     private javax.swing.JButton btn_usuario;
     private javax.swing.JButton btn_veterinario;
     private javax.swing.JButton btn_veterinario_alterar;
@@ -5670,8 +4154,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_veterinario_excluir;
     private javax.swing.JButton btncadastrar;
     private javax.swing.JButton btncadastrarpastagem;
-    private javax.swing.JButton btncadastrartreinamento;
-    private javax.swing.JButton btnpesquisatreinamento;
     private javax.swing.JComboBox<String> cad_usu_cargo;
     private javax.swing.JTextField cad_usu_cod_pessoa;
     private javax.swing.JPasswordField cad_usu_conf;
@@ -5686,7 +4168,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel cad_usu_senhaerro;
     private javax.swing.JComboBox<String> cad_usu_status;
     private javax.swing.JPanel cad_usuario;
-    private javax.swing.JComboBox<String> cb_feno_qualidade;
     private javax.swing.JComboBox<String> cb_manutencao_setor;
     private javax.swing.JComboBox<String> cbpastagemnumero;
     private javax.swing.JComboBox<String> cbpastagemqualidade;
@@ -5698,17 +4179,13 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser data_ferrajamento_inicio;
     private com.toedter.calendar.JDateChooser data_ferrajamento_termino;
     private com.toedter.calendar.JDateChooser data_nascimento;
-    private com.toedter.calendar.JDateChooser data_treinamento_inicio;
-    private com.toedter.calendar.JDateChooser data_treinamento_termino;
     private javax.swing.JPanel gen_conta;
     private javax.swing.JTabbedPane home;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
@@ -5719,8 +4196,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel100;
-    private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
@@ -5746,23 +4221,8 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -5788,7 +4248,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
@@ -5804,19 +4263,8 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
-    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel80;
-    private javax.swing.JLabel jLabel81;
-    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
@@ -5830,18 +4278,10 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
-    private javax.swing.JLabel jLabel95;
-    private javax.swing.JLabel jLabel96;
-    private javax.swing.JLabel jLabel97;
-    private javax.swing.JLabel jLabel98;
-    private javax.swing.JLabel jLabel99;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -5854,15 +4294,10 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
-    private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane20;
-    private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
@@ -5872,23 +4307,15 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
-    private javax.swing.JSeparator jSeparator14;
-    private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
-    private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator20;
     private javax.swing.JSeparator jSeparator21;
     private javax.swing.JSeparator jSeparator22;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -5896,13 +4323,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private com.toedter.calendar.JCalendar jcalendario_calendario;
     private javax.swing.JLabel jdata;
-    private com.toedter.calendar.JDateChooser jdata_feno_compra;
-    private com.toedter.calendar.JDateChooser jdata_feno_duracao;
-    private com.toedter.calendar.JDateChooser jdata_racao_compra;
-    private com.toedter.calendar.JDateChooser jdata_racao_duracao;
     private com.toedter.calendar.JDateChooser jdate_pastagem_data;
-    private com.toedter.calendar.JDateChooser jdate_serragem_compra;
-    private com.toedter.calendar.JDateChooser jdate_serragem_duracao;
     private com.toedter.calendar.JDateChooser jdate_veterinario_inicio;
     private com.toedter.calendar.JDateChooser jdate_veterinario_termino;
     private javax.swing.JPanel jhome;
@@ -5912,49 +4333,30 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel nomevazio;
     private javax.swing.JLabel registerro;
     private javax.swing.JLabel sem_animal_ferrajamento;
-    private javax.swing.JLabel sem_animal_treinamento;
     private javax.swing.JLabel sem_animal_veterinario;
     private javax.swing.JLabel sem_ferrador_ferrajamento;
-    private javax.swing.JLabel sem_fornecedor_feno;
-    private javax.swing.JLabel sem_fornecedor_racao;
-    private javax.swing.JLabel sem_fornecedor_serragem;
     private javax.swing.JLabel sem_funsao_rh;
-    private javax.swing.JLabel sem_modalidade_treinamento;
     private javax.swing.JLabel sem_nome_rh;
     private javax.swing.JLabel sem_nota;
     private javax.swing.JLabel sem_numero_pasto;
     private javax.swing.JLabel sem_numero_pasto2;
     private javax.swing.JLabel sem_pelagem;
     private javax.swing.JLabel sem_qualidade_pastagem;
-    private javax.swing.JLabel sem_quantidade_feno;
     private javax.swing.JLabel sem_quantidade_pasto;
-    private javax.swing.JLabel sem_quantidade_racao;
     private javax.swing.JLabel sem_setor_rh;
     private javax.swing.JLabel sem_sexo;
-    private javax.swing.JLabel sem_tipo_serragem;
-    private javax.swing.JLabel sem_treinador_treinamento;
     private javax.swing.JLabel sem_veterinario_veterinario;
     private javax.swing.JTable tabAnimal;
-    private javax.swing.JTable tab_feno;
     private javax.swing.JTable tab_ferrajamento;
     private javax.swing.JTable tab_log;
     private javax.swing.JTable tab_manutencao;
-    private javax.swing.JTable tab_racao;
-    private javax.swing.JTable tab_serragem;
     private javax.swing.JTable tab_veterinario;
     private javax.swing.JTable tabpastagem;
-    private javax.swing.JTable tabtreinamento;
     private javax.swing.JTabbedPane tela_home;
     private javax.swing.JTabbedPane telas_cad_usu;
     private javax.swing.JTextArea texto_agenda;
-    private javax.swing.JTextField txtTreinador;
     private javax.swing.JTextArea txt_anotacao_calendario;
     private javax.swing.JTextField txt_calendario_id;
-    private javax.swing.JTextField txt_feno_fornecedor;
-    private javax.swing.JTextField txt_feno_id;
-    private javax.swing.JTextField txt_feno_pesquisa;
-    private javax.swing.JTextField txt_feno_quantidade;
-    private javax.swing.JTextField txt_feno_valor;
     private javax.swing.JTextField txt_ferrajamento_animal;
     private javax.swing.JTextArea txt_ferrajamento_descricao;
     private javax.swing.JTextField txt_ferrajamento_ferrador;
@@ -5977,19 +4379,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JTextField txt_manutencao_salario;
     private javax.swing.JTextArea txt_notificacao_home;
     private javax.swing.JTextField txt_pesquisa_log;
-    private javax.swing.JTextArea txt_racao_descricao;
-    private javax.swing.JTextField txt_racao_fornecedor;
-    private javax.swing.JTextField txt_racao_id;
-    private javax.swing.JTextField txt_racao_pesquisa;
-    private javax.swing.JTextField txt_racao_quantidade;
-    private javax.swing.JTextField txt_racao_valor;
-    private javax.swing.JTextField txt_serragem_bais;
-    private javax.swing.JTextField txt_serragem_fornecedor;
-    private javax.swing.JTextField txt_serragem_id;
-    private javax.swing.JTextField txt_serragem_metros;
-    private javax.swing.JTextField txt_serragem_pesquisa;
-    private javax.swing.JTextField txt_serragem_tipo;
-    private javax.swing.JTextField txt_serragem_valor;
     private javax.swing.JTextField txt_veterinario_animal;
     private javax.swing.JTextArea txt_veterinario_diagnostico;
     private javax.swing.JTextField txt_veterinario_id;
@@ -5997,7 +4386,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JTextField txt_veterinario_pesquisa;
     private javax.swing.JTextArea txt_veterinario_tratamento;
     private javax.swing.JTextField txt_veterinario_valor;
-    private javax.swing.JTextField txtanimal;
     private javax.swing.JTextField txtanimalid;
     private javax.swing.JTextField txtcriador;
     private javax.swing.JTextField txtmodalidade;
@@ -6008,14 +4396,10 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtpelagem;
     private javax.swing.JTextField txtpesquisa;
     private javax.swing.JTextField txtpesquisapastagem;
-    private javax.swing.JTextField txtpesquisatreinamento;
     private javax.swing.JTextField txtproprietario;
     private javax.swing.JTextField txtregistro;
     private javax.swing.JTextField txtsexo;
     private javax.swing.JTextField txttreinador;
-    private javax.swing.JTextField txttreinamentoid;
-    private javax.swing.JTextField txttreinamentomodalidade;
-    private javax.swing.JTextField txttreinamentovalor;
     private javax.swing.JTextField txtveterinario;
     private javax.swing.JLabel usu_senhaerro;
     // End of variables declaration//GEN-END:variables

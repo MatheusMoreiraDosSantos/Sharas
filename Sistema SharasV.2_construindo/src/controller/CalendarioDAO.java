@@ -37,23 +37,14 @@ public class CalendarioDAO {
 
         try {
             con = Conexao.conectar();
-            sql = "insert into calendario (calendario_data , calendario_anotacao)values(?,?)";
+            sql = "insert into calendario (calendario_data , calendario_desc)values(?,?)";
             pst = con.prepareStatement(sql);
             pst.setDate(1, calendario.getCalendario_data());
-            pst.setString(2, calendario.getCalendario_anotacao());
+            pst.setString(2, calendario.getCalendario_desc());
 
             pst.execute();
 
             JOptionPane.showMessageDialog(JF_Principal1, "Cadastrado com Sucesso!");
-            try {
-                sql = "insert into log (log_acao, log_usuario, log_entidade, log_time, log_how) values ('CRIOU',?,'CALENDARIO',now(), (select max(calendario_id)from calendario)); ";
-                pst = con.prepareStatement(sql);
-                pst.setString(1, nome);
-                pst.execute();
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(JF_Principal1, "Erro ao cadastrar no log: " + e);
-            }
             Conexao.desconectar();
 
         } catch (Exception e) {
@@ -66,25 +57,14 @@ public class CalendarioDAO {
     public void alterarCalendario(Calendario calendario, String nome, String how, JFrame JF_Principal1) {
         try {
             con = Conexao.conectar();
-            sql = "update  calendario set calendario_data=?, calendario_anotacao=? where calendario_id=?";
+            sql = "update  calendario set calendario_data=?, calendario_desc=? where calendario_id=?";
             pst = con.prepareStatement(sql);
             pst.setDate(1, calendario.getCalendario_data());
-            pst.setString(2, calendario.getCalendario_anotacao());
+            pst.setString(2, calendario.getCalendario_desc());
             pst.setInt(3, calendario.getCalendario_id());
             pst.execute();
-
             JOptionPane.showMessageDialog(JF_Principal1, "Alterado com Sucesso!");
-            try {
-                sql = "insert into log (log_acao, log_usuario, log_entidade, log_time, log_how) values ('ALTEROU',?,'CALENDARIO',now(), ?); ";
-                pst = con.prepareStatement(sql);
-                pst.setString(1, nome);
-                pst.setString(2, how);
-                pst.execute();
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(JF_Principal1, "Erro ao alterar no log: " + e);
-            }
-            Conexoes.desconectar();
+            Conexao.desconectar();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Alterar: " + e);
@@ -103,16 +83,6 @@ public class CalendarioDAO {
             if (JOptionPane.showConfirmDialog(JF_Principal1, "Deseja Deletar?", "Atenção", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 pst.execute();
                 JOptionPane.showMessageDialog(JF_Principal1, "Deletado com Sucesso!");
-                try {
-                    sql = "insert into log (log_acao, log_usuario, log_entidade, log_time, log_how) values ('EXCLUIU',?,'CALENDARIO',now(), ?); ";
-                    pst = con.prepareStatement(sql);
-                    pst.setString(1, nome);
-                    pst.setString(2, how);
-                    pst.execute();
-
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Excluir no log: " + e);
-                }
                 Conexao.desconectar();
             }
 
@@ -134,7 +104,7 @@ public class CalendarioDAO {
 
             if (rs.next()) {
                 txt_calendario_id.setText(rs.getString("calendario_id"));
-                txt_calendario_anotacao.setText(rs.getString("calendario_anotacao"));
+                txt_calendario_anotacao.setText(rs.getString("calendario_desc"));
                 btn_excluir_calendario.setEnabled(true);
                 btn_alterar_calendario.setEnabled(true);
                 btn_cadastrar_calendario.setEnabled(false);
@@ -163,7 +133,7 @@ public class CalendarioDAO {
             con = Conexao.conectar();
             sql = "insert into agenda values (null,?,?,?)";
             pst = con.prepareStatement(sql);
-            pst.setString(1, calendario.getCalendario_anotacao());
+            pst.setString(1, calendario.getCalendario_desc());
             pst.setDate(3, calendario.getCalendario_data());
             pst.setInt(2, sessao.getId_usuario());
             pst.execute();

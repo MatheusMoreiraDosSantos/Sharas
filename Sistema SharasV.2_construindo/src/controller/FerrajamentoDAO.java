@@ -35,14 +35,14 @@ public class FerrajamentoDAO {
     //SALVAR
     public void salvarFerrajamento(Ferrajamento ferrajamento, String nome, JFrame JF_Principal1) {
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select animal_nome from animal where animal_nome = ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, ferrajamento.getFerrajamento_animal());
             rs = pst.executeQuery();
             if (rs.next()) {
                 try {
-                    con = Conexoes.conectar();
+                    con = Conexao.conectar();
                     sql = "insert into ferrajamento (ferrajamento_inicio,ferrajamento_termino ,ferrajamento_ferrador,ferrajamento_animal,ferrajamento_valor,ferrajamento_descricao)values(?,?,?,?,?,?)";
                     pst = con.prepareStatement(sql);
                     pst.setDate(1, ferrajamento.getFerrajamento_inicio());
@@ -63,7 +63,7 @@ public class FerrajamentoDAO {
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(JF_Principal1, "Erro ao cadastrar no log: " + e);
                     }
-                    Conexoes.desconectar();
+                    Conexao.desconectar();
 
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Cadastrar: " + e);
@@ -80,7 +80,7 @@ public class FerrajamentoDAO {
     //ALTERAR
     public void alterarFerrajamento(Ferrajamento ferrajamento, String nome, String how, JFrame JF_Principal1) {
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "update  ferrajamento set ferrajamento_inicio=?, ferrajamento_termino=?, ferrajamento_ferrador=?, ferrajamento_animal=?, ferrajamento_valor=?, ferrajamento_descricao=? where ferrajamento_id=?";
             pst = con.prepareStatement(sql);
             pst.setDate(1, ferrajamento.getFerrajamento_inicio());
@@ -103,7 +103,7 @@ public class FerrajamentoDAO {
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Alterar no log: " + e);
             }
-            Conexoes.desconectar();
+            Conexao.desconectar();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Alterar: " + e);
@@ -114,7 +114,7 @@ public class FerrajamentoDAO {
     public void apagarFerrajamento(Ferrajamento ferrajamento, String nome, String how, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "delete from ferrajamento where ferrajamento_id = ?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, ferrajamento.getFerrajamento_id());
@@ -132,7 +132,7 @@ public class FerrajamentoDAO {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Excluir no log: " + e);
                 }
-                Conexoes.desconectar();
+                Conexao.desconectar();
             }
 
         } catch (Exception e) {
@@ -145,7 +145,7 @@ public class FerrajamentoDAO {
     public void consultarFerrajamentoID(int ferrajamento_id, JTextField txt_ferrajamento_id, JDateChooser data_ferrajamento_inicio, JDateChooser data_ferrajamento_termino, JTextField txt_ferrajamento_ferrador, JTextField txt_ferrajamento_animal, JTextField txt_ferrajamento_valor, JTextArea txt_ferrajamento_descricao, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select * from ferrajamento where ferrajamento_id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, ferrajamento_id);
@@ -173,13 +173,13 @@ public class FerrajamentoDAO {
     public void consultarFerrajamento(JTextField txt_ferrajamento_pesquisa, JTable tabferrajamento, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select ferrajamento_id as ID, ferrajamento_inicio as INICIO, ferrajamento_termino as TERMINO, ferrajamento_ferrador as FERRADOR, ferrajamento_animal as ANIMAL, ferrajamento_valor as VALOR, ferrajamento_descricao as DESCRICAO from ferrajamento where ferrajamento_animal like ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, "%" + txt_ferrajamento_pesquisa.getText() + "%");
             rs = pst.executeQuery();
             tabferrajamento.setModel(DbUtils.resultSetToTableModel(rs));
-            Conexoes.desconectar();
+            Conexao.desconectar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao consultar: " + e);
         }

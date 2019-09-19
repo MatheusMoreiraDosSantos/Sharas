@@ -44,17 +44,19 @@ public class Calendario {
     /**
      * @return the calendario_anotacao
      */
-    public String getCalendario_anotacao() {
+    public String getCalendario_desc() {
         return calendario_anotacao;
     }
 
     /**
      * @param calendario_anotacao the calendario_anotacao to set
      */
-    public void setCalendario_anotacao(String calendario_anotacao) {
+    public void setCalendario_desc(String calendario_anotacao) {
         this.calendario_anotacao = calendario_anotacao;
     }
-    private static int calendario_id;
+    
+    
+    private  int calendario_id;
     private Date calendario_data;
     private String calendario_anotacao;
 }

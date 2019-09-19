@@ -33,7 +33,7 @@ public class AnimalDAO {
     public void salvarAnimal(Animal animal, String nome,String how ,JFrame jfUsuario) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "insert into animal (animal_nome, animal_registro, animal_proprietario,animal_criador,animal_nascimento,animal_sexo,animal_pelagem,animal_modalidade,animal_treinador,animal_veterinario)values(?,?,?,?,?,?,?,?,?,?)";
             pst = con.prepareStatement(sql);
             pst.setString(1, animal.getAnimal_nome());
@@ -57,7 +57,7 @@ public class AnimalDAO {
 
                 JOptionPane.showMessageDialog(jfUsuario, "Cadastrado com Sucesso!");
 
-                Conexoes.desconectar();
+                Conexao.desconectar();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(jfUsuario, "Erro ao Cadastrar no log: " + e);
             }
@@ -70,7 +70,7 @@ public class AnimalDAO {
     //ALTERAR
     public void alterarAnimal(Animal animal, String nome,String how ,JFrame jfUsuario) {
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "update  animal set animal_nome=?, animal_registro=?, animal_proprietario=?,animal_criador=?,animal_nascimento=?,animal_sexo=?,animal_pelagem=?,animal_modalidade=?,animal_treinador=?,animal_veterinario=? where animal_id=?";
             pst = con.prepareStatement(sql);
             pst.setString(1, animal.getAnimal_nome());
@@ -98,7 +98,7 @@ public class AnimalDAO {
                 JOptionPane.showMessageDialog(jfUsuario, "Erro ao Alterar no log: " + e);
             }
 
-            Conexoes.desconectar();
+            Conexao.desconectar();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(jfUsuario, "Erro ao Alterar: " + e);
@@ -109,7 +109,7 @@ public class AnimalDAO {
     public void apagarAnimal(Animal animal, String nome,String how,JFrame jfUsuario) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "delete from animal where animal_id = ?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, animal.getAnimal_id());
@@ -127,7 +127,7 @@ public class AnimalDAO {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(jfUsuario, "Erro ao Excluir no log: " + e);
                 }
-                Conexoes.desconectar();
+                Conexao.desconectar();
             }
 
         } catch (Exception e) {
@@ -140,13 +140,13 @@ public class AnimalDAO {
     public void consultarAnimalNome(JTextField txtPesquisa, JTable tabAnimal, JFrame jfUsuario) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select animal_id as ID, animal_nome as Nome, animal_sexo as Sexo, animal_proprietario as Proprietario from animal where animal_nome like ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, "%" + txtPesquisa.getText() + "%");
             rs = pst.executeQuery();
             tabAnimal.setModel(DbUtils.resultSetToTableModel(rs));
-            Conexoes.desconectar();
+            Conexao.desconectar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(jfUsuario, "Erro ao consultar: " + e);
         }
@@ -157,7 +157,7 @@ public class AnimalDAO {
     public void consultarAnimalID(int animal_id, JTextField txtanimalid, JTextField txtnomeanimal, JTextField txtregistro, JTextField txtproprietario, JTextField txtcriador, JDateChooser txtnascimento, JTextField txtsexo, JTextField txtpelagem, JTextField txtmodalidade, JTextField txttreinador, JTextField txtveterinario, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select * from animal where animal_id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, animal_id);

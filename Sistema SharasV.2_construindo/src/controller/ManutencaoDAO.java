@@ -34,7 +34,7 @@ public class ManutencaoDAO {
     public void salvarManutencao(Manutencao manutencao, String nome,JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "insert into manutencao(manutencao_nome, manutencao_salario, manutencao_funcao, manutencao_setor, manutencao_anotacao)values(?,?,?,?,?)";
             pst = con.prepareStatement(sql);
             pst.setString(1, manutencao.getManutencao_nome());
@@ -54,7 +54,7 @@ public class ManutencaoDAO {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao CADASTRAR no log: " + e);
                 }
-            Conexoes.desconectar();
+            Conexao.desconectar();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Cadastrar: " + e);
@@ -65,7 +65,7 @@ public class ManutencaoDAO {
     //ALTERAR
     public void alterarManutencao(Manutencao manutencao,String nome ,String how,JFrame JF_Principal1) {
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "update  manutencao set manutencao_nome=?,manutencao_salario=?, manutencao_funcao=?,manutencao_setor=? , manutencao_anotacao=? where manutencao_id=?";
             pst = con.prepareStatement(sql);
             pst.setString(1, manutencao.getManutencao_nome());
@@ -87,7 +87,7 @@ public class ManutencaoDAO {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao ALTERAR no log: " + e);
                 }
-            Conexoes.desconectar();
+            Conexao.desconectar();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Alterar: " + e);
@@ -98,7 +98,7 @@ public class ManutencaoDAO {
     public void apagarManutencao(Manutencao manutencao,String nome ,String how,JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "delete from manutencao where manutencao_id = ?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, manutencao.getManutencao_id());
@@ -116,7 +116,7 @@ public class ManutencaoDAO {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Excluir no log: " + e);
                 }
-                Conexoes.desconectar();
+                Conexao.desconectar();
             }
 
         } catch (Exception e) {
@@ -140,7 +140,7 @@ public class ManutencaoDAO {
     public void consultarManutencaoID(int manutencao_id, JTextField txt_manutencao_id, JTextField txt_manutencao_nome, JTextField txt_manutencao_salario, JTextArea txt_manutencao_funcao, JComboBox cb_manutencao_setor, JTextArea txt_manutencao_anotacao, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select * from manutencao where manutencao_id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, manutencao_id);
@@ -167,13 +167,13 @@ public class ManutencaoDAO {
     public void consultarManutencao(JTextField txt_manutencao_pesquisa, JTable tab_manutencao, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select manutencao_id as ID, manutencao_nome as NOME, manutencao_salario as SALARIO, manutencao_funcao as FUNCAO, manutencao_setor as SETOR, manutencao_anotacao as ANOTACAO  from manutencao where manutencao_nome like ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, "%" + txt_manutencao_pesquisa.getText() + "%");
             rs = pst.executeQuery();
             tab_manutencao.setModel(DbUtils.resultSetToTableModel(rs));
-            Conexoes.desconectar();
+            Conexao.desconectar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao consultar: " + e);
         }
