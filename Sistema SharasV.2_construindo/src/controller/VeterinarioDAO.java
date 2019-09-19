@@ -44,14 +44,14 @@ public class VeterinarioDAO {
     //SALVAR
     public void salvarVeterinario(Veterinario veterinario, String nome, String how, JFrame JF_Principal1) {
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select animal_nome from animal where animal_nome = ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, veterinario.getVeterinario_animal());
             rs = pst.executeQuery();
             if (rs.next()) {
                 try {
-                    con = Conexoes.conectar();
+                    con = Conexao.conectar();
                     sql = "insert into veterinario(veterinario_animal, veterinario_nome, veterinario_inicio, veterinario_termino, veterinario_diagnostico, veterinario_tratamento, veterinario_valor)values(?,?,?,?,?,?,?)";
                     pst = con.prepareStatement(sql);
                     pst.setString(1, veterinario.getVeterinario_animal());
@@ -71,11 +71,11 @@ public class VeterinarioDAO {
                         pst.setString(2, how);
                         pst.execute();
 
-                        Conexoes.desconectar();
+                        Conexao.desconectar();
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Cadastrar no log: " + e);
                     }
-                    Conexoes.desconectar();
+                    Conexao.desconectar();
 
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Cadastrar: " + e);
@@ -92,7 +92,7 @@ public class VeterinarioDAO {
 //ALTERAR
 public void alterarVeterinario(Veterinario veterinario, String nome, String how, JFrame JF_Principal1) {
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "update  veterinario set veterinario_animal=?, veterinario_nome=?,veterinario_inicio=?, veterinario_termino=?,veterinario_diagnostico=? , veterinario_tratamento=?, veterinario_valor=? where veterinario_id=?";
             pst = con.prepareStatement(sql);
             pst.setString(1, veterinario.getVeterinario_animal());
@@ -113,11 +113,11 @@ public void alterarVeterinario(Veterinario veterinario, String nome, String how,
                 pst.setString(2, how);
                 pst.execute();
 
-                Conexoes.desconectar();
+                Conexao.desconectar();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Cadastrar no log: " + e);
             }
-            Conexoes.desconectar();
+            Conexao.desconectar();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Alterar: " + e);
@@ -128,7 +128,7 @@ public void alterarVeterinario(Veterinario veterinario, String nome, String how,
     public void apagarVeterinario(Veterinario veterinario, String nome, String how, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "delete from veterinario where veterinario_id = ?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, veterinario.getVeterinario_id());
@@ -143,11 +143,11 @@ public void alterarVeterinario(Veterinario veterinario, String nome, String how,
                     pst.setString(2, how);
                     pst.execute();
 
-                    Conexoes.desconectar();
+                    Conexao.desconectar();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Cadastrar no log: " + e);
                 }
-                Conexoes.desconectar();
+                Conexao.desconectar();
             }
 
         } catch (Exception e) {
@@ -160,7 +160,7 @@ public void alterarVeterinario(Veterinario veterinario, String nome, String how,
     public void consultarVeterinarioID(int Veterinario_id, JTextField txt_veterinario_id, JTextField txt_veterinario_animal, JTextField txt_veterinario_nome, JDateChooser jdate_veterinario_inicio, JDateChooser jdate_veterinario_termino, JTextArea txt_veterinario_diagnostico, JTextArea txt_veterinario_tratamento, JTextField txt_veterinario_valor, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select * from veterinario where veterinario_id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, Veterinario_id);
@@ -189,13 +189,13 @@ public void alterarVeterinario(Veterinario veterinario, String nome, String how,
     public void consultarVeterinario(JTextField txt_veterinario_pesquisa, JTable tab_vaterinario, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select veterinario_id as ID, veterinario_animal as ANIMAL, veterinario_nome as NOME, veterinario_inicio as INICIO, veterinario_termino as TERMINO, veterinario_diagnostico as DIAGNOSTICO  from veterinario where veterinario_animal like ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, "%" + txt_veterinario_pesquisa.getText() + "%");
             rs = pst.executeQuery();
             tab_vaterinario.setModel(DbUtils.resultSetToTableModel(rs));
-            Conexoes.desconectar();
+            Conexao.desconectar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao consultar: " + e);
         }

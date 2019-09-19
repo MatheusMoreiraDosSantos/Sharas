@@ -25,7 +25,7 @@ public class PastagemDAO {
     public void salvarPastagem(Pastagem pastagem,String nome ,JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "insert into pastagem (pastagem_numero,pastagem_quantidade ,pastagem_qualidade,pastagem_anotacao, pastagem_data)values(?,?,?,?,?)";
             pst = con.prepareStatement(sql);
             pst.setInt(1, pastagem.getPastagem_numero());
@@ -45,7 +45,7 @@ public class PastagemDAO {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao CADASTRAR no log: " + e);
                 }
-            Conexoes.desconectar();
+            Conexao.desconectar();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Cadastrar: " + e);
@@ -56,7 +56,7 @@ public class PastagemDAO {
     //ALTERAR
     public void alterarPastagem(Pastagem pastagem,String nome ,String how ,JFrame JF_Principal1) {
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "update  pastagem set pastagem_numero=?,pastagem_quantidade=?, pastagem_qualidade=?,pastagem_anotacao=? , pastagem_data=? where pastagem_id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, pastagem.getPastagem_numero());
@@ -78,7 +78,7 @@ public class PastagemDAO {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Excluir no log: " + e);
                 }
-            Conexoes.desconectar();
+            Conexao.desconectar();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Alterar: " + e);
@@ -89,7 +89,7 @@ public class PastagemDAO {
     public void apagarPastagem(Pastagem pastagem,String nome, String how, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "delete from pastagem where pastagem_id = ?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, pastagem.getPastagem_id());
@@ -107,7 +107,7 @@ public class PastagemDAO {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(JF_Principal1, "Erro ao Excluir no log: " + e);
                 }
-                Conexoes.desconectar();
+                Conexao.desconectar();
             }
 
         } catch (Exception e) {
@@ -120,7 +120,7 @@ public class PastagemDAO {
     public void consultarPastagemID(int pastagem_id,JTextField txtpastagemid, JTextField txtpastagemquantidade, JComboBox cbpastagemnumero, JComboBox cbpastagemqualidade,JTextArea txtpastagemanotacao,JDateChooser jdate_pastagem_data, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select * from pastagem where pastagem_id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, pastagem_id);
@@ -148,13 +148,13 @@ public class PastagemDAO {
     public void consultarPastagem(JTextField txtpesquisapastagem, JTable  tabpastagem, JFrame JF_Principal1) {
 
         try {
-            con = Conexoes.conectar();
+            con = Conexao.conectar();
             sql = "select pastagem_id as ID, pastagem_numero as NUMERO,pastagem_qualidade as QUALIDADE, pastagem_anotacao as ANOTACAO  from pastagem where pastagem_numero like ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, "%" + txtpesquisapastagem.getText() + "%");
             rs = pst.executeQuery();
             tabpastagem.setModel(DbUtils.resultSetToTableModel(rs));
-            Conexoes.desconectar();
+            Conexao.desconectar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(JF_Principal1, "Erro ao consultar: " + e);
         }

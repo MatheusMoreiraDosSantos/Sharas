@@ -123,7 +123,7 @@ public class Agendacad extends javax.swing.JDialog {
             F_JF_principal principal = new F_JF_principal();
             if(principal.textareanull(jTextArea1,jLabel1)){
                 if(principal.convertedata(jDateChooser1,jLabel3) != null){
-                     calendario.setCalendario_anotacao(jTextArea1.getText());
+                     calendario.setCalendario_desc(jTextArea1.getText());
                      calendario.setCalendario_data(principal.convertedata(jDateChooser1, jLabel3));
                      CalendarioDAO salvar = new CalendarioDAO();
                      salvar.salvarAgenda(calendario);

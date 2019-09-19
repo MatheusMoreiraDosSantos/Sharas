@@ -33,7 +33,7 @@ public class UsuarioDAO {
     Usuario usuario = new Usuario();
       public void  selectusuario(Usuario usuario){
           try{
-          con = Conexao.conectar();
+            con = Conexao.conectar();
             sql = "SELECT usuario_id from usuario where usuario_id = ?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, usuario.getUsuario_id());  
