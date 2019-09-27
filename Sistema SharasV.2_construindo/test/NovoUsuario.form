@@ -132,9 +132,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="cad_usu_telefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cad_usu_nome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cad_usu_nome" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">

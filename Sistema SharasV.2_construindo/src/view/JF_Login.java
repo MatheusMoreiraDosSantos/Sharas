@@ -24,12 +24,14 @@ public static int tipo;
     public JF_Login() {
         initComponents();
       //  
+      //deixa para entrar com enter 
    getRootPane().setDefaultButton(btn_acesso);
      //    ImageIcon icon = new ImageIcon(this.getClass().getResource("../icons/cavalo_icone.png"));
     //setIconImage(icon.getImage());
 
     }
-  Sessao sessao= new Sessao();
+  
+    Sessao sessao= new Sessao();
         LogarDAO logar=new LogarDAO();
         JF_Principal1 principal= new JF_Principal1();
     JF_Login(String nome) {
@@ -81,7 +83,6 @@ public static int tipo;
         });
 
         txt_Senha.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txt_Senha.setText("maikon");
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setText("Login:");
@@ -205,7 +206,6 @@ public static int tipo;
 
     private void btn_acessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_acessoActionPerformed
         // ACESSO AO SISTEMA
-      
         if(logar.logarSistem(txt_Login, txt_Senha, nexiste)){
            principal.setVisible(true);
             this.dispose();

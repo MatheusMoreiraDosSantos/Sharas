@@ -23,7 +23,8 @@ public class CargoDAO {
     String sql;
     PreparedStatement pst;
     ResultSet rs;
-     public void selectCargo(JComboBox cb) {
+    //Carrega os cargos em combobox 
+    public void selectCargo(JComboBox cb) {
         try {
             con = Conexao.conectar();
             sql = "SELECT cargo_id,cargo_nome from cargo ";

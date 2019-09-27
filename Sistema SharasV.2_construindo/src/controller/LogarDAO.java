@@ -28,6 +28,7 @@ public class LogarDAO {
     ResultSet rs;
     F_email fmail = new F_email();
     Sessao sessao = new Sessao();
+    //Verifica o login e se causo achar algo salva na sessão 
     public boolean logarSistem(JTextField login,JTextField senha,JLabel erro){
         try{
                 con=Conexao.conectar();
@@ -38,8 +39,7 @@ public class LogarDAO {
                 rs = pst.executeQuery();
                 if(rs.next()){
                         int status = rs.getInt("usuario_status");
-                        if(status == 1){
-                         
+                        if(status == 1){ 
                             sessao.setId_pessoa(rs.getInt("pessoa_pessoa_id"));
                             sessao.setId_usuario(rs.getInt("usuario_id"));
                             sessao.setUsario_cargo(rs.getInt("usuario_tipo"));
@@ -60,6 +60,7 @@ public class LogarDAO {
                    Conexao.desconectar();
         return (false);
     }
+   //Altera a senha e envia por email 
     public boolean recuperarSenha(JTextField campo, Usuario usuario,JLabel erro){
       try {
             con = Conexao.conectar();

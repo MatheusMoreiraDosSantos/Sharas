@@ -32,7 +32,7 @@ public class Validacoes {
     F_JF_principal f_principal= new F_JF_principal();
     
 //valida se existe no banco
- 
+ //verifica se existe um email 
  public boolean emailEnvio(JTextField campo,JLabel erro){
          try {
             con = Conexao.conectar();
@@ -55,6 +55,8 @@ public class Validacoes {
         }
    
     }
+ //verifica algum campo em alguma tabela 
+ //na parte tabela vai o nome da tabela e e campo tabela , o dado que vai verificar 
     public  boolean verificaBanco(JTextField campo,JLabel erro,String tabela,String campo_tabela){
     if(f_principal.camponull(campo, erro)){
         try {

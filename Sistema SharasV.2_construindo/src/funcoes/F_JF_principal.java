@@ -13,9 +13,68 @@ import java.util.InputMismatchException;
 /**
  *
  * @author maiko
+ * PT.1 Validação de campos nulo 
+ * PT.2 Validação logica de campos(comparação de senhas e validação de caracteres )
  */
 public class F_JF_principal {
-    
+  /**
+   *  PT.1
+   * @param campo
+   * Para todos tratar com verdadeiro se não estiver nulo 
+   * para data retornar usar valor null 
+   */
+   //Combobox nulo 
+    public boolean combonull(JComboBox campo){
+        String n = campo.getName();
+        System.out.println(""+n);
+        if(campo.getSelectedIndex() == 0){
+                    return (false);
+        }
+                    return(true);
+    }
+    //Converte a data e retorna nulo ser for inválida
+    public static Date convertedata(JDateChooser data, JLabel nasc){
+    try{
+        java.sql.Date sqldata = new java.sql.Date(data.getDate().getTime());    
+        nasc.setText("");
+       return sqldata;
+    }catch(Exception e){
+        nasc.setText("Data inválida");
+        return null;
+    }
+    }
+        //Para jtextfield vazio
+    public static boolean camponull(JTextField campo,JLabel erro){
+        if(!"".equals(campo.getText())){
+            erro.setText("");
+             System.out.println(""+campo.getText());
+            return(true);
+        }else{
+              erro.setText("preencha o capo acima");
+              System.out.println(""+campo.getText());
+              return (false);
+        }
+                
+    }
+    //Textarea null
+      public static boolean textareanull(JTextArea campo,JLabel erro){
+        if(!"".equals(campo.getText())){
+            erro.setText("");
+             System.out.println(""+campo.getText());
+            return(true);
+        }else{
+              erro.setText("preencha o capo ");
+              System.out.println(""+campo.getText());
+              return (false);
+        }
+                
+    }
+      /**
+       *  PT.2
+       * @param campo
+       * Verificar se os dados são validos , modificar texto de campos 
+       */
+     //Trasforma o numero digitado em um padrão aceitavel e bonitinho 
     public void telefoneformato(JTextField campo){
      String numero = "";
         if(campo.getText().length()==4){
@@ -38,6 +97,7 @@ public class F_JF_principal {
     
     
     }
+    // verifica se realmente vai salvar o objeto cadastrado como desativado (desativado) 
     public boolean desativado(JComboBox campo){
         if(campo.getSelectedIndex()==0){  
         String opcoes[] = {"Sim", "Não"};
@@ -51,65 +111,7 @@ public class F_JF_principal {
         }
         return (true);   
     }
-    public boolean combonull(JComboBox campo){
-        String n = campo.getName();
-        System.out.println(""+n);
-        if(campo.getSelectedIndex() == 0){
-                    return (false);
-        }
-                    return(true);
-    }
-    //Converte a data e retorna nulo ser for inválida
-    public static Date convertedata(JDateChooser data, JLabel nasc){
-    try{
-        java.sql.Date sqldata = new java.sql.Date(data.getDate().getTime());    
-        nasc.setText("");
-       return sqldata;
-    }catch(Exception e){
-        nasc.setText("Data inválida");
-        return null;
-    }
-    }
-    public void desabilitarbotao(JButton excluir , JButton alterar){
-       excluir.setEnabled(false);
-       alterar.setEnabled(false);
-    }
-    public void removerTable(JTabbedPane telas ,JTabbedPane painel){
-       telas.setVisible(true);
-       telas.removeAll();
-       telas.add(painel);
-    }
-    public void removerPainel(JTabbedPane telas ,JPanel painel){
-       telas.setVisible(true);
-       telas.removeAll();
-       telas.add(painel);
-    }
-    //retorna falso se o campo estiver vazio
-    public static boolean camponull(JTextField campo,JLabel erro){
-        if(!"".equals(campo.getText())){
-            erro.setText("");
-             System.out.println(""+campo.getText());
-            return(true);
-        }else{
-              erro.setText("preencha o capo acima");
-              System.out.println(""+campo.getText());
-              return (false);
-        }
-                
-    }
-      public static boolean textareanull(JTextArea campo,JLabel erro){
-        if(!"".equals(campo.getText())){
-            erro.setText("");
-             System.out.println(""+campo.getText());
-            return(true);
-        }else{
-              erro.setText("preencha o capo ");
-              System.out.println(""+campo.getText());
-              return (false);
-        }
-                
-    }
-    //Verifica a senha e retorna verdadeiro ou falso 
+ //Verifica a senha e retorna verdadeiro se estiver nos padrões 
     public static boolean Verifsenha(JTextField senha, JTextField  confirma_senha,JLabel senhaerro ,JLabel senhaconf){
         if(senha.getText().length() >= 4 && senha.getText().length() <= 15){
             senhaerro.setText("");
@@ -197,12 +199,24 @@ public class F_JF_principal {
                 }
             
         }
-    public boolean verificaBanco(JTextField campo,String nomebanco){
-       
-        return (true); 
+        /**
+         * PT.3 alterada estado de componentes 
+         */
+   
+    public void desabilitarbotao(JButton excluir , JButton alterar){
+       excluir.setEnabled(false);
+       alterar.setEnabled(false);
     }
-    
-    
+    public void removerTable(JTabbedPane telas ,JTabbedPane painel){
+       telas.setVisible(true);
+       telas.removeAll();
+       telas.add(painel);
+    }
+    public void removerPainel(JTabbedPane telas ,JPanel painel){
+       telas.setVisible(true);
+       telas.removeAll();
+       telas.add(painel);
+    }
   /* 
     //Main para testes 
     public static void main(String[] args){

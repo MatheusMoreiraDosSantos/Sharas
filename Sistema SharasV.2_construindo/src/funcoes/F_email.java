@@ -64,6 +64,7 @@ public class F_email {
     }
  
  }
+    // verifica se o email tem caracteristicas de validade 
   public boolean verificaEmail(JTextField email , JLabel emailerro){
         int c=0,c2=0;
         for(int i=0;i<email .getText().length();i++){

@@ -22,6 +22,7 @@ public class miscDAO {
     PreparedStatement pst;
     ResultSet rs;
     Pessoa p = new Pessoa();
+    //Ainda sem funcionalidade 
     public void salvarTelefone(Misc telefone){
     try{
         con = Conexao.conectar();
