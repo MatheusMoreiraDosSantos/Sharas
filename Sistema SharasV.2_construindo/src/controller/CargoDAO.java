@@ -25,7 +25,7 @@ public class CargoDAO {
     ResultSet rs;
     //Carrega os cargos em combobox 
     public void selectCargo(JComboBox cb) {
-        try {
+       /* try {
             con = Conexao.conectar();
             sql = "SELECT cargo_id,cargo_nome from cargo ";
             pst = con.prepareStatement(sql);
@@ -38,7 +38,7 @@ public class CargoDAO {
             Conexao.desconectar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro" + e);
-        }
+        }*/
     }
 }
 
