@@ -59,7 +59,7 @@ public class ServicosDAO {
         }
 }
     
-        public  void carrinho(JTable tabela, int valor,JLabel total){
+        public  void carrinho(JTable tabela, int valor,JTextField total){
             int n =0;  
             System.out.println(valor);
             try{
@@ -69,7 +69,7 @@ public class ServicosDAO {
                rs=pst.executeQuery();
                if(rs.next()){
                sql="insert into produto_servico values (?,?)";
-              n = rs.getInt(1);
+               n = rs.getInt(1);
                pst= con.prepareStatement(sql);
                pst.setInt(1,rs.getInt(1));
                pst.setInt(2, valor);
@@ -87,7 +87,7 @@ public class ServicosDAO {
                pst.setInt(1, n);
                rs=pst.executeQuery();
                if(rs.next()){
-               
+               total.setText("R$"+rs.getFloat(1));
                }
                }
                }

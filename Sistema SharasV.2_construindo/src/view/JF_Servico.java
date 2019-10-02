@@ -58,7 +58,7 @@ public class JF_Servico extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton6 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        total = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -77,7 +77,7 @@ public class JF_Servico extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 41, 498, 182));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 498, 182));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Cliente : ");
@@ -185,8 +185,8 @@ public class JF_Servico extends javax.swing.JFrame {
         jButton6.setText("Cancelar");
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(932, 457, 222, -1));
 
-        jTextField4.setEnabled(false);
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1014, 241, 60, -1));
+        total.setEnabled(false);
+        getContentPane().add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(1014, 241, 60, -1));
 
         jTextField5.setEnabled(false);
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1014, 264, 60, -1));
@@ -207,7 +207,7 @@ public class JF_Servico extends javax.swing.JFrame {
            int linha = tb_produto.getSelectedRow();
            String valor = String.valueOf(tb_produto.getValueAt(linha, 0));
            carrinho.add(valor);
-           servicos.carrinho(tb_carrinho,Integer.parseInt(valor));
+           servicos.carrinho(tb_carrinho,Integer.parseInt(valor),total);
            
 // TODO add your handling code here:
     }//GEN-LAST:event_tb_produtoMouseClicked
@@ -271,10 +271,10 @@ public class JF_Servico extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTable tb_carrinho;
     private javax.swing.JTable tb_produto;
+    private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
 }
