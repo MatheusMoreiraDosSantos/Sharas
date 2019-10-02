@@ -59,25 +59,36 @@ public class ServicosDAO {
         }
 }
     
-        public  void carrinho(JTable tabela, int valor){
-                System.out.println(valor);
+        public  void carrinho(JTable tabela, int valor,JLabel total){
+            int n =0;  
+            System.out.println(valor);
             try{
                con=Conexao.conectar();
                sql="SELECT * FROM vw_servico_produto";
                pst= con.prepareStatement(sql);
                rs=pst.executeQuery();
                if(rs.next()){
-              sql="insert into produto_servico values ?,?";
-              System.out.println(rs.getInt(1));
-              pst= con.prepareStatement(sql);
-               pst.setInt(1,rs.getInt(0));
+               sql="insert into produto_servico values (?,?)";
+              n = rs.getInt(1);
+               pst= con.prepareStatement(sql);
+               pst.setInt(1,rs.getInt(1));
                pst.setInt(2, valor);
                pst.execute();
-               sql="select * from produto_servico where servicoid ="+rs.getInt(1)+"";
+               sql="select * from carrinho where Compra = ? ";
                pst= con.prepareStatement(sql);
+               pst.setInt(1, rs.getInt(1));
+               rs=pst.executeQuery();
+               System.out.println("chegou aqui 1");
+               if(rs.next()){
+                   System.out.println("chegou aqui");
+               tabela.setModel(DbUtils.resultSetToTableModel(rs));
+               sql="select sum(Valor)from carrinho WHERE Compra = ?";
+               pst= con.prepareStatement(sql);
+               pst.setInt(1, n);
                rs=pst.executeQuery();
                if(rs.next()){
-               tabela.setModel(DbUtils.resultSetToTableModel(rs));
+               
+               }
                }
                }
               
