@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.*;
 
 import model.Sessao;
@@ -58,22 +59,28 @@ public class ServicosDAO {
         }
 }
     
-        public  void insereproduto(JTable tabela){
-        try{
+        public  void carrinho(JTable tabela, int valor){
+                System.out.println(valor);
+            try{
                con=Conexao.conectar();
-               sql="insert  carrinho values ? ";
-            
-            
-            
-                
-                sql="insert into carrinho values ? ";
-                pst= con.prepareStatement(sql);
-                rs = pst.executeQuery();
-                if(rs.next()){
-                    tabela.setModel(DbUtils.resultSetToTableModel(rs));
-                }
-                
-                
+               sql="SELECT * FROM vw_servico_produto";
+               pst= con.prepareStatement(sql);
+               rs=pst.executeQuery();
+               if(rs.next()){
+              sql="insert into produto_servico values ?,?";
+              System.out.println(rs.getInt(1));
+              pst= con.prepareStatement(sql);
+               pst.setInt(1,rs.getInt(0));
+               pst.setInt(2, valor);
+               pst.execute();
+               sql="select * from produto_servico where servicoid ="+rs.getInt(1)+"";
+               pst= con.prepareStatement(sql);
+               rs=pst.executeQuery();
+               if(rs.next()){
+               tabela.setModel(DbUtils.resultSetToTableModel(rs));
+               }
+               }
+              
         }catch(SQLException e ){
            
         }

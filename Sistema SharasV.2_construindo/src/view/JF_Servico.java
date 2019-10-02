@@ -25,7 +25,7 @@ public class JF_Servico extends javax.swing.JFrame {
     }
     
     
-   
+   ArrayList<String> carrinho = new ArrayList();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,7 +51,7 @@ public class JF_Servico extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tb_carrinho = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -147,7 +147,7 @@ public class JF_Servico extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 241, 498, -1));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tb_carrinho.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -158,7 +158,7 @@ public class JF_Servico extends javax.swing.JFrame {
                 "Codigo ", "Serviço", "Valor "
             }
         ));
-        jScrollPane5.setViewportView(jTable3);
+        jScrollPane5.setViewportView(tb_carrinho);
 
         getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 241, 308, 237));
 
@@ -206,7 +206,8 @@ public class JF_Servico extends javax.swing.JFrame {
     private void tb_produtoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_produtoMouseClicked
            int linha = tb_produto.getSelectedRow();
            String valor = String.valueOf(tb_produto.getValueAt(linha, 0));
-           
+           carrinho.add(valor);
+           servicos.carrinho(tb_carrinho,Integer.parseInt(valor));
            
 // TODO add your handling code here:
     }//GEN-LAST:event_tb_produtoMouseClicked
@@ -266,7 +267,6 @@ public class JF_Servico extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -274,6 +274,7 @@ public class JF_Servico extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable tb_carrinho;
     private javax.swing.JTable tb_produto;
     // End of variables declaration//GEN-END:variables
 }
