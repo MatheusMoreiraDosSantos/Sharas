@@ -417,6 +417,30 @@ public class JF_Principal1 extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jPanel6 = new javax.swing.JPanel();
+        cad_usu_cpferro = new javax.swing.JLabel();
+        clie_cpf = new javax.swing.JTextField();
+        usu_telerro = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        cad_usu_telerro2 = new javax.swing.JLabel();
+        usu_senhaerro1 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        cad_usu_telerro = new javax.swing.JLabel();
+        cli_email = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        cad_usu_nomeerro = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel77 = new javax.swing.JLabel();
+        clie_nome = new javax.swing.JTextField();
+        jLabel78 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
@@ -1583,12 +1607,12 @@ public class JF_Principal1 extends javax.swing.JFrame {
         btn_veterinario_cadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_veterinario_cadastrar.setText("Cadastrar");
         btn_veterinario_cadastrar.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                btn_veterinario_cadastrarAncestorMoved(evt);
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+                btn_veterinario_cadastrarAncestorMoved(evt);
             }
         });
         btn_veterinario_cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -2503,12 +2527,12 @@ public class JF_Principal1 extends javax.swing.JFrame {
         home.addTab("Log", Jlog);
 
         jcalendario_calendario.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jcalendario_calendarioAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jcalendario_calendario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2873,6 +2897,216 @@ public class JF_Principal1 extends javax.swing.JFrame {
         );
 
         home.addTab("Celeiro", Jceleiro);
+
+        cad_usu_cpferro.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        cad_usu_cpferro.setForeground(new java.awt.Color(255, 0, 0));
+
+        clie_cpf.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        clie_cpf.setToolTipText("");
+        clie_cpf.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+
+        usu_telerro.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        usu_telerro.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel31.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        jLabel31.setText("Cadastrar Usuário");
+
+        cad_usu_telerro2.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        cad_usu_telerro2.setForeground(new java.awt.Color(255, 0, 0));
+
+        usu_senhaerro1.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        usu_senhaerro1.setForeground(new java.awt.Color(255, 0, 0));
+
+        jTextField12.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jTextField12.setToolTipText("");
+        jTextField12.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+
+        jLabel33.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel33.setText("Telefone :(opcional)");
+
+        jLabel57.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel57.setText("Telefone :");
+
+        cad_usu_telerro.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        cad_usu_telerro.setForeground(new java.awt.Color(255, 0, 0));
+
+        cli_email.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        cli_email.setToolTipText("");
+        cli_email.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+        cli_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cli_emailActionPerformed(evt);
+            }
+        });
+
+        jTextField13.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jTextField13.setToolTipText("");
+        jTextField13.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField13ActionPerformed(evt);
+            }
+        });
+
+        jTextField14.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jTextField14.setToolTipText("");
+        jTextField14.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+
+        jLabel71.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel71.setText("DDD:");
+
+        jLabel72.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel72.setText("Nome :");
+
+        jLabel74.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel75.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel75.setText("CPf :");
+
+        cad_usu_nomeerro.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        cad_usu_nomeerro.setForeground(new java.awt.Color(255, 0, 0));
+
+        jTextField15.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jTextField15.setToolTipText("");
+        jTextField15.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField15ActionPerformed(evt);
+            }
+        });
+
+        jLabel77.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        jLabel77.setForeground(new java.awt.Color(255, 0, 0));
+
+        clie_nome.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        clie_nome.setToolTipText("");
+        clie_nome.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+
+        jLabel78.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel78.setText("DDD:");
+
+        jLabel79.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel79.setText("E-mail : ");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(216, 216, 216)
+                                .addComponent(usu_telerro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cli_email, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel72, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(clie_nome, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cad_usu_nomeerro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel75, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel79)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cad_usu_cpferro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(clie_cpf, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel71)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel57))
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel78)
+                                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel33))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(usu_senhaerro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(cad_usu_telerro, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(10, 10, 10)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(cad_usu_telerro2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addContainerGap(841, Short.MAX_VALUE))))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(jLabel31)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel72)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(136, 136, 136)
+                        .addComponent(cad_usu_telerro2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(usu_telerro, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(usu_senhaerro1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                        .addContainerGap(120, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(clie_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cad_usu_nomeerro, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel77, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(clie_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cad_usu_cpferro, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(cad_usu_telerro, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cli_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel71)
+                            .addComponent(jLabel57))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel78)
+                            .addComponent(jLabel33))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(143, Short.MAX_VALUE))))
+        );
+
+        home.addTab("Cliente", jPanel6);
 
         btn_home.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
@@ -4070,6 +4304,18 @@ public class JF_Principal1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_usuario1ActionPerformed
 
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField13ActionPerformed
+
+    private void cli_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cli_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cli_emailActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4152,19 +4398,26 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JTextField cad_usu_cod_pessoa;
     private javax.swing.JPasswordField cad_usu_conf;
     private javax.swing.JLabel cad_usu_conferro;
+    private javax.swing.JLabel cad_usu_cpferro;
     private javax.swing.JLabel cad_usu_cpferro1;
     private javax.swing.JTextField cad_usu_login;
     private javax.swing.JLabel cad_usu_loginerro;
     private javax.swing.JLabel cad_usu_loginerro1;
+    private javax.swing.JLabel cad_usu_nomeerro;
     private javax.swing.JLabel cad_usu_nomeerro1;
     private javax.swing.JTextArea cad_usu_not;
     private javax.swing.JPasswordField cad_usu_senha;
     private javax.swing.JLabel cad_usu_senhaerro;
     private javax.swing.JComboBox<String> cad_usu_status;
+    private javax.swing.JLabel cad_usu_telerro;
+    private javax.swing.JLabel cad_usu_telerro2;
     private javax.swing.JPanel cad_usuario;
     private javax.swing.JComboBox<String> cb_manutencao_setor;
     private javax.swing.JComboBox<String> cbpastagemnumero;
     private javax.swing.JComboBox<String> cbpastagemqualidade;
+    private javax.swing.JTextField cli_email;
+    private javax.swing.JTextField clie_cpf;
+    private javax.swing.JTextField clie_nome;
     private javax.swing.JCheckBox conf_at_nome;
     private javax.swing.JCheckBox conf_at_usu_cargo;
     private javax.swing.JCheckBox conf_at_usu_cpf;
@@ -4231,6 +4484,8 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -4256,6 +4511,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
@@ -4271,7 +4527,14 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
@@ -4294,6 +4557,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -4333,6 +4597,10 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -4422,5 +4690,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private javax.swing.JTextField txttreinador;
     private javax.swing.JTextField txtveterinario;
     private javax.swing.JLabel usu_senhaerro;
+    private javax.swing.JLabel usu_senhaerro1;
+    private javax.swing.JLabel usu_telerro;
     // End of variables declaration//GEN-END:variables
 }

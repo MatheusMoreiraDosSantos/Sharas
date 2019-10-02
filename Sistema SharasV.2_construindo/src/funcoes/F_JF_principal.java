@@ -47,7 +47,6 @@ public class F_JF_principal {
     public static boolean camponull(JTextField campo,JLabel erro){
         if(!"".equals(campo.getText())){
             erro.setText("");
-             System.out.println(""+campo.getText());
             return(true);
         }else{
               erro.setText("preencha o capo acima");
@@ -60,7 +59,6 @@ public class F_JF_principal {
       public static boolean textareanull(JTextArea campo,JLabel erro){
         if(!"".equals(campo.getText())){
             erro.setText("");
-             System.out.println(""+campo.getText());
             return(true);
         }else{
               erro.setText("preencha o capo ");
