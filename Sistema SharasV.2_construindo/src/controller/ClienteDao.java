@@ -11,8 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 import model.Cliente;
+import model.Enderecos;
 
 /**
  *
@@ -20,34 +20,35 @@ import model.Cliente;
  */
 public class ClienteDao {
      Connection con;
-    String sql;
+    String sql1;
+    String sql2;
     PreparedStatement pst;
     ResultSet rs;
     PessoaDAO pessoa = new PessoaDAO();
-     public void salvarCliente(Cliente pes, JFrame jfUsuario,JRadioButton f,JRadioButton j){
-         if(f.isSelected()){
-         pessoa.salvarPessoaf(pes, jfUsuario, 2);
-         }else{
-         pessoa.salvarPessoaj(pes, jfUsuario, 2);
-         }
-       int id = pessoa.idpessoa(pes);
-            if(id>0){
-             try {
+    EnderecoDAO ende = new EnderecoDAO();
+    //Adiciona o novo Cliente , ainda precisa de ajuste 
+     public void salvarCliente(Cliente pes, JFrame tela,Enderecos end){
+         //Verifica se salvou o endereço corretamente 
+         if(ende.salvarEnderecos(end, tela, pes)){
+             
+         try {
             con = Conexao.conectar();
-            sql = "INSERT INTO pessoa (pessoa_id , pessoa_nome, cliente_debito)"
-                   +" VALUES (NULl, ?, 0);";
-            pst = con.prepareStatement(sql);
-            pst.setInt(1, id);
+            sql1="insert into pessoa values (null,'PF',?,?,?,2)";
+            pst = con.prepareStatement(sql1);
+            pst.setString(1, pes.getPessoa_cpfcnpj());
+            pst.setString(2,pes.getPessoa_nome());
+            pst.setString(3, pes.getPessoa_email());
             pst.execute();
+              JOptionPane.showMessageDialog(tela, "Cadastro realizado!");
             Conexao.desconectar();
         }catch(SQLException e){
                  System.out.println(""+e);
-                 JOptionPane.showMessageDialog(jfUsuario, "Erro ao cadastrar!");
+                 JOptionPane.showMessageDialog(tela, "Erro ao cadastrar!");
+                 Conexao.desconectar();
         }
-        }else{
-            JOptionPane.showMessageDialog(jfUsuario, "Erro ao cadastrar pessoa!");
-            }
-         
+         }else{
+             JOptionPane.showMessageDialog(tela, "Erro endereços");
          }
+     }
     
 }

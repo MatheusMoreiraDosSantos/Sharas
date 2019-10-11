@@ -76,13 +76,12 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btn_esqueci" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btn_cadastro" pref="94" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Component id="txt_Login" alignment="0" max="32767" attributes="0"/>
                               <Component id="txt_Senha" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
                                   <Component id="btn_acesso" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               </Group>
@@ -121,10 +120,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_acesso" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btn_cadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_esqueci" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="btn_esqueci" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -195,14 +191,6 @@
               <Image iconType="3" name="/imagens/Sharas.png"/>
             </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn_cadastro">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cadastroActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_esqueci">
           <Properties>

@@ -13,7 +13,7 @@ public class Pessoa {
     private int pessoa_id;
     private String  pessoa_ind;
     private static String pessoa_cpfcnpj;
-    private String pessoa_nome;
+    private static  String pessoa_nome;
     private String pessoa_email;
     private int pessoa_cargo;
 

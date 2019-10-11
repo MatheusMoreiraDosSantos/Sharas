@@ -8,7 +8,7 @@ import controller.ServicosDAO;
 import java.util.ArrayList;
 import view_secundaria.Busca_item;
 import javax.swing.*;
-import view_secundaria.Cadastrar_cliente;
+
 /**
  *
  * @author MK
@@ -218,7 +218,6 @@ public class JF_Servico extends javax.swing.JFrame {
            String valor = String.valueOf(tb_produto.getValueAt(linha, 0));
            carrinho.add(valor);
            servicos.carrinho(tb_carrinho,Integer.parseInt(valor),total);
-           
 // TODO add your handling code here:
     }//GEN-LAST:event_tb_produtoMouseClicked
 

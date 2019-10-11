@@ -33,7 +33,7 @@ public class CargoDAO {
            cb.removeAllItems();
             cb.addItem(new Cargo(0,"Selecione..."));
            while(rs.next()){
-              cb.addItem(new Cargo(rs.getInt("cargo_id"),rs.getString("cargo_nome")));
+           cb.addItem(new Cargo(rs.getInt("cargo_id"),rs.getString("cargo_nome")));
            }
             Conexao.desconectar();
         } catch (SQLException e) {

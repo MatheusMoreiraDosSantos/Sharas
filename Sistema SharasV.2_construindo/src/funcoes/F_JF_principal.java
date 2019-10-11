@@ -24,11 +24,12 @@ public class F_JF_principal {
    * para data retornar usar valor null 
    */
    //Combobox nulo 
-    public boolean combonull(JComboBox campo){
+    public boolean combonull(JComboBox campo,JLabel erro){
         String n = campo.getName();
         System.out.println(""+n);
         if(campo.getSelectedIndex() == 0){
-                    return (false);
+            erro.setText("Escolha inválida");
+            return (false);
         }
                     return(true);
     }
