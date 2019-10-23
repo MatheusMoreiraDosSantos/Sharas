@@ -5,6 +5,8 @@
  */
 package view;
 
+import funcoes.Telas;
+
 /**
  *
  * @author maikon.rosa
@@ -41,7 +43,6 @@ public class JF_Log extends javax.swing.JFrame {
         Jlog = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tab_log = new javax.swing.JTable();
-        jButton30 = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         txt_pesquisa_log = new javax.swing.JTextField();
         btn_home = new javax.swing.JButton();
@@ -53,23 +54,6 @@ public class JF_Log extends javax.swing.JFrame {
         btn_rh = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         btn_usuario1 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        atalho_animais = new javax.swing.JMenuItem();
-        atalho_treinamento = new javax.swing.JMenuItem();
-        atalho_consulta = new javax.swing.JMenuItem();
-        atalho_finaceiro = new javax.swing.JMenuItem();
-        atalho_rh = new javax.swing.JMenuItem();
-        atalho_ferrajamento = new javax.swing.JMenuItem();
-        atalho_log = new javax.swing.JMenuItem();
-        atalho_pastagem = new javax.swing.JMenuItem();
-        atalho_usuario = new javax.swing.JMenuItem();
-        atalho_calendario = new javax.swing.JMenuItem();
-        atalho_celeiro = new javax.swing.JMenu();
-        atalho_feno = new javax.swing.JMenuItem();
-        atalho_racao = new javax.swing.JMenuItem();
-        atalho_serragem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,11 +145,6 @@ public class JF_Log extends javax.swing.JFrame {
         });
 
         home.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(0, 153, 153), new java.awt.Color(153, 153, 153)));
-        home.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                homeComponentShown(evt);
-            }
-        });
 
         Jlog.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -190,14 +169,6 @@ public class JF_Log extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(tab_log);
 
-        jButton30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton30.setText("Buscar");
-        jButton30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton30ActionPerformed(evt);
-            }
-        });
-
         jLabel47.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel47.setText("Pesquisar:");
 
@@ -214,8 +185,7 @@ public class JF_Log extends javax.swing.JFrame {
                     .addGroup(JlogLayout.createSequentialGroup()
                         .addGroup(JlogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel47)
-                            .addComponent(txt_pesquisa_log, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton30))
+                            .addComponent(txt_pesquisa_log, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -228,9 +198,7 @@ public class JF_Log extends javax.swing.JFrame {
                 .addComponent(jLabel47)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisa_log, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton30)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         home.addTab("Log", Jlog);
@@ -365,116 +333,8 @@ public class JF_Log extends javax.swing.JFrame {
                     .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Atalho ");
-
-        atalho_animais.setText("Animais ");
-        atalho_animais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_animaisbtn_animaisActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_animais);
-
-        atalho_treinamento.setText("Treinamento ");
-        atalho_treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_treinamentobtn_treinamentoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_treinamento);
-
-        atalho_consulta.setText("Consulta ");
-        atalho_consulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_consultabtn_veterinarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_consulta);
-
-        atalho_finaceiro.setText("Financeiro ");
-        atalho_finaceiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_finaceirobtn_financeiroActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_finaceiro);
-
-        atalho_rh.setText("RH");
-        atalho_rh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_rhbtn_rhActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_rh);
-
-        atalho_ferrajamento.setText("Ferrajamento");
-        atalho_ferrajamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_ferrajamentobtn_ferrajamentoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_ferrajamento);
-
-        atalho_log.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        atalho_log.setText("Historioco de ação ");
-        atalho_log.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_logbtn_logActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_log);
-
-        atalho_pastagem.setText("Pastagem ");
-        atalho_pastagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_pastagembtn_pastagemActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_pastagem);
-
-        atalho_usuario.setText("Cadastro de usuário");
-        atalho_usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_usuariobtn_usuarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_usuario);
-
-        atalho_calendario.setText("Calendário");
-        jMenu2.add(atalho_calendario);
-
-        atalho_celeiro.setText("Celeiro ");
-        atalho_celeiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_celeirobtn_celeiroActionPerformed(evt);
-            }
-        });
-
-        atalho_feno.setText("Feno");
-        atalho_feno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_fenoActionPerformed(evt);
-            }
-        });
-        atalho_celeiro.add(atalho_feno);
-
-        atalho_racao.setText("Ração ");
-        atalho_celeiro.add(atalho_racao);
-
-        atalho_serragem.setText("Serragem ");
-        atalho_celeiro.add(atalho_serragem);
-
-        jMenu2.add(atalho_celeiro);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -484,117 +344,54 @@ public class JF_Log extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+  Telas telas = new Telas();
+    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        telas.alterar(this,1);
+    }                                        
+    private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+         telas.alterar(this, 2);
+    }   
+    
+    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        telas.alterar(this, 3);        
+    }    
+    private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {                                               
+       telas.alterar(this, 4);
+    }         
+    private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {                                            
+       telas.alterar(this, 5);
+    }                  
+ private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {                                             
+      telas.alterar(this, 6);
+    }                                            
+    private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {                                            
+      telas.alterar(this, 7);
+    }                                           
+   private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+       telas.alterar(this, 8);
+    }                                                
+private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
+     telas.alterar(this, 9);
+    }                                               
 
-    private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animaisActionPerformed
-
-    }//GEN-LAST:event_btn_animaisActionPerformed
-
-    private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_celeiroActionPerformed
-
-    }//GEN-LAST:event_btn_celeiroActionPerformed
-
-    private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinarioActionPerformed
-
-    }//GEN-LAST:event_btn_veterinarioActionPerformed
-
-    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_financeiroActionPerformed
-
-    }//GEN-LAST:event_btn_financeiroActionPerformed
-
-    private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pastagemActionPerformed
-
-    }//GEN-LAST:event_btn_pastagemActionPerformed
-
-    private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ferrajamentoActionPerformed
-
-    }//GEN-LAST:event_btn_ferrajamentoActionPerformed
-
-    private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarioActionPerformed
-
-    }//GEN-LAST:event_btn_usuarioActionPerformed
-
-    private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calendarioActionPerformed
-        JF_calendario calendario= new JF_calendario();
-        calendario.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btn_calendarioActionPerformed
-
-    private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logActionPerformed
-
-    }//GEN-LAST:event_btn_logActionPerformed
-
-    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
-        //logDao.consultarVeterinario(txt_pesquisa_log, tab_log, this);
-    }//GEN-LAST:event_jButton30ActionPerformed
-
-    private void homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_homeComponentShown
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homeComponentShown
-
-    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-
-    }//GEN-LAST:event_btn_homeActionPerformed
-
-    private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animais1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_animais1ActionPerformed
-
-    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuario1ActionPerformed
-        JF_Servico s = new JF_Servico();
-        s.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_usuario1ActionPerformed
-
-    private void atalho_animaisbtn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_animaisbtn_animaisActionPerformed
-
-    }//GEN-LAST:event_atalho_animaisbtn_animaisActionPerformed
-
-    private void atalho_treinamentobtn_treinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_treinamentobtn_treinamentoActionPerformed
-
-    }//GEN-LAST:event_atalho_treinamentobtn_treinamentoActionPerformed
-
-    private void atalho_consultabtn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_consultabtn_veterinarioActionPerformed
-
-    }//GEN-LAST:event_atalho_consultabtn_veterinarioActionPerformed
-
-    private void atalho_finaceirobtn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_finaceirobtn_financeiroActionPerformed
-
-    }//GEN-LAST:event_atalho_finaceirobtn_financeiroActionPerformed
-
-    private void atalho_rhbtn_rhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_rhbtn_rhActionPerformed
-
-    }//GEN-LAST:event_atalho_rhbtn_rhActionPerformed
-
-    private void atalho_ferrajamentobtn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_ferrajamentobtn_ferrajamentoActionPerformed
-
-    }//GEN-LAST:event_atalho_ferrajamentobtn_ferrajamentoActionPerformed
-
-    private void atalho_logbtn_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_logbtn_logActionPerformed
-
-    }//GEN-LAST:event_atalho_logbtn_logActionPerformed
-
-    private void atalho_pastagembtn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_pastagembtn_pastagemActionPerformed
-
-    }//GEN-LAST:event_atalho_pastagembtn_pastagemActionPerformed
-
-    private void atalho_usuariobtn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_usuariobtn_usuarioActionPerformed
-
-    }//GEN-LAST:event_atalho_usuariobtn_usuarioActionPerformed
-
-    private void atalho_fenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_fenoActionPerformed
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_atalho_fenoActionPerformed
-
-    private void atalho_celeirobtn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_celeirobtn_celeiroActionPerformed
-
-    }//GEN-LAST:event_atalho_celeirobtn_celeiroActionPerformed
+    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        telas.alterar(this, 10);
+    }    
+       private void btn_rhActionPerformed(java.awt.event.ActionEvent evt) {                                       
+       telas.alterar(this, 11);
+        
+    }        
+  private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    telas.alterar(this, 12);
+    }                                           
+    private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {                                        
+ telas.alterar(this, 13);
+    }                                       
 
     /**
      * @param args the command line arguments
@@ -633,20 +430,6 @@ public class JF_Log extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Jlog;
-    private javax.swing.JMenuItem atalho_animais;
-    private javax.swing.JMenuItem atalho_calendario;
-    private javax.swing.JMenu atalho_celeiro;
-    private javax.swing.JMenuItem atalho_consulta;
-    private javax.swing.JMenuItem atalho_feno;
-    private javax.swing.JMenuItem atalho_ferrajamento;
-    private javax.swing.JMenuItem atalho_finaceiro;
-    private javax.swing.JMenuItem atalho_log;
-    private javax.swing.JMenuItem atalho_pastagem;
-    private javax.swing.JMenuItem atalho_racao;
-    private javax.swing.JMenuItem atalho_rh;
-    private javax.swing.JMenuItem atalho_serragem;
-    private javax.swing.JMenuItem atalho_treinamento;
-    private javax.swing.JMenuItem atalho_usuario;
     private javax.swing.JButton btn_animais;
     private javax.swing.JButton btn_animais1;
     private javax.swing.JButton btn_calendario;
@@ -661,12 +444,8 @@ public class JF_Log extends javax.swing.JFrame {
     private javax.swing.JButton btn_usuario1;
     private javax.swing.JButton btn_veterinario;
     private javax.swing.JTabbedPane home;
-    private javax.swing.JButton jButton30;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel84;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator2;

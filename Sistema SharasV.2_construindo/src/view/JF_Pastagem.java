@@ -6,6 +6,7 @@
 package view;
 
 import controller.PastagemDAO;
+import funcoes.Telas;
 import model.Pastagem;
 
 /**
@@ -20,6 +21,7 @@ public class JF_Pastagem extends javax.swing.JFrame {
     public JF_Pastagem() {
         initComponents();
     }
+     Telas telas = new Telas();
     PastagemDAO pastagemDao = new PastagemDAO();
     Pastagem pastagem = new Pastagem();
     /**
@@ -187,11 +189,6 @@ public class JF_Pastagem extends javax.swing.JFrame {
         });
 
         home.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(0, 153, 153), new java.awt.Color(153, 153, 153)));
-        home.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                homeComponentShown(evt);
-            }
-        });
 
         Jpastagem.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -698,43 +695,49 @@ public class JF_Pastagem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animaisActionPerformed
+    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        telas.alterar(this,1);
+    }                                        
+    private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+         telas.alterar(this, 2);
+    }   
+    
+    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        telas.alterar(this, 3);        
+    }    
+    private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {                                               
+       telas.alterar(this, 4);
+    }         
+    private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {                                            
+       telas.alterar(this, 5);
+    }                  
+ private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {                                             
+      telas.alterar(this, 6);
+    }                                            
+    private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {                                            
+      telas.alterar(this, 7);
+    }                                           
+   private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+       telas.alterar(this, 8);
+    }                                                
+private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
+     telas.alterar(this, 9);
+    }                                               
 
-    }//GEN-LAST:event_btn_animaisActionPerformed
+    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        telas.alterar(this, 10);
+    }    
+       private void btn_rhActionPerformed(java.awt.event.ActionEvent evt) {                                       
+       telas.alterar(this, 11);
+        
+    }        
+  private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    telas.alterar(this, 12);
+    }                                           
+    private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {                                        
+ telas.alterar(this, 13);
+    }                                       
 
-    private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_celeiroActionPerformed
-
-    }//GEN-LAST:event_btn_celeiroActionPerformed
-
-    private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinarioActionPerformed
-
-    }//GEN-LAST:event_btn_veterinarioActionPerformed
-
-    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_financeiroActionPerformed
-
-    }//GEN-LAST:event_btn_financeiroActionPerformed
-
-    private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pastagemActionPerformed
-
-    }//GEN-LAST:event_btn_pastagemActionPerformed
-
-    private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ferrajamentoActionPerformed
-
-    }//GEN-LAST:event_btn_ferrajamentoActionPerformed
-
-    private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarioActionPerformed
-
-    }//GEN-LAST:event_btn_usuarioActionPerformed
-
-    private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calendarioActionPerformed
-        JF_calendario calendario= new JF_calendario();
-        calendario.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btn_calendarioActionPerformed
-
-    private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logActionPerformed
-
-    }//GEN-LAST:event_btn_logActionPerformed
 
     private void btncadastrarpastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadastrarpastagemActionPerformed
         String nome = jnome.getText();
@@ -833,24 +836,6 @@ public class JF_Pastagem extends javax.swing.JFrame {
         sem_numero_pasto.setText("");
     }//GEN-LAST:event_jButton19ActionPerformed
 
-    private void homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_homeComponentShown
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homeComponentShown
-
-    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-
-    }//GEN-LAST:event_btn_homeActionPerformed
-
-    private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animais1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_animais1ActionPerformed
-
-    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuario1ActionPerformed
-        JF_Servico s = new JF_Servico();
-        s.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_usuario1ActionPerformed
 
     private void atalho_animaisbtn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_animaisbtn_animaisActionPerformed
 

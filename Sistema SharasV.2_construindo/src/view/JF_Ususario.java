@@ -10,6 +10,7 @@ import controller.UsuarioDAO;
 import controller.Validacoes;
 import funcoes.F_JF_principal;
 import funcoes.F_atualizar_usuario;
+import funcoes.Telas;
 import model.Cargo;
 import model.Misc;
 import model.Usuario;
@@ -26,12 +27,13 @@ public class JF_Ususario extends javax.swing.JFrame {
        Validacoes valida = new Validacoes();
        Misc misc = new Misc();
            CargoDAO cargo = new CargoDAO();
+           Telas telas = new Telas();
     /**
      * Creates new form JF_Ususario
      */
     public JF_Ususario() {
         initComponents();
-        cargo.selectCargo(cad_usu_cargo);
+ 
     }
 
     /**
@@ -63,52 +65,20 @@ public class JF_Ususario extends javax.swing.JFrame {
         at_usu_tab = new javax.swing.JTable();
         jLabel120 = new javax.swing.JLabel();
         at_usu_nome = new javax.swing.JTextField();
-        cad_usu_nomeerro1 = new javax.swing.JLabel();
-        jLabel125 = new javax.swing.JLabel();
-        at_usu_cpf = new javax.swing.JTextField();
         cad_usu_cpferro1 = new javax.swing.JLabel();
         jLabel126 = new javax.swing.JLabel();
         at_usu_login = new javax.swing.JTextField();
         cad_usu_loginerro1 = new javax.swing.JLabel();
-        jLabel127 = new javax.swing.JLabel();
-        at_usu_cargo = new javax.swing.JComboBox<>();
         jLabel128 = new javax.swing.JLabel();
         at_usu_status = new javax.swing.JComboBox<>();
         at_usu_btn = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        conf_at_nome = new javax.swing.JCheckBox();
-        conf_at_usu_cpf = new javax.swing.JCheckBox();
-        conf_at_usu_login = new javax.swing.JCheckBox();
-        conf_at_usu_cargo = new javax.swing.JCheckBox();
-        conf_ate_usu_status = new javax.swing.JCheckBox();
         jLabel129 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel110 = new javax.swing.JLabel();
-        jLabel111 = new javax.swing.JLabel();
-        usu_senha = new javax.swing.JPasswordField();
-        jLabel112 = new javax.swing.JLabel();
-        jLabel113 = new javax.swing.JLabel();
-        cad_usu_status = new javax.swing.JComboBox<>();
-        cargoerro = new javax.swing.JLabel();
-        jLabel116 = new javax.swing.JLabel();
-        jLabel119 = new javax.swing.JLabel();
-        jScrollPane24 = new javax.swing.JScrollPane();
-        cad_usu_not = new javax.swing.JTextArea();
-        usu_login = new javax.swing.JTextField();
-        cond_senha = new javax.swing.JPasswordField();
-        jLabel124 = new javax.swing.JLabel();
-        cad_usu_cargo = new javax.swing.JComboBox<>();
-        cad_usu_senhaerro = new javax.swing.JLabel();
-        cad_usu_conferro = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        cad_usu_cod_pessoa = new javax.swing.JTextField();
-        jLabel121 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        loginerro = new javax.swing.JLabel();
-        usu_senhaerro1 = new javax.swing.JLabel();
-        btn_animais1 = new javax.swing.JButton();
-        usu_senhaerro2 = new javax.swing.JLabel();
+        jLabel130 = new javax.swing.JLabel();
+        at_usu_login1 = new javax.swing.JTextField();
+        jLabel131 = new javax.swing.JLabel();
+        at_usu_login2 = new javax.swing.JTextField();
+        cad_usu_loginerro2 = new javax.swing.JLabel();
+        jRadioButton2 = new javax.swing.JRadioButton();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
@@ -117,24 +87,7 @@ public class JF_Ususario extends javax.swing.JFrame {
         btn_rh = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         btn_usuario1 = new javax.swing.JButton();
-        btn_animais2 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        atalho_animais = new javax.swing.JMenuItem();
-        atalho_treinamento = new javax.swing.JMenuItem();
-        atalho_consulta = new javax.swing.JMenuItem();
-        atalho_finaceiro = new javax.swing.JMenuItem();
-        atalho_rh = new javax.swing.JMenuItem();
-        atalho_ferrajamento = new javax.swing.JMenuItem();
-        atalho_log = new javax.swing.JMenuItem();
-        atalho_pastagem = new javax.swing.JMenuItem();
-        atalho_usuario = new javax.swing.JMenuItem();
-        atalho_calendario = new javax.swing.JMenuItem();
-        atalho_celeiro = new javax.swing.JMenu();
-        atalho_feno = new javax.swing.JMenuItem();
-        atalho_racao = new javax.swing.JMenuItem();
-        atalho_serragem = new javax.swing.JMenuItem();
+        btn_animais1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -287,16 +240,6 @@ public class JF_Ususario extends javax.swing.JFrame {
         at_usu_nome.setToolTipText("");
         at_usu_nome.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
 
-        cad_usu_nomeerro1.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
-        cad_usu_nomeerro1.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel125.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel125.setText("CPf :");
-
-        at_usu_cpf.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        at_usu_cpf.setToolTipText("");
-        at_usu_cpf.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-
         cad_usu_cpferro1.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
         cad_usu_cpferro1.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -309,14 +252,6 @@ public class JF_Ususario extends javax.swing.JFrame {
 
         cad_usu_loginerro1.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
         cad_usu_loginerro1.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel127.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel127.setText("Cargo:");
-
-        at_usu_cargo.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        at_usu_cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        at_usu_cargo.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-        at_usu_cargo.setEditable(false);
 
         jLabel128.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         jLabel128.setText("Status :");
@@ -332,25 +267,34 @@ public class JF_Ususario extends javax.swing.JFrame {
         });
 
         at_usu_btn.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        at_usu_btn.setText("Alterar ");
+        at_usu_btn.setText("Cadastrar ");
         at_usu_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 at_usu_btnActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 51, 51));
-        jButton4.setText("Excluir ");
-
-        conf_at_usu_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conf_at_usu_loginActionPerformed(evt);
-            }
-        });
-
         jLabel129.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         jLabel129.setText("Gerenciar Usuários");
+
+        jLabel130.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel130.setText("Senha");
+
+        at_usu_login1.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        at_usu_login1.setToolTipText("");
+        at_usu_login1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+
+        jLabel131.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        jLabel131.setText("Confirma senha");
+
+        at_usu_login2.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
+        at_usu_login2.setToolTipText("");
+        at_usu_login2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
+
+        cad_usu_loginerro2.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
+        cad_usu_loginerro2.setForeground(new java.awt.Color(255, 0, 0));
+
+        jRadioButton2.setText("Funcionarios Sem usurarios ");
 
         javax.swing.GroupLayout at_usuarioLayout = new javax.swing.GroupLayout(at_usuario);
         at_usuario.setLayout(at_usuarioLayout);
@@ -359,55 +303,33 @@ public class JF_Ususario extends javax.swing.JFrame {
             .addGroup(at_usuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(at_usu_status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(at_usuarioLayout.createSequentialGroup()
                         .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(at_usuarioLayout.createSequentialGroup()
-                                .addComponent(conf_at_nome)
-                                .addGap(10, 10, 10))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, at_usuarioLayout.createSequentialGroup()
-                                .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(conf_at_usu_login)
-                                    .addComponent(conf_at_usu_cpf)
-                                    .addComponent(conf_ate_usu_status))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(at_usu_login)
-                            .addComponent(cad_usu_cpferro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cad_usu_nomeerro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(at_usu_cpf)
-                            .addComponent(at_usu_nome)
-                            .addComponent(at_usu_status, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(at_usuarioLayout.createSequentialGroup()
-                                .addComponent(at_usu_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(at_usuarioLayout.createSequentialGroup()
-                                .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel126)
-                                    .addComponent(jLabel125, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel128)
-                                    .addComponent(jLabel120))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(cad_usu_loginerro1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(at_usuarioLayout.createSequentialGroup()
-                        .addComponent(jLabel129)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(at_usuarioLayout.createSequentialGroup()
-                        .addComponent(conf_at_usu_cargo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(at_usuarioLayout.createSequentialGroup()
-                                .addComponent(jLabel127)
-                                .addGap(254, 254, 254))
-                            .addComponent(at_usu_cargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel131)
+                            .addComponent(jLabel120)
+                            .addComponent(jLabel126)
+                            .addComponent(jLabel128)
+                            .addComponent(at_usu_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(at_usu_login, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(at_usu_login1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel130)
+                            .addComponent(at_usu_login2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cad_usu_loginerro2, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cad_usu_loginerro1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cad_usu_cpferro1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel129))
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addComponent(at_usu_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
                     .addGroup(at_usuarioLayout.createSequentialGroup()
                         .addComponent(jLabel102)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(at_usu_pesq, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton2))
+                    .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         at_usuarioLayout.setVerticalGroup(
@@ -416,212 +338,47 @@ public class JF_Ususario extends javax.swing.JFrame {
                 .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(at_usuarioLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel102)
-                            .addComponent(at_usu_pesq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel129))
+                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel129)
+                            .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel102)
+                                .addComponent(at_usu_pesq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jRadioButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(at_usuarioLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(51, 51, 51)
                         .addComponent(jLabel120)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(at_usu_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(conf_at_nome))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cad_usu_nomeerro1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel125)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(at_usu_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(conf_at_usu_cpf))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cad_usu_cpferro1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(at_usu_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel126)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(at_usu_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(conf_at_usu_login))
+                        .addComponent(at_usu_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cad_usu_cpferro1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel130)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(at_usu_login1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cad_usu_loginerro1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel127)
+                        .addComponent(jLabel131)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(at_usuarioLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(conf_at_usu_cargo))
-                            .addComponent(at_usu_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
+                        .addComponent(at_usu_login2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cad_usu_loginerro2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel128)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(at_usu_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(conf_ate_usu_status))
-                        .addGap(27, 27, 27)
-                        .addGroup(at_usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(at_usu_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(at_usu_status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(at_usu_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         telas_cad_usu.addTab("Atualizar ", at_usuario);
-
-        jPanel3.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel3ComponentShown(evt);
-            }
-        });
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel110.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel110.setText("Status :");
-        jPanel3.add(jLabel110, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
-
-        jLabel111.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel111.setText("Aviso:");
-        jPanel3.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 36, -1, -1));
-
-        usu_senha.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        usu_senha.setToolTipText("");
-        usu_senha.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-        jPanel3.add(usu_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 286, -1));
-
-        jLabel112.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        jLabel112.setText("Cadastrar Usuário");
-        jPanel3.add(jLabel112, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 6, -1, -1));
-
-        jLabel113.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel113.setText("Senha : ");
-        jPanel3.add(jLabel113, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
-
-        cad_usu_status.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        cad_usu_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desativado","Ativo" }));
-        cad_usu_status.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-        cad_usu_status.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cad_usu_statusActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cad_usu_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 289, -1));
-
-        cargoerro.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
-        cargoerro.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel3.add(cargoerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 280, 14));
-
-        jLabel116.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel116.setText("Cargo");
-        jPanel3.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
-
-        jLabel119.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel119.setText("Login :");
-        jPanel3.add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 36, -1, -1));
-
-        cad_usu_not.setColumns(20);
-        cad_usu_not.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        cad_usu_not.setRows(5);
-        cad_usu_not.setToolTipText("");
-        cad_usu_not.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-        jScrollPane24.setViewportView(cad_usu_not);
-
-        jPanel3.add(jScrollPane24, new org.netbeans.lib.awtextra.AbsoluteConstraints(306, 63, -1, 116));
-
-        usu_login.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        usu_login.setToolTipText("");
-        usu_login.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-        usu_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usu_loginActionPerformed(evt);
-            }
-        });
-        jPanel3.add(usu_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 63, 286, -1));
-
-        cond_senha.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        cond_senha.setToolTipText("");
-        cond_senha.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-        jPanel3.add(cond_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 286, -1));
-
-        jLabel124.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel124.setText("Confirmar senha :");
-        jPanel3.add(jLabel124, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
-
-        cad_usu_cargo.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        cad_usu_cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cad_usu_cargo.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-        cad_usu_cargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cad_usu_cargoActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cad_usu_cargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 289, -1));
-
-        cad_usu_senhaerro.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
-        cad_usu_senhaerro.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel3.add(cad_usu_senhaerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 94, 20, 13));
-
-        cad_usu_conferro.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
-        cad_usu_conferro.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel3.add(cad_usu_conferro, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 165, 29, 13));
-
-        jButton1.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        jButton1.setText("Salvar ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(824, 422, 195, -1));
-
-        jButton2.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        jButton2.setText("Alterar um existente ");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(824, 461, -1, -1));
-
-        cad_usu_cod_pessoa.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        cad_usu_cod_pessoa.setText("1");
-        cad_usu_cod_pessoa.setToolTipText("");
-        cad_usu_cod_pessoa.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(204, 204, 204), null));
-        cad_usu_cod_pessoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cad_usu_cod_pessoaActionPerformed(evt);
-            }
-        });
-        jPanel3.add(cad_usu_cod_pessoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 289, -1));
-
-        jLabel121.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
-        jLabel121.setText("Código da Pessoa:");
-        jPanel3.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
-
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/AddUser.png"))); // NOI18N
-        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, -1, -1));
-        jPanel3.add(loginerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 280, 20));
-
-        usu_senhaerro1.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
-        usu_senhaerro1.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel3.add(usu_senhaerro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 280, 14));
-
-        btn_animais1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_animais1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuario.png"))); // NOI18N
-        btn_animais1.setText("Cliente        ");
-        btn_animais1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_animais1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btn_animais1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-190, 20, 169, -1));
-
-        usu_senhaerro2.setFont(new java.awt.Font("Tw Cen MT", 0, 11)); // NOI18N
-        usu_senhaerro2.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel3.add(usu_senhaerro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 280, 14));
-
-        telas_cad_usu.addTab("Cadastros ", jPanel3);
 
         javax.swing.GroupLayout cad_usuarioLayout = new javax.swing.GroupLayout(cad_usuario);
         cad_usuario.setLayout(cad_usuarioLayout);
@@ -667,12 +424,12 @@ public class JF_Ususario extends javax.swing.JFrame {
             }
         });
 
-        btn_animais2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_animais2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuario.png"))); // NOI18N
-        btn_animais2.setText("Cliente        ");
-        btn_animais2.addActionListener(new java.awt.event.ActionListener() {
+        btn_animais1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_animais1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/usuario.png"))); // NOI18N
+        btn_animais1.setText("Cliente        ");
+        btn_animais1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_animais2ActionPerformed(evt);
+                btn_animais1ActionPerformed(evt);
             }
         });
 
@@ -695,7 +452,7 @@ public class JF_Ususario extends javax.swing.JFrame {
                     .addComponent(btn_rh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_animais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_animais2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_animais1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -742,7 +499,7 @@ public class JF_Ususario extends javax.swing.JFrame {
                                         .addGap(9, 9, 9)
                                         .addComponent(btn_animais)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_animais2)
+                                .addComponent(btn_animais1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_calendario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -766,116 +523,8 @@ public class JF_Ususario extends javax.swing.JFrame {
                     .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Atalho ");
-
-        atalho_animais.setText("Animais ");
-        atalho_animais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_animaisbtn_animaisActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_animais);
-
-        atalho_treinamento.setText("Treinamento ");
-        atalho_treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_treinamentobtn_treinamentoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_treinamento);
-
-        atalho_consulta.setText("Consulta ");
-        atalho_consulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_consultabtn_veterinarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_consulta);
-
-        atalho_finaceiro.setText("Financeiro ");
-        atalho_finaceiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_finaceirobtn_financeiroActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_finaceiro);
-
-        atalho_rh.setText("RH");
-        atalho_rh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_rhbtn_rhActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_rh);
-
-        atalho_ferrajamento.setText("Ferrajamento");
-        atalho_ferrajamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_ferrajamentobtn_ferrajamentoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_ferrajamento);
-
-        atalho_log.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        atalho_log.setText("Historioco de ação ");
-        atalho_log.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_logbtn_logActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_log);
-
-        atalho_pastagem.setText("Pastagem ");
-        atalho_pastagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_pastagembtn_pastagemActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_pastagem);
-
-        atalho_usuario.setText("Cadastro de usuário");
-        atalho_usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_usuariobtn_usuarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_usuario);
-
-        atalho_calendario.setText("Calendário");
-        jMenu2.add(atalho_calendario);
-
-        atalho_celeiro.setText("Celeiro ");
-        atalho_celeiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_celeirobtn_celeiroActionPerformed(evt);
-            }
-        });
-
-        atalho_feno.setText("Feno");
-        atalho_feno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_fenoActionPerformed(evt);
-            }
-        });
-        atalho_celeiro.add(atalho_feno);
-
-        atalho_racao.setText("Ração ");
-        atalho_celeiro.add(atalho_racao);
-
-        atalho_serragem.setText("Serragem ");
-        atalho_celeiro.add(atalho_serragem);
-
-        jMenu2.add(atalho_celeiro);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -885,127 +534,62 @@ public class JF_Ususario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        telas.alterar(this,1);
+    }                                        
+    private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+         telas.alterar(this, 2);
+    }   
+    
+    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        telas.alterar(this, 3);        
+    }    
+    private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {                                               
+       telas.alterar(this, 4);
+    }         
+    private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {                                            
+       telas.alterar(this, 5);
+    }                  
+ private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {                                             
+      telas.alterar(this, 6);
+    }                                            
+    private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {                                            
+      telas.alterar(this, 7);
+    }                                           
+   private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+       telas.alterar(this, 8);
+    }                                                
+private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
+     telas.alterar(this, 9);
+    }                                               
 
-    private void atalho_animaisbtn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_animaisbtn_animaisActionPerformed
+    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        telas.alterar(this, 10);
+    }    
+       private void btn_rhActionPerformed(java.awt.event.ActionEvent evt) {                                       
+       telas.alterar(this, 11);
         
-    }//GEN-LAST:event_atalho_animaisbtn_animaisActionPerformed
+    }        
+  private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    telas.alterar(this, 12);
+    }                                           
+    private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {                                        
+ telas.alterar(this, 13);
+    }                                       
 
-    private void atalho_treinamentobtn_treinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_treinamentobtn_treinamentoActionPerformed
-
-    }//GEN-LAST:event_atalho_treinamentobtn_treinamentoActionPerformed
-
-    private void atalho_consultabtn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_consultabtn_veterinarioActionPerformed
-   
-    }//GEN-LAST:event_atalho_consultabtn_veterinarioActionPerformed
-
-    private void atalho_finaceirobtn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_finaceirobtn_financeiroActionPerformed
   
-    }//GEN-LAST:event_atalho_finaceirobtn_financeiroActionPerformed
-
-    private void atalho_rhbtn_rhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_rhbtn_rhActionPerformed
-    
-    }//GEN-LAST:event_atalho_rhbtn_rhActionPerformed
-
-    private void atalho_ferrajamentobtn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_ferrajamentobtn_ferrajamentoActionPerformed
-        
-    }//GEN-LAST:event_atalho_ferrajamentobtn_ferrajamentoActionPerformed
-
-    private void atalho_logbtn_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_logbtn_logActionPerformed
-       
-    }//GEN-LAST:event_atalho_logbtn_logActionPerformed
-
-    private void atalho_pastagembtn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_pastagembtn_pastagemActionPerformed
-
-    }//GEN-LAST:event_atalho_pastagembtn_pastagemActionPerformed
-
-    private void atalho_usuariobtn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_usuariobtn_usuarioActionPerformed
-      
-    }//GEN-LAST:event_atalho_usuariobtn_usuarioActionPerformed
-
-    private void atalho_fenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_fenoActionPerformed
-      
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_atalho_fenoActionPerformed
-
-    private void atalho_celeirobtn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_celeirobtn_celeiroActionPerformed
-    
-    }//GEN-LAST:event_atalho_celeirobtn_celeiroActionPerformed
-
-    private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animaisActionPerformed
-     
-    }//GEN-LAST:event_btn_animaisActionPerformed
-
-    private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_celeiroActionPerformed
-    
-    }//GEN-LAST:event_btn_celeiroActionPerformed
-
-    private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinarioActionPerformed
-
-    }//GEN-LAST:event_btn_veterinarioActionPerformed
-
-    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_financeiroActionPerformed
-    
-    }//GEN-LAST:event_btn_financeiroActionPerformed
-
-    private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pastagemActionPerformed
-      
-    }//GEN-LAST:event_btn_pastagemActionPerformed
-
-    private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ferrajamentoActionPerformed
-        
-    }//GEN-LAST:event_btn_ferrajamentoActionPerformed
-
-    private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarioActionPerformed
-
-    }//GEN-LAST:event_btn_usuarioActionPerformed
-
-    private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calendarioActionPerformed
-        JF_calendario calendario= new JF_calendario();
-        calendario.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btn_calendarioActionPerformed
-
-    private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logActionPerformed
-     
-    }//GEN-LAST:event_btn_logActionPerformed
-
-    private void cad_usu_statusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cad_usu_statusActionPerformed
-        int i = cad_usu_status.getSelectedIndex();
-        System.err.println("" + i);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cad_usu_statusActionPerformed
-
-    private void usu_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usu_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usu_loginActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        telas_cad_usu.setSelectedComponent(at_usuario);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jPanel3ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel3ComponentShown
-        cargo.selectCargo(cad_usu_cargo);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel3ComponentShown
-
     private void at_usu_pesqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_at_usu_pesqKeyReleased
         usu.tabUsuario(at_usu_pesq, at_usu_tab);
         // TODO add your handling code here:
     }//GEN-LAST:event_at_usu_pesqKeyReleased
 
     private void at_usu_tabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_at_usu_tabMouseClicked
-        usu.tabdados(at_usu_tab, at_usu_nome, at_usu_cpf, at_usu_login, at_usu_cargo, at_usu_status);
+      
         // TODO add your handling code here:
     }//GEN-LAST:event_at_usu_tabMouseClicked
 
@@ -1014,32 +598,11 @@ public class JF_Ususario extends javax.swing.JFrame {
     }//GEN-LAST:event_at_usu_statusActionPerformed
 
     private void at_usu_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_at_usu_btnActionPerformed
-       /* if (conf_at_usu_login.isSelected() == true) {
-            if (valida.verificaBanco(at_usu_login, cad_usu_loginerro1, "usuario", "usuario_login")) {
-                usu.alterarUsu(at_usu_login, usuario, "usuario_login", "Login");
-            }
-        }
-        if (conf_at_usu_cargo.isSelected() == true) {
-            if (f_principal.combonull(at_usu_cargo)) {
-                usu.alterarUsuCB(at_usu_cargo, usuario, "usuario", "usuario_tipo", "Cargo");
-            }
-        }
-        if (conf_ate_usu_status.isSelected() == true) {
-            if (f_principal.desativado(at_usu_status)) {
-                usu.alterarUsuCB(at_usu_status, usuario, "usuario", "usuario_status", "Status");
-            }
-        }
-        usu.tabUsuario(at_usu_pesq, at_usu_tab);
-*/
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_at_usu_btnActionPerformed
 
-    private void conf_at_usu_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conf_at_usu_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_conf_at_usu_loginActionPerformed
-
     private void at_usuarioComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_at_usuarioComponentShown
-        cargo.selectCargo(at_usu_cargo);
+     
         // TODO add your handling code here:
     }//GEN-LAST:event_at_usuarioComponentShown
 
@@ -1053,33 +616,6 @@ public class JF_Ususario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_homeComponentShown
 
-    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-     JF_Principal1 home = new JF_Principal1();
-     home.setVisible(true);
-     dispose();
-    }//GEN-LAST:event_btn_homeActionPerformed
-
-    private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animais1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_animais1ActionPerformed
-
-    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuario1ActionPerformed
-        JF_Servico s = new JF_Servico();
-        s.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_usuario1ActionPerformed
-
-    private void cad_usu_cargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cad_usu_cargoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cad_usu_cargoActionPerformed
-
-    private void cad_usu_cod_pessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cad_usu_cod_pessoaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cad_usu_cod_pessoaActionPerformed
-
-    private void btn_animais2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animais2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_animais2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1118,31 +654,16 @@ public class JF_Ususario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton at_usu_btn;
-    private javax.swing.JComboBox<String> at_usu_cargo;
-    private javax.swing.JTextField at_usu_cpf;
     private javax.swing.JTextField at_usu_login;
+    private javax.swing.JTextField at_usu_login1;
+    private javax.swing.JTextField at_usu_login2;
     private javax.swing.JTextField at_usu_nome;
     private javax.swing.JTextField at_usu_pesq;
     private javax.swing.JComboBox<String> at_usu_status;
     private javax.swing.JTable at_usu_tab;
     private javax.swing.JPanel at_usuario;
-    private javax.swing.JMenuItem atalho_animais;
-    private javax.swing.JMenuItem atalho_calendario;
-    private javax.swing.JMenu atalho_celeiro;
-    private javax.swing.JMenuItem atalho_consulta;
-    private javax.swing.JMenuItem atalho_feno;
-    private javax.swing.JMenuItem atalho_ferrajamento;
-    private javax.swing.JMenuItem atalho_finaceiro;
-    private javax.swing.JMenuItem atalho_log;
-    private javax.swing.JMenuItem atalho_pastagem;
-    private javax.swing.JMenuItem atalho_racao;
-    private javax.swing.JMenuItem atalho_rh;
-    private javax.swing.JMenuItem atalho_serragem;
-    private javax.swing.JMenuItem atalho_treinamento;
-    private javax.swing.JMenuItem atalho_usuario;
     private javax.swing.JButton btn_animais;
     private javax.swing.JButton btn_animais1;
-    private javax.swing.JButton btn_animais2;
     private javax.swing.JButton btn_calendario;
     private javax.swing.JButton btn_celeiro;
     private javax.swing.JButton btn_ferrajamento;
@@ -1154,60 +675,26 @@ public class JF_Ususario extends javax.swing.JFrame {
     private javax.swing.JButton btn_usuario;
     private javax.swing.JButton btn_usuario1;
     private javax.swing.JButton btn_veterinario;
-    private javax.swing.JComboBox<String> cad_usu_cargo;
-    private javax.swing.JTextField cad_usu_cod_pessoa;
-    private javax.swing.JLabel cad_usu_conferro;
     private javax.swing.JLabel cad_usu_cpferro1;
     private javax.swing.JLabel cad_usu_loginerro1;
-    private javax.swing.JLabel cad_usu_nomeerro1;
-    private javax.swing.JTextArea cad_usu_not;
-    private javax.swing.JLabel cad_usu_senhaerro;
-    private javax.swing.JComboBox<String> cad_usu_status;
+    private javax.swing.JLabel cad_usu_loginerro2;
     private javax.swing.JPanel cad_usuario;
-    private javax.swing.JLabel cargoerro;
-    private javax.swing.JPasswordField cond_senha;
-    private javax.swing.JCheckBox conf_at_nome;
-    private javax.swing.JCheckBox conf_at_usu_cargo;
-    private javax.swing.JCheckBox conf_at_usu_cpf;
-    private javax.swing.JCheckBox conf_at_usu_login;
-    private javax.swing.JCheckBox conf_ate_usu_status;
     private javax.swing.JTabbedPane home;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel102;
-    private javax.swing.JLabel jLabel110;
-    private javax.swing.JLabel jLabel111;
-    private javax.swing.JLabel jLabel112;
-    private javax.swing.JLabel jLabel113;
-    private javax.swing.JLabel jLabel116;
-    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel120;
-    private javax.swing.JLabel jLabel121;
-    private javax.swing.JLabel jLabel124;
-    private javax.swing.JLabel jLabel125;
     private javax.swing.JLabel jLabel126;
-    private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
-    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel130;
+    private javax.swing.JLabel jLabel131;
     private javax.swing.JLabel jLabel84;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane22;
-    private javax.swing.JScrollPane jScrollPane24;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator22;
     private javax.swing.JLabel jdata;
     private javax.swing.JTextField jnome;
-    private javax.swing.JLabel loginerro;
     private javax.swing.JTabbedPane telas_cad_usu;
-    private javax.swing.JTextField usu_login;
-    private javax.swing.JPasswordField usu_senha;
-    private javax.swing.JLabel usu_senhaerro1;
-    private javax.swing.JLabel usu_senhaerro2;
     // End of variables declaration//GEN-END:variables
 }

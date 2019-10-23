@@ -258,7 +258,7 @@ FuncionarioDAO funcDao = new FuncionarioDAO();
     }//GEN-LAST:event_md_nomeMouseClicked
 
     private void md_emailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_md_emailMouseClicked
-       habilitacampo(func_nome, md_nome);
+       habilitacampo(func_email, md_email);
         // TODO add your handling code here:
     }//GEN-LAST:event_md_emailMouseClicked
 

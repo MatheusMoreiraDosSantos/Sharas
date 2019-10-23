@@ -9,11 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import view.JF_Celeiro;
 import view.JF_Cliente;
+import view.JF_Contrato;
 import view.JF_Financeiro;
 import view.JF_Log;
 import view.JF_Pastagem;
 import view.JF_Principal1;
-import view.JF_Servico;
 import view.JF_Ususario;
 import view.JF_Veterinario;
 import view.JF_animais;
@@ -33,7 +33,7 @@ public class Telas {
      * @param tela o numero da tela que vai aparecer 
      * 1 para tela prncipal(home)
      * 2 Cadastro de cliente 
-     * 3 Vendas/serviços
+     * 3 Vendas/serviços/contrato
      * 4 calendario
      * 5 animais 
      * 6 pastagem
@@ -44,8 +44,8 @@ public class Telas {
      * //Tela de alto nivel 
      * 10 financeiro 
      * 11  cadastrar funcionario
-     * 12 log 
-     * 13Usuarios 
+     * 12 Usuarios 
+     * 13log
      */
     public void alterar(JFrame aberta, int tela){
         JFrame n_tela = null; 
@@ -53,7 +53,7 @@ public class Telas {
         switch(tela){ 
             case 1 : n_tela = new JF_Principal1();break;
             case 2 : n_tela = new JF_Cliente();break;
-            case 3:  n_tela = new JF_Servico();break;
+            case 3:  n_tela = new JF_Contrato();break;
            case 4:  n_tela = new JF_calendario();break;
             case 5: n_tela= new JF_animais() ;break;
             case 6 :n_tela = new JF_Pastagem();break;

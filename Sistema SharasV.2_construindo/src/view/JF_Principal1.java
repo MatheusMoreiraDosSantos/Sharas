@@ -145,37 +145,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
         jLabel73 = new javax.swing.JLabel();
         jLabel83 = new javax.swing.JLabel();
         jLabel105 = new javax.swing.JLabel();
-        Jveterinario = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
-        txt_veterinario_animal = new javax.swing.JTextField();
-        jLabel35 = new javax.swing.JLabel();
-        txt_veterinario_nome = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        txt_veterinario_tratamento = new javax.swing.JTextArea();
-        jSeparator8 = new javax.swing.JSeparator();
-        jLabel39 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        txt_veterinario_diagnostico = new javax.swing.JTextArea();
-        jSeparator9 = new javax.swing.JSeparator();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tab_veterinario = new javax.swing.JTable();
-        jLabel40 = new javax.swing.JLabel();
-        txt_veterinario_pesquisa = new javax.swing.JTextField();
-        btn_buscar2 = new javax.swing.JButton();
-        jLabel41 = new javax.swing.JLabel();
-        txt_veterinario_valor = new javax.swing.JTextField();
-        jdate_veterinario_inicio = new com.toedter.calendar.JDateChooser();
-        jdate_veterinario_termino = new com.toedter.calendar.JDateChooser();
-        btn_veterinario_cadastrar = new javax.swing.JButton();
-        btn_veterinario_excluir = new javax.swing.JButton();
-        btn_veterinario_alterar = new javax.swing.JButton();
-        jLabel70 = new javax.swing.JLabel();
-        txt_veterinario_id = new javax.swing.JTextField();
-        sem_animal_veterinario = new javax.swing.JLabel();
-        sem_veterinario_veterinario = new javax.swing.JLabel();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
@@ -185,23 +154,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
         btn_rh = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         btn_usuario1 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        atalho_animais = new javax.swing.JMenuItem();
-        atalho_treinamento = new javax.swing.JMenuItem();
-        atalho_consulta = new javax.swing.JMenuItem();
-        atalho_finaceiro = new javax.swing.JMenuItem();
-        atalho_rh = new javax.swing.JMenuItem();
-        atalho_ferrajamento = new javax.swing.JMenuItem();
-        atalho_log = new javax.swing.JMenuItem();
-        atalho_pastagem = new javax.swing.JMenuItem();
-        atalho_usuario = new javax.swing.JMenuItem();
-        atalho_calendario = new javax.swing.JMenuItem();
-        atalho_celeiro = new javax.swing.JMenu();
-        atalho_feno = new javax.swing.JMenuItem();
-        atalho_racao = new javax.swing.JMenuItem();
-        atalho_serragem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Home");
@@ -568,273 +520,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
         home.addTab("Novo Home", gen_conta);
 
-        Jveterinario.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel34.setText("Animal:");
-
-        txt_veterinario_animal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel35.setText("Veterinário responsável:");
-
-        txt_veterinario_nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_veterinario_nome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_veterinario_nomeActionPerformed(evt);
-            }
-        });
-
-        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel36.setText("Data do inicio do tratamento:");
-
-        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel37.setText("Data do termino do tratamento:");
-
-        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel38.setText("Diagnóstico do veterinário:");
-
-        txt_veterinario_tratamento.setColumns(20);
-        txt_veterinario_tratamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_veterinario_tratamento.setRows(5);
-        jScrollPane5.setViewportView(txt_veterinario_tratamento);
-
-        jSeparator8.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel39.setText("Tratamento :");
-
-        txt_veterinario_diagnostico.setColumns(20);
-        txt_veterinario_diagnostico.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_veterinario_diagnostico.setRows(5);
-        jScrollPane6.setViewportView(txt_veterinario_diagnostico);
-
-        jSeparator9.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        tab_veterinario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tab_veterinario.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Veterinário", "Animal", "Data inicio", "Data término"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tab_veterinario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tab_veterinarioMouseClicked(evt);
-            }
-        });
-        jScrollPane7.setViewportView(tab_veterinario);
-
-        jLabel40.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel40.setText("Pesquisar: ");
-
-        txt_veterinario_pesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        btn_buscar2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_buscar2.setText("Buscar");
-        btn_buscar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscar2ActionPerformed(evt);
-            }
-        });
-
-        jLabel41.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel41.setText("Valor total da despesa:");
-
-        txt_veterinario_valor.setText("0.00");
-        txt_veterinario_valor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_veterinario_valorActionPerformed(evt);
-            }
-        });
-
-        btn_veterinario_cadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_veterinario_cadastrar.setText("Cadastrar");
-        btn_veterinario_cadastrar.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                btn_veterinario_cadastrarAncestorMoved(evt);
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
-        btn_veterinario_cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_veterinario_cadastrarActionPerformed(evt);
-            }
-        });
-
-        btn_veterinario_excluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_veterinario_excluir.setText("Excluir");
-        btn_veterinario_excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_veterinario_excluirActionPerformed(evt);
-            }
-        });
-
-        btn_veterinario_alterar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_veterinario_alterar.setText("Alterar");
-        btn_veterinario_alterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_veterinario_alterarActionPerformed(evt);
-            }
-        });
-
-        jLabel70.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel70.setText("ID:");
-        jLabel70.setEnabled(false);
-
-        txt_veterinario_id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_veterinario_id.setEnabled(false);
-
-        sem_animal_veterinario.setForeground(new java.awt.Color(255, 0, 0));
-
-        sem_veterinario_veterinario.setForeground(new java.awt.Color(255, 0, 0));
-
-        javax.swing.GroupLayout JveterinarioLayout = new javax.swing.GroupLayout(Jveterinario);
-        Jveterinario.setLayout(JveterinarioLayout);
-        JveterinarioLayout.setHorizontalGroup(
-            JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JveterinarioLayout.createSequentialGroup()
-                .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JveterinarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_veterinario_cadastrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_veterinario_excluir)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_veterinario_alterar)
-                        .addGap(122, 122, 122))
-                    .addGroup(JveterinarioLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel38)
-                                .addComponent(jLabel37, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel35)
-                                .addComponent(jLabel34)
-                                .addComponent(txt_veterinario_animal)
-                                .addComponent(txt_veterinario_nome)
-                                .addComponent(jLabel36)
-                                .addComponent(jdate_veterinario_termino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jdate_veterinario_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sem_animal_veterinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sem_veterinario_veterinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(63, 63, 63)))
-                .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel39)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel70)
-                    .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txt_veterinario_id, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txt_veterinario_valor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JveterinarioLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel40)
-                            .addComponent(txt_veterinario_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_buscar2))
-                        .addContainerGap(195, Short.MAX_VALUE))
-                    .addGroup(JveterinarioLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())))
-            .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JveterinarioLayout.createSequentialGroup()
-                    .addGap(365, 365, 365)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(788, Short.MAX_VALUE)))
-        );
-        JveterinarioLayout.setVerticalGroup(
-            JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JveterinarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel34)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(JveterinarioLayout.createSequentialGroup()
-                        .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JveterinarioLayout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(JveterinarioLayout.createSequentialGroup()
-                                        .addComponent(jLabel39)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel41)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txt_veterinario_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel70)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txt_veterinario_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(JveterinarioLayout.createSequentialGroup()
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel40)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_veterinario_pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_buscar2)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(JveterinarioLayout.createSequentialGroup()
-                        .addComponent(txt_veterinario_animal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sem_animal_veterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel35)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_veterinario_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(sem_veterinario_veterinario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdate_veterinario_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jdate_veterinario_termino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel38)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_veterinario_cadastrar)
-                            .addComponent(btn_veterinario_excluir)
-                            .addComponent(btn_veterinario_alterar))
-                        .addGap(41, 41, 41))))
-            .addGroup(JveterinarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JveterinarioLayout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(107, Short.MAX_VALUE)))
-        );
-
-        home.addTab("Veterinário", Jveterinario);
-
         btn_home.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
         btn_home.setText("Home");
@@ -965,116 +650,8 @@ public class JF_Principal1 extends javax.swing.JFrame {
                     .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Atalho ");
-
-        atalho_animais.setText("Animais ");
-        atalho_animais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_animaisActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_animais);
-
-        atalho_treinamento.setText("Treinamento ");
-        atalho_treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_treinamentoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_treinamento);
-
-        atalho_consulta.setText("Consulta ");
-        atalho_consulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_veterinarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_consulta);
-
-        atalho_finaceiro.setText("Financeiro ");
-        atalho_finaceiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_financeiroActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_finaceiro);
-
-        atalho_rh.setText("RH");
-        atalho_rh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_rhActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_rh);
-
-        atalho_ferrajamento.setText("Ferrajamento");
-        atalho_ferrajamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ferrajamentoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_ferrajamento);
-
-        atalho_log.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        atalho_log.setText("Historioco de ação ");
-        atalho_log.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_logActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_log);
-
-        atalho_pastagem.setText("Pastagem ");
-        atalho_pastagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_pastagemActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_pastagem);
-
-        atalho_usuario.setText("Cadastro de usuário");
-        atalho_usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_usuarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_usuario);
-
-        atalho_calendario.setText("Calendário");
-        jMenu2.add(atalho_calendario);
-
-        atalho_celeiro.setText("Celeiro ");
-        atalho_celeiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_celeiroActionPerformed(evt);
-            }
-        });
-
-        atalho_feno.setText("Feno");
-        atalho_feno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_fenoActionPerformed(evt);
-            }
-        });
-        atalho_celeiro.add(atalho_feno);
-
-        atalho_racao.setText("Ração ");
-        atalho_celeiro.add(atalho_racao);
-
-        atalho_serragem.setText("Serragem ");
-        atalho_celeiro.add(atalho_serragem);
-
-        jMenu2.add(atalho_celeiro);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1084,7 +661,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 701, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
         );
 
         setSize(new java.awt.Dimension(1482, 761));
@@ -1149,11 +726,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_animaisActionPerformed
 
-    private void btn_treinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_treinamentoActionPerformed
- 
-        
-    }//GEN-LAST:event_btn_treinamentoActionPerformed
-
     private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinarioActionPerformed
 
     }//GEN-LAST:event_btn_veterinarioActionPerformed
@@ -1161,10 +733,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_financeiroActionPerformed
     
     }//GEN-LAST:event_btn_financeiroActionPerformed
-
-    private void btn_rhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_rhActionPerformed
-
-    }//GEN-LAST:event_btn_rhActionPerformed
 
     private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ferrajamentoActionPerformed
         
@@ -1178,138 +746,6 @@ public class JF_Principal1 extends javax.swing.JFrame {
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
        
     }//GEN-LAST:event_btn_homeActionPerformed
-
-    private void btn_veterinario_alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinario_alterarActionPerformed
-        String nome = jnome.getText();
-        String how = txt_veterinario_animal.getText();
-        veterinario.setVeterinario_id(Integer.valueOf(txt_veterinario_id.getText()));
-        veterinario.setVeterinario_animal(txt_veterinario_animal.getText());
-        veterinario.setVeterinario_nome(txt_veterinario_nome.getText());
-        java.sql.Date date_veterinario_inicio = new java.sql.Date(jdate_veterinario_inicio.getDate().getTime());
-        veterinario.setVeterinario_inicio(date_veterinario_inicio);
-
-        java.sql.Date date_veterinario_termino = new java.sql.Date(jdate_veterinario_termino.getDate().getTime());
-        veterinario.setVeterinario_termino(date_veterinario_termino);
-        veterinario.setVeterinario_diagnostico(txt_veterinario_diagnostico.getText());
-        veterinario.setVeterinario_tratamento(txt_veterinario_tratamento.getText());
-        veterinario.setVeterinario_valor(Float.valueOf(txt_veterinario_valor.getText()));
-
-        if (!"".equals(txt_veterinario_animal.getText())) {
-            if (!"".equals(txt_veterinario_nome.getText())) {
-                veterinarioDao.alterarVeterinario(veterinario, nome, how, this);
-                veterinarioDao.consultarVeterinario(txt_veterinario_pesquisa, tab_veterinario, this);
-                txt_veterinario_animal.setText("");
-                txt_veterinario_nome.setText("");
-                jdate_veterinario_inicio.setCalendar(null);
-                jdate_veterinario_termino.setCalendar(null);
-                txt_veterinario_diagnostico.setText("");
-                txt_veterinario_tratamento.setText("");
-                txt_veterinario_valor.setText("0.00");
-                sem_animal_veterinario.setText("");
-                sem_animal_veterinario.setText("");
-            } else {
-                sem_animal_veterinario.setText("Campo obrigatório");
-            }
-
-        } else {
-            sem_animal_veterinario.setText("Campo obrigatório");
-        }
-    }//GEN-LAST:event_btn_veterinario_alterarActionPerformed
-
-    private void btn_veterinario_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinario_excluirActionPerformed
-        String nome = jnome.getText();
-        String how = txt_veterinario_animal.getText();
-        veterinario.setVeterinario_id(Integer.valueOf(txt_veterinario_id.getText()));
-        veterinarioDao.apagarVeterinario(veterinario, nome, how, this);
-        veterinarioDao.consultarVeterinario(txt_veterinario_pesquisa, tab_veterinario, this);
-
-        txt_veterinario_id.setText("");
-        txt_veterinario_animal.setText("");
-        txt_veterinario_nome.setText("");
-        jdate_veterinario_inicio.setCalendar(null);
-        jdate_veterinario_termino.setCalendar(null);
-        txt_veterinario_diagnostico.setText("");
-        txt_veterinario_tratamento.setText("");
-        txt_veterinario_valor.setText("0.00");
-    }//GEN-LAST:event_btn_veterinario_excluirActionPerformed
-
-    private void btn_veterinario_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinario_cadastrarActionPerformed
-        String nome = jnome.getText();
-        String how = txt_veterinario_animal.getText();
-        veterinario.setVeterinario_animal(txt_veterinario_animal.getText());
-        veterinario.setVeterinario_nome(txt_veterinario_nome.getText());
-        java.sql.Date date_veterinario_inicio = new java.sql.Date(jdate_veterinario_inicio.getDate().getTime());
-        veterinario.setVeterinario_inicio(date_veterinario_inicio);
-
-        java.sql.Date date_veterinario_termino = new java.sql.Date(jdate_veterinario_termino.getDate().getTime());
-        veterinario.setVeterinario_termino(date_veterinario_termino);
-        veterinario.setVeterinario_diagnostico(txt_veterinario_diagnostico.getText());
-        veterinario.setVeterinario_tratamento(txt_veterinario_tratamento.getText());
-        veterinario.setVeterinario_valor(Float.valueOf(txt_veterinario_valor.getText()));
-
-        if (!"".equals(txt_veterinario_animal.getText())) {
-            if (!"".equals(txt_veterinario_nome.getText())) {
-                veterinarioDao.salvarVeterinario(veterinario, nome, how, this);
-                veterinarioDao.consultarVeterinario(txt_veterinario_pesquisa, tab_veterinario, this);
-                txt_veterinario_animal.setText("");
-                txt_veterinario_nome.setText("");
-                jdate_veterinario_inicio.setCalendar(null);
-                jdate_veterinario_termino.setCalendar(null);
-                txt_veterinario_diagnostico.setText("");
-                txt_veterinario_tratamento.setText("");
-                txt_veterinario_valor.setText("0.00");
-                sem_animal_veterinario.setText("");
-                sem_veterinario_veterinario.setText("");
-            } else {
-                sem_veterinario_veterinario.setText("Campo obrigatório");
-            }
-
-        } else {
-            sem_animal_veterinario.setText("Campo obrigatório");
-        }
-
-    }//GEN-LAST:event_btn_veterinario_cadastrarActionPerformed
-
-    private void btn_veterinario_cadastrarAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_btn_veterinario_cadastrarAncestorMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_veterinario_cadastrarAncestorMoved
-
-    private void txt_veterinario_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_veterinario_valorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_veterinario_valorActionPerformed
-
-    private void btn_buscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar2ActionPerformed
-        veterinarioDao.consultarVeterinario(txt_veterinario_pesquisa, tab_veterinario, this);
-        txt_veterinario_animal.setText("");
-        txt_veterinario_nome.setText("");
-        txt_veterinario_id.setText("");
-        jdate_veterinario_inicio.setCalendar(null);
-        jdate_veterinario_termino.setCalendar(null);
-        txt_veterinario_diagnostico.setText("");
-        txt_veterinario_tratamento.setText("");
-        txt_veterinario_valor.setText("0.00");
-        btn_veterinario_cadastrar.setEnabled(true);
-        btn_veterinario_excluir.setEnabled(false);
-        btn_veterinario_alterar.setEnabled(false);
-        sem_animal_veterinario.setText("");
-        sem_animal_veterinario.setText("");
-    }//GEN-LAST:event_btn_buscar2ActionPerformed
-
-    private void tab_veterinarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_veterinarioMouseClicked
-        int linha = tab_veterinario.getSelectedRow();
-        String valor = String.valueOf(tab_veterinario.getValueAt(linha, 0));
-        int veterinarioID = Integer.valueOf(valor);
-        veterinarioDao.consultarVeterinarioID(veterinarioID, txt_veterinario_id, txt_veterinario_animal, txt_veterinario_nome, jdate_veterinario_inicio, jdate_veterinario_termino, txt_veterinario_diagnostico, txt_veterinario_tratamento, txt_veterinario_valor, this);
-        btn_veterinario_cadastrar.setEnabled(false);
-        btn_veterinario_excluir.setEnabled(true);
-        btn_veterinario_alterar.setEnabled(true);
-        sem_animal_veterinario.setText("");
-        sem_animal_veterinario.setText("");
-    }//GEN-LAST:event_tab_veterinarioMouseClicked
-
-    private void txt_veterinario_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_veterinario_nomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_veterinario_nomeActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         JF_Login jfLogin = new JF_Login();
@@ -1325,60 +761,12 @@ public class JF_Principal1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
-    private void atalho_fenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_fenoActionPerformed
-
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_atalho_fenoActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jCalendar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MouseClicked
-        java.sql.Date data = new java.sql.Date(jCalendar1.getDate().getTime());
-        texto_agenda.append("" + data + "\n");
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCalendar1MouseClicked
-
-    private void jCalendar1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendar1PropertyChange
-       /* texto_agenda.setText("");
-        java.sql.Date data = new java.sql.Date(jCalendar1.getDate().getTime());
-        calendario.setCalendario_data(data);
-        calendarioDao.Selecionaragenda(texto_agenda, calendario);*/
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCalendar1PropertyChange
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        texto_agenda.setText("");
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        /*alendarioDao.excluirAgenda(calendario);
-        texto_agenda.setText("anotação apagada");*/
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void tela_homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tela_homeComponentShown
-        System.out.println(se.getId_pessoa());
-        jLabel59.setText("Login \t" + se.getLogin());
-        jLabel73.setText("usuario_id: \t" + se.getId_usuario());
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tela_homeComponentShown
-
     private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animais1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_animais1ActionPerformed
 
-    private void homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_homeComponentShown
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homeComponentShown
-
     private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuario1ActionPerformed
-    JF_Servico s = new JF_Servico();
-    s.setVisible(true);
+   
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_usuario1ActionPerformed
 
@@ -1387,6 +775,47 @@ public class JF_Principal1 extends javax.swing.JFrame {
         calendario.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_calendarioActionPerformed
+
+    private void homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_homeComponentShown
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeComponentShown
+
+    private void tela_homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tela_homeComponentShown
+        System.out.println(se.getId_pessoa());
+        jLabel59.setText("Login \t" + se.getLogin());
+        jLabel73.setText("usuario_id: \t" + se.getId_usuario());
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tela_homeComponentShown
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        /*alendarioDao.excluirAgenda(calendario);
+        texto_agenda.setText("anotação apagada");*/
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        texto_agenda.setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jCalendar1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jCalendar1PropertyChange
+        /* texto_agenda.setText("");
+        java.sql.Date data = new java.sql.Date(jCalendar1.getDate().getTime());
+        calendario.setCalendario_data(data);
+        calendarioDao.Selecionaragenda(texto_agenda, calendario);*/
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCalendar1PropertyChange
+
+    private void jCalendar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MouseClicked
+        java.sql.Date data = new java.sql.Date(jCalendar1.getDate().getTime());
+        texto_agenda.append("" + data + "\n");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCalendar1MouseClicked
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1401,153 +830,56 @@ public class JF_Principal1 extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Jcadanimal;
-    private javax.swing.JPanel Jveterinario;
-    private javax.swing.JMenuItem atalho_animais;
-    private javax.swing.JMenuItem atalho_calendario;
-    private javax.swing.JMenu atalho_celeiro;
-    private javax.swing.JMenuItem atalho_consulta;
-    private javax.swing.JMenuItem atalho_feno;
-    private javax.swing.JMenuItem atalho_ferrajamento;
-    private javax.swing.JMenuItem atalho_finaceiro;
-    private javax.swing.JMenuItem atalho_log;
-    private javax.swing.JMenuItem atalho_pastagem;
-    private javax.swing.JMenuItem atalho_racao;
-    private javax.swing.JMenuItem atalho_rh;
-    private javax.swing.JMenuItem atalho_serragem;
-    private javax.swing.JMenuItem atalho_treinamento;
-    private javax.swing.JMenuItem atalho_usuario;
-    private javax.swing.JButton btn_alteraranimal;
     private javax.swing.JButton btn_animais;
     private javax.swing.JButton btn_animais1;
-    private javax.swing.JButton btn_animais2;
-    private javax.swing.JButton btn_buscar2;
     private javax.swing.JButton btn_calendario;
-    private javax.swing.JButton btn_calendario1;
     private javax.swing.JButton btn_celeiro;
-    private javax.swing.JButton btn_celeiro1;
-    private javax.swing.JButton btn_excluiranimal;
     private javax.swing.JButton btn_ferrajamento;
-    private javax.swing.JButton btn_ferrajamento1;
     private javax.swing.JButton btn_financeiro;
-    private javax.swing.JButton btn_financeiro1;
     private javax.swing.JButton btn_home;
     private javax.swing.JButton btn_log;
-    private javax.swing.JButton btn_log1;
     private javax.swing.JButton btn_pastagem;
-    private javax.swing.JButton btn_pastagem1;
     private javax.swing.JButton btn_rh;
     private javax.swing.JButton btn_usuario;
     private javax.swing.JButton btn_usuario1;
-    private javax.swing.JButton btn_usuario2;
     private javax.swing.JButton btn_veterinario;
-    private javax.swing.JButton btn_veterinario1;
-    private javax.swing.JButton btn_veterinario_alterar;
-    private javax.swing.JButton btn_veterinario_cadastrar;
-    private javax.swing.JButton btn_veterinario_excluir;
-    private javax.swing.JButton btncadastrar;
-    private com.toedter.calendar.JDateChooser data_nascimento;
     private javax.swing.JPanel gen_conta;
     private javax.swing.JTabbedPane home;
-    private javax.swing.JTabbedPane home1;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane17;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane23;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator22;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel jdata;
-    private com.toedter.calendar.JDateChooser jdate_veterinario_inicio;
-    private com.toedter.calendar.JDateChooser jdate_veterinario_termino;
     private javax.swing.JPanel jhome;
     private javax.swing.JTextField jnome;
-    private javax.swing.JLabel nasc;
-    private javax.swing.JLabel nomevazio;
-    private javax.swing.JLabel registerro;
-    private javax.swing.JLabel sem_animal_veterinario;
-    private javax.swing.JLabel sem_pelagem;
-    private javax.swing.JLabel sem_sexo;
-    private javax.swing.JLabel sem_veterinario_veterinario;
-    private javax.swing.JTable tabAnimal;
-    private javax.swing.JTable tab_veterinario;
     private javax.swing.JTabbedPane tela_home;
     private javax.swing.JTextArea texto_agenda;
     private javax.swing.JTextArea txt_notificacao_home;
-    private javax.swing.JTextField txt_veterinario_animal;
-    private javax.swing.JTextArea txt_veterinario_diagnostico;
-    private javax.swing.JTextField txt_veterinario_id;
-    private javax.swing.JTextField txt_veterinario_nome;
-    private javax.swing.JTextField txt_veterinario_pesquisa;
-    private javax.swing.JTextArea txt_veterinario_tratamento;
-    private javax.swing.JTextField txt_veterinario_valor;
-    private javax.swing.JTextField txtanimalid;
-    private javax.swing.JTextField txtcriador;
-    private javax.swing.JTextField txtmodalidade;
-    private javax.swing.JTextField txtnomeanimal;
-    private javax.swing.JTextField txtpelagem;
-    private javax.swing.JTextField txtpesquisa;
-    private javax.swing.JTextField txtproprietario;
-    private javax.swing.JTextField txtregistro;
-    private javax.swing.JTextField txtsexo;
-    private javax.swing.JTextField txttreinador;
-    private javax.swing.JTextField txtveterinario;
     // End of variables declaration//GEN-END:variables
 }

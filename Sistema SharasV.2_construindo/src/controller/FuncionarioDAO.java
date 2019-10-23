@@ -7,6 +7,7 @@ package controller;
 
 import java.sql.*;
 import javax.swing.*;
+import model.Enderecos;
 import model.Funcionarios;
 import net.proteanit.sql.DbUtils;
 import view.JF_funcionarios;
@@ -23,11 +24,14 @@ public class FuncionarioDAO {
 PreparedStatement pst;
 ResultSet rs;
 PessoaDAO pessoa = new PessoaDAO();
+    Enderecos end = new Enderecos();
     //Métodos
     //SALVAR
     public void salvarFuncionario(Funcionarios func,JFrame tela) {
 //Chama a função para salvar pessoas , se retornar verdadeira é por que foi registrado.
-        if(pessoa.salvarPessoaf(func, tela, 1)){
+end.setCep("0");
+end.setNumero("000");
+if(pessoa.salvarPessoaf(func, tela, 1,end)){
         try {
             //inicia a inserção na tabela de rh 
           con = Conexao.conectar();

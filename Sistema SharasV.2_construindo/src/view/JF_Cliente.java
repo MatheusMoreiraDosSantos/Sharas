@@ -6,28 +6,33 @@
 package view;
 
 import controller.ClienteDao;
+import funcoes.Telas;
 import funcoes.Validacoes;
+import javax.swing.JOptionPane;
 import model.Cliente;
 import model.Enderecos;
 import model.Misc;
+import view_secundaria.AlterarFuncionario;
 
 /**
  *
  * @author maikon.rosa
  */
 public class JF_Cliente extends javax.swing.JFrame {
-
+    ClienteDao cliDao = new ClienteDao();
     /**
      * Creates new form JF_Cliente
      */
     public JF_Cliente() {
         initComponents();
+        cliDao.CarregarTabelacli(tab_cliente, pesquisa);
     }
     Validacoes campo = new Validacoes();
     Cliente cliente= new Cliente();
     Misc misc = new Misc();
     Enderecos end = new Enderecos();
-    ClienteDao cliDao = new ClienteDao();
+
+      Telas telas = new Telas();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -90,7 +95,7 @@ public class JF_Cliente extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tab_cliente = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        pesquisa = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
@@ -101,23 +106,6 @@ public class JF_Cliente extends javax.swing.JFrame {
         btn_rh = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         btn_usuario1 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        atalho_animais = new javax.swing.JMenuItem();
-        atalho_treinamento = new javax.swing.JMenuItem();
-        atalho_consulta = new javax.swing.JMenuItem();
-        atalho_finaceiro = new javax.swing.JMenuItem();
-        atalho_rh = new javax.swing.JMenuItem();
-        atalho_ferrajamento = new javax.swing.JMenuItem();
-        atalho_log = new javax.swing.JMenuItem();
-        atalho_pastagem = new javax.swing.JMenuItem();
-        atalho_usuario = new javax.swing.JMenuItem();
-        atalho_calendario = new javax.swing.JMenuItem();
-        atalho_celeiro = new javax.swing.JMenu();
-        atalho_feno = new javax.swing.JMenuItem();
-        atalho_racao = new javax.swing.JMenuItem();
-        atalho_serragem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -209,11 +197,6 @@ public class JF_Cliente extends javax.swing.JFrame {
         });
 
         home.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, new java.awt.Color(0, 153, 153), new java.awt.Color(153, 153, 153)));
-        home.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                homeComponentShown(evt);
-            }
-        });
 
         jLabel31.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel31.setText("Cadastrar Cliente ");
@@ -251,11 +234,9 @@ public class JF_Cliente extends javax.swing.JFrame {
 
         nome_erro.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         nome_erro.setForeground(new java.awt.Color(255, 0, 0));
-        nome_erro.setText("jLabel8");
 
         cpf_erro.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         cpf_erro.setForeground(new java.awt.Color(255, 0, 0));
-        cpf_erro.setText("jLabel8");
 
         cli_cpf.setFont(new java.awt.Font("Tw Cen MT", 0, 17)); // NOI18N
 
@@ -266,15 +247,12 @@ public class JF_Cliente extends javax.swing.JFrame {
 
         telefone_errp.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         telefone_errp.setForeground(new java.awt.Color(255, 0, 0));
-        telefone_errp.setText("jLabel10");
 
         email_erro1.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         email_erro1.setForeground(new java.awt.Color(255, 0, 0));
-        email_erro1.setText("jLabel10");
 
         telefone2_erro.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         telefone2_erro.setForeground(new java.awt.Color(255, 0, 0));
-        telefone2_erro.setText("jLabel10");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Endereço"));
 
@@ -285,7 +263,6 @@ public class JF_Cliente extends javax.swing.JFrame {
 
         cep_erro.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         cep_erro.setForeground(new java.awt.Color(255, 0, 0));
-        cep_erro.setText("jLabel6");
 
         jLabel7.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         jLabel7.setText("Rua : ");
@@ -294,7 +271,6 @@ public class JF_Cliente extends javax.swing.JFrame {
 
         rua_erro.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         rua_erro.setForeground(new java.awt.Color(255, 0, 0));
-        rua_erro.setText("jLabel8");
 
         jLabel9.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         jLabel9.setText("Numero ");
@@ -310,7 +286,6 @@ public class JF_Cliente extends javax.swing.JFrame {
 
         bairro_errro.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         bairro_errro.setForeground(new java.awt.Color(255, 0, 0));
-        bairro_errro.setText("jLabel11");
 
         jLabel12.setFont(new java.awt.Font("Tw Cen MT", 0, 16)); // NOI18N
         jLabel12.setText("Estado :");
@@ -323,7 +298,6 @@ public class JF_Cliente extends javax.swing.JFrame {
 
         cidade_erro.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         cidade_erro.setForeground(new java.awt.Color(255, 0, 0));
-        cidade_erro.setText("jLabel14");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -332,6 +306,7 @@ public class JF_Cliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rua_erro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cidade_erro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cep)
                     .addComponent(cep_erro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -346,9 +321,7 @@ public class JF_Cliente extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel2)
-                            .addComponent(rua_erro)
                             .addComponent(jLabel10)
-                            .addComponent(bairro_errro)
                             .addComponent(jLabel12)
                             .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,7 +331,8 @@ public class JF_Cliente extends javax.swing.JFrame {
                                 .addGap(146, 146, 146))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cidade)))))
+                                .addComponent(cidade))))
+                    .addComponent(bairro_errro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -369,7 +343,7 @@ public class JF_Cliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cep_erro)
+                .addComponent(cep_erro, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -379,23 +353,23 @@ public class JF_Cliente extends javax.swing.JFrame {
                     .addComponent(rua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rua_erro)
+                .addComponent(rua_erro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(bairro_errro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bairro_errro, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cidade_erro)
+                .addComponent(cidade_erro, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -426,9 +400,12 @@ public class JF_Cliente extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tab_cliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab_clienteMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tab_cliente);
-
-        jTextField1.setText("jTextField1");
 
         jLabel4.setText("Pesquisar :");
 
@@ -472,9 +449,8 @@ public class JF_Cliente extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -488,7 +464,7 @@ public class JF_Cliente extends javax.swing.JFrame {
                         .addGap(99, 99, 99)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
@@ -513,32 +489,32 @@ public class JF_Cliente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cli_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cpf_erro)
+                        .addComponent(cpf_erro, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cli_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(email_erro1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(email_erro1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel57)
                         .addGap(1, 1, 1)
                         .addComponent(cli_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(telefone_errp)
+                        .addComponent(telefone_errp, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel33)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cli_telefone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(telefone2_erro)
+                        .addComponent(telefone2_erro, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(183, 183, 183))))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
+                        .addGap(64, 64, 64)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,7 +523,7 @@ public class JF_Cliente extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -691,116 +667,8 @@ public class JF_Cliente extends javax.swing.JFrame {
                     .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Atalho ");
-
-        atalho_animais.setText("Animais ");
-        atalho_animais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_animaisbtn_animaisActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_animais);
-
-        atalho_treinamento.setText("Treinamento ");
-        atalho_treinamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_treinamentobtn_treinamentoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_treinamento);
-
-        atalho_consulta.setText("Consulta ");
-        atalho_consulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_consultabtn_veterinarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_consulta);
-
-        atalho_finaceiro.setText("Financeiro ");
-        atalho_finaceiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_finaceirobtn_financeiroActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_finaceiro);
-
-        atalho_rh.setText("RH");
-        atalho_rh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_rhbtn_rhActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_rh);
-
-        atalho_ferrajamento.setText("Ferrajamento");
-        atalho_ferrajamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_ferrajamentobtn_ferrajamentoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_ferrajamento);
-
-        atalho_log.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        atalho_log.setText("Historioco de ação ");
-        atalho_log.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_logbtn_logActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_log);
-
-        atalho_pastagem.setText("Pastagem ");
-        atalho_pastagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_pastagembtn_pastagemActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_pastagem);
-
-        atalho_usuario.setText("Cadastro de usuário");
-        atalho_usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_usuariobtn_usuarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(atalho_usuario);
-
-        atalho_calendario.setText("Calendário");
-        jMenu2.add(atalho_calendario);
-
-        atalho_celeiro.setText("Celeiro ");
-        atalho_celeiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_celeirobtn_celeiroActionPerformed(evt);
-            }
-        });
-
-        atalho_feno.setText("Feno");
-        atalho_feno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atalho_fenoActionPerformed(evt);
-            }
-        });
-        atalho_celeiro.add(atalho_feno);
-
-        atalho_racao.setText("Ração ");
-        atalho_celeiro.add(atalho_racao);
-
-        atalho_serragem.setText("Serragem ");
-        atalho_celeiro.add(atalho_serragem);
-
-        jMenu2.add(atalho_celeiro);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -810,113 +678,53 @@ public class JF_Cliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 707, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        telas.alterar(this,1);
+    }                                        
+    private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+         telas.alterar(this, 2);
+    }   
+    
+    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        telas.alterar(this, 3);        
+    }    
+    private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {                                               
+       telas.alterar(this, 4);
+    }         
+    private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {                                            
+       telas.alterar(this, 5);
+    }                  
+ private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {                                             
+      telas.alterar(this, 6);
+    }                                            
+    private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {                                            
+      telas.alterar(this, 7);
+    }                                           
+   private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+       telas.alterar(this, 8);
+    }                                                
+private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {                                                
+     telas.alterar(this, 9);
+    }                                               
 
-    private void btn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animaisActionPerformed
-
-    }//GEN-LAST:event_btn_animaisActionPerformed
-
-    private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_celeiroActionPerformed
-
-    }//GEN-LAST:event_btn_celeiroActionPerformed
-
-    private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinarioActionPerformed
-
-    }//GEN-LAST:event_btn_veterinarioActionPerformed
-
-    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_financeiroActionPerformed
-
-    }//GEN-LAST:event_btn_financeiroActionPerformed
-
-    private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pastagemActionPerformed
-
-    }//GEN-LAST:event_btn_pastagemActionPerformed
-
-    private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ferrajamentoActionPerformed
-
-    }//GEN-LAST:event_btn_ferrajamentoActionPerformed
-
-    private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarioActionPerformed
-
-    }//GEN-LAST:event_btn_usuarioActionPerformed
-
-    private void btn_calendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calendarioActionPerformed
-        JF_calendario calendario= new JF_calendario();
-        calendario.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btn_calendarioActionPerformed
-
-    private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logActionPerformed
-
-    }//GEN-LAST:event_btn_logActionPerformed
-
-    private void homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_homeComponentShown
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_homeComponentShown
-
-    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-
-    }//GEN-LAST:event_btn_homeActionPerformed
-
-    private void btn_animais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_animais1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_animais1ActionPerformed
-
-    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuario1ActionPerformed
-        JF_Servico s = new JF_Servico();
-        s.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_usuario1ActionPerformed
-
-    private void atalho_animaisbtn_animaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_animaisbtn_animaisActionPerformed
-
-    }//GEN-LAST:event_atalho_animaisbtn_animaisActionPerformed
-
-    private void atalho_treinamentobtn_treinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_treinamentobtn_treinamentoActionPerformed
-
-    }//GEN-LAST:event_atalho_treinamentobtn_treinamentoActionPerformed
-
-    private void atalho_consultabtn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_consultabtn_veterinarioActionPerformed
-
-    }//GEN-LAST:event_atalho_consultabtn_veterinarioActionPerformed
-
-    private void atalho_finaceirobtn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_finaceirobtn_financeiroActionPerformed
-
-    }//GEN-LAST:event_atalho_finaceirobtn_financeiroActionPerformed
-
-    private void atalho_rhbtn_rhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_rhbtn_rhActionPerformed
-
-    }//GEN-LAST:event_atalho_rhbtn_rhActionPerformed
-
-    private void atalho_ferrajamentobtn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_ferrajamentobtn_ferrajamentoActionPerformed
-
-    }//GEN-LAST:event_atalho_ferrajamentobtn_ferrajamentoActionPerformed
-
-    private void atalho_logbtn_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_logbtn_logActionPerformed
-
-    }//GEN-LAST:event_atalho_logbtn_logActionPerformed
-
-    private void atalho_pastagembtn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_pastagembtn_pastagemActionPerformed
-
-    }//GEN-LAST:event_atalho_pastagembtn_pastagemActionPerformed
-
-    private void atalho_usuariobtn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_usuariobtn_usuarioActionPerformed
-
-    }//GEN-LAST:event_atalho_usuariobtn_usuarioActionPerformed
-
-    private void atalho_fenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_fenoActionPerformed
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_atalho_fenoActionPerformed
-
-    private void atalho_celeirobtn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atalho_celeirobtn_celeiroActionPerformed
-
-    }//GEN-LAST:event_atalho_celeirobtn_celeiroActionPerformed
+    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        telas.alterar(this, 10);
+    }    
+       private void btn_rhActionPerformed(java.awt.event.ActionEvent evt) {                                       
+       telas.alterar(this, 11);
+        
+    }        
+  private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    telas.alterar(this, 12);
+    }                                           
+    private void btn_logActionPerformed(java.awt.event.ActionEvent evt) {                                        
+ telas.alterar(this, 13);
+    }                                       
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
                      if(campo.CampoTexto(cli_nome, nome_erro)){//começo nome
@@ -934,14 +742,16 @@ public class JF_Cliente extends javax.swing.JFrame {
                        end.setRua(rua.getText());
                      if(campo.CampoTexto(num, rua_erro)){//inicio numero    
                       end.setNumero(num.getText());
+                      if(campo.CampoTexto(bairro, bairro_errro)){
+                            end.setBairro(bairro.getText());
                      if(campo.Campoescolha(estado, cidade_erro)){//inicio estado
                      end.setEstado(estado.getSelectedItem());
                      if(campo.CampoTexto(cidade,cidade_erro)){//inicio cidade
                      end.setCidde(cidade.getText());
                              cliDao.salvarCliente(cliente, this, end);
                      }
-                     
                      }//fim estado
+                     }//fim de bairro
                      }//fim numero
                      } //fim rua    
                     }//fim cep   
@@ -952,6 +762,28 @@ public class JF_Cliente extends javax.swing.JFrame {
                   
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tab_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_clienteMouseClicked
+ int linha = tab_cliente.getSelectedRow();
+        String  nome = String.valueOf(tab_cliente.getValueAt(linha, 1));
+           String opcoes[] = {"Debito","Alterar","Deletar","Cancelar"};
+        int opc = JOptionPane.showOptionDialog(null, "Oque deseja "+nome+"", "Confiraçao"
+      , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[1], opcoes[2],opcoes[3]);
+        if (opc == 0){
+            func.setPessoa_nome(nome);
+            func.setPessoa_cpfcnpj(String.valueOf(tab_func.getValueAt(linha, 2)));
+            String  valor = String.valueOf(tab_func.getValueAt(linha, 0));
+            int id= Integer.valueOf(valor);    
+            func.setFuncionario_id(id);
+            AlterarFuncionario at_fun = new AlterarFuncionario(new javax.swing.JFrame(), true);
+            at_fun.setVisible(true);
+        }else{
+        
+        }
+                
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab_clienteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -989,20 +821,6 @@ public class JF_Cliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem atalho_animais;
-    private javax.swing.JMenuItem atalho_calendario;
-    private javax.swing.JMenu atalho_celeiro;
-    private javax.swing.JMenuItem atalho_consulta;
-    private javax.swing.JMenuItem atalho_feno;
-    private javax.swing.JMenuItem atalho_ferrajamento;
-    private javax.swing.JMenuItem atalho_finaceiro;
-    private javax.swing.JMenuItem atalho_log;
-    private javax.swing.JMenuItem atalho_pastagem;
-    private javax.swing.JMenuItem atalho_racao;
-    private javax.swing.JMenuItem atalho_rh;
-    private javax.swing.JMenuItem atalho_serragem;
-    private javax.swing.JMenuItem atalho_treinamento;
-    private javax.swing.JMenuItem atalho_usuario;
     private javax.swing.JTextField bairro;
     private javax.swing.JLabel bairro_errro;
     private javax.swing.JButton btn_animais;
@@ -1050,20 +868,17 @@ public class JF_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator22;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel jdata;
     private javax.swing.JTextField jnome;
     private javax.swing.JLabel nome_erro;
     private javax.swing.JTextField num;
+    private javax.swing.JTextField pesquisa;
     private javax.swing.JTextField rua;
     private javax.swing.JLabel rua_erro;
     private javax.swing.JTable tab_cliente;

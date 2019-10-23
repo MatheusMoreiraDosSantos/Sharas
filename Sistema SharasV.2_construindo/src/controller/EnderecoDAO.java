@@ -26,9 +26,18 @@ public class EnderecoDAO {
     PreparedStatement pst;
     ResultSet rs;
       public boolean salvarEnderecos(Enderecos end, JFrame tela,Cliente cli){
-             try {
+          try {  
             con = Conexao.conectar();
-            sql1="insert into endereco values (null,?,?,?,?,?,?,(select pessoa_id from pessoa where pessoa_cpfcnpj=?))";
+            sql1="SELECT ID from idenddereco WHERE c= ? and n = ? ";
+            pst = con.prepareStatement(sql1);
+            pst.setString(1, end.getNumero());
+            pst.setString(2,end.getCep());
+            rs=pst.executeQuery();
+            if(rs.next()){
+             Conexao.desconectar();
+                return (true);
+            }else{    
+            sql1="insert into endereco values (null,?,?,?,?,?,?)";
             pst = con.prepareStatement(sql1);
             pst.setString(1, end.getNumero());
             pst.setString(2,end.getCep());
@@ -36,17 +45,15 @@ public class EnderecoDAO {
             pst.setString(4,end.getBairro());
             pst.setString(5,end.getCidde());
             pst.setString(6,end.getEstado());
-            pst.setString(7, cli.getPessoa_cpfcnpj());
             pst.execute();
-            Conexao.desconectar();
+              Conexao.desconectar();
             return(true);
-        }catch(SQLException e){
-                 System.out.println(""+e);
+            }
+        }catch(SQLException e){    
+            System.out.println("endereco erro"+e);
                  JOptionPane.showMessageDialog(tela, "Erro ao cadastrar!");
                  Conexao.desconectar();
                  return(false);
         }
-       
-         
-         }
+}
 }
