@@ -6,7 +6,7 @@
 package view;
 
 import controller.AnimalDAO;
-import funcoes.Telas;
+import controller.Telas;
 import model.Animal;
 
 /**

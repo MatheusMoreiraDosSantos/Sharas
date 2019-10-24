@@ -5,7 +5,7 @@
  */
 package view;
 
-import funcoes.Telas;
+import controller.Telas;
 
 /**
  *

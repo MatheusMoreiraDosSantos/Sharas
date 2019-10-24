@@ -6,7 +6,7 @@
 package view;
 
 import controller.VeterinarioDAO;
-import funcoes.Telas;
+import controller.Telas;
 import model.Veterinario;
 
 /**

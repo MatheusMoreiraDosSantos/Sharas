@@ -10,7 +10,7 @@ import controller.UsuarioDAO;
 import controller.Validacoes;
 import funcoes.F_JF_principal;
 import funcoes.F_atualizar_usuario;
-import funcoes.Telas;
+import controller.Telas;
 import model.Cargo;
 import model.Misc;
 import model.Usuario;

@@ -6,8 +6,8 @@
 package view;
 
 import controller.ClienteDao;
-import funcoes.Telas;
-import funcoes.Validacoes;
+import controller.Telas;
+import model.Validacoes;
 import javax.swing.JOptionPane;
 import model.Cliente;
 import model.Enderecos;
@@ -768,18 +768,14 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         String  nome = String.valueOf(tab_cliente.getValueAt(linha, 1));
            String opcoes[] = {"Debito","Alterar","Deletar","Cancelar"};
         int opc = JOptionPane.showOptionDialog(null, "Oque deseja "+nome+"", "Confiraçao"
-      , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[1], opcoes[2],opcoes[3]);
-        if (opc == 0){
-            func.setPessoa_nome(nome);
-            func.setPessoa_cpfcnpj(String.valueOf(tab_func.getValueAt(linha, 2)));
-            String  valor = String.valueOf(tab_func.getValueAt(linha, 0));
-            int id= Integer.valueOf(valor);    
-            func.setFuncionario_id(id);
-            AlterarFuncionario at_fun = new AlterarFuncionario(new javax.swing.JFrame(), true);
-            at_fun.setVisible(true);
-        }else{
-        
-        }
+      , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[3]);
+      switch(opc){
+          case 0: System.out.println("Debito");break;
+          case 1: System.out.println("Alterar");break;
+          case 2: System.out.println("Deletar");break;
+          case 3: System.out.println("Cancelar");break;
+      
+      }
                 
 
         // TODO add your handling code here:

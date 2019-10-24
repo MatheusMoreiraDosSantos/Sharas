@@ -6,7 +6,7 @@
 package view;
 
 import controller.CalendarioDAO;
-import funcoes.Telas;
+import controller.Telas;
 import model.Calendario;
 
 /**

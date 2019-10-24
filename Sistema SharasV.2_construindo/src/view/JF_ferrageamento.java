@@ -6,7 +6,7 @@
 package view;
 
 import controller.FerrajamentoDAO;
-import funcoes.Telas;
+import controller.Telas;
 import model.Ferrajamento;
 
 /**

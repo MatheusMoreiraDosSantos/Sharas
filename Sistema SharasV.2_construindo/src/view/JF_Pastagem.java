@@ -6,7 +6,7 @@
 package view;
 
 import controller.PastagemDAO;
-import funcoes.Telas;
+import controller.Telas;
 import model.Pastagem;
 
 /**

@@ -8,7 +8,7 @@ package view_secundaria;
 import controller.CargoDAO;
 import controller.FuncionarioDAO;
 import controller.PessoaDAO;
-import funcoes.Validacoes;
+import model.Validacoes;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;

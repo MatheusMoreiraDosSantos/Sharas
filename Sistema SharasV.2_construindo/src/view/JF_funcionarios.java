@@ -7,8 +7,8 @@ package view;
 
 import controller.CargoDAO;
 import controller.FuncionarioDAO;
-import funcoes.Telas;
-import funcoes.Validacoes;
+import controller.Telas;
+import model.Validacoes;
 import javax.swing.JOptionPane;
 import model.Cargo;
 import model.Funcionarios;
