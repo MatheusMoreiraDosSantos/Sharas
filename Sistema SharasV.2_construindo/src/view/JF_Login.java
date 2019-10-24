@@ -55,7 +55,6 @@ public static int tipo;
         btn_acesso = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        btn_cadastro = new javax.swing.JButton();
         btn_esqueci = new javax.swing.JButton();
         nexiste = new javax.swing.JLabel();
         senhaerr = new javax.swing.JLabel();
@@ -103,13 +102,6 @@ public static int tipo;
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Sharas.png"))); // NOI18N
 
-        btn_cadastro.setText("Cadastrar");
-        btn_cadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastroActionPerformed(evt);
-            }
-        });
-
         btn_esqueci.setText("Esqueci a senha");
         btn_esqueci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,12 +138,11 @@ public static int tipo;
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn_esqueci)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_cadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txt_Login, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_Senha, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 81, Short.MAX_VALUE)
                                 .addComponent(btn_acesso)
                                 .addGap(59, 59, 59)))
                         .addGap(59, 59, 59))))
@@ -182,9 +173,7 @@ public static int tipo;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_acesso)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_cadastro)
-                            .addComponent(btn_esqueci))
+                        .addComponent(btn_esqueci)
                         .addGap(12, 12, 12)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -211,14 +200,6 @@ public static int tipo;
             this.dispose();
         }
     }//GEN-LAST:event_btn_acessoActionPerformed
-
-    private void btn_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastroActionPerformed
-        //Entrar na parte de cadastro
-        nomeusu = txt_Login.getText();
-        JF_Cadastro jfcadastro = new JF_Cadastro();
-       jfcadastro.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btn_cadastroActionPerformed
 
     private void btn_esqueciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_esqueciActionPerformed
         //Entrar para enviar mensagem quando esquecer a senha 
@@ -285,7 +266,6 @@ public static int tipo;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_acesso;
-    private javax.swing.JButton btn_cadastro;
     private javax.swing.JButton btn_esqueci;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

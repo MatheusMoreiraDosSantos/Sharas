@@ -24,11 +24,12 @@ public class F_JF_principal {
    * para data retornar usar valor null 
    */
    //Combobox nulo 
-    public boolean combonull(JComboBox campo){
+    public boolean combonull(JComboBox campo,JLabel erro){
         String n = campo.getName();
         System.out.println(""+n);
         if(campo.getSelectedIndex() == 0){
-                    return (false);
+            erro.setText("Escolha inválida");
+            return (false);
         }
                     return(true);
     }
@@ -47,7 +48,6 @@ public class F_JF_principal {
     public static boolean camponull(JTextField campo,JLabel erro){
         if(!"".equals(campo.getText())){
             erro.setText("");
-             System.out.println(""+campo.getText());
             return(true);
         }else{
               erro.setText("preencha o capo acima");
@@ -60,7 +60,6 @@ public class F_JF_principal {
       public static boolean textareanull(JTextArea campo,JLabel erro){
         if(!"".equals(campo.getText())){
             erro.setText("");
-             System.out.println(""+campo.getText());
             return(true);
         }else{
               erro.setText("preencha o capo ");

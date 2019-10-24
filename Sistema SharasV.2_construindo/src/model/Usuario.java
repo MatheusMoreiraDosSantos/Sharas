@@ -5,14 +5,21 @@
  */
 package model;
 
+import controller.LogarDAO;
+import controller.Validacoes;
+import java.util.Objects;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author maikon.rosa
  */
 public class Usuario {
-       private int usuario_id;
+    LogarDAO logar = new LogarDAO();
+    
+    private int usuario_id;
        private String usuario_login; 
        private String  usuario_senha;
        private  int usuario_tipo;
@@ -25,6 +32,7 @@ public class Usuario {
     }
 
     public void setUsuario_id(int usuario_id) {
+      
         this.usuario_id = usuario_id;
     }
 
@@ -32,8 +40,8 @@ public class Usuario {
         return usuario_login;
     }
 
-    public void setUsuario_login(String usuario_login) {
-        this.usuario_login = usuario_login;
+    public void setUsuario_login(String usuario_login,JLabel erro) {
+            this.usuario_login = usuario_login;
     }
 
     public String getUsuario_senha() {
@@ -49,7 +57,10 @@ public class Usuario {
     }
 
     public void setUsuario_tipo(int usuario_tipo) {
+       if(usuario_tipo>1)
         this.usuario_tipo = usuario_tipo;
+       else 
+         this.usuario_tipo = 1;  
     }
 
     public int getUsuario_status() {
@@ -57,7 +68,17 @@ public class Usuario {
     }
 
     public void setUsuario_status(int usuario_status) {
-        this.usuario_status = usuario_status;
+       if(usuario_status == 0){
+            String opcoes[] = {"Sim", "Não"};
+        int opc = JOptionPane.showOptionDialog(null, "Deseja salvar usuário como 'Desativado ' ?", "Confirmação"
+                       , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[1]);
+        if (opc == 0) {
+                this.usuario_status = 0;
+        } 
+       }else{
+                this.usuario_status = 1;
+       }
+        
     }
 
     public String getUsuario_notificacao() {

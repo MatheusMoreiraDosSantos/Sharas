@@ -25,7 +25,7 @@ public class CargoDAO {
     ResultSet rs;
     //Carrega os cargos em combobox 
     public void selectCargo(JComboBox cb) {
-       /* try {
+        try {
             con = Conexao.conectar();
             sql = "SELECT cargo_id,cargo_nome from cargo ";
             pst = con.prepareStatement(sql);
@@ -33,12 +33,12 @@ public class CargoDAO {
            cb.removeAllItems();
             cb.addItem(new Cargo(0,"Selecione..."));
            while(rs.next()){
-              cb.addItem(new Cargo(rs.getInt("cargo_id"),rs.getString("cargo_nome")));
+           cb.addItem(new Cargo(rs.getInt("cargo_id"),rs.getString("cargo_nome")));
            }
             Conexao.desconectar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro" + e);
-        }*/
+        }
     }
 }
 

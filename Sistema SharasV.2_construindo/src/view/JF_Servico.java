@@ -4,24 +4,28 @@
  * and open the template in the editor.
  */
 package view;
+import controller.ServicosDAO;
+import java.util.ArrayList;
 import view_secundaria.Busca_item;
 import javax.swing.*;
-import view_secundaria.Cadastrar_cliente;
+
 /**
  *
  * @author MK
  */
 public class JF_Servico extends javax.swing.JFrame {
-
+    ServicosDAO servicos = new ServicosDAO();
     /**
      * Creates new form JF_Servico
      */
     public JF_Servico() {
         initComponents();
+        servicos.Carregarproduto(tb_produto);
+        servicos.Carregarcliente(jTable1);
     }
     
     
-   
+   ArrayList<String> carrinho = new ArrayList();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +43,7 @@ public class JF_Servico extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tb_produto = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
@@ -47,18 +51,18 @@ public class JF_Servico extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tb_carrinho = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton6 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        total = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,9 +75,14 @@ public class JF_Servico extends javax.swing.JFrame {
                 "Nome ", "CPF /CNPJ", "Status "
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 41, 498, 182));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 498, 182));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Cliente : ");
@@ -85,7 +94,7 @@ public class JF_Servico extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 12, -1, -1));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(665, 12, 232, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tb_produto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -93,7 +102,12 @@ public class JF_Servico extends javax.swing.JFrame {
                 "Tipo ", "Nome "
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        tb_produto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_produtoMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tb_produto);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 41, 493, 182));
 
@@ -120,7 +134,7 @@ public class JF_Servico extends javax.swing.JFrame {
                     .addComponent(jTextField3)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,9 +150,9 @@ public class JF_Servico extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 241, 498, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 498, -1));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tb_carrinho.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -149,12 +163,17 @@ public class JF_Servico extends javax.swing.JFrame {
                 "Codigo ", "Serviço", "Valor "
             }
         ));
-        jScrollPane5.setViewportView(jTable3);
+        jScrollPane5.setViewportView(tb_carrinho);
 
         getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(606, 241, 308, 237));
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton4.setText("Faturar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(932, 409, 222, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -176,19 +195,8 @@ public class JF_Servico extends javax.swing.JFrame {
         jButton6.setText("Cancelar");
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(932, 457, 222, -1));
 
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 11, -1, -1));
-
-        jButton7.setText("Buscar");
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(915, 11, -1, -1));
-
-        jTextField4.setEnabled(false);
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1014, 241, 60, -1));
+        total.setEnabled(false);
+        getContentPane().add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(1014, 241, 60, -1));
 
         jTextField5.setEnabled(false);
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1014, 264, 60, -1));
@@ -196,12 +204,34 @@ public class JF_Servico extends javax.swing.JFrame {
         jTextField6.setEnabled(false);
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1015, 290, 60, -1));
 
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 25, -1));
+
+        jButton2.setText("jButton2");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, 30, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void tb_produtoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_produtoMouseClicked
+           int linha = tb_produto.getSelectedRow();
+           String valor = String.valueOf(tb_produto.getValueAt(linha, 0));
+           carrinho.add(valor);
+           servicos.carrinho(tb_carrinho,Integer.parseInt(valor),total);
+// TODO add your handling code here:
+    }//GEN-LAST:event_tb_produtoMouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+       int linha = tb_produto.getSelectedRow();
+           String valor = String.valueOf(tb_produto.getValueAt(linha, 1));
+           carrinho.add(valor);
+           servicos.carrinho(tb_carrinho,Integer.parseInt(valor),total);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -240,10 +270,10 @@ public class JF_Servico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -258,14 +288,14 @@ public class JF_Servico extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable tb_carrinho;
+    private javax.swing.JTable tb_produto;
+    private javax.swing.JTextField total;
     // End of variables declaration//GEN-END:variables
 }

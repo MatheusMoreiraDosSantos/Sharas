@@ -93,9 +93,27 @@ public class LogarDAO {
             Conexao.desconectar();
             return(false);
         }
- 
+   
     }
-    
+     public boolean nomelogin(String login){
+        try{
+                con=Conexao.conectar();
+                sql="SELECT usuario_login  from vw_login WHERE usuario_login = ?";
+                pst = con.prepareStatement(sql);
+                pst.setString(1, login);
+                rs = pst.executeQuery();
+                if(rs.next()){
+                    Conexao.desconectar();  
+                    return(false);
+                        }else{
+                       Conexao.desconectar();  
+                      return (true);
+                        }
+        }catch(SQLException e ){
+                    Conexao.desconectar();     
+                     return(false);
+        } 
+    }
     
     
     
