@@ -32,10 +32,6 @@ Telas telas = new Telas();
         jPanel1 = new javax.swing.JPanel();
         btn_animais = new javax.swing.JButton();
         btn_celeiro = new javax.swing.JButton();
-        btn_veterinario = new javax.swing.JButton();
-        btn_financeiro = new javax.swing.JButton();
-        btn_pastagem = new javax.swing.JButton();
-        btn_ferrajamento = new javax.swing.JButton();
         btn_usuario = new javax.swing.JButton();
         btn_calendario = new javax.swing.JButton();
         btn_log = new javax.swing.JButton();
@@ -99,42 +95,6 @@ Telas telas = new Telas();
         btn_celeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_celeiroActionPerformed(evt);
-            }
-        });
-
-        btn_veterinario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_veterinario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/veterinario.png"))); // NOI18N
-        btn_veterinario.setText("Consultas ");
-        btn_veterinario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_veterinarioActionPerformed(evt);
-            }
-        });
-
-        btn_financeiro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_financeiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/dinheiro.png"))); // NOI18N
-        btn_financeiro.setText("Financeiro     ");
-        btn_financeiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_financeiroActionPerformed(evt);
-            }
-        });
-
-        btn_pastagem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_pastagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/pastagem.png"))); // NOI18N
-        btn_pastagem.setText("Pastagem  ");
-        btn_pastagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_pastagemActionPerformed(evt);
-            }
-        });
-
-        btn_ferrajamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_ferrajamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ferrajamento.png"))); // NOI18N
-        btn_ferrajamento.setText("Casco / Ferro");
-        btn_ferrajamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ferrajamentoActionPerformed(evt);
             }
         });
 
@@ -389,33 +349,23 @@ Telas telas = new Telas();
                     .addComponent(btn_animais1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                     .addComponent(btn_calendario, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                     .addComponent(btn_celeiro, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                    .addComponent(btn_ferrajamento, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                    .addComponent(btn_pastagem, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                    .addComponent(btn_veterinario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_financeiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_rh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_animais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_animais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_usuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jnome, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jnome, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jdata, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 1153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jdata, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 1153, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -427,7 +377,7 @@ Telas telas = new Telas();
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel84))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -443,15 +393,15 @@ Telas telas = new Telas();
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_celeiro)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_ferrajamento)
+                                .addComponent(btn_rh)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_pastagem)
+                                .addComponent(btn_log)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_veterinario)
+                                .addComponent(btn_usuario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_financeiro)
+                                .addComponent(btn_home)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_rh))
+                                .addComponent(btn_usuario1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -460,13 +410,7 @@ Telas telas = new Telas();
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(jdata, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_log, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -490,22 +434,6 @@ Telas telas = new Telas();
     private void btn_celeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_celeiroActionPerformed
  telas.alterar(this, 7);
     }//GEN-LAST:event_btn_celeiroActionPerformed
-
-    private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_veterinarioActionPerformed
-telas.alterar(this, 9);
-    }//GEN-LAST:event_btn_veterinarioActionPerformed
-
-    private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_financeiroActionPerformed
-telas.alterar(this, 10);
-    }//GEN-LAST:event_btn_financeiroActionPerformed
-
-    private void btn_pastagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pastagemActionPerformed
-     telas.alterar(this, 6);
-    }//GEN-LAST:event_btn_pastagemActionPerformed
-
-    private void btn_ferrajamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ferrajamentoActionPerformed
-       telas.alterar(this, 8);
-    }//GEN-LAST:event_btn_ferrajamentoActionPerformed
 
     private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuarioActionPerformed
 telas.alterar(this, 12);
@@ -580,15 +508,11 @@ telas.alterar(this,1);
     private javax.swing.JButton btn_animais1;
     private javax.swing.JButton btn_calendario;
     private javax.swing.JButton btn_celeiro;
-    private javax.swing.JButton btn_ferrajamento;
-    private javax.swing.JButton btn_financeiro;
     private javax.swing.JButton btn_home;
     private javax.swing.JButton btn_log;
-    private javax.swing.JButton btn_pastagem;
     private javax.swing.JButton btn_rh;
     private javax.swing.JButton btn_usuario;
     private javax.swing.JButton btn_usuario1;
-    private javax.swing.JButton btn_veterinario;
     private javax.swing.JTabbedPane home;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton7;

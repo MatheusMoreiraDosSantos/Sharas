@@ -48,14 +48,14 @@ public class JF_Principal1 extends javax.swing.JFrame {
     PessoaDAO pessoa = new PessoaDAO();
  
  
-    FinanceiroDAO financeiroDao = new FinanceiroDAO();
+  
     LogDAO logDao = new LogDAO();
-    FerrajamentoDAO ferrajamentoDao = new FerrajamentoDAO();
+   
    
     AnimalDAO animalDao = new AnimalDAO();
-    PastagemDAO pastagemDao = new PastagemDAO();
+ 
     FuncionarioDAO manutencaoDao = new FuncionarioDAO();
-    VeterinarioDAO veterinarioDao = new VeterinarioDAO();
+
     
    
 
