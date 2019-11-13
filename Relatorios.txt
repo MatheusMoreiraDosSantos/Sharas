@@ -1,0 +1,30 @@
+Lista de relatórios:
+-1 Vendas
+-Total do faturamento
+	tipo de serviço mais prestado 
+	valor total mes
+		-mes qual periodo  mais vende
+		-ano qual mes mais vende 
+- 2 Cliente 
+	qual mais contrata os serviços 
+	qual tipo de serviço que mais pede 
+- 3 veterinario 
+	Tipo de doenças mais comun
+	Tipo de raça mais cadastrado
+	quantidade de chamados veterinarios
+- 4 Celeiro 
+	Produto mais utiliazados 
+	Total de gastos por animal media     
+	Saldo devedor de cliente 
+	Saldo devedor total dos clientes  
+- 5 Financeiro 
+	Total gasto com funcionarios
+	Funcionarios contratados 
+	funcionarios demitidos 
+	Funcionario que mais loga no sistema e o que menos loga 
+	Ações dos funcionarios no sistema 
+	Usuarios ativos e desativos 
+	
+	
+		
+	
