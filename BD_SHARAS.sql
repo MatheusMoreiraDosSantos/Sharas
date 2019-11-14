@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Set-2019 às 02:12
--- Versão do servidor: 10.3.16-MariaDB
--- versão do PHP: 7.3.7
+-- Generation Time: 13-Nov-2019 às 18:58
+-- Versão do servidor: 10.1.38-MariaDB
+-- versão do PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,39 +19,61 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd_sharas`
+-- Database: `bd_sharas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `agenda`
+--
+
+CREATE TABLE `agenda` (
+  `agenda_id` int(11) NOT NULL,
+  `agenda_texto` varchar(120) DEFAULT NULL,
+  `agenda_usuario` int(11) DEFAULT NULL,
+  `agenda_data` date NOT NULL,
+  `agenda_agend` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `animal`
 --
-
-CREATE TABLE `animal` (
-  `animal_id` int(11) NOT NULL,
-  `animal_nome` varchar(80) NOT NULL,
-  `animal_registro` varchar(45) DEFAULT NULL,
-  `animal_criador` int(11) DEFAULT NULL,
-  `animal_nasc` date DEFAULT NULL,
-  `animal_sexo` varchar(45) NOT NULL,
-  `animal_pelagem` varchar(45) NOT NULL,
-  `animal_proprietario` int(11) DEFAULT NULL,
-  `animal_local` int(11) DEFAULT NULL,
-  `animal_status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+-- Error reading structure for table bd_sharas.animal: #1932 - Table 'bd_sharas.animal' doesn't exist in engine
+-- Error reading data for table bd_sharas.animal: #1064 - Você tem um erro de sintaxe no seu SQL próximo a 'FROM `bd_sharas`.`animal`' na linha 1
 
 --
--- Estrutura da tabela `banco`
+-- Acionadores `animal`
 --
-
-CREATE TABLE `banco` (
-  `banco_id` int(11) NOT NULL,
-  `banco_cod` int(11) NOT NULL,
-  `banco_desc` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DELIMITER $$
+CREATE TRIGGER `animal_AFTER_INSERT` AFTER INSERT ON `animal` FOR EACH ROW INSERT INTO log                                   -- tabela de logs
+   ( log_sql, log_undo, log_acao, log_entidade, log_usuario, log_time)
+ VALUES
+   (
+   CONCAT(
+     "INSERT INTO log (animal_id, animal_nome, animal_registro, animal_criador, animal_nasc, animal_sexo, animal_pelagem, animal_proprietario, animal_local, animal_status) VALUES (",
+     CAST( NEW.animal_id AS CHAR ), ",",
+     "'", NEW.animal_nome, "'", ",",
+     "'", NEW.animal_registro, "'", ",",
+     CAST( NEW.animal_criador AS CHAR ), ",",
+     CAST( NEW.animal_nasc AS CHAR ), ",",
+     "'", NEW.animal_sexo, "'", ",",
+     "'", NEW.animal_pelagem, "'", ",",
+     CAST( NEW.animal_proprietario AS CHAR ), ",",
+     CAST( NEW.animal_local AS CHAR ), ",",
+     CAST( NEW.animal_status AS CHAR ), ",",
+     ")"
+   ),
+   CONCAT( 'DELETE FROM animal WHERE animal_id=', CAST( NEW.animal_id AS CHAR ) ),
+   'INSERCAO',
+   'ANIMAL',
+   session_user(),
+   current_timestamp()
+   )
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -62,24 +84,58 @@ CREATE TABLE `banco` (
 CREATE TABLE `calendario` (
   `calendario_id` int(11) NOT NULL,
   `calendario_data` varchar(45) NOT NULL,
-  `calendario_desc` text DEFAULT NULL
+  `calendario_desc` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `carteira_vacina`
+-- Estrutura da tabela `cargo`
 --
 
-CREATE TABLE `carteira_vacina` (
-  `carteira_vacina_id` int(11) NOT NULL,
-  `carteira_vacina_nome_vacina` varchar(45) NOT NULL,
-  `carteira_vacina_desc` text NOT NULL,
-  `carteira_vacina_data` date NOT NULL,
-  `carteira_vacina_vacina` int(11) NOT NULL,
-  `vacina_vacina_id` int(11) NOT NULL,
-  `animal_animal_id` int(11) NOT NULL
+CREATE TABLE `cargo` (
+  `cargo_id` int(11) NOT NULL,
+  `cargo_nome` varchar(20) DEFAULT NULL,
+  `cargo_desc` varchar(20) DEFAULT NULL,
+  `cargo_salario_base` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cargo`
+--
+
+INSERT INTO `cargo` (`cargo_id`, `cargo_nome`, `cargo_desc`, `cargo_salario_base`) VALUES
+(17, 'teste', 'teste', 4000);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `carrinho`
+--
+
+CREATE TABLE `carrinho` (
+  `carrinhoid` int(11) NOT NULL,
+  `produto_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cliente`
+--
+
+CREATE TABLE `cliente` (
+  `clienteid` int(11) NOT NULL,
+  `pessoa_id` int(11) DEFAULT NULL,
+  `cliente_deb` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`clienteid`, `pessoa_id`, `cliente_deb`) VALUES
+(6, 15, 500);
 
 -- --------------------------------------------------------
 
@@ -121,17 +177,26 @@ CREATE TABLE `consulta` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `conta_banco`
+-- Estrutura da tabela `contrato`
 --
 
-CREATE TABLE `conta_banco` (
-  `conta_banco_id` int(11) NOT NULL,
-  `usuario_usuario_id` int(11) NOT NULL,
-  `conta_banco_cpfcnpj` int(11) NOT NULL,
-  `conta_banco_agencia` int(11) NOT NULL,
-  `conta_banco_conta` int(11) NOT NULL,
-  `banco_banco_id` int(11) NOT NULL,
-  `conta_banco_tipo` int(11) NOT NULL
+CREATE TABLE `contrato` (
+  `contrato_id` int(11) NOT NULL,
+  `cliente_id` int(11) DEFAULT NULL,
+  `contrato_valor` float DEFAULT NULL,
+  `contrato_data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `contratos`
+--
+
+CREATE TABLE `contratos` (
+  `contrato_id` int(11) NOT NULL,
+  `cliente_id` int(11) DEFAULT NULL,
+  `contrato_valor` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -155,13 +220,23 @@ CREATE TABLE `criador` (
 CREATE TABLE `endereco` (
   `endereco_id` int(11) NOT NULL,
   `endereco_numero` varchar(45) NOT NULL,
-  `endereco_cep` int(11) NOT NULL,
+  `endereco_cep` varchar(11) NOT NULL,
   `endereco_rua` varchar(80) NOT NULL,
   `endereco_bairro` varchar(80) NOT NULL,
   `endereco_cidade` varchar(80) NOT NULL,
-  `endereco_estado` varchar(80) NOT NULL,
-  `pessoa_pessoa_id` int(11) NOT NULL
+  `endereco_estado` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `endereco`
+--
+
+INSERT INTO `endereco` (`endereco_id`, `endereco_numero`, `endereco_cep`, `endereco_rua`, `endereco_bairro`, `endereco_cidade`, `endereco_estado`) VALUES
+(1, '000', '0', '000', '000', '000', '00'),
+(14, '11000', '18703480', 'brazcamilo de souza', 'brabancia ', 'avare', 'SP'),
+(16, '1100', '18703480', 'brazcamilo de souza', 'brabancia ', 'avare', 'SP'),
+(17, '1100', '18703480', 'braz camilo', 'testes', 'avare', 'SP'),
+(18, '1100', '187034807', 'braz camilo', 'testes', 'avare', 'SP');
 
 -- --------------------------------------------------------
 
@@ -207,6 +282,29 @@ CREATE TABLE `fornecedor` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `idenddereco`
+-- (See below for the actual view)
+--
+CREATE TABLE `idenddereco` (
+`id` int(11)
+,`c` varchar(11)
+,`n` varchar(45)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `item_contrato`
+--
+
+CREATE TABLE `item_contrato` (
+  `produto_id` int(11) DEFAULT NULL,
+  `contrato_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `log`
 --
 
@@ -243,18 +341,34 @@ CREATE TABLE `pessoa` (
   `pessoa_ind` varchar(2) NOT NULL,
   `pessoa_cpfcnpj` varchar(14) NOT NULL,
   `pessoa_nome` varchar(90) NOT NULL,
-  `pessoa_email` varchar(45) NOT NULL,
-  `pesoa_cargo` varchar(45) DEFAULT NULL
+  `pessoa_email` varchar(45) DEFAULT NULL,
+  `pesoa_cargo` int(1) DEFAULT NULL,
+  `pessoa_endereco` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pessoa`
 --
 
-INSERT INTO `pessoa` (`pessoa_id`, `pessoa_ind`, `pessoa_cpfcnpj`, `pessoa_nome`, `pessoa_email`, `pesoa_cargo`) VALUES
-(1, 'PF', '11111111111', 'Administrador', 'systemawalla@gmail.com', 'Systema'),
-(2, 'pf', '43762393800', 'Maikon Cristino Pereira Rosa', 'maikonmoren@gmail.com', '1'),
-(3, 'pf', '75115804085', 'dhasuidh', 'jsaoidja.@jfdo', '1');
+INSERT INTO `pessoa` (`pessoa_id`, `pessoa_ind`, `pessoa_cpfcnpj`, `pessoa_nome`, `pessoa_email`, `pesoa_cargo`, `pessoa_endereco`) VALUES
+(9, 'S', '000.000.000-00', 'Sistema', 'systemwalla@gmail.com', 1, 1),
+(12, 'PF', '43762393800', 'Maikon Cristino ', 'maikonmoren@gmail.com', 1, 1),
+(15, 'PF', '69301332051', 'Maikon', 'ndmkasndas.@jojo', 2, 14),
+(16, 'PF', '99467554089', 'teste2 ', 'teset.teste@teste', 1, 16),
+(17, 'PF', '79675419016', 'Matheus ', 'maikon@maikon.com', 2, 18);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produto`
+--
+
+CREATE TABLE `produto` (
+  `produto_id` int(11) NOT NULL,
+  `produto_tipo` int(11) DEFAULT NULL,
+  `produto_valor` float DEFAULT NULL,
+  `produto_nome` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -265,11 +379,17 @@ INSERT INTO `pessoa` (`pessoa_id`, `pessoa_ind`, `pessoa_cpfcnpj`, `pessoa_nome`
 CREATE TABLE `rh` (
   `rg_id` int(11) NOT NULL,
   `rh_inicio` date NOT NULL,
-  `rh_termino` date NOT NULL,
-  `rh_salario` float NOT NULL,
-  `rh_horas_dia` int(11) NOT NULL,
-  `pessoa_pessoa_id` int(11) NOT NULL
+  `rh_termino` date DEFAULT NULL,
+  `pessoa_pessoa_id` int(11) NOT NULL,
+  `cargo_cargo_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `rh`
+--
+
+INSERT INTO `rh` (`rg_id`, `rh_inicio`, `rh_termino`, `pessoa_pessoa_id`, `cargo_cargo_id`) VALUES
+(2, '2019-10-02', NULL, 12, 17);
 
 -- --------------------------------------------------------
 
@@ -279,26 +399,18 @@ CREATE TABLE `rh` (
 
 CREATE TABLE `servico` (
   `servico_id` int(11) NOT NULL,
-  `servico_desc` varchar(45) NOT NULL,
-  `servico_valor` int(11) NOT NULL,
-  `servico_inicio` date NOT NULL,
-  `servico_termino` date NOT NULL,
-  `servico_venc` date NOT NULL,
-  `servico_desconto` float NOT NULL,
-  `pessoa_pessoa_id` int(11) NOT NULL
+  `servico_desc` varchar(45) DEFAULT NULL,
+  `servico_nome` varchar(50) NOT NULL,
+  `servico_valor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `servico_ferrajamento`
+-- Extraindo dados da tabela `servico`
 --
 
-CREATE TABLE `servico_ferrajamento` (
-  `servico_ferrajamento_id` int(11) NOT NULL,
-  `servico_servico_id` int(11) NOT NULL,
-  `ferrajamento_ferrajamento_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `servico` (`servico_id`, `servico_desc`, `servico_nome`, `servico_valor`) VALUES
+(1, '4', 'teste', 400),
+(2, 'Alojamento ', 'Hospedar', 500);
 
 -- --------------------------------------------------------
 
@@ -316,6 +428,55 @@ CREATE TABLE `servico_itens` (
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `tab_cliente`
+-- (See below for the actual view)
+--
+CREATE TABLE `tab_cliente` (
+`Codigo` int(11)
+,`Nome` varchar(90)
+,`CPF` varchar(14)
+,`Debito` float
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `tab_usu`
+-- (See below for the actual view)
+--
+CREATE TABLE `tab_usu` (
+`Código` int(11)
+,`Nome` varchar(90)
+,`Login` varchar(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `tab_usucad`
+-- (See below for the actual view)
+--
+CREATE TABLE `tab_usucad` (
+`codigo` int(11)
+,`nome` varchar(90)
+,`Cpf` varchar(14)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `tab_usuncad`
+-- (See below for the actual view)
+--
+CREATE TABLE `tab_usuncad` (
+`codigo` int(11)
+,`nome` varchar(90)
+,`Cpf` varchar(14)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `telefone`
 --
 
@@ -324,7 +485,17 @@ CREATE TABLE `telefone` (
   `telefone_num` varchar(15) NOT NULL,
   `telefone_tipo` int(11) NOT NULL,
   `pessoa_pessoa_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='		';
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `total_carriho`
+-- (See below for the actual view)
+--
+CREATE TABLE `total_carriho` (
+`sum(produto_valor)` double
+);
 
 -- --------------------------------------------------------
 
@@ -334,22 +505,21 @@ CREATE TABLE `telefone` (
 
 CREATE TABLE `usuario` (
   `usuario_id` int(11) NOT NULL,
-  `usuario_login` varchar(45) NOT NULL,
   `usuario_senha` varchar(80) NOT NULL,
-  `usuario_tipo` int(11) NOT NULL,
   `usuario_status` int(11) NOT NULL,
   `usuario_notificacao` varchar(120) DEFAULT NULL,
-  `pessoa_pessoa_id` int(11) NOT NULL
+  `pessoa_pessoa_id` int(11) NOT NULL,
+  `usuario_login` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`usuario_id`, `usuario_login`, `usuario_senha`, `usuario_tipo`, `usuario_status`, `usuario_notificacao`, `pessoa_pessoa_id`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 2, 1, NULL, 1),
-(2, 'maikon.rosa', 'a89e24d8f469615adf8e2b124f09e9b6', 2, 1, 'teste	', 2),
-(3, 'maik', 'ee319e813a48a4d0afffc8523337cfde', 0, 0, 'dfoçaj					', 3);
+INSERT INTO `usuario` (`usuario_id`, `usuario_senha`, `usuario_status`, `usuario_notificacao`, `pessoa_pessoa_id`, `usuario_login`) VALUES
+(8, '698dc19d489c4e4db73e28a713eab07b', 1, NULL, 9, 'sistema'),
+(12, '123', 1, NULL, 17, 'verificando'),
+(13, '81dc9bdb52d04dc20036dbd8313ed055', 1, NULL, 12, 'maikon.rosa');
 
 -- --------------------------------------------------------
 
@@ -361,43 +531,82 @@ CREATE TABLE `vacina` (
   `vacina_id` int(11) NOT NULL,
   `vacina_composicao` varchar(45) NOT NULL,
   `vacina_uso` varchar(45) NOT NULL,
-  `vacina_desc` text DEFAULT NULL
+  `vacina_desc` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para vista `vw_at_dados`
--- (Veja abaixo para a view atual)
+-- Stand-in structure for view `vw_agenda2`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_agenda2` (
+`Textoid` int(11)
+,`Data` varchar(10)
+,`Texto` varchar(120)
+,`ID` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_at_dados`
+-- (See below for the actual view)
 --
 CREATE TABLE `vw_at_dados` (
-`Nome` varchar(90)
-,`CPF` varchar(14)
-,`Login` varchar(45)
-,`Cargo` int(11)
-,`Status` int(11)
 );
 
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para vista `vw_login`
--- (Veja abaixo para a view atual)
+-- Stand-in structure for view `vw_cli`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_cli` (
+`id` int(11)
+,`Nome` varchar(90)
+,`Cpf` varchar(14)
+,`Email` varchar(45)
+,`cep` varchar(11)
+,`rua` varchar(80)
+,`numero` varchar(45)
+,`bairro` varchar(80)
+,`estado` varchar(80)
+,`cidade` varchar(80)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_funcionarios`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_funcionarios` (
+`Código` int(11)
+,`Nome` varchar(90)
+,`CPF` varchar(14)
+,`EMail` varchar(45)
+,`Cargo` varchar(20)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_login`
+-- (See below for the actual view)
 --
 CREATE TABLE `vw_login` (
-`usuario_status` int(11)
-,`usuario_id` int(11)
-,`usuario_login` varchar(45)
-,`usuario_tipo` int(11)
-,`pessoa_pessoa_id` int(11)
-,`usuario_senha` varchar(80)
+`id` int(11)
+,`senha` varchar(80)
+,`login` varchar(45)
+,`cg` int(11)
 );
 
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para vista `vw_pessoa_usuario`
--- (Veja abaixo para a view atual)
+-- Stand-in structure for view `vw_pessoa_usuario`
+-- (See below for the actual view)
 --
 CREATE TABLE `vw_pessoa_usuario` (
 `UsuarioID` int(11)
@@ -407,8 +616,21 @@ CREATE TABLE `vw_pessoa_usuario` (
 -- --------------------------------------------------------
 
 --
--- Estrutura stand-in para vista `vw_tab_atualiza_usu`
--- (Veja abaixo para a view atual)
+-- Stand-in structure for view `vw_servicos`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_servicos` (
+`Código` int(11)
+,`Categoria` varchar(45)
+,`Nome` varchar(50)
+,`Valor` varchar(47)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_tab_atualiza_usu`
+-- (See below for the actual view)
 --
 CREATE TABLE `vw_tab_atualiza_usu` (
 `Nome` varchar(90)
@@ -420,360 +642,544 @@ CREATE TABLE `vw_tab_atualiza_usu` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `vw_at_dados`
+-- Stand-in structure for view `vw_tab_produto`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_tab_produto` (
+`Código` int(11)
+,`Nome` varchar(40)
+,`Valor` float
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_telefone`
+-- (See below for the actual view)
+--
+CREATE TABLE `vw_telefone` (
+`Telefone` varchar(15)
+,`Pessoaid` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `idenddereco`
+--
+DROP TABLE IF EXISTS `idenddereco`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `idenddereco`  AS  select `endereco`.`endereco_id` AS `id`,`endereco`.`endereco_cep` AS `c`,`endereco`.`endereco_numero` AS `n` from `endereco` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `tab_cliente`
+--
+DROP TABLE IF EXISTS `tab_cliente`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_cliente`  AS  select `c`.`clienteid` AS `Codigo`,`p`.`pessoa_nome` AS `Nome`,`p`.`pessoa_cpfcnpj` AS `CPF`,`c`.`cliente_deb` AS `Debito` from (`pessoa` `p` join `cliente` `c`) where ((`p`.`pesoa_cargo` = 2) and (`p`.`pessoa_id` = `c`.`pessoa_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `tab_usu`
+--
+DROP TABLE IF EXISTS `tab_usu`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usu`  AS  select `pessoa`.`pessoa_id` AS `Código`,`pessoa`.`pessoa_nome` AS `Nome`,(case when `pessoa`.`pessoa_id` in (select `p`.`pessoa_id` from (`pessoa` `p` join `usuario` `u`) where (`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`)) then 'Cadastrado' when (not(`pessoa`.`pessoa_id` in (select `p`.`pessoa_id` from (`pessoa` `p` join `usuario` `u`) where (`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`)))) then 'Sem Usuario' end) AS `Login` from `pessoa` where (`pessoa`.`pesoa_cargo` = 1) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `tab_usucad`
+--
+DROP TABLE IF EXISTS `tab_usucad`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usucad`  AS  select `p`.`pessoa_id` AS `codigo`,`p`.`pessoa_nome` AS `nome`,`p`.`pessoa_cpfcnpj` AS `Cpf` from (`pessoa` `p` join `usuario` `u`) where ((`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`) and (`p`.`pesoa_cargo` = 1)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `tab_usuncad`
+--
+DROP TABLE IF EXISTS `tab_usuncad`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usuncad`  AS  select `p`.`pessoa_id` AS `codigo`,`p`.`pessoa_nome` AS `nome`,`p`.`pessoa_cpfcnpj` AS `Cpf` from (`pessoa` `p` join `usuario` `u`) where ((`p`.`pessoa_id` <> `u`.`pessoa_pessoa_id`) and (`p`.`pesoa_cargo` = 1)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `total_carriho`
+--
+DROP TABLE IF EXISTS `total_carriho`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `total_carriho`  AS  select sum(`produto`.`produto_valor`) AS `sum(produto_valor)` from (`produto` join `carrinho`) where (`produto`.`produto_id` = `carrinho`.`produto_id`) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_agenda2`
+--
+DROP TABLE IF EXISTS `vw_agenda2`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_agenda2`  AS  select `agenda`.`agenda_id` AS `Textoid`,date_format(`agenda`.`agenda_data`,'%d/%m/%Y') AS `Data`,`agenda`.`agenda_texto` AS `Texto`,`agenda`.`agenda_usuario` AS `ID` from `agenda` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_at_dados`
 --
 DROP TABLE IF EXISTS `vw_at_dados`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_at_dados`  AS  select `p`.`pessoa_nome` AS `Nome`,`p`.`pessoa_cpfcnpj` AS `CPF`,`u`.`usuario_login` AS `Login`,`u`.`usuario_tipo` AS `Cargo`,`u`.`usuario_status` AS `Status` from (`pessoa` `p` join `usuario` `u`) where `p`.`pessoa_id` = `u`.`pessoa_pessoa_id` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_at_dados`  AS  select `p`.`pessoa_nome` AS `Nome`,`p`.`pessoa_cpfcnpj` AS `CPF`,`u`.`usuario_login` AS `Login`,`u`.`usuario_tipo` AS `Cargo`,`u`.`usuario_status` AS `Status` from (`pessoa` `p` join `usuario` `u`) where (`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`) ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `vw_login`
+-- Structure for view `vw_cli`
+--
+DROP TABLE IF EXISTS `vw_cli`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cli`  AS  select `c`.`clienteid` AS `id`,`p`.`pessoa_nome` AS `Nome`,`p`.`pessoa_cpfcnpj` AS `Cpf`,`p`.`pessoa_email` AS `Email`,`e`.`endereco_cep` AS `cep`,`e`.`endereco_rua` AS `rua`,`e`.`endereco_numero` AS `numero`,`e`.`endereco_bairro` AS `bairro`,`e`.`endereco_estado` AS `estado`,`e`.`endereco_cidade` AS `cidade` from ((`pessoa` `p` join `endereco` `e`) join `cliente` `c`) where ((`c`.`pessoa_id` = `p`.`pessoa_id`) and (`p`.`pessoa_endereco` = `e`.`endereco_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_funcionarios`
+--
+DROP TABLE IF EXISTS `vw_funcionarios`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_funcionarios`  AS  select `rh`.`rg_id` AS `Código`,`pessoa`.`pessoa_nome` AS `Nome`,`pessoa`.`pessoa_cpfcnpj` AS `CPF`,`pessoa`.`pessoa_email` AS `EMail`,`cargo`.`cargo_nome` AS `Cargo` from ((`rh` join `pessoa`) join `cargo`) where ((`pessoa`.`pesoa_cargo` = 1) and (`rh`.`cargo_cargo_id` = `cargo`.`cargo_id`) and (`pessoa`.`pessoa_id` = `rh`.`pessoa_pessoa_id`)) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_login`
 --
 DROP TABLE IF EXISTS `vw_login`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_login`  AS  select `usuario`.`usuario_status` AS `usuario_status`,`usuario`.`usuario_id` AS `usuario_id`,`usuario`.`usuario_login` AS `usuario_login`,`usuario`.`usuario_tipo` AS `usuario_tipo`,`usuario`.`pessoa_pessoa_id` AS `pessoa_pessoa_id`,`usuario`.`usuario_senha` AS `usuario_senha` from `usuario` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_login`  AS  select `u`.`usuario_id` AS `id`,`u`.`usuario_senha` AS `senha`,`u`.`usuario_login` AS `login`,`f`.`cargo_cargo_id` AS `cg` from ((`usuario` `u` join `rh` `f`) join `pessoa` `p`) where (`u`.`pessoa_pessoa_id` = `p`.`pessoa_id`) ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `vw_pessoa_usuario`
+-- Structure for view `vw_pessoa_usuario`
 --
 DROP TABLE IF EXISTS `vw_pessoa_usuario`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_pessoa_usuario`  AS  select `u`.`usuario_id` AS `UsuarioID`,`p`.`pessoa_cpfcnpj` AS `CPF` from (`usuario` `u` join `pessoa` `p`) where `u`.`pessoa_pessoa_id` = `p`.`pessoa_id` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_pessoa_usuario`  AS  select `u`.`usuario_id` AS `UsuarioID`,`p`.`pessoa_cpfcnpj` AS `CPF` from (`usuario` `u` join `pessoa` `p`) where (`u`.`pessoa_pessoa_id` = `p`.`pessoa_id`) ;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para vista `vw_tab_atualiza_usu`
+-- Structure for view `vw_servicos`
+--
+DROP TABLE IF EXISTS `vw_servicos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_servicos`  AS  select `servico`.`servico_id` AS `Código`,`servico`.`servico_desc` AS `Categoria`,`servico`.`servico_nome` AS `Nome`,format(`servico`.`servico_valor`,2,'de_DE') AS `Valor` from `servico` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_tab_atualiza_usu`
 --
 DROP TABLE IF EXISTS `vw_tab_atualiza_usu`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tab_atualiza_usu`  AS  select `p`.`pessoa_nome` AS `Nome`,`u`.`usuario_login` AS `Login`,`p`.`pessoa_cpfcnpj` AS `CPF`,`p`.`pessoa_email` AS `Email` from (`pessoa` `p` join `usuario` `u`) where `p`.`pessoa_id` = `u`.`pessoa_pessoa_id` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tab_atualiza_usu`  AS  select `p`.`pessoa_nome` AS `Nome`,`u`.`usuario_login` AS `Login`,`p`.`pessoa_cpfcnpj` AS `CPF`,`p`.`pessoa_email` AS `Email` from (`pessoa` `p` join `usuario` `u`) where (`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`) ;
+
+-- --------------------------------------------------------
 
 --
--- Índices para tabelas despejadas
+-- Structure for view `vw_tab_produto`
+--
+DROP TABLE IF EXISTS `vw_tab_produto`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tab_produto`  AS  select `produto`.`produto_id` AS `Código`,`produto`.`produto_nome` AS `Nome`,`produto`.`produto_valor` AS `Valor` from `produto` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_telefone`
+--
+DROP TABLE IF EXISTS `vw_telefone`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_telefone`  AS  select `telefone`.`telefone_num` AS `Telefone`,`telefone`.`pessoa_pessoa_id` AS `Pessoaid` from `telefone` ;
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `animal`
+-- Indexes for table `agenda`
 --
-ALTER TABLE `animal`
-  ADD PRIMARY KEY (`animal_id`),
-  ADD KEY `animal_local_idx` (`animal_local`),
-  ADD KEY `animal_criador_idx` (`animal_criador`);
+ALTER TABLE `agenda`
+  ADD PRIMARY KEY (`agenda_id`),
+  ADD KEY `agenda_usuario` (`agenda_usuario`);
 
 --
--- Índices para tabela `banco`
---
-ALTER TABLE `banco`
-  ADD PRIMARY KEY (`banco_id`);
-
---
--- Índices para tabela `calendario`
+-- Indexes for table `calendario`
 --
 ALTER TABLE `calendario`
   ADD PRIMARY KEY (`calendario_id`);
 
 --
--- Índices para tabela `carteira_vacina`
+-- Indexes for table `cargo`
 --
-ALTER TABLE `carteira_vacina`
-  ADD PRIMARY KEY (`carteira_vacina_id`),
-  ADD KEY `fk_carteira_vacina_vacina1_idx` (`vacina_vacina_id`),
-  ADD KEY `fk_carteira_vacina_animal1_idx` (`animal_animal_id`);
+ALTER TABLE `cargo`
+  ADD PRIMARY KEY (`cargo_id`);
 
 --
--- Índices para tabela `compra`
+-- Indexes for table `carrinho`
+--
+ALTER TABLE `carrinho`
+  ADD PRIMARY KEY (`carrinhoid`),
+  ADD KEY `produto_id` (`produto_id`);
+
+--
+-- Indexes for table `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`clienteid`),
+  ADD KEY `pessoa_id` (`pessoa_id`);
+
+--
+-- Indexes for table `compra`
 --
 ALTER TABLE `compra`
   ADD PRIMARY KEY (`compra_id`),
-  ADD KEY `compra_produto_idx` (`compra_produto`),
-  ADD KEY `compra_fornecedor_idx` (`compra_fornecedor`);
+  ADD KEY `compra_fornecedor` (`compra_fornecedor`),
+  ADD KEY `compra_produto` (`compra_produto`);
 
 --
--- Índices para tabela `consulta`
+-- Indexes for table `consulta`
 --
 ALTER TABLE `consulta`
   ADD PRIMARY KEY (`consulta_id`),
-  ADD KEY `consulta_animal_idx` (`consulta_animal`),
-  ADD KEY `consulta_veterinario_idx` (`consulta_veterinario`);
+  ADD KEY `consulta_animal` (`consulta_animal`),
+  ADD KEY `consulta_veterinario` (`consulta_veterinario`);
 
 --
--- Índices para tabela `conta_banco`
+-- Indexes for table `contrato`
 --
-ALTER TABLE `conta_banco`
-  ADD PRIMARY KEY (`conta_banco_id`),
-  ADD UNIQUE KEY `conta_banco_cpfcnpj_UNIQUE` (`conta_banco_cpfcnpj`),
-  ADD KEY `fk_conta_banco_usuario1_idx` (`usuario_usuario_id`),
-  ADD KEY `fk_conta_banco_banco1_idx` (`banco_banco_id`);
+ALTER TABLE `contrato`
+  ADD PRIMARY KEY (`contrato_id`);
 
 --
--- Índices para tabela `criador`
+-- Indexes for table `contratos`
+--
+ALTER TABLE `contratos`
+  ADD PRIMARY KEY (`contrato_id`);
+
+--
+-- Indexes for table `criador`
 --
 ALTER TABLE `criador`
   ADD PRIMARY KEY (`criador_id`),
-  ADD KEY `criador_endereco_idx` (`criador_endereco`),
-  ADD KEY `fk_criador_pessoa1_idx` (`pessoa_pessoa_id`);
+  ADD KEY `criador_endereco` (`criador_endereco`),
+  ADD KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`),
+  ADD KEY `criador_endereco_2` (`criador_endereco`);
 
 --
--- Índices para tabela `endereco`
+-- Indexes for table `endereco`
 --
 ALTER TABLE `endereco`
-  ADD PRIMARY KEY (`endereco_id`),
-  ADD KEY `fk_endereco_pessoa1_idx` (`pessoa_pessoa_id`);
+  ADD PRIMARY KEY (`endereco_id`);
 
 --
--- Índices para tabela `estoque`
+-- Indexes for table `estoque`
 --
 ALTER TABLE `estoque`
   ADD PRIMARY KEY (`estoque_id`);
 
 --
--- Índices para tabela `ferrajamento`
+-- Indexes for table `ferrajamento`
 --
 ALTER TABLE `ferrajamento`
   ADD PRIMARY KEY (`ferrajamento_id`),
-  ADD KEY `ferrajamento_animal_idx` (`ferrajamento_animal`);
+  ADD KEY `ferrajamento_animal` (`ferrajamento_animal`);
 
 --
--- Índices para tabela `fornecedor`
+-- Indexes for table `fornecedor`
 --
 ALTER TABLE `fornecedor`
   ADD PRIMARY KEY (`fornecedor_id`),
-  ADD KEY `fk_fornecedor_pessoa1_idx` (`pessoa_pessoa_id`);
+  ADD KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`);
 
 --
--- Índices para tabela `log`
+-- Indexes for table `item_contrato`
+--
+ALTER TABLE `item_contrato`
+  ADD KEY `produto_id` (`produto_id`),
+  ADD KEY `contrato_id` (`contrato_id`);
+
+--
+-- Indexes for table `log`
 --
 ALTER TABLE `log`
   ADD PRIMARY KEY (`log_id`);
 
 --
--- Índices para tabela `pasto`
+-- Indexes for table `pasto`
 --
 ALTER TABLE `pasto`
   ADD PRIMARY KEY (`pasto_id`);
 
 --
--- Índices para tabela `pessoa`
+-- Indexes for table `pessoa`
 --
 ALTER TABLE `pessoa`
   ADD PRIMARY KEY (`pessoa_id`),
-  ADD UNIQUE KEY `pessoa_id_UNIQUE` (`pessoa_id`);
+  ADD UNIQUE KEY `pessoa_cpfcnpj` (`pessoa_cpfcnpj`),
+  ADD UNIQUE KEY `pessoa_email` (`pessoa_email`),
+  ADD KEY `pessoa_endereco` (`pessoa_endereco`);
 
 --
--- Índices para tabela `rh`
+-- Indexes for table `produto`
+--
+ALTER TABLE `produto`
+  ADD PRIMARY KEY (`produto_id`);
+
+--
+-- Indexes for table `rh`
 --
 ALTER TABLE `rh`
   ADD PRIMARY KEY (`rg_id`),
-  ADD KEY `fk_rh_pessoa1_idx` (`pessoa_pessoa_id`);
+  ADD KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`),
+  ADD KEY `fk_rh_cargo1_idx` (`cargo_cargo_id`);
 
 --
--- Índices para tabela `servico`
+-- Indexes for table `servico`
 --
 ALTER TABLE `servico`
-  ADD PRIMARY KEY (`servico_id`),
-  ADD KEY `fk_servico_pessoa1_idx` (`pessoa_pessoa_id`);
+  ADD PRIMARY KEY (`servico_id`);
 
 --
--- Índices para tabela `servico_ferrajamento`
---
-ALTER TABLE `servico_ferrajamento`
-  ADD PRIMARY KEY (`servico_ferrajamento_id`),
-  ADD KEY `fk_servico_ferrajamento_servico1_idx` (`servico_servico_id`),
-  ADD KEY `fk_servico_ferrajamento_ferrajamento1_idx` (`ferrajamento_ferrajamento_id`);
-
---
--- Índices para tabela `servico_itens`
+-- Indexes for table `servico_itens`
 --
 ALTER TABLE `servico_itens`
   ADD PRIMARY KEY (`servico_itens_id`),
-  ADD KEY `fk_servico_itens_estoque1_idx` (`estoque_estoque_id`),
-  ADD KEY `fk_servico_itens_servico1_idx` (`servico_servico_id`);
+  ADD KEY `estoque_estoque_id` (`estoque_estoque_id`),
+  ADD KEY `servico_servico_id` (`servico_servico_id`);
 
 --
--- Índices para tabela `telefone`
+-- Indexes for table `telefone`
 --
 ALTER TABLE `telefone`
   ADD PRIMARY KEY (`telefone_id`),
-  ADD KEY `fk_telefone_pessoa1_idx` (`pessoa_pessoa_id`);
+  ADD KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`);
 
 --
--- Índices para tabela `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`usuario_id`),
-  ADD UNIQUE KEY `usuario_id_UNIQUE` (`usuario_id`),
-  ADD KEY `fk_usuario_pessoa1_idx` (`pessoa_pessoa_id`);
+  ADD KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`);
 
 --
--- Índices para tabela `vacina`
+-- Indexes for table `vacina`
 --
 ALTER TABLE `vacina`
   ADD PRIMARY KEY (`vacina_id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `animal`
+-- AUTO_INCREMENT for table `agenda`
 --
-ALTER TABLE `animal`
-  MODIFY `animal_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `agenda`
+  MODIFY `agenda_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `banco`
+-- AUTO_INCREMENT for table `calendario`
 --
-ALTER TABLE `banco`
-  MODIFY `banco_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `calendario`
+  MODIFY `calendario_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `conta_banco`
+-- AUTO_INCREMENT for table `cargo`
 --
-ALTER TABLE `conta_banco`
-  MODIFY `conta_banco_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `cargo`
+  MODIFY `cargo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de tabela `criador`
+-- AUTO_INCREMENT for table `carrinho`
+--
+ALTER TABLE `carrinho`
+  MODIFY `carrinhoid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `clienteid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `contrato`
+--
+ALTER TABLE `contrato`
+  MODIFY `contrato_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `contratos`
+--
+ALTER TABLE `contratos`
+  MODIFY `contrato_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `criador`
 --
 ALTER TABLE `criador`
   MODIFY `criador_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `pessoa`
+-- AUTO_INCREMENT for table `endereco`
+--
+ALTER TABLE `endereco`
+  MODIFY `endereco_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `ferrajamento`
+--
+ALTER TABLE `ferrajamento`
+  MODIFY `ferrajamento_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `log`
+--
+ALTER TABLE `log`
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `pessoa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `pessoa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de tabela `servico`
+-- AUTO_INCREMENT for table `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `produto_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `rh`
+--
+ALTER TABLE `rh`
+  MODIFY `rg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `servico`
 --
 ALTER TABLE `servico`
-  MODIFY `servico_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `servico_ferrajamento`
---
-ALTER TABLE `servico_ferrajamento`
-  MODIFY `servico_ferrajamento_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `telefone`
+-- AUTO_INCREMENT for table `telefone`
 --
 ALTER TABLE `telefone`
   MODIFY `telefone_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `animal`
+-- Limitadores para a tabela `agenda`
 --
-ALTER TABLE `animal`
-  ADD CONSTRAINT `animal_criador` FOREIGN KEY (`animal_criador`) REFERENCES `criador` (`criador_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `animal_local` FOREIGN KEY (`animal_local`) REFERENCES `pasto` (`pasto_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `agenda`
+  ADD CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`agenda_usuario`) REFERENCES `usuario` (`usuario_id`);
 
 --
--- Limitadores para a tabela `carteira_vacina`
+-- Limitadores para a tabela `carrinho`
 --
-ALTER TABLE `carteira_vacina`
-  ADD CONSTRAINT `fk_carteira_vacina_animal1` FOREIGN KEY (`animal_animal_id`) REFERENCES `animal` (`animal_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_carteira_vacina_vacina1` FOREIGN KEY (`vacina_vacina_id`) REFERENCES `vacina` (`vacina_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `carrinho`
+  ADD CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`produto_id`);
+
+--
+-- Limitadores para a tabela `cliente`
+--
+ALTER TABLE `cliente`
+  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa_id`) REFERENCES `pessoa` (`pessoa_id`);
 
 --
 -- Limitadores para a tabela `compra`
 --
 ALTER TABLE `compra`
-  ADD CONSTRAINT `compra_fornecedor` FOREIGN KEY (`compra_fornecedor`) REFERENCES `fornecedor` (`fornecedor_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `compra_produto` FOREIGN KEY (`compra_produto`) REFERENCES `estoque` (`estoque_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `compra_ibfk_1` FOREIGN KEY (`compra_fornecedor`) REFERENCES `fornecedor` (`fornecedor_id`),
+  ADD CONSTRAINT `compra_ibfk_2` FOREIGN KEY (`compra_produto`) REFERENCES `estoque` (`estoque_id`);
 
 --
 -- Limitadores para a tabela `consulta`
 --
 ALTER TABLE `consulta`
-  ADD CONSTRAINT `consulta_animal` FOREIGN KEY (`consulta_animal`) REFERENCES `animal` (`animal_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `consulta_veterinario` FOREIGN KEY (`consulta_veterinario`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `conta_banco`
---
-ALTER TABLE `conta_banco`
-  ADD CONSTRAINT `fk_conta_banco_banco1` FOREIGN KEY (`banco_banco_id`) REFERENCES `banco` (`banco_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_conta_banco_usuario1` FOREIGN KEY (`usuario_usuario_id`) REFERENCES `usuario` (`usuario_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `consulta_ibfk_1` FOREIGN KEY (`consulta_animal`) REFERENCES `animal` (`animal_id`),
+  ADD CONSTRAINT `consulta_ibfk_2` FOREIGN KEY (`consulta_veterinario`) REFERENCES `usuario` (`usuario_id`);
 
 --
 -- Limitadores para a tabela `criador`
 --
 ALTER TABLE `criador`
-  ADD CONSTRAINT `criador_endereco` FOREIGN KEY (`criador_endereco`) REFERENCES `endereco` (`endereco_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_criador_pessoa1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `endereco`
---
-ALTER TABLE `endereco`
-  ADD CONSTRAINT `fk_endereco_pessoa1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `criador_ibfk_1` FOREIGN KEY (`criador_endereco`) REFERENCES `endereco` (`endereco_id`),
+  ADD CONSTRAINT `criador_ibfk_2` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`);
 
 --
 -- Limitadores para a tabela `ferrajamento`
 --
 ALTER TABLE `ferrajamento`
-  ADD CONSTRAINT `ferrajamento_animal` FOREIGN KEY (`ferrajamento_animal`) REFERENCES `animal` (`animal_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `ferrajamento_ibfk_1` FOREIGN KEY (`ferrajamento_animal`) REFERENCES `animal` (`animal_id`);
 
 --
 -- Limitadores para a tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  ADD CONSTRAINT `fk_fornecedor_pessoa1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fornecedor_ibfk_1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `item_contrato`
+--
+ALTER TABLE `item_contrato`
+  ADD CONSTRAINT `item_contrato_ibfk_1` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`produto_id`),
+  ADD CONSTRAINT `item_contrato_ibfk_2` FOREIGN KEY (`contrato_id`) REFERENCES `contrato` (`contrato_id`);
+
+--
+-- Limitadores para a tabela `pessoa`
+--
+ALTER TABLE `pessoa`
+  ADD CONSTRAINT `pessoa_ibfk_1` FOREIGN KEY (`pessoa_endereco`) REFERENCES `endereco` (`endereco_id`);
 
 --
 -- Limitadores para a tabela `rh`
 --
 ALTER TABLE `rh`
-  ADD CONSTRAINT `fk_rh_pessoa1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `servico`
---
-ALTER TABLE `servico`
-  ADD CONSTRAINT `fk_servico_pessoa1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Limitadores para a tabela `servico_ferrajamento`
---
-ALTER TABLE `servico_ferrajamento`
-  ADD CONSTRAINT `fk_servico_ferrajamento_ferrajamento1` FOREIGN KEY (`ferrajamento_ferrajamento_id`) REFERENCES `ferrajamento` (`ferrajamento_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_servico_ferrajamento_servico1` FOREIGN KEY (`servico_servico_id`) REFERENCES `servico` (`servico_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `rh_ibfk_1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`);
 
 --
 -- Limitadores para a tabela `servico_itens`
 --
 ALTER TABLE `servico_itens`
-  ADD CONSTRAINT `fk_servico_itens_estoque1` FOREIGN KEY (`estoque_estoque_id`) REFERENCES `estoque` (`estoque_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_servico_itens_servico1` FOREIGN KEY (`servico_servico_id`) REFERENCES `servico` (`servico_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `servico_itens_ibfk_1` FOREIGN KEY (`estoque_estoque_id`) REFERENCES `estoque` (`estoque_id`),
+  ADD CONSTRAINT `servico_itens_ibfk_2` FOREIGN KEY (`servico_servico_id`) REFERENCES `servico` (`servico_id`);
 
 --
 -- Limitadores para a tabela `telefone`
 --
 ALTER TABLE `telefone`
-  ADD CONSTRAINT `fk_telefone_pessoa1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `telefone_ibfk_1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`);
 
 --
 -- Limitadores para a tabela `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `fk_usuario_pessoa1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`pessoa_pessoa_id`) REFERENCES `pessoa` (`pessoa_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
