@@ -73,8 +73,6 @@ public class JF_funcionarios extends javax.swing.JFrame {
         data_erro = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         pesqu_func = new javax.swing.JTextField();
-        func_ativo = new javax.swing.JRadioButton();
-        func_desativo = new javax.swing.JRadioButton();
         Cad_func = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tab_func = new javax.swing.JTable();
@@ -241,12 +239,6 @@ public class JF_funcionarios extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(func_ativo);
-        func_ativo.setText("Funcionarios ativos ");
-
-        buttonGroup1.add(func_desativo);
-        func_desativo.setText("Funsionarios Desativados ");
-
         Cad_func.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         Cad_func.setForeground(new java.awt.Color(0, 153, 153));
         Cad_func.setText("Cadastrar ");
@@ -304,10 +296,6 @@ public class JF_funcionarios extends javax.swing.JFrame {
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pesqu_func, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(func_ativo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(func_desativo)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JrhLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
@@ -321,9 +309,7 @@ public class JF_funcionarios extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(pesqu_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(func_ativo)
-                        .addComponent(func_desativo)))
+                        .addComponent(pesqu_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JrhLayout.createSequentialGroup()
@@ -360,7 +346,7 @@ public class JF_funcionarios extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(Cad_func, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         home.addTab("R.h", Jrh);
@@ -674,11 +660,9 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel cpf_erro;
     private javax.swing.JLabel data_erro;
     private javax.swing.JLabel email_erro;
-    private javax.swing.JRadioButton func_ativo;
     private javax.swing.JComboBox<String> func_cargo;
     private javax.swing.JTextField func_cpf;
     private com.toedter.calendar.JDateChooser func_data;
-    private javax.swing.JRadioButton func_desativo;
     private javax.swing.JTextField func_email;
     private javax.swing.JTextField func_nome;
     private javax.swing.JTabbedPane home;

@@ -6,9 +6,14 @@
 package view;
 
 import controller.ClienteDao;
+import controller.CarrinhoDAO;
+import controller.ContratoDAO;
 import controller.ServicosDAO;
 import funcoes.Telas;
+import javax.swing.JOptionPane;
+import model.Carrinho;
 import model.Cliente;
+import model.Contrato;
 import model.Servico;
 
 /**
@@ -21,13 +26,17 @@ public class JF_Contrato extends javax.swing.JFrame {
     ClienteDao clienteDao = new ClienteDao();
     Servico servico = new Servico();
     ServicosDAO servicoDao = new ServicosDAO();
+    CarrinhoDAO carrinhoDao = new CarrinhoDAO();
+    Carrinho carrinho = new Carrinho();
+    ContratoDAO contratoDao = new ContratoDAO();
+    Contrato contrato = new Contrato();
     /**
      * Creates new form JF_Contrato
      */
     public JF_Contrato() {
         initComponents();
-       clienteDao.CarregarTabelacli(tab_cliente, cli_nome);
-        servicoDao.CarregarTabelaServ(tab_produto, serv_nome);
+         clienteDao.CarregarTabelacli(tab_cliente, cli_nome);
+         servicoDao.CarregarTabelaServ(tab_produto, serv_nome);
     }
 
     /**
@@ -57,7 +66,6 @@ public class JF_Contrato extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tab_carrinho = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
-        total = new javax.swing.JTextField();
         cli_nome = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
@@ -73,7 +81,8 @@ public class JF_Contrato extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btn_animais1ActionPerformed = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        finalizar = new javax.swing.JButton();
+        total = new javax.swing.JLabel();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
@@ -195,8 +204,6 @@ public class JF_Contrato extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        total.setEnabled(false);
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Valor total ");
 
@@ -219,6 +226,7 @@ public class JF_Contrato extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(tab_produto);
+        tab_produto.setEnabled(false);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Desconto :");
@@ -239,7 +247,7 @@ public class JF_Contrato extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tab_cliente);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Valor :");
+        jLabel5.setText("TOTAL:");
 
         jButton2.setText("jButton2");
 
@@ -251,8 +259,15 @@ public class JF_Contrato extends javax.swing.JFrame {
 
         btn_animais1ActionPerformed.setText("jButton1");
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton4.setText("Finalizar");
+        finalizar.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        finalizar.setText("Finalizar");
+        finalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizarActionPerformed(evt);
+            }
+        });
+
+        total.setText("R$ 0,00");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -287,19 +302,19 @@ public class JF_Contrato extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(43, 43, 43)
-                                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(14, 14, 14)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(finalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
+                                .addGap(14, 14, 14)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(total)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(0, 16, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -336,10 +351,10 @@ public class JF_Contrato extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
-                                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(3, 3, 3)
+                                    .addComponent(total))
+                                .addGap(6, 6, 6)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -348,7 +363,7 @@ public class JF_Contrato extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(99, 99, 99)
-                                .addComponent(jButton4)
+                                .addComponent(finalizar)
                                 .addGap(11, 11, 11)
                                 .addComponent(jButton6)))))
                 .addContainerGap(70, Short.MAX_VALUE))
@@ -536,14 +551,39 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     }                   
 
     private void tab_produtoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_produtoMouseClicked
-     
+      try{ 
+        int linha = tab_produto.getSelectedRow();
+        String  id = String.valueOf(tab_produto.getValueAt(linha, 0));
+        carrinho.setServico_id(Integer.valueOf(id));
+        carrinho.setCarrinhoid(carrinho.getCarrinhoid());
+        carrinhoDao.InseriCarrinho(carrinho);
+        carrinhoDao.carregarCarrinho(tab_carrinho,total);
+        finalizar.setEnabled(true);
+      }catch(Exception e){
+          JOptionPane.showMessageDialog(this, "Você deve selecionar o Cliente");
+      
+      }                         
         // TODO add your handling code here:
     }//GEN-LAST:event_tab_produtoMouseClicked
 
     private void tab_clienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_clienteMouseClicked
-       
+        int linha = tab_cliente.getSelectedRow();
+        String  id = String.valueOf(tab_cliente.getValueAt(linha, 0));
+        cliente.setClienteid(Integer.valueOf(id));
+        carrinhoDao.zerarcarrinho(carrinho);
+        tab_produto.setEnabled(true);
+        finalizar.setEnabled(false);
+        carrinhoDao.carregarCarrinho(tab_carrinho, total);
         // TODO add your handling code here:
     }//GEN-LAST:event_tab_clienteMouseClicked
+
+    private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
+        contratoDao.Finalizar(cliente, contrato);
+        finalizar.setEnabled(false);
+        carrinhoDao.zerarcarrinho(carrinho);
+        carrinhoDao.carregarCarrinho(tab_carrinho, total);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_finalizarActionPerformed
 
   
     /**
@@ -593,9 +633,9 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton btn_usuario;
     private javax.swing.JButton btn_usuario1;
     private javax.swing.JTextField cli_nome;
+    private javax.swing.JButton finalizar;
     private javax.swing.JTabbedPane home;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -625,6 +665,6 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTable tab_carrinho;
     private javax.swing.JTable tab_cliente;
     private javax.swing.JTable tab_produto;
-    private javax.swing.JTextField total;
+    private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,37 +9,60 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import net.proteanit.sql.DbUtils;
-import view.JF_Contrato;
+import javax.swing.text.View;
+import model.Carrinho;
+import model.Cliente;
+import model.Contrato;
 
 /**
  *
- * @author maikon.rosa
+ * @author PC_Sala
  */
 public class ContratoDAO {
-     Connection con;
-    String sql;
+      Connection con;
+    String sql,sql2;
     PreparedStatement pst;
     ResultSet rs;
-    JF_Contrato tela = new JF_Contrato();
+    
+    public void venda_produto(Contrato contrato){
 
-    //carrega os dados da tabela de produto
-          public void CarregarTabelapro(JTable cli,JTextField pesquisa) {
-        try {
-            con = Conexao.conectar();
-            sql = "select * from vw_tab_produto";
-            pst = con.prepareStatement(sql);
-            pst.setString(1, "%" +pesquisa.getText()+ "%");
-            rs = pst.executeQuery();
-            cli.setModel(DbUtils.resultSetToTableModel(rs));
-            Conexao.desconectar();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(tela, "Erro ao consultar: " + e);
-        }
-
+        try{
+    con = Conexao.conectar();
+    sql="select servico_id from carrinho";
+    pst=con.prepareStatement(sql);
+    rs=pst.executeQuery();
+    sql="insert into item_contrato values(?,?)";
+    pst=con.prepareStatement(sql);
+    pst.setInt(2,contrato.getContratoid());
+    while(rs.next()){
+       pst.setInt(1, rs.getInt(1));
+       pst.execute();
+    }
+    Conexao.desconectar();
+    JOptionPane.showMessageDialog(null, "se é o bixao memo");
+    }catch(SQLException e){
+        System.err.println("venda_produto erro "+e);
+    }
+    
+    }
+    public void Finalizar(Cliente cliente,Contrato contrato){
+    try{
+    con = Conexao.conectar();
+        System.out.println(cliente.getClienteid());
+    sql="insert into contrato(cliente_id,contrato_valor) values (?,(SELECT SUM(Valor) FROM vw_carrinho))";
+    pst=con.prepareStatement(sql);
+    pst.setInt(1, cliente.getClienteid());
+    pst.execute();
+    sql="select contrato_id from contrato ORDER by contrato_id desc limit 1";
+    pst=con.prepareStatement(sql);
+    rs=pst.executeQuery();
+    if(rs.next()){
+        contrato.setContratoid(rs.getInt(1));
+        venda_produto(contrato);
+    }
+    }catch(SQLException e){
+    System.err.println("Venda erro : "+e);
+    }
     }
 }

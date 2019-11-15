@@ -11,9 +11,23 @@ import java.util.ArrayList;
  *
  * @author maiko
  */
-public class Carrinho {
-  private int produtoid;
-  private String nome;
-  private float preco;
-   
+public class Carrinho extends Servico{
+ 
+  static private int carrinhoid = 0;
+
+    public int getCarrinhoid() {
+        return carrinhoid;
+    }
+
+    public void setCarrinhoid(int carrinhoid) {
+    
+       if(carrinhoid==0)
+        this.carrinhoid = 1;
+       else
+        this.carrinhoid = carrinhoid+1;   
+    }
+  
+   public void zerarCarrinho(){
+     this.carrinhoid = 0;
+   }
 }
