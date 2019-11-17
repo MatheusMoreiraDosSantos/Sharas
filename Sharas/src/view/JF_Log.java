@@ -18,6 +18,7 @@ public class JF_Log extends javax.swing.JFrame {
      */
     public JF_Log() {
         initComponents();
+        telas.Resolucao(this);
     }
 
     /**

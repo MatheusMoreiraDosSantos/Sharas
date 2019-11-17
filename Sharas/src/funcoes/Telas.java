@@ -5,6 +5,8 @@
  */
 package funcoes;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.*;
 import view.JF_Celeiro;
 import view.JF_Cliente;
@@ -67,6 +69,13 @@ public class Telas {
         aberta.dispose();
         }
         
+    }
+      public void Resolucao(JFrame j) {
+
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension d = tk.getScreenSize();
+        j.setSize(d.width, d.height);
+
     }
     public void alterartelaUsuario(JLabel login,JLabel senha,JLabel status,JCheckBox ch_login,JCheckBox ch_senha,JCheckBox ch_status,JButton cad,JButton alterar,JButton cancelar){
     login.setText(mudarTexto(login));

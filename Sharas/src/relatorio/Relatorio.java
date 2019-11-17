@@ -21,15 +21,18 @@ import net.sf.jasperreports.view.JasperViewer;
 public class Relatorio {
   
     public static void Gerar() {
-   Connection con = Conexao.conectar();
-    String src = "C:\\Users\\maiko\\Desktop\\ds2\\SHARAS\\sharas\\src\\relatorio\\contrato.jasper"
+    
+           String url =System.getProperty("user.dir");
+            System.out.println(url);
+           Connection con = Conexao.conectar();
+            String src = url+"\\src\\relatorio\\Blank_A4.jasper"
             ;
     
     JasperPrint jasper = null;
         try {
             jasper = JasperFillManager.fillReport(src, null, con);
         } catch (JRException ex) {
-            //Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Erro "+ex);
         }
         JasperViewer view = new JasperViewer(jasper,false);

@@ -23,6 +23,7 @@ String nome = "sistema";
      */
     public JF_calendario() {
         initComponents();
+        telas.Resolucao(this);
     }
 
     /**

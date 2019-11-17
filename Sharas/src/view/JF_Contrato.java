@@ -35,6 +35,7 @@ public class JF_Contrato extends javax.swing.JFrame {
      */
     public JF_Contrato() {
         initComponents();
+        telas.Resolucao(this);
          clienteDao.CarregarTabelacli(tab_cliente, cli_nome);
          servicoDao.CarregarTabelaServ(tab_produto, serv_nome);
     }

@@ -22,6 +22,7 @@ public class JF_animais extends javax.swing.JFrame {
      */
     public JF_animais() {
         initComponents();
+        telas.Resolucao(this);
     }
 
     /**
