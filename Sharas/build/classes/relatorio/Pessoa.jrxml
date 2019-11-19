@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pessoa" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e3c4955f-3d11-4e87-893c-ca29f42e0302">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\relatorio\conexao.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select * from pessoa]]>
+	</queryString>
+	<field name="pessoa_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_ind" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_ind"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_cpfcnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_cpfcnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pesoa_cargo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="pesoa_cargo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_endereco" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_endereco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement x="-10" y="0" width="460" height="30" uuid="ff163717-cfd3-4332-8856-0e3f141cdbcd"/>
+				<textElement>
+					<font fontName="Arial Black" size="18"/>
+				</textElement>
+				<text><![CDATA[Relatorio de pessoas cadastras ]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="450" y="10" width="100" height="30" uuid="44ae0a01-3c94-48d0-8d21-d59d9b38bd6a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="390" y="10" width="100" height="30" uuid="e77938df-df0f-40f1-9220-82e369564d26"/>
+				<text><![CDATA[retirado dia ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="30" width="40" height="30" uuid="b966c048-b413-45c6-bcd6-0ae27acaa839"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="30" width="100" height="30" uuid="d3db997f-29e3-482d-88ca-d9ee286bfaed"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="30" width="100" height="30" uuid="7530611b-dd1b-4166-9849-d9d5c269f753"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Cpf]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="30" width="100" height="30" uuid="98e1a5ba-0b0e-43cc-8ae8-4fa4324b6ec9"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Cargo ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="30" width="150" height="30" uuid="891a5243-fd40-4171-9aa3-144df1553a39"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="10" width="40" height="30" uuid="767523e5-7179-4ad8-af88-1656ea7a0313"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="10" width="100" height="30" uuid="b452e00b-85e0-4efe-9bcd-c2986754777a"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="10" width="100" height="30" uuid="c980e805-ae63-4112-b2ed-7ff30f2399eb"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_cpfcnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="10" width="100" height="30" uuid="cc123297-e4ca-4e14-8b91-dc57f0ee4346"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesoa_cargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="10" width="150" height="30" uuid="1539587e-dc5b-4ee3-bbcc-90d883150af7"/>
+				<textElement>
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

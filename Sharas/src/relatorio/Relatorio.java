@@ -24,12 +24,13 @@ public class Relatorio {
     
            String url =System.getProperty("user.dir");
             System.out.println(url);
-           Connection con = Conexao.conectar();
-            String src = url+"\\src\\relatorio\\Blank_A4.jasper"
+            Connection con = Conexao.conectar();
+            String src = url+"\\src\\relatorio\\Pessoa.jasper"
             ;
     
     JasperPrint jasper = null;
         try {
+            System.out.println("relatorio.Relatorio.Gerar()");
             jasper = JasperFillManager.fillReport(src, null, con);
         } catch (JRException ex) {
             Logger.getLogger(Relatorio.class.getName()).log(Level.SEVERE, null, ex);
