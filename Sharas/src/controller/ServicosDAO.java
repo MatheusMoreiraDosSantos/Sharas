@@ -29,8 +29,8 @@ public class ServicosDAO {
      sql="INSERT INTO servico VALUES (NULL,?,?,?)";
      pst = con.prepareStatement(sql);
      pst.setString(1, servico.getServico_cat());
-     pst.setString(2, servico.getServico_nome());
-     pst.setFloat(3,servico.getServico_preco());
+     pst.setString(3, servico.getServico_nome());
+     pst.setFloat(2,servico.getServico_preco());
      pst.execute();
     }catch(Exception e){
         System.out.println(e);
