@@ -71,7 +71,7 @@ public class JF_Log extends javax.swing.JFrame {
 
         btn_celeiro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_celeiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/celeiro.png"))); // NOI18N
-        btn_celeiro.setText("Celeiro          ");
+        btn_celeiro.setText("Haras");
         btn_celeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_celeiroActionPerformed(evt);
