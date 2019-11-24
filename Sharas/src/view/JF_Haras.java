@@ -59,6 +59,7 @@ Validacoes campo = new Validacoes();
         b_uso = new javax.swing.JCheckBox();
         b_dani = new javax.swing.JCheckBox();
         b_u1 = new javax.swing.JTextField();
+        ad_baia = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         cat_cat = new javax.swing.JComboBox<>();
         Categoria = new javax.swing.JLabel();
@@ -180,6 +181,11 @@ Validacoes campo = new Validacoes();
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tab_baias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tab_baiasMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tab_baias);
 
         b_todas.setText("Todas");
@@ -215,6 +221,13 @@ Validacoes campo = new Validacoes();
         b_u1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
         b_u1.setBorder(javax.swing.BorderFactory.createTitledBorder("Em uso"));
 
+        ad_baia.setText("Nova");
+        ad_baia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ad_baiaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -228,7 +241,9 @@ Validacoes campo = new Validacoes();
                         .addGap(4, 4, 4)
                         .addComponent(b_u1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(b_u, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(b_u, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ad_baia))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(b_todas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -243,10 +258,12 @@ Validacoes campo = new Validacoes();
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b_d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_u, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_u1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(b_d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b_u, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b_u1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ad_baia))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_todas)
@@ -254,7 +271,7 @@ Validacoes campo = new Validacoes();
                     .addComponent(b_uso)
                     .addComponent(b_dani))
                 .addGap(6, 6, 6)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -784,6 +801,40 @@ telas.alterar(this,1);
         // TODO add your handling code here:
     }//GEN-LAST:event_b_daniActionPerformed
 
+    private void ad_baiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ad_baiaActionPerformed
+            servicoDao.Inserirbaia();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ad_baiaActionPerformed
+
+    private void tab_baiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab_baiasMouseClicked
+           int opc;
+        int linha = tab_baias.getSelectedRow();
+            String loc = String.valueOf(tab_baias.getValueAt(linha, 0));
+            String Status = String.valueOf(tab_baias.getValueAt(linha, 1));
+            int local = Integer.parseInt(loc);
+            switch(Status){
+                case "Disponivel":String opcoes[] = {"Danificada","Cancelar"};
+             opc = JOptionPane.showOptionDialog(null, "Selecionar o estado da Baia", "Modificar Baia"
+            , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[1]);
+             if(opc==0){
+              servicoDao.Alterarbaia(local, 1);
+              servicoDao.CarregarBaias(1, tab_baias);
+             }
+             
+             break;
+                case "Manutenção": String opcoes2[] = {"Disponível","Cancelar"};
+             opc = JOptionPane.showOptionDialog(null, "Selecionar o estado da Baia", "Modificar Baia"
+            , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes2, opcoes2[1]);
+              if(opc==0){
+              servicoDao.Alterarbaia(local, 1);
+              servicoDao.CarregarBaias(1, tab_baias);
+             }
+             break;
+                default: JOptionPane.showMessageDialog(null,"Está baia está em uso" );
+            }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tab_baiasMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -822,6 +873,7 @@ telas.alterar(this,1);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Categoria;
+    private javax.swing.JButton ad_baia;
     private javax.swing.JButton atualiza;
     private javax.swing.JTextField b_d;
     private javax.swing.JCheckBox b_dani;

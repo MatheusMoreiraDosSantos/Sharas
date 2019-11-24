@@ -679,10 +679,10 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_homeComponentShown
 
     private void tela_homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_tela_homeComponentShown
-        System.out.println(se.getId_pessoa());
+    /*    System.out.println(se.getId_pessoa());
         jLabel59.setText("Login \t" + se.getLogin());
         jLabel73.setText("usuario_id: \t" + se.getId_usuario());
-        // TODO add your handling code here:
+        // TODO add your handling code here:*/
     }//GEN-LAST:event_tela_homeComponentShown
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

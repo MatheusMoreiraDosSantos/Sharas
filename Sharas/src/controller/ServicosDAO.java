@@ -109,6 +109,40 @@ public class ServicosDAO {
           }
   
   }
+  public void Inserirbaia(){
+   try{
+          con = Conexao.conectar();
+          sql = "insert ito baia values (null,1)";
+          con.prepareStatement(sql);
+          pst.execute();
+          Conexao.desconectar();
+          }catch(SQLException e){
+                System.out.println("erro :"+e);
+              Conexao.desconectar();
+            
+          }
+  
+  }
+  public void Alterarbaia(int local,int status){
+   try{
+         System.out.println("alterar fase : "+local+" status:"+status);
+            con = Conexao.conectar();
+          switch(status){
+              case 1: sql = "UPDATE baia SET baia_status=3 WHERE baia_id=?";break;
+              case 2: sql = "UPDATE baia SET baia_status=1 WHERE baia_id=?";break;
+          } 
+     
+          pst = con.prepareStatement(sql);
+           pst.setInt(1,local);
+           pst.execute();
+           System.out.println("alterar fase 3");
+            Conexao.desconectar();
+          }catch(SQLException e){
+              Conexao.desconectar();
+              System.out.println("erro :"+e);
+          }
+  
+  }
    public void CarregarBaias(int opt,JTable baias){
       try{
           con = Conexao.conectar();
