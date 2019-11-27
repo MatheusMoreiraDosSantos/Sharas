@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Nov-2019 às 18:09
--- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.3.4
+-- Tempo de geração: 27-Nov-2019 às 18:58
+-- Versão do servidor: 10.4.8-MariaDB
+-- versão do PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,10 +19,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sharas`
+-- Banco de dados: `sharas`
 --
-CREATE DATABASE IF NOT EXISTS `sharas` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `sharas`;
 
 -- --------------------------------------------------------
 
@@ -30,14 +28,12 @@ USE `sharas`;
 -- Estrutura da tabela `agenda`
 --
 
-CREATE TABLE IF NOT EXISTS `agenda` (
-  `agenda_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `agenda` (
+  `agenda_id` int(11) NOT NULL,
   `agenda_texto` varchar(120) DEFAULT NULL,
   `agenda_usuario` int(11) DEFAULT NULL,
   `agenda_data` date NOT NULL,
-  `agenda_agend` int(11) NOT NULL,
-  PRIMARY KEY (`agenda_id`),
-  KEY `agenda_usuario` (`agenda_usuario`)
+  `agenda_agend` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -46,10 +42,9 @@ CREATE TABLE IF NOT EXISTS `agenda` (
 -- Estrutura da tabela `baia`
 --
 
-CREATE TABLE IF NOT EXISTS `baia` (
-  `baia_id` int(11) NOT NULL AUTO_INCREMENT,
-  `baia_tamanho` int(11) DEFAULT NULL,
-  PRIMARY KEY (`baia_id`)
+CREATE TABLE `baia` (
+  `baia_id` int(11) NOT NULL,
+  `baia_tamanho` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -58,12 +53,18 @@ CREATE TABLE IF NOT EXISTS `baia` (
 -- Estrutura da tabela `calendario`
 --
 
-CREATE TABLE IF NOT EXISTS `calendario` (
-  `calendario_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `calendario` (
+  `calendario_id` int(11) NOT NULL,
   `calendario_data` varchar(45) NOT NULL,
-  `calendario_desc` text,
-  PRIMARY KEY (`calendario_id`)
+  `calendario_desc` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `calendario`
+--
+
+INSERT INTO `calendario` (`calendario_id`, `calendario_data`, `calendario_desc`) VALUES
+(1, '2019-11-15', '12345');
 
 -- --------------------------------------------------------
 
@@ -71,10 +72,9 @@ CREATE TABLE IF NOT EXISTS `calendario` (
 -- Estrutura da tabela `cargo`
 --
 
-CREATE TABLE IF NOT EXISTS `cargo` (
+CREATE TABLE `cargo` (
   `cargo_id` int(11) NOT NULL,
-  `cargo_nome` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`cargo_id`)
+  `cargo_nome` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -95,12 +95,18 @@ INSERT INTO `cargo` (`cargo_id`, `cargo_nome`) VALUES
 -- Estrutura da tabela `carrinho`
 --
 
-CREATE TABLE IF NOT EXISTS `carrinho` (
+CREATE TABLE `carrinho` (
   `carrinhoid` int(11) NOT NULL,
-  `servico_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`carrinhoid`),
-  KEY `servico_id` (`servico_id`)
+  `servico_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `carrinho`
+--
+
+INSERT INTO `carrinho` (`carrinhoid`, `servico_id`) VALUES
+(1, 6),
+(2, 7);
 
 -- --------------------------------------------------------
 
@@ -108,20 +114,24 @@ CREATE TABLE IF NOT EXISTS `carrinho` (
 -- Estrutura da tabela `cliente`
 --
 
-CREATE TABLE IF NOT EXISTS `cliente` (
-  `clienteid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cliente` (
+  `clienteid` int(11) NOT NULL,
   `pessoa_id` int(11) DEFAULT NULL,
-  `cliente_deb` float DEFAULT NULL,
-  PRIMARY KEY (`clienteid`),
-  KEY `pessoa_id` (`pessoa_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `cliente_deb` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
 INSERT INTO `cliente` (`clienteid`, `pessoa_id`, `cliente_deb`) VALUES
-(1, 18, 0);
+(3, 25, 0),
+(4, 26, 0),
+(5, 27, 0),
+(7, 23, NULL),
+(8, 25, 788),
+(9, 24, 0),
+(10, 19, 7755);
 
 -- --------------------------------------------------------
 
@@ -129,13 +139,14 @@ INSERT INTO `cliente` (`clienteid`, `pessoa_id`, `cliente_deb`) VALUES
 -- Estrutura da tabela `contrato`
 --
 
-CREATE TABLE IF NOT EXISTS `contrato` (
+CREATE TABLE `contrato` (
   `contrato_id` int(11) NOT NULL,
   `cliente_id` int(11) DEFAULT NULL,
   `contrato_valor` float DEFAULT NULL,
-  `contrato_data` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`contrato_id`),
-  KEY `cliente_id` (`cliente_id`)
+  `contrato_data` datetime DEFAULT current_timestamp(),
+  `contrato_descontoTipo` varchar(10) NOT NULL,
+  `desconto_Valor` float NOT NULL DEFAULT 0,
+  `descontomotivo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -144,31 +155,34 @@ CREATE TABLE IF NOT EXISTS `contrato` (
 -- Estrutura da tabela `endereco`
 --
 
-CREATE TABLE IF NOT EXISTS `endereco` (
-  `endereco_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `endereco` (
+  `endereco_id` int(11) NOT NULL,
   `endereco_numero` varchar(45) NOT NULL,
   `endereco_cep` varchar(11) NOT NULL,
   `endereco_rua` varchar(80) NOT NULL,
   `endereco_bairro` varchar(80) NOT NULL,
   `endereco_cidade` varchar(80) NOT NULL,
-  `endereco_estado` varchar(80) NOT NULL,
-  PRIMARY KEY (`endereco_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `endereco_estado` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `endereco`
 --
 
 INSERT INTO `endereco` (`endereco_id`, `endereco_numero`, `endereco_cep`, `endereco_rua`, `endereco_bairro`, `endereco_cidade`, `endereco_estado`) VALUES
-(1, '1100', '18703480', 'braz camilo', 'brabancia', 'avare', 'SP');
+(1, '1100', '18703480', 'braz camilo', 'brabancia', 'avare', 'SP'),
+(7, '12', '18754557', 'parecida do nore', 'dolores da vila', 'tumbrlandia', 'SP'),
+(8, '787', '174858', 'brazil novo ', 'bacaiambu', 'avare', 'SP'),
+(9, '045', '1744894', 'bharahama', 'reverwas', 'avare', 'SP'),
+(10, '044', '1744878', 'bharahama', 'reverwas', 'avare', 'SP');
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `idenddereco`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `idenddereco`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `idenddereco` (
+CREATE TABLE `idenddereco` (
 `id` int(11)
 ,`c` varchar(11)
 ,`n` varchar(45)
@@ -180,11 +194,9 @@ CREATE TABLE IF NOT EXISTS `idenddereco` (
 -- Estrutura da tabela `item_contrato`
 --
 
-CREATE TABLE IF NOT EXISTS `item_contrato` (
+CREATE TABLE `item_contrato` (
   `servico_id` int(11) DEFAULT NULL,
-  `contrato_id` int(11) DEFAULT NULL,
-  KEY `contrato_id` (`contrato_id`),
-  KEY `servico_id` (`servico_id`)
+  `contrato_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -193,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `item_contrato` (
 -- Estrutura da tabela `log`
 --
 
-CREATE TABLE IF NOT EXISTS `log` (
+CREATE TABLE `log` (
   `log_id` int(11) NOT NULL,
   `log_acao` varchar(45) NOT NULL,
   `log_entidade` varchar(45) NOT NULL,
@@ -208,25 +220,30 @@ CREATE TABLE IF NOT EXISTS `log` (
 -- Estrutura da tabela `pessoa`
 --
 
-CREATE TABLE IF NOT EXISTS `pessoa` (
-  `pessoa_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pessoa` (
+  `pessoa_id` int(11) NOT NULL,
   `pessoa_ind` varchar(2) NOT NULL,
   `pessoa_cpfcnpj` varchar(14) NOT NULL,
   `pessoa_nome` varchar(90) NOT NULL,
   `pessoa_email` varchar(45) DEFAULT NULL,
   `pesoa_cargo` int(1) DEFAULT NULL,
-  `pessoa_endereco` int(11) DEFAULT NULL,
-  PRIMARY KEY (`pessoa_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  `pessoa_endereco` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pessoa`
 --
 
 INSERT INTO `pessoa` (`pessoa_id`, `pessoa_ind`, `pessoa_cpfcnpj`, `pessoa_nome`, `pessoa_email`, `pesoa_cargo`, `pessoa_endereco`) VALUES
-(18, 'PF', '43762393800', 'Maikon cristino ', 'maikonmoren@gmail.com', 2, 1),
 (19, 'PF', '43762393800', 'Maikon', 'maikon.@maikon', 1, NULL),
-(20, 'PF', '19380128010', 'Maikon Cristino', 'maikon.@maikon', 1, NULL);
+(20, 'PF', '19380128010', 'Pedro joao', 'maikon.@maikon', 1, NULL),
+(22, 'PF', '71735074055', 'Pedro', 'maikonmoren@gmail.com', 2, 7),
+(23, 'PF', '78798635200', 'Andressa', 'andressa@gmail.com', 2, 7),
+(24, 'PF', '78793252004', 'Bianca Antunes da silva', 'bianquinha_milGrau@gmail.com', 2, 7),
+(25, 'PF', '98756821411', 'Thomas nobutico', 'thominha@gmail.com', 2, 8),
+(26, 'PF', '64556484', 'Jõao pessoa', 'Joao.pessoa@uol.com.br', 2, 9),
+(27, 'PF', '64556484774', 'Jõao pessoa', 'Joao.pessoa@uol.com.br', 2, 10),
+(28, 'PF', '402.041.220-07', 'Maikon dos santos', 'odsadih.siajosi@ksd', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -234,23 +251,21 @@ INSERT INTO `pessoa` (`pessoa_id`, `pessoa_ind`, `pessoa_cpfcnpj`, `pessoa_nome`
 -- Estrutura da tabela `rh`
 --
 
-CREATE TABLE IF NOT EXISTS `rh` (
-  `rh_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `rh` (
+  `rh_id` int(11) NOT NULL,
   `rh_inicio` date NOT NULL,
   `rh_termino` date DEFAULT NULL,
   `pessoa_pessoa_id` int(11) NOT NULL,
-  `cargo_cargo_id` int(11) NOT NULL,
-  PRIMARY KEY (`rh_id`),
-  KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`),
-  KEY `cargo_cargo_id` (`cargo_cargo_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `cargo_cargo_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `rh`
 --
 
 INSERT INTO `rh` (`rh_id`, `rh_inicio`, `rh_termino`, `pessoa_pessoa_id`, `cargo_cargo_id`) VALUES
-(1, '2019-11-07', NULL, 20, 1);
+(1, '2019-11-07', NULL, 20, 1),
+(2, '2019-11-27', NULL, 28, 6);
 
 -- --------------------------------------------------------
 
@@ -258,21 +273,40 @@ INSERT INTO `rh` (`rh_id`, `rh_inicio`, `rh_termino`, `pessoa_pessoa_id`, `cargo
 -- Estrutura da tabela `servico`
 --
 
-CREATE TABLE IF NOT EXISTS `servico` (
+CREATE TABLE `servico` (
   `servico_id` int(11) NOT NULL,
-  `servico_tipo` int(11) DEFAULT NULL,
+  `servico_tipo` varchar(40) DEFAULT NULL,
   `servico_valor` float DEFAULT NULL,
-  `servico_nome` varchar(40) DEFAULT NULL,
-  PRIMARY KEY (`servico_id`)
+  `servico_nome` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `servico`
+--
+
+INSERT INTO `servico` (`servico_id`, `servico_tipo`, `servico_valor`, `servico_nome`) VALUES
+(1, 'Alojamento ', 687687, 'dwada'),
+(3, 'Alojamento ', 700, 'baia luxo'),
+(4, 'Alojamento ', 500, 'baia media'),
+(5, 'Alojamento ', 300, 'baia econimica'),
+(6, 'Treinamento', 500, 'hedeas'),
+(7, 'Treinamento', 500, 'barril'),
+(8, 'Treinamento', 500, 'laços'),
+(9, 'Treinamento', 500, 'corrida'),
+(10, 'Cuidados', 150, 'vacina a '),
+(11, 'Cuidados', 300, 'vacina b'),
+(12, 'Cuidados', 500, 'vacina re'),
+(13, 'Cuidados', 300, 'ferradura'),
+(14, 'Cuidados', 50, 'banho'),
+(15, 'Outros', 1500, 'semem');
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `tab_cliente`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `tab_cliente`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `tab_cliente` (
+CREATE TABLE `tab_cliente` (
 `Codigo` int(11)
 ,`Nome` varchar(90)
 ,`CPF` varchar(14)
@@ -282,10 +316,10 @@ CREATE TABLE IF NOT EXISTS `tab_cliente` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `tab_usu`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `tab_usu`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `tab_usu` (
+CREATE TABLE `tab_usu` (
 `Código` int(11)
 ,`Nome` varchar(90)
 ,`Login` varchar(11)
@@ -294,10 +328,10 @@ CREATE TABLE IF NOT EXISTS `tab_usu` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `tab_usucad`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `tab_usucad`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `tab_usucad` (
+CREATE TABLE `tab_usucad` (
 `codigo` int(11)
 ,`nome` varchar(90)
 ,`Cpf` varchar(14)
@@ -306,10 +340,10 @@ CREATE TABLE IF NOT EXISTS `tab_usucad` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `tab_usuncad`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `tab_usuncad`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `tab_usuncad` (
+CREATE TABLE `tab_usuncad` (
 `codigo` int(11)
 ,`nome` varchar(90)
 ,`Cpf` varchar(14)
@@ -321,12 +355,11 @@ CREATE TABLE IF NOT EXISTS `tab_usuncad` (
 -- Estrutura da tabela `telefone`
 --
 
-CREATE TABLE IF NOT EXISTS `telefone` (
+CREATE TABLE `telefone` (
   `telefone_id` int(11) NOT NULL,
   `telefone_num` varchar(15) NOT NULL,
   `telefone_tipo` int(11) NOT NULL,
-  `pessoa_pessoa_id` int(11) NOT NULL,
-  KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`)
+  `pessoa_pessoa_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -335,31 +368,30 @@ CREATE TABLE IF NOT EXISTS `telefone` (
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `usuario_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuario` (
+  `usuario_id` int(11) NOT NULL,
   `usuario_senha` varchar(80) NOT NULL,
   `usuario_status` int(11) NOT NULL,
   `usuario_notificacao` varchar(120) DEFAULT NULL,
   `pessoa_pessoa_id` int(11) NOT NULL,
-  `usuario_login` varchar(45) NOT NULL,
-  PRIMARY KEY (`usuario_id`),
-  KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `usuario_login` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
 INSERT INTO `usuario` (`usuario_id`, `usuario_senha`, `usuario_status`, `usuario_notificacao`, `pessoa_pessoa_id`, `usuario_login`) VALUES
-(3, 'e10adc3949ba59abbe56e057f20f883e', 1, NULL, 19, 'maikon.rosa');
+(3, 'e10adc3949ba59abbe56e057f20f883e', 1, NULL, 19, 'maikon.rosa'),
+(4, '698dc19d489c4e4db73e28a713eab07b', 1, NULL, 19, 'sistema');
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_agenda2`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_agenda2`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_agenda2` (
+CREATE TABLE `vw_agenda2` (
 `Textoid` int(11)
 ,`Data` varchar(10)
 ,`Texto` varchar(120)
@@ -369,10 +401,24 @@ CREATE TABLE IF NOT EXISTS `vw_agenda2` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_cli`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_carrinho`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_cli` (
+CREATE TABLE `vw_carrinho` (
+`Item` int(11)
+,`Serviço` varchar(40)
+,`UNI` float
+,`Quantidade` bigint(21)
+,`Valor` double
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para vista `vw_cli`
+-- (Veja abaixo para a view atual)
+--
+CREATE TABLE `vw_cli` (
 `id` int(11)
 ,`Nome` varchar(90)
 ,`Cpf` varchar(14)
@@ -388,10 +434,10 @@ CREATE TABLE IF NOT EXISTS `vw_cli` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_funcionario`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_funcionario`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_funcionario` (
+CREATE TABLE `vw_funcionario` (
 `Código` int(11)
 ,`Nome` varchar(90)
 ,`CPF` varchar(14)
@@ -402,10 +448,10 @@ CREATE TABLE IF NOT EXISTS `vw_funcionario` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_login`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_login`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_login` (
+CREATE TABLE `vw_login` (
 `id` int(11)
 ,`senha` varchar(80)
 ,`login` varchar(45)
@@ -415,10 +461,10 @@ CREATE TABLE IF NOT EXISTS `vw_login` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_pessoa_usuario`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_pessoa_usuario`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_pessoa_usuario` (
+CREATE TABLE `vw_pessoa_usuario` (
 `UsuarioID` int(11)
 ,`CPF` varchar(14)
 );
@@ -426,23 +472,23 @@ CREATE TABLE IF NOT EXISTS `vw_pessoa_usuario` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_servicos`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_servicos`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_servicos` (
+CREATE TABLE `vw_servicos` (
 `Código` int(11)
-,`Categoria` int(11)
+,`Categoria` varchar(40)
 ,`Nome` varchar(40)
-,`Valor` varchar(49)
+,`Valor` varchar(57)
 );
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_tab_atualiza_usu`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_tab_atualiza_usu`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_tab_atualiza_usu` (
+CREATE TABLE `vw_tab_atualiza_usu` (
 `Nome` varchar(90)
 ,`Login` varchar(45)
 ,`CPF` varchar(14)
@@ -452,10 +498,10 @@ CREATE TABLE IF NOT EXISTS `vw_tab_atualiza_usu` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_tab_servico`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_tab_servico`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_tab_servico` (
+CREATE TABLE `vw_tab_servico` (
 `Código` int(11)
 ,`Nome` varchar(40)
 ,`Valor` float
@@ -464,10 +510,10 @@ CREATE TABLE IF NOT EXISTS `vw_tab_servico` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_telefone`
--- (See below for the actual view)
+-- Estrutura stand-in para vista `vw_telefone`
+-- (Veja abaixo para a view atual)
 --
-CREATE TABLE IF NOT EXISTS `vw_telefone` (
+CREATE TABLE `vw_telefone` (
 `Telefone` varchar(15)
 ,`Pessoaid` int(11)
 );
@@ -475,7 +521,7 @@ CREATE TABLE IF NOT EXISTS `vw_telefone` (
 -- --------------------------------------------------------
 
 --
--- Structure for view `idenddereco`
+-- Estrutura para vista `idenddereco`
 --
 DROP TABLE IF EXISTS `idenddereco`;
 
@@ -484,43 +530,43 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `tab_cliente`
+-- Estrutura para vista `tab_cliente`
 --
 DROP TABLE IF EXISTS `tab_cliente`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_cliente`  AS  select `c`.`clienteid` AS `Codigo`,`p`.`pessoa_nome` AS `Nome`,`p`.`pessoa_cpfcnpj` AS `CPF`,`c`.`cliente_deb` AS `Debito` from (`pessoa` `p` join `cliente` `c`) where ((`p`.`pesoa_cargo` = 2) and (`p`.`pessoa_id` = `c`.`pessoa_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_cliente`  AS  select `c`.`clienteid` AS `Codigo`,`p`.`pessoa_nome` AS `Nome`,`p`.`pessoa_cpfcnpj` AS `CPF`,`c`.`cliente_deb` AS `Debito` from (`pessoa` `p` join `cliente` `c`) where `p`.`pesoa_cargo` = 2 and `p`.`pessoa_id` = `c`.`pessoa_id` ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `tab_usu`
+-- Estrutura para vista `tab_usu`
 --
 DROP TABLE IF EXISTS `tab_usu`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usu`  AS  select `pessoa`.`pessoa_id` AS `Código`,`pessoa`.`pessoa_nome` AS `Nome`,(case when `pessoa`.`pessoa_id` in (select `p`.`pessoa_id` from (`pessoa` `p` join `usuario` `u`) where (`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`)) then 'Cadastrado' when (not(`pessoa`.`pessoa_id` in (select `p`.`pessoa_id` from (`pessoa` `p` join `usuario` `u`) where (`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`)))) then 'Sem Usuario' end) AS `Login` from `pessoa` where (`pessoa`.`pesoa_cargo` = 1) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usu`  AS  select `pessoa`.`pessoa_id` AS `Código`,`pessoa`.`pessoa_nome` AS `Nome`,case when `pessoa`.`pessoa_id` in (select `p`.`pessoa_id` from (`pessoa` `p` join `usuario` `u`) where `p`.`pessoa_id` = `u`.`pessoa_pessoa_id`) then 'Cadastrado' when !(`pessoa`.`pessoa_id` in (select `p`.`pessoa_id` from (`pessoa` `p` join `usuario` `u`) where `p`.`pessoa_id` = `u`.`pessoa_pessoa_id`)) then 'Sem Usuario' end AS `Login` from `pessoa` where `pessoa`.`pesoa_cargo` = 1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `tab_usucad`
+-- Estrutura para vista `tab_usucad`
 --
 DROP TABLE IF EXISTS `tab_usucad`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usucad`  AS  select `p`.`pessoa_id` AS `codigo`,`p`.`pessoa_nome` AS `nome`,`p`.`pessoa_cpfcnpj` AS `Cpf` from (`pessoa` `p` join `usuario` `u`) where ((`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`) and (`p`.`pesoa_cargo` = 1)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usucad`  AS  select `p`.`pessoa_id` AS `codigo`,`p`.`pessoa_nome` AS `nome`,`p`.`pessoa_cpfcnpj` AS `Cpf` from (`pessoa` `p` join `usuario` `u`) where `p`.`pessoa_id` = `u`.`pessoa_pessoa_id` and `p`.`pesoa_cargo` = 1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `tab_usuncad`
+-- Estrutura para vista `tab_usuncad`
 --
 DROP TABLE IF EXISTS `tab_usuncad`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usuncad`  AS  select `p`.`pessoa_id` AS `codigo`,`p`.`pessoa_nome` AS `nome`,`p`.`pessoa_cpfcnpj` AS `Cpf` from (`pessoa` `p` join `usuario` `u`) where ((`p`.`pessoa_id` <> `u`.`pessoa_pessoa_id`) and (`p`.`pesoa_cargo` = 1)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tab_usuncad`  AS  select `p`.`pessoa_id` AS `codigo`,`p`.`pessoa_nome` AS `nome`,`p`.`pessoa_cpfcnpj` AS `Cpf` from (`pessoa` `p` join `usuario` `u`) where `p`.`pessoa_id` <> `u`.`pessoa_pessoa_id` and `p`.`pesoa_cargo` = 1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_agenda2`
+-- Estrutura para vista `vw_agenda2`
 --
 DROP TABLE IF EXISTS `vw_agenda2`;
 
@@ -529,43 +575,52 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_cli`
+-- Estrutura para vista `vw_carrinho`
+--
+DROP TABLE IF EXISTS `vw_carrinho`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_carrinho`  AS  select `c`.`carrinhoid` AS `Item`,`s`.`servico_nome` AS `Serviço`,`s`.`servico_valor` AS `UNI`,count(`c`.`servico_id`) AS `Quantidade`,`s`.`servico_valor` * count(`c`.`servico_id`) AS `Valor` from (`carrinho` `c` left join `servico` `s` on(`s`.`servico_id` = `c`.`servico_id`)) group by `s`.`servico_nome` order by `c`.`carrinhoid` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para vista `vw_cli`
 --
 DROP TABLE IF EXISTS `vw_cli`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cli`  AS  select `c`.`clienteid` AS `id`,`p`.`pessoa_nome` AS `Nome`,`p`.`pessoa_cpfcnpj` AS `Cpf`,`p`.`pessoa_email` AS `Email`,`e`.`endereco_cep` AS `cep`,`e`.`endereco_rua` AS `rua`,`e`.`endereco_numero` AS `numero`,`e`.`endereco_bairro` AS `bairro`,`e`.`endereco_estado` AS `estado`,`e`.`endereco_cidade` AS `cidade` from ((`pessoa` `p` join `endereco` `e`) join `cliente` `c`) where ((`c`.`pessoa_id` = `p`.`pessoa_id`) and (`p`.`pessoa_endereco` = `e`.`endereco_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_cli`  AS  select `c`.`clienteid` AS `id`,`p`.`pessoa_nome` AS `Nome`,`p`.`pessoa_cpfcnpj` AS `Cpf`,`p`.`pessoa_email` AS `Email`,`e`.`endereco_cep` AS `cep`,`e`.`endereco_rua` AS `rua`,`e`.`endereco_numero` AS `numero`,`e`.`endereco_bairro` AS `bairro`,`e`.`endereco_estado` AS `estado`,`e`.`endereco_cidade` AS `cidade` from ((`pessoa` `p` join `endereco` `e`) join `cliente` `c`) where `c`.`pessoa_id` = `p`.`pessoa_id` and `p`.`pessoa_endereco` = `e`.`endereco_id` ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_funcionario`
+-- Estrutura para vista `vw_funcionario`
 --
 DROP TABLE IF EXISTS `vw_funcionario`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_funcionario`  AS  select `rh`.`rh_id` AS `Código`,`pessoa`.`pessoa_nome` AS `Nome`,`pessoa`.`pessoa_cpfcnpj` AS `CPF`,`cargo`.`cargo_nome` AS `Cargo`,`rh`.`rh_inicio` AS `Contratação` from ((`pessoa` join `rh`) join `cargo`) where ((`cargo`.`cargo_id` = `rh`.`cargo_cargo_id`) and (`pessoa`.`pessoa_id` = `rh`.`pessoa_pessoa_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_funcionario`  AS  select `rh`.`rh_id` AS `Código`,`pessoa`.`pessoa_nome` AS `Nome`,`pessoa`.`pessoa_cpfcnpj` AS `CPF`,`cargo`.`cargo_nome` AS `Cargo`,`rh`.`rh_inicio` AS `Contratação` from ((`pessoa` join `rh`) join `cargo`) where `cargo`.`cargo_id` = `rh`.`cargo_cargo_id` and `pessoa`.`pessoa_id` = `rh`.`pessoa_pessoa_id` ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_login`
+-- Estrutura para vista `vw_login`
 --
 DROP TABLE IF EXISTS `vw_login`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_login`  AS  select `u`.`usuario_id` AS `id`,`u`.`usuario_senha` AS `senha`,`u`.`usuario_login` AS `login`,`f`.`cargo_cargo_id` AS `cg` from ((`usuario` `u` join `rh` `f`) join `pessoa` `p`) where (`u`.`pessoa_pessoa_id` = `p`.`pessoa_id`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_login`  AS  select `u`.`usuario_id` AS `id`,`u`.`usuario_senha` AS `senha`,`u`.`usuario_login` AS `login`,`f`.`cargo_cargo_id` AS `cg` from ((`usuario` `u` join `rh` `f`) join `pessoa` `p`) where `u`.`pessoa_pessoa_id` = `p`.`pessoa_id` ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_pessoa_usuario`
+-- Estrutura para vista `vw_pessoa_usuario`
 --
 DROP TABLE IF EXISTS `vw_pessoa_usuario`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_pessoa_usuario`  AS  select `u`.`usuario_id` AS `UsuarioID`,`p`.`pessoa_cpfcnpj` AS `CPF` from (`usuario` `u` join `pessoa` `p`) where (`u`.`pessoa_pessoa_id` = `p`.`pessoa_id`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_pessoa_usuario`  AS  select `u`.`usuario_id` AS `UsuarioID`,`p`.`pessoa_cpfcnpj` AS `CPF` from (`usuario` `u` join `pessoa` `p`) where `u`.`pessoa_pessoa_id` = `p`.`pessoa_id` ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_servicos`
+-- Estrutura para vista `vw_servicos`
 --
 DROP TABLE IF EXISTS `vw_servicos`;
 
@@ -574,16 +629,16 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_tab_atualiza_usu`
+-- Estrutura para vista `vw_tab_atualiza_usu`
 --
 DROP TABLE IF EXISTS `vw_tab_atualiza_usu`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tab_atualiza_usu`  AS  select `p`.`pessoa_nome` AS `Nome`,`u`.`usuario_login` AS `Login`,`p`.`pessoa_cpfcnpj` AS `CPF`,`p`.`pessoa_email` AS `Email` from (`pessoa` `p` join `usuario` `u`) where (`p`.`pessoa_id` = `u`.`pessoa_pessoa_id`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tab_atualiza_usu`  AS  select `p`.`pessoa_nome` AS `Nome`,`u`.`usuario_login` AS `Login`,`p`.`pessoa_cpfcnpj` AS `CPF`,`p`.`pessoa_email` AS `Email` from (`pessoa` `p` join `usuario` `u`) where `p`.`pessoa_id` = `u`.`pessoa_pessoa_id` ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_tab_servico`
+-- Estrutura para vista `vw_tab_servico`
 --
 DROP TABLE IF EXISTS `vw_tab_servico`;
 
@@ -592,14 +647,169 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `vw_telefone`
+-- Estrutura para vista `vw_telefone`
 --
 DROP TABLE IF EXISTS `vw_telefone`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_telefone`  AS  select `telefone`.`telefone_num` AS `Telefone`,`telefone`.`pessoa_pessoa_id` AS `Pessoaid` from `telefone` ;
 
 --
--- Constraints for dumped tables
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `agenda`
+--
+ALTER TABLE `agenda`
+  ADD PRIMARY KEY (`agenda_id`),
+  ADD KEY `agenda_usuario` (`agenda_usuario`);
+
+--
+-- Índices para tabela `baia`
+--
+ALTER TABLE `baia`
+  ADD PRIMARY KEY (`baia_id`);
+
+--
+-- Índices para tabela `calendario`
+--
+ALTER TABLE `calendario`
+  ADD PRIMARY KEY (`calendario_id`);
+
+--
+-- Índices para tabela `cargo`
+--
+ALTER TABLE `cargo`
+  ADD PRIMARY KEY (`cargo_id`);
+
+--
+-- Índices para tabela `carrinho`
+--
+ALTER TABLE `carrinho`
+  ADD PRIMARY KEY (`carrinhoid`),
+  ADD KEY `servico_id` (`servico_id`);
+
+--
+-- Índices para tabela `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`clienteid`),
+  ADD KEY `pessoa_id` (`pessoa_id`);
+
+--
+-- Índices para tabela `contrato`
+--
+ALTER TABLE `contrato`
+  ADD PRIMARY KEY (`contrato_id`),
+  ADD KEY `cliente_id` (`cliente_id`);
+
+--
+-- Índices para tabela `endereco`
+--
+ALTER TABLE `endereco`
+  ADD PRIMARY KEY (`endereco_id`);
+
+--
+-- Índices para tabela `item_contrato`
+--
+ALTER TABLE `item_contrato`
+  ADD KEY `contrato_id` (`contrato_id`),
+  ADD KEY `servico_id` (`servico_id`);
+
+--
+-- Índices para tabela `pessoa`
+--
+ALTER TABLE `pessoa`
+  ADD PRIMARY KEY (`pessoa_id`),
+  ADD KEY `pessoa_ibfk_1` (`pessoa_endereco`);
+
+--
+-- Índices para tabela `rh`
+--
+ALTER TABLE `rh`
+  ADD PRIMARY KEY (`rh_id`),
+  ADD KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`),
+  ADD KEY `cargo_cargo_id` (`cargo_cargo_id`);
+
+--
+-- Índices para tabela `servico`
+--
+ALTER TABLE `servico`
+  ADD PRIMARY KEY (`servico_id`);
+
+--
+-- Índices para tabela `telefone`
+--
+ALTER TABLE `telefone`
+  ADD KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`);
+
+--
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`usuario_id`),
+  ADD KEY `pessoa_pessoa_id` (`pessoa_pessoa_id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `agenda`
+--
+ALTER TABLE `agenda`
+  MODIFY `agenda_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `baia`
+--
+ALTER TABLE `baia`
+  MODIFY `baia_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `calendario`
+--
+ALTER TABLE `calendario`
+  MODIFY `calendario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `clienteid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `endereco`
+--
+ALTER TABLE `endereco`
+  MODIFY `endereco_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `pessoa`
+--
+ALTER TABLE `pessoa`
+  MODIFY `pessoa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT de tabela `rh`
+--
+ALTER TABLE `rh`
+  MODIFY `rh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `servico`
+--
+ALTER TABLE `servico`
+  MODIFY `servico_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restrições para despejos de tabelas
 --
 
 --
