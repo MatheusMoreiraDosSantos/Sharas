@@ -12,6 +12,7 @@ import funcoes.Validacoes;
 import javax.swing.JOptionPane;
 import model.Cargo;
 import model.Funcionarios;
+import relatorio.Relatorio;
 import view_secundaria.AlterarFuncionario;
 
 /**
@@ -76,6 +77,7 @@ public class JF_funcionarios extends javax.swing.JFrame {
         Cad_func = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tab_func = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
@@ -266,6 +268,13 @@ public class JF_funcionarios extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tab_func);
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JrhLayout = new javax.swing.GroupLayout(Jrh);
         Jrh.setLayout(JrhLayout);
         JrhLayout.setHorizontalGroup(
@@ -296,9 +305,11 @@ public class JF_funcionarios extends javax.swing.JFrame {
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pesqu_func, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JrhLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         JrhLayout.setVerticalGroup(
@@ -309,7 +320,8 @@ public class JF_funcionarios extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(pesqu_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pesqu_func, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1)))
                 .addGap(18, 18, 18)
                 .addGroup(JrhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JrhLayout.createSequentialGroup()
@@ -600,6 +612,12 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_tab_funcMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Relatorio relat = new Relatorio();
+        relat.Gerar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
   
     /**
      * @param args the command line arguments
@@ -666,6 +684,7 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField func_email;
     private javax.swing.JTextField func_nome;
     private javax.swing.JTabbedPane home;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;

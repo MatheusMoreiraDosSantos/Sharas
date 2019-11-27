@@ -34,6 +34,7 @@ public class EnderecoDAO {
             pst.setString(2,end.getCep());
             rs=pst.executeQuery();
             if(rs.next()){
+                System.out.print("achou");
              Conexao.desconectar();
                 return (true);
             }else{    

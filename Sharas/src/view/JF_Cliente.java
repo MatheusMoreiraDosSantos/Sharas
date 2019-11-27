@@ -685,7 +685,7 @@ public class JF_Cliente extends javax.swing.JFrame {
     private void cadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadActionPerformed
         if(campo.CampoTexto(cli_nome, nome_erro)){//começo nome
             cliente.setPessoa_nome(cli_nome.getText());
-            if(campo.campocpf(cli_cpf, cpf_erro)){//começo cpf
+           // if(campo.campocpf(cli_cpf, cpf_erro)){//começo cpf
                 cliente.setPessoa_cpfcnpj(cli_cpf.getText());
                 if(campo.campoEmail(cli_email, email_erro)){//inicio email
                     cliente.setPessoa_email(cli_email.getText());
@@ -713,7 +713,7 @@ public class JF_Cliente extends javax.swing.JFrame {
                         }//fim cep
                         //}//fim de telefone
                 }//fim email
-            }//fim cpf
+            //}//fim cpf
         }//fim nome
 
         // TODO add your handling code here:

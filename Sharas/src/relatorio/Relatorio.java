@@ -25,7 +25,7 @@ public class Relatorio {
            String url =System.getProperty("user.dir");
             System.out.println(url);
             Connection con = Conexao.conectar();
-            String src = url+"\\src\\relatorio\\Pessoa.jasper"
+            String src = url+"\\src\\relatorio\\Carrinho.jasper"
             ;
     
     JasperPrint jasper = null;

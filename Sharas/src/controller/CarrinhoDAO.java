@@ -65,7 +65,7 @@ public class CarrinhoDAO {
            pst = con.prepareStatement(sql);
            rs=pst.executeQuery();
            if(rs.next()){
-            total.setText("R$"+rs.getFloat(1));
+            total.setText(""+rs.getFloat(1));
            }
             Conexao.desconectar();
     }catch(SQLException e){

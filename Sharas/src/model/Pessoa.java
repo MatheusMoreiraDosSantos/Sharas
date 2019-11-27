@@ -38,7 +38,14 @@ public class Pessoa {
     }
 
     public void setPessoa_cpfcnpj(String pessoa_cpfcnpj) {
-        this.pessoa_cpfcnpj = pessoa_cpfcnpj;
+       String CPF="";
+        for(int i=0;i<pessoa_cpfcnpj.length();i++){
+           char v = pessoa_cpfcnpj.charAt(i);
+           if(v !='.' && v !='-')
+               CPF=CPF+v;
+       }
+        this.pessoa_cpfcnpj = (CPF.substring(0, 3) + "." + CPF.substring(3, 6) + "." +
+            CPF.substring(6, 9) + "-" + CPF.substring(9, 11));
     }
 
     public String getPessoa_nome() {

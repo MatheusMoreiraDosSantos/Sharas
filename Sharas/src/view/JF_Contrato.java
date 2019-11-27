@@ -15,6 +15,7 @@ import model.Carrinho;
 import model.Cliente;
 import model.Contrato;
 import model.Servico;
+import relatorio.Relatorio;
 
 /**
  *
@@ -59,17 +60,17 @@ public class JF_Contrato extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txt_desconto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField6 = new javax.swing.JTextField();
+        txt_obs = new javax.swing.JTextArea();
+        desconto = new javax.swing.JComboBox<>();
+        decontoerro = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tab_carrinho = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         cli_nome = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tab_produto = new javax.swing.JTable();
@@ -84,6 +85,9 @@ public class JF_Contrato extends javax.swing.JFrame {
         btn_animais1ActionPerformed = new javax.swing.JButton();
         finalizar = new javax.swing.JButton();
         total = new javax.swing.JLabel();
+        simulacao = new javax.swing.JButton();
+        lbl_desconto = new javax.swing.JLabel();
+        VT = new javax.swing.JLabel();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
@@ -154,12 +158,22 @@ public class JF_Contrato extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Desconto : ");
 
+        txt_desconto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_descontoKeyReleased(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Observação :");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane4.setViewportView(jTextArea1);
+        txt_obs.setColumns(20);
+        txt_obs.setRows(5);
+        jScrollPane4.setViewportView(txt_obs);
+
+        desconto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo..", "R$ ", "%" }));
+
+        decontoerro.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -168,11 +182,15 @@ public class JF_Contrato extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addComponent(jTextField3)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(220, Short.MAX_VALUE))
+                    .addComponent(decontoerro, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                        .addComponent(txt_desconto)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(desconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,15 +198,17 @@ public class JF_Contrato extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_desconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(desconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(decontoerro, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jTextField6.setEnabled(false);
 
         tab_carrinho.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,8 +227,6 @@ public class JF_Contrato extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Valor total ");
-
-        jTextField5.setEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Serviços ");
@@ -270,6 +288,13 @@ public class JF_Contrato extends javax.swing.JFrame {
 
         total.setText("R$ 0,00");
 
+        simulacao.setText("Simulação ");
+        simulacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                simulacaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -297,25 +322,26 @@ public class JF_Contrato extends javax.swing.JFrame {
                         .addComponent(serv_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(finalizar, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                            .addComponent(simulacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(finalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(VT, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel5))
-                                .addGap(14, 14, 14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(total)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(lbl_desconto, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 16, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -356,18 +382,22 @@ public class JF_Contrato extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(total))
                                 .addGap(6, 6, 6)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbl_desconto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel7)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(99, 99, 99)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(VT, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(4, 4, 4)))
+                                .addGap(59, 59, 59)
+                                .addComponent(simulacao, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(finalizar)
                                 .addGap(11, 11, 11)
                                 .addComponent(jButton6)))))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         home.addTab("Contrato", jPanel2);
@@ -586,6 +616,50 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_finalizarActionPerformed
 
+    private void simulacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simulacaoActionPerformed
+ Relatorio relat = new Relatorio();
+ relat.Gerar();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_simulacaoActionPerformed
+
+    private void txt_descontoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_descontoKeyReleased
+      decontoerro.setText("");
+        switch(desconto.getSelectedIndex()){
+            case 1:tipo1();break;
+            case 2:tipo2();break;
+            default: decontoerro.setText("Escolha um tipo de desconto");break;
+        }
+    // TODO add your handling code here:
+    }//GEN-LAST:event_txt_descontoKeyReleased
+
+public void tipo1(){
+    try{ 
+    float desc = Float.parseFloat(txt_desconto.getText());
+      float valor = Float.parseFloat(total.getText());
+      float valordeconto = valor-desc;
+      lbl_desconto.setText(""+desc);
+      VT.setText("R$"+valordeconto);
+        }catch(NumberFormatException e){
+      decontoerro.setText("Insira apenas numeros");
+      }
+}
+public void tipo2(){
+    try{  
+    float desc = Float.parseFloat(txt_desconto.getText());
+      float valor = Float.parseFloat(total.getText());
+      if(desc<=100){
+         //if(sessao.getUsuari_cargo<6){JOptionpane vc precisa de uma conta maior para vaze desconto acima de 50%}
+      float valordeconto = valor-((valor/100)*desc);
+      lbl_desconto.setText(""+(valor/100)*desc);
+      VT.setText("R$"+valordeconto);
+      }
+      else {
+      decontoerro.setText("Desconto deve ser maior ou igual a 100%");
+      }
+     }catch(NumberFormatException e){
+      decontoerro.setText("Insira apenas numeros");
+      }
+}
   
     /**
      * @param args the command line arguments
@@ -623,6 +697,7 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel VT;
     private javax.swing.JButton btn_animais;
     private javax.swing.JButton btn_animais1;
     private javax.swing.JButton btn_animais1ActionPerformed;
@@ -634,6 +709,8 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton btn_usuario;
     private javax.swing.JButton btn_usuario1;
     private javax.swing.JTextField cli_nome;
+    private javax.swing.JLabel decontoerro;
+    private javax.swing.JComboBox<String> desconto;
     private javax.swing.JButton finalizar;
     private javax.swing.JTabbedPane home;
     private javax.swing.JButton jButton2;
@@ -656,16 +733,16 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator22;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel jdata;
     private javax.swing.JTextField jnome;
+    private javax.swing.JLabel lbl_desconto;
     private javax.swing.JTextField serv_nome;
+    private javax.swing.JButton simulacao;
     private javax.swing.JTable tab_carrinho;
     private javax.swing.JTable tab_cliente;
     private javax.swing.JTable tab_produto;
     private javax.swing.JLabel total;
+    private javax.swing.JTextField txt_desconto;
+    private javax.swing.JTextArea txt_obs;
     // End of variables declaration//GEN-END:variables
 }

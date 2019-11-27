@@ -15,6 +15,44 @@ public class Contrato {
    private int servicoid;
    private float contratovalor;
    private Date contratoData;
+ private float contratoValor;
+
+    public float getContratoValor() {
+        return contratoValor;
+    }
+
+    public void setContratoValor(float contratoValor) {
+        this.contratoValor = contratoValor;
+    }
+    public String getDescontoTipo() {
+        return descontoTipo;
+    }
+
+    public void setDescontoTipo(String descontoTipo) {
+       if(descontoTipo=="0")
+          this.descontoTipo = "Sem desconto"; 
+       else
+           this.descontoTipo = descontoTipo;
+    }
+
+    public float getDescontoValor() {
+        return descontoValor;
+    }
+
+    public void setDescontoValor(float descontoValor) {
+        this.descontoValor = descontoValor;
+    }
+
+    public String getDescontomotivo() {
+        return descontomotivo;
+    }
+
+    public void setDescontomotivo(String descontomotivo) {
+        this.descontomotivo = descontomotivo;
+    }
+   private String descontoTipo;
+   private float descontoValor;
+   private String descontomotivo;
 
     public int getContratoid() {
         return contratoid;

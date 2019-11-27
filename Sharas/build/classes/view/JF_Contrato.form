@@ -283,31 +283,32 @@
                                   <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                                   <Component id="jButton2" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane2" min="-2" pref="493" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jScrollPane5" min="-2" pref="308" max="-2" attributes="0"/>
                                   <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="finalizar" pref="222" max="32767" attributes="0"/>
+                                      <Component id="jButton6" pref="222" max="32767" attributes="0"/>
+                                      <Component id="simulacao" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                          <Component id="jTextField6" min="-2" pref="60" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="VT" min="-2" pref="83" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="finalizar" min="-2" pref="222" max="-2" attributes="0"/>
-                                      <Component id="jButton6" min="-2" pref="222" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="total" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField5" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <Component id="lbl_desconto" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="total" min="-2" pref="60" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
+                              <Component id="jScrollPane2" alignment="0" min="-2" pref="493" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                       </Group>
@@ -360,16 +361,21 @@
                                               <Component id="total" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel6" max="32767" attributes="0"/>
+                                              <Component id="lbl_desconto" max="32767" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
                                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="VT" min="-2" pref="16" max="-2" attributes="0"/>
+                                                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <EmptySpace min="99" pref="99" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                          <Component id="simulacao" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="finalizar" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                                           <Component id="jButton6" min="-2" max="-2" attributes="0"/>
@@ -377,7 +383,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <EmptySpace pref="65" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -400,12 +406,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jScrollPane4" alignment="1" pref="256" max="32767" attributes="0"/>
-                                  <Component id="jTextField3" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="decontoerro" pref="256" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jScrollPane4" alignment="1" pref="256" max="32767" attributes="0"/>
+                                      <Component id="txt_desconto" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="220" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="desconto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="154" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -415,8 +426,13 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txt_desconto" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="desconto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="decontoerro" min="-2" pref="14" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
@@ -434,7 +450,10 @@
                         <Property name="text" type="java.lang.String" value="Desconto : "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField3">
+                    <Component class="javax.swing.JTextField" name="txt_desconto">
+                      <Events>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_descontoKeyReleased"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel4">
                       <Properties>
@@ -451,7 +470,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="jTextArea1">
+                        <Component class="javax.swing.JTextArea" name="txt_obs">
                           <Properties>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="rows" type="int" value="5"/>
@@ -459,13 +478,29 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Component class="javax.swing.JComboBox" name="desconto">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="3">
+                            <StringItem index="0" value="Tipo.."/>
+                            <StringItem index="1" value="R$ "/>
+                            <StringItem index="2" value="%"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="decontoerro">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="ff" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JTextField" name="jTextField6">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
-                </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane5">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -502,11 +537,6 @@
                       <Font name="Tahoma" size="14" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Valor total "/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextField5">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2">
@@ -630,6 +660,18 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="R$ 0,00"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="simulacao">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Simula&#xe7;&#xe3;o "/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="simulacaoActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_desconto">
+                </Component>
+                <Component class="javax.swing.JLabel" name="VT">
                 </Component>
               </SubComponents>
             </Container>
