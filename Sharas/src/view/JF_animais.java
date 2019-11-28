@@ -48,20 +48,10 @@ public class JF_animais extends javax.swing.JFrame {
         txtregistro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtproprietario = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtcriador = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         txtsexo = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        jLabel13 = new javax.swing.JLabel();
-        txtpelagem = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        txtmodalidade = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        txttreinador = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        txtveterinario = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabAnimal = new javax.swing.JTable();
@@ -176,11 +166,6 @@ public class JF_animais extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setText("Criador:");
-
-        txtcriador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Nascimento em:");
 
@@ -190,26 +175,6 @@ public class JF_animais extends javax.swing.JFrame {
         txtsexo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel13.setText("Pelagem:");
-
-        txtpelagem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel14.setText("Modalidade:");
-
-        txtmodalidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel15.setText("Treinador:");
-
-        txttreinador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel16.setText("Veterinário:");
-
-        txtveterinario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -313,8 +278,6 @@ public class JF_animais extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addComponent(txtregistro, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                                 .addComponent(txtproprietario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10)
-                                .addComponent(txtcriador, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel11)
                                 .addComponent(jLabel12)
                                 .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,17 +290,8 @@ public class JF_animais extends javax.swing.JFrame {
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel13)
-                                .addComponent(txtpelagem)
-                                .addComponent(jLabel14)
-                                .addComponent(txtmodalidade)
-                                .addComponent(jLabel15)
-                                .addComponent(txttreinador)
-                                .addComponent(jLabel16)
-                                .addComponent(txtveterinario, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                                .addComponent(jLabel50)
-                                .addComponent(txtanimalid))
+                            .addComponent(jLabel50)
+                            .addComponent(txtanimalid, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sem_pelagem, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -372,25 +326,9 @@ public class JF_animais extends javax.swing.JFrame {
                         .addComponent(jLabel50)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtanimalid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtpelagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                         .addComponent(sem_pelagem, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtmodalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txttreinador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtveterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74))
+                        .addGap(254, 254, 254))
                     .addComponent(jSeparator3)
                     .addGroup(JcadanimalLayout.createSequentialGroup()
                         .addComponent(jLabel7)
@@ -409,19 +347,15 @@ public class JF_animais extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtproprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtcriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(data_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nasc, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nasc, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JcadanimalLayout.createSequentialGroup()
@@ -438,7 +372,7 @@ public class JF_animais extends javax.swing.JFrame {
                     .addComponent(btn_alteraranimal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton15)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         home.addTab("Animais", Jcadanimal);
@@ -635,7 +569,7 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         int linha = tabAnimal.getSelectedRow();
         String valor = String.valueOf(tabAnimal.getValueAt(linha, 0));
         int animalID = Integer.valueOf(valor);
-        animalDao.consultarAnimalID(animalID, txtanimalid, txtnomeanimal, txtregistro, txtproprietario, txtcriador, data_nascimento, txtsexo, txtpelagem, txtmodalidade, txttreinador, txtveterinario, this);
+        animalDao.consultarAnimalID(animalID, txtanimalid, txtnomeanimal, txtregistro, txtproprietario, data_nascimento, txtsexo, this);
         btncadastrar.setEnabled(false);
         btn_excluiranimal.setEnabled(true);
         btn_alteraranimal.setEnabled(true);
@@ -838,13 +772,8 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private com.toedter.calendar.JDateChooser data_nascimento;
     private javax.swing.JTabbedPane home;
     private javax.swing.JButton jButton15;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel7;
@@ -866,15 +795,10 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel sem_sexo;
     private javax.swing.JTable tabAnimal;
     private javax.swing.JTextField txtanimalid;
-    private javax.swing.JTextField txtcriador;
-    private javax.swing.JTextField txtmodalidade;
     private javax.swing.JTextField txtnomeanimal;
-    private javax.swing.JTextField txtpelagem;
     private javax.swing.JTextField txtpesquisa;
     private javax.swing.JTextField txtproprietario;
     private javax.swing.JTextField txtregistro;
     private javax.swing.JTextField txtsexo;
-    private javax.swing.JTextField txttreinador;
-    private javax.swing.JTextField txtveterinario;
     // End of variables declaration//GEN-END:variables
 }
