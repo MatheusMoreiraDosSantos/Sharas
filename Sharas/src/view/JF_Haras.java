@@ -802,7 +802,7 @@ telas.alterar(this,1);
     }//GEN-LAST:event_b_daniActionPerformed
 
     private void ad_baiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ad_baiaActionPerformed
-            servicoDao.Inserirbaia();
+            servicoDao.inseriBaia();
         // TODO add your handling code here:
     }//GEN-LAST:event_ad_baiaActionPerformed
 

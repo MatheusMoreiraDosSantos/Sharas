@@ -97,9 +97,9 @@ public class ServicosDAO {
           pst = con.prepareStatement(sql);
           rs= pst.executeQuery();
           if(rs.next()){
-          b_d.setText(rs.getString("D"));
-          b_u.setText(rs.getString("U"));
-          String n = rs.getString("M");
+          b_d.setText(rs.getString("Dispo"));
+          b_u.setText(rs.getString("Uso"));
+          String n = rs.getString("Dani");
           b_da.setText(n);
           Conexao.desconectar();
           }
@@ -109,20 +109,7 @@ public class ServicosDAO {
           }
   
   }
-  public void Inserirbaia(){
-   try{
-          con = Conexao.conectar();
-          sql = "insert ito baia values (null,1)";
-          con.prepareStatement(sql);
-          pst.execute();
-          Conexao.desconectar();
-          }catch(SQLException e){
-                System.out.println("erro :"+e);
-              Conexao.desconectar();
-            
-          }
-  
-  }
+
   public void Alterarbaia(int local,int status){
    try{
          System.out.println("alterar fase : "+local+" status:"+status);
@@ -148,11 +135,11 @@ public class ServicosDAO {
           con = Conexao.conectar();
          switch(opt){
              case 1:sql = "select * from vw_baias ";break;
-             case 2:sql = "select * from vw_baias where Status ='Disponivel' OR Status='Manutenção'";break;
-             case 3:sql = "select * from vw_baias where Status ='Manutenção' OR Status='Em uso'";break;
+             case 2:sql = "select * from vw_baias where Status ='Disponivel' OR Status='Danificada'";break;
+             case 3:sql = "select * from vw_baias where Status ='Danificada' OR Status='Em uso'";break;
              case 4:sql = "select * from vw_baias where Status ='Disponivel' OR Status='Em uso'";break;
-             case 5:sql = "select * from vw_baias where Status ='Manutenção' OR Status='Em uso'";break;
-             case 6:sql = "select * from vw_baias where Status ='Manutenção'";break;
+             case 5:sql = "select * from vw_baias where Status ='Danificada' OR Status='Em uso'";break;
+             case 6:sql = "select * from vw_baias where Status ='Danificada'";break;
              case 7:sql = "select * from vw_baias where Status ='Disponivel'";break;
              case 8:sql = "select * from vw_baias where Status ='Em uso'";break;
          }
@@ -166,5 +153,16 @@ public class ServicosDAO {
           }
    } 
     
+    public void inseriBaia(){
+    try{
+     con=Conexao.conectar();
+     sql="INSERT INTO baia VALUES (NULL,1)";
+     pst = con.prepareStatement(sql);
+     pst.execute();
+        JOptionPane.showMessageDialog(null,"Baia inserida");
+    }catch(Exception e){
+        System.out.println(e);
+    }
     
+    }
 }

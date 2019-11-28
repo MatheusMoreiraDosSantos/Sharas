@@ -40,7 +40,7 @@ public class AnimalDAO {
             pst.setString(2, animal.getAnimal_registro());
             pst.setString(3, animal.getAnimal_proprietario());
             pst.setString(4, animal.getAnimal_criador());
-            pst.setDate(5, animal.getAnimal_nascimento());
+             pst.setDate(5, animal.getAnimal_nascimento());
             pst.setString(6, animal.getAnimal_sexo());
             pst.setString(7, animal.getAnimal_pelagem());
             pst.setString(8, animal.getAnimal_modalidade());
