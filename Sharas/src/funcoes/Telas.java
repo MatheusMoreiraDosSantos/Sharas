@@ -8,6 +8,7 @@ package funcoes;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.*;
+import model.Sessao;
 import view.JF_Haras;
 import view.JF_Cliente;
 import view.JF_Contrato;
@@ -27,7 +28,29 @@ import view.JF_funcionarios;
  * @author maikon.rosa
  */
 public class Telas {
-    //Faz a alteração das telas de forma controlada
+    
+public void SessaoB(JButton haras,JButton log,JButton usuario,JButton rh){
+    Sessao sessao = new Sessao();
+            if(sessao.getUsario_cargo()<5){
+            rh.setVisible(false);
+            haras.setVisible(false);
+            log.setVisible(false);
+            usuario.setVisible(false); 
+           }else if(sessao.getUsario_cargo()<6){
+            log.setVisible(false);
+            usuario.setVisible(false);       
+            }else{
+            
+            
+            
+            }
+                 
+    
+    
+    }
+
+
+//Faz a alteração das telas de forma controlada
     /**
      * 
      * @param aberta pega a tela que está aberta 
@@ -48,7 +71,10 @@ public class Telas {
      * 12 Usuarios 
      * 13log
      */
+    
     public void alterar(JFrame aberta, int tela){
+      
+        
         JFrame n_tela = null; 
         //pega como parametro o nome da tela que vai abrir 
         switch(tela){ 
