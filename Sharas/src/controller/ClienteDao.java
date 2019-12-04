@@ -55,6 +55,44 @@ public class ClienteDao {
          }
      }
  //Deletar cliente
+     public float pagarDeb(Cliente cli,float valor){
+         float parapagar;
+         float troco=0;   
+         try{
+                 con=Conexao.conectar();
+                 sql="Select  cliente_deb from cliente WHERE clienteid=? ";
+                 pst=con.prepareStatement(sql);
+                 pst.setInt(1,cli.getClienteid());
+                 rs=pst.executeQuery();
+                 if(rs.next()){
+                        parapagar=rs.getFloat("cliente_deb");
+                        troco = valor-parapagar;
+                      if(troco>=0){
+                        sql="UPDATE cliente SET cliente_deb= 0 WHERE clienteid=?";
+                        pst=con.prepareStatement(sql);
+                        pst.setInt(1,cli.getClienteid());
+                        pst.execute();
+                        return troco;    
+                      }else{
+                      troco=troco*-1;
+                        sql="UPDATE cliente SET cliente_deb= ? WHERE clienteid=?";
+                        pst=con.prepareStatement(sql);
+                        pst.setFloat(1, troco);
+                        pst.setInt(2,cli.getClienteid());
+                        pst.execute();
+                      }
+                      
+                 }
+                 
+                Conexao.desconectar();
+                 return 0;
+                 }catch(SQLException e){
+                        System.err.println(e);
+                     JOptionPane.showMessageDialog(null, "Erro no Pagamento");
+                      Conexao.desconectar();
+                     return 0;
+                 }
+     }
      public void delCliente(Cliente pes){
        //Verifica se salvou o endereço corretamente 
                  try{

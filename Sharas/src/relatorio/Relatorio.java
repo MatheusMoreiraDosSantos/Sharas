@@ -20,14 +20,17 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Relatorio {
   
-    public static void Gerar() {
-    
+    public static void Gerar(int r) {
+        String relatorio="";
            String url =System.getProperty("user.dir");
             System.out.println(url);
             Connection con = Conexao.conectar();
-            String src = url+"\\src\\relatorio\\Carrinho.jasper"
-            ;
-    
+            switch(r){
+                case 1: relatorio="Cliente_lista.jasper" ;break;
+            
+            }
+            String src = url+"\\src\\relatorio\\"+relatorio;
+     
     JasperPrint jasper = null;
         try {
             System.out.println("relatorio.Relatorio.Gerar()");

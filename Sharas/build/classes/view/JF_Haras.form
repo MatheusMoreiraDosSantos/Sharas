@@ -303,9 +303,9 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="b_d" min="-2" pref="81" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Component id="b_u1" min="-2" pref="66" max="-2" attributes="0"/>
+                                      <Component id="b_u" min="-2" pref="66" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="b_u" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Component id="b_da" min="-2" pref="76" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="ad_baia" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -330,8 +330,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="b_d" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="b_da" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="b_u" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="b_u1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="ad_baia" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -372,7 +372,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_dActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="b_u">
+                    <Component class="javax.swing.JTextField" name="b_da">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -447,7 +447,7 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b_daniActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="b_u1">
+                    <Component class="javax.swing.JTextField" name="b_u">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

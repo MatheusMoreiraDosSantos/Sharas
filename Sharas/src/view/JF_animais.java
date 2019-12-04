@@ -7,7 +7,10 @@ package view;
 
 import controller.AnimalDAO;
 import funcoes.Telas;
+import funcoes.Validacoes;
+import javax.swing.JOptionPane;
 import model.Animal;
+import model.P_c;
 
 /**
  *
@@ -17,11 +20,14 @@ public class JF_animais extends javax.swing.JFrame {
     AnimalDAO animalDao = new AnimalDAO();
     Animal animal = new Animal();
     Telas telas= new Telas();
+    Validacoes campo = new Validacoes();
     /**
      * Creates new form JF_animais
      */
     public JF_animais() {
         initComponents();
+        animalDao.carregaTab(pesquisar, tabAnimal);
+        animalDao.selectCli(cb_proprietario);
         telas.Resolucao(this);
     }
 
@@ -42,10 +48,11 @@ public class JF_animais extends javax.swing.JFrame {
         btn_log = new javax.swing.JButton();
         home = new javax.swing.JTabbedPane();
         Jcadanimal = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        nome = new javax.swing.JLabel();
         txtnomeanimal = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        registro = new javax.swing.JLabel();
         txtregistro = new javax.swing.JTextField();
+<<<<<<< HEAD
         jLabel9 = new javax.swing.JLabel();
         txtproprietario = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -53,22 +60,32 @@ public class JF_animais extends javax.swing.JFrame {
         txtsexo = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+=======
+        proprietario = new javax.swing.JLabel();
+        nasc = new javax.swing.JLabel();
+        sexo = new javax.swing.JLabel();
+        txtsexo = new javax.swing.JTextField();
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
         jScrollPane2 = new javax.swing.JScrollPane();
         tabAnimal = new javax.swing.JTable();
-        btncadastrar = new javax.swing.JButton();
-        btn_excluiranimal = new javax.swing.JButton();
-        btn_alteraranimal = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
-        txtpesquisa = new javax.swing.JTextField();
-        jButton15 = new javax.swing.JButton();
-        jLabel50 = new javax.swing.JLabel();
-        txtanimalid = new javax.swing.JTextField();
+        cadastrar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
+        alterar = new javax.swing.JButton();
         data_nascimento = new com.toedter.calendar.JDateChooser();
         registerro = new javax.swing.JLabel();
         nomevazio = new javax.swing.JLabel();
-        nasc = new javax.swing.JLabel();
-        sem_pelagem = new javax.swing.JLabel();
-        sem_sexo = new javax.swing.JLabel();
+        sexoerro = new javax.swing.JLabel();
+        nasc1 = new javax.swing.JLabel();
+        proprierro = new javax.swing.JLabel();
+        cb_proprietario = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        pesquisar = new javax.swing.JTextField();
+        ch_nome = new javax.swing.JCheckBox();
+        ch_proprietario = new javax.swing.JCheckBox();
+        ch_nasc = new javax.swing.JCheckBox();
+        ch_sexo = new javax.swing.JCheckBox();
+        nascerro = new javax.swing.JLabel();
+        nascerro2 = new javax.swing.JLabel();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
@@ -141,13 +158,13 @@ public class JF_animais extends javax.swing.JFrame {
 
         Jcadanimal.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Nome:");
+        nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        nome.setText("Nome:");
 
         txtnomeanimal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("N° Registro:");
+        registro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        registro.setText("N° Registro:");
 
         txtregistro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtregistro.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +173,7 @@ public class JF_animais extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Proprietário:");
 
@@ -168,16 +186,26 @@ public class JF_animais extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Nascimento em:");
+=======
+        proprietario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        proprietario.setText("Proprietário:");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText("Sexo:");
+        nasc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        nasc.setText("Nascimento em:");
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
+
+        sexo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        sexo.setText("Sexo:");
 
         txtsexo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+<<<<<<< HEAD
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+=======
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
         tabAnimal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tabAnimal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -205,71 +233,69 @@ public class JF_animais extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tabAnimal);
 
-        btncadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btncadastrar.setText("Cadastrar");
-        btncadastrar.addActionListener(new java.awt.event.ActionListener() {
+        cadastrar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cadastrar.setText("Cadastrar");
+        cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncadastrarActionPerformed(evt);
+                cadastrarActionPerformed(evt);
             }
         });
 
-        btn_excluiranimal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_excluiranimal.setText("Excluir");
-        btn_excluiranimal.addActionListener(new java.awt.event.ActionListener() {
+        cancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cancelar.setText("Cancelar ");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_excluiranimalActionPerformed(evt);
+                cancelarActionPerformed(evt);
             }
         });
+        cancelar.setVisible(false);
 
-        btn_alteraranimal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_alteraranimal.setText("Alterar");
-        btn_alteraranimal.addActionListener(new java.awt.event.ActionListener() {
+        alterar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        alterar.setText("Salvar ");
+        alterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_alteraranimalActionPerformed(evt);
+                alterarActionPerformed(evt);
             }
         });
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel17.setText("Pesquisar:");
-
-        txtpesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtpesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtpesquisaActionPerformed(evt);
-            }
-        });
-
-        jButton15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton15.setText("Buscar");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-
-        jLabel50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel50.setText("ID:");
-
-        txtanimalid.setEditable(false);
-        txtanimalid.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         registerro.setForeground(new java.awt.Color(255, 0, 0));
 
         nomevazio.setForeground(new java.awt.Color(255, 0, 0));
 
-        nasc.setForeground(new java.awt.Color(255, 0, 0));
+        sexoerro.setForeground(new java.awt.Color(255, 0, 0));
 
-        sem_pelagem.setForeground(new java.awt.Color(255, 0, 0));
+        nasc1.setForeground(new java.awt.Color(255, 0, 0));
 
-        sem_sexo.setForeground(new java.awt.Color(255, 0, 0));
+        proprierro.setForeground(new java.awt.Color(255, 0, 0));
+
+        cb_proprietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setText("Pesquisar ");
+
+        ch_nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ch_nomeActionPerformed(evt);
+            }
+        });
+        ch_nome.setVisible(false);
+
+        ch_proprietario.setVisible(false);
+
+        ch_nasc.setVisible(false);
+
+        ch_sexo.setVisible(false);
+
+        nascerro.setForeground(new java.awt.Color(255, 0, 0));
+
+        nascerro2.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout JcadanimalLayout = new javax.swing.GroupLayout(Jcadanimal);
         Jcadanimal.setLayout(JcadanimalLayout);
         JcadanimalLayout.setHorizontalGroup(
             JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JcadanimalLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGroup(JcadanimalLayout.createSequentialGroup()
                         .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -295,30 +321,65 @@ public class JF_animais extends javax.swing.JFrame {
                             .addComponent(sem_pelagem, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(JcadanimalLayout.createSequentialGroup()
+=======
+                    .addComponent(cadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(proprierro, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(JcadanimalLayout.createSequentialGroup()
-                                .addComponent(btncadastrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_excluiranimal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_alteraranimal))
-                            .addComponent(sem_sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(sexoerro, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cb_proprietario, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JcadanimalLayout.createSequentialGroup()
+                                    .addComponent(nome)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ch_nome))
+                                .addComponent(txtnomeanimal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                                .addComponent(registro, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtregistro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JcadanimalLayout.createSequentialGroup()
+                                    .addComponent(sexo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ch_sexo))
+                                .addComponent(txtsexo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(data_nascimento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(registerro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, JcadanimalLayout.createSequentialGroup()
+                                    .addComponent(proprietario)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ch_proprietario))
+                                .addComponent(nomevazio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(nascerro, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
+                    .addGroup(JcadanimalLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(cancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(alterar))
+                    .addGroup(JcadanimalLayout.createSequentialGroup()
+                        .addComponent(nasc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ch_nasc)))
+                .addGap(92, 92, 92)
                 .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
                     .addGroup(JcadanimalLayout.createSequentialGroup()
-                        .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton15)
-                            .addComponent(jLabel17)
-                            .addComponent(txtpesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(10, 10, 10))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nasc1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JcadanimalLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JcadanimalLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(nascerro2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(831, Short.MAX_VALUE)))
         );
         JcadanimalLayout.setVerticalGroup(
             JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JcadanimalLayout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(13, 13, 13)
                 .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator4)
@@ -330,19 +391,29 @@ public class JF_animais extends javax.swing.JFrame {
                         .addComponent(sem_pelagem, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(254, 254, 254))
                     .addComponent(jSeparator3)
+=======
+                .addGap(12, 12, 12)
+                .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nome)
+                    .addComponent(jLabel1)
+                    .addComponent(pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ch_nome))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
                     .addGroup(JcadanimalLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtnomeanimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nomevazio, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
+                        .addComponent(registro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtregistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
                         .addComponent(registerro, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtproprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -373,7 +444,50 @@ public class JF_animais extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton15)
                 .addContainerGap(25, Short.MAX_VALUE))
+=======
+                        .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JcadanimalLayout.createSequentialGroup()
+                                .addComponent(proprietario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cb_proprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(proprierro, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(nasc)
+                                    .addComponent(ch_nasc))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(data_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ch_proprietario))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nascerro, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sexo)
+                            .addComponent(ch_sexo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JcadanimalLayout.createSequentialGroup()
+                                .addComponent(sexoerro, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cadastrar))
+                            .addComponent(nasc1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cancelar)
+                            .addComponent(alterar))))
+                .addContainerGap(74, Short.MAX_VALUE))
+            .addGroup(JcadanimalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JcadanimalLayout.createSequentialGroup()
+                    .addContainerGap(301, Short.MAX_VALUE)
+                    .addComponent(nascerro2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(214, 214, 214)))
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
         );
+
+        alterar.setVisible(false);
 
         home.addTab("Animais", Jcadanimal);
 
@@ -433,8 +547,8 @@ public class JF_animais extends javax.swing.JFrame {
                                 .addComponent(jLabel84)
                                 .addGap(62, 62, 62))
                             .addComponent(btn_animais1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(btn_calendario, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(btn_celeiro, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(btn_calendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_celeiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_animais, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -442,13 +556,15 @@ public class JF_animais extends javax.swing.JFrame {
                             .addComponent(btn_usuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jnome, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jnome, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1071, 1071, 1071))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(home, javax.swing.GroupLayout.PREFERRED_SIZE, 852, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(313, 313, 313)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jdata, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator22, javax.swing.GroupLayout.PREFERRED_SIZE, 1153, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -503,7 +619,7 @@ public class JF_animais extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1363, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1073, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -561,14 +677,11 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtregistroActionPerformed
 
-    private void txtproprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtproprietarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtproprietarioActionPerformed
-
     private void tabAnimalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabAnimalMouseClicked
-        int linha = tabAnimal.getSelectedRow();
+       int linha = tabAnimal.getSelectedRow();
         String valor = String.valueOf(tabAnimal.getValueAt(linha, 0));
         int animalID = Integer.valueOf(valor);
+<<<<<<< HEAD
        // animalDao.consultarAnimalID(animalID, txtanimalid, txtnomeanimal, txtregistro, txtproprietario, data_nascimento, txtsexo, this);
         btncadastrar.setEnabled(false);
         btn_excluiranimal.setEnabled(true);
@@ -578,33 +691,70 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         registerro.setText("");
         nasc.setText("");
         nomevazio.setText("");
+=======
+        String nome1 = String.valueOf(tabAnimal.getValueAt(linha, 1));
+        String opcoes[] = {"Alterar","Deletar","Cancelar"};
+        int opc = JOptionPane.showOptionDialog(null, "Oque deseja ", "Confiraçao",
+        JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[2]);
+        switch(opc){
+            case 0: 
+            animal.setAnimal_id(animalID);
+             Apagarcampos();
+            txtnomeanimal.setText(nome1);
+            telas.alterarTelaAnimal(nome, registro, txtregistro, proprietario, nasc, sexo, ch_nome, ch_proprietario, ch_nasc, ch_sexo, cadastrar, alterar, cancelar);
+            break;
+            case 1: 
+            Apagarcampos();   
+            animal.setAnimal_id(animalID);
+            animalDao.apagarAnimal(animal);
+            animalDao.carregaTab(pesquisar, tabAnimal);
+             break;
+            default: ;  
+        }
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
     }//GEN-LAST:event_tabAnimalMouseClicked
 
-    private void btncadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadastrarActionPerformed
-        //cadatrar Animal
-        /* String nome = jnome.getText();
-        String how = txtnomeanimal.getText();
-        animal.setAnimal_modalidade(txtmodalidade.getText());
-        animal.setAnimal_treinador(txttreinador.getText());
-        animal.setAnimal_veterinario(txtveterinario.getText());
-        if (f_principal.camponull(txtnomeanimal, nomevazio)) {
-            animal.setAnimal_nome(txtnomeanimal.getText());
-            if (f_principal.camponull(txtregistro, registerro)) {
-                animal.setAnimal_registro(txtregistro.getText());
-                if (f_principal.camponull(txtpelagem, sem_pelagem)) {
-                    animal.setAnimal_pelagem(txtpelagem.getText());
-                    if (f_principal.convertedata(data_nascimento, nasc) != null) {
-                        animal.setAnimal_nascimento(f_principal.convertedata(data_nascimento, nasc));
-                        if (f_principal.camponull(txtsexo, sem_sexo)) {
-                            animal.setAnimal_sexo(txtsexo.getText());
-                            animal.setAnimal_proprietario(txtproprietario.getText());
-                            animal.setAnimal_criador(txtcriador.getText());
-                            animalDao.salvarAnimal(animal, nome, how, this);
-                            animalDao.consultarAnimalNome(txtpesquisa, tabAnimal, this);
-                        }
-                    }
+    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
+            if(campo.CampoTexto(txtnomeanimal, nomevazio)){//Nome
+                animal.setAnimal_nome(txtnomeanimal.getText());
+            if(campo.CampoTexto(txtregistro, registerro)){//Registro 
+                 animal.setAnimal_registro(txtregistro.getText());
+            if(campo.Campoescolha(cb_proprietario,proprierro)){//proprietario
+                  P_c pc = (P_c)cb_proprietario.getSelectedItem();
+                  animal.setAnimal_proprietario(pc.getPesssoa_id());
+            if(campo.Campodata(data_nascimento, sexoerro)){//nascimento
+                animal.setAnimal_nascimento( new java.sql.Date(data_nascimento.getDate().getTime()));
+            if(campo.CampoTexto(txtsexo, sexoerro)){//sexo
+               animal.setAnimal_sexo(txtsexo.getText());
+               animalDao.salvarAnimal(animal);
+               animalDao.carregaTab(pesquisar, tabAnimal);
+                Apagarcampos();
+            }//fim sexo 
+            } //fim nascimento   
+            }//fim proprietario
+            } //fim  registro   
+            }//fim nome 
+    }//GEN-LAST:event_cadastrarActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+     telas.alterarTelaAnimal(nome, registro, txtregistro, proprietario, nasc, sexo, ch_nome, ch_proprietario, ch_nasc, ch_sexo, cadastrar, alterar, cancelar);
+        Apagarcampos();
+    }//GEN-LAST:event_cancelarActionPerformed
+
+    private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
+       if(ch_nome.isSelected()){//começo nome
+            if(campo.CampoTexto(txtnomeanimal, nomevazio)){
+                        animal.setAnimal_nome(txtnomeanimal.getText());
+                animalDao.alterarAnimal(animal,1);
+            }}//fim nome
+            if(ch_proprietario.isSelected()){//inicio email
+                if(campo.Campoescolha(cb_proprietario, proprierro)){
+                    P_c pc = (P_c)cb_proprietario.getSelectedItem();
+                    animal.setAnimal_proprietario(pc.getPesssoa_id());
+                    animalDao.alterarAnimal(animal,2);
                 }
             }
+<<<<<<< HEAD
         }*/
     }//GEN-LAST:event_btncadastrarActionPerformed
 
@@ -671,14 +821,15 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
 
                     } else {
                         sem_pelagem.setText("Campo Obrigatório");
+=======
+            if(ch_nasc.isSelected()){
+                    if(campo.Campodata(data_nascimento, sexoerro)){//nascimento
+                animal.setAnimal_nascimento( new java.sql.Date(data_nascimento.getDate().getTime()));
+                   animalDao.alterarAnimal(animal,3);
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
                     }
-
-                } else {
-                    registerro.setText("Campo Obrigatório");
-                }
-            } else {
-                nasc.setText("Campo Obrigatório");
             }
+<<<<<<< HEAD
 
         } else {
             nomevazio.setText("Campo Obrigatório");
@@ -714,11 +865,33 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         nasc.setText("");
         nomevazio.setText("");
     }//GEN-LAST:event_jButton15ActionPerformed
+=======
+              if(ch_sexo.isSelected()){
+                  if(campo.CampoTexto(txtsexo, sexoerro)){//sexo
+                animal.setAnimal_sexo(txtsexo.getText());
+                 animalDao.alterarAnimal(animal,4);
+                  }
+              }    
+        Apagarcampos();
+      animalDao.carregaTab(pesquisar, tabAnimal);
+     telas.alterarTelaAnimal(nome, registro, txtregistro, proprietario, nasc, sexo, ch_nome, ch_proprietario, ch_nasc, ch_sexo, cadastrar, alterar, cancelar);
+    }//GEN-LAST:event_alterarActionPerformed
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
 
     private void homeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_homeComponentShown
 
         // TODO add your handling code here:
     }//GEN-LAST:event_homeComponentShown
+
+    private void ch_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ch_nomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ch_nomeActionPerformed
+public void Apagarcampos(){
+ txtnomeanimal.setText("");
+ txtregistro.setText("");
+ txtsexo.setText("");
+ cb_proprietario.setSelectedItem(null);
+         }
 
   
     /**
@@ -758,20 +931,26 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Jcadanimal;
-    private javax.swing.JButton btn_alteraranimal;
+    private javax.swing.JButton alterar;
     private javax.swing.JButton btn_animais;
     private javax.swing.JButton btn_animais1;
     private javax.swing.JButton btn_calendario;
     private javax.swing.JButton btn_celeiro;
-    private javax.swing.JButton btn_excluiranimal;
     private javax.swing.JButton btn_home;
     private javax.swing.JButton btn_log;
     private javax.swing.JButton btn_rh;
     private javax.swing.JButton btn_usuario;
     private javax.swing.JButton btn_usuario1;
-    private javax.swing.JButton btncadastrar;
+    private javax.swing.JButton cadastrar;
+    private javax.swing.JButton cancelar;
+    private javax.swing.JComboBox<String> cb_proprietario;
+    private javax.swing.JCheckBox ch_nasc;
+    private javax.swing.JCheckBox ch_nome;
+    private javax.swing.JCheckBox ch_proprietario;
+    private javax.swing.JCheckBox ch_sexo;
     private com.toedter.calendar.JDateChooser data_nascimento;
     private javax.swing.JTabbedPane home;
+<<<<<<< HEAD
     private javax.swing.JButton jButton15;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -779,26 +958,38 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+=======
+    private javax.swing.JLabel jLabel1;
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
     private javax.swing.JLabel jLabel84;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator22;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel jdata;
     private javax.swing.JTextField jnome;
     private javax.swing.JLabel nasc;
+    private javax.swing.JLabel nasc1;
+    private javax.swing.JLabel nascerro;
+    private javax.swing.JLabel nascerro2;
+    private javax.swing.JLabel nome;
     private javax.swing.JLabel nomevazio;
+    private javax.swing.JTextField pesquisar;
+    private javax.swing.JLabel proprierro;
+    private javax.swing.JLabel proprietario;
     private javax.swing.JLabel registerro;
-    private javax.swing.JLabel sem_pelagem;
-    private javax.swing.JLabel sem_sexo;
+    private javax.swing.JLabel registro;
+    private javax.swing.JLabel sexo;
+    private javax.swing.JLabel sexoerro;
     private javax.swing.JTable tabAnimal;
+<<<<<<< HEAD
     private javax.swing.JTextField txtanimalid;
     private javax.swing.JTextField txtnomeanimal;
     private javax.swing.JTextField txtpesquisa;
     private javax.swing.JTextField txtproprietario;
+=======
+    private javax.swing.JTextField txtnomeanimal;
+>>>>>>> 360f34f11eb5c0d1c61e077b7926fc07bde9bcd9
     private javax.swing.JTextField txtregistro;
     private javax.swing.JTextField txtsexo;
     // End of variables declaration//GEN-END:variables

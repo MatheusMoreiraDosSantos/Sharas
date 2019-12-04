@@ -49,6 +49,7 @@ public class JF_Principal1 extends javax.swing.JFrame {
         setIconImage(icon.getImage());
         System.out.println(se.getId_pessoa());
         Resolucao(this);
+        telas.SessaoB(btn_celeiro, btn_log, btn_usuario,btn_rh);
 
     }
 

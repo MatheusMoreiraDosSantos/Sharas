@@ -18,9 +18,10 @@ public class Carrinho extends Servico{
     public int getCarrinhoid() {
         return carrinhoid;
     }
-
+  public void setCarrinhoid2(int carrinhoid){
+      this.carrinhoid = carrinhoid;
+  }
     public void setCarrinhoid(int carrinhoid) {
-    
        if(carrinhoid==0)
         this.carrinhoid = 1;
        else

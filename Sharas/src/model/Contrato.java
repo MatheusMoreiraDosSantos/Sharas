@@ -12,10 +12,19 @@ import java.sql.*;
 public class Contrato {
    private int contratoid ;
    private int clienteid;
+   private int animalid;
    private int servicoid;
    private float contratovalor;
    private Date contratoData;
  private float contratoValor;
+
+    public int getAnimalid() {
+        return animalid;
+    }
+
+    public void setAnimalid(int animalid) {
+        this.animalid = animalid;
+    }
 
     public float getContratoValor() {
         return contratoValor;
@@ -51,7 +60,7 @@ public class Contrato {
         this.descontomotivo = descontomotivo;
     }
    private String descontoTipo;
-   private float descontoValor;
+   private float descontoValor=0;
    private String descontomotivo;
 
     public int getContratoid() {
