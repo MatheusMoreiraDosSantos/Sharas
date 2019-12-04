@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="clientes" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3ef6d3b6-f82e-402e-afcd-844dbaa435e8">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[c2hhcmFzLnBlc3NvYSBBUyAsMTM2LDI3LDVhMTAzNTQ1LTU4ZmItNDFhNy04NTI0LTkyOWM0MjFl
+MjFjNDtzaGFyYXMuY2xpZW50ZSBBUyAsMTIsMTgsYjc4ZWVlMDctZmNkNi00NGMwLWJmOGMtNmEw
+ZGE3MGQwMTI0Ow==]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT sharas.cliente.clienteid,
+	sharas.cliente.pessoa_id,
+	sharas.cliente.cliente_deb,
+	sharas.pessoa.pessoa_id,
+	sharas.pessoa.pessoa_ind,
+	sharas.pessoa.pessoa_cpfcnpj,
+	sharas.pessoa.pessoa_nome,
+	sharas.pessoa.pessoa_email,
+	sharas.pessoa.pesoa_cargo,
+	sharas.pessoa.pessoa_endereco
+FROM sharas.cliente
+	INNER JOIN sharas.pessoa ON 
+	 sharas.cliente.pessoa_id = sharas.pessoa.pessoa_id]]>
+	</queryString>
+	<field name="clienteid" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="clienteid"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="pessoa_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="cliente_deb" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.label" value="cliente_deb"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="COLUMN_4" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_ind" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_ind"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_cpfcnpj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_cpfcnpj"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pesoa_cargo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="pesoa_cargo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_endereco" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_endereco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<group name="clienteid">
+		<groupExpression><![CDATA[$F{clienteid}]]></groupExpression>
+	</group>
+	<group name="pessoa_id">
+		<groupExpression><![CDATA[$F{pessoa_id}]]></groupExpression>
+	</group>
+	<group name="cliente_deb">
+		<groupExpression><![CDATA[$F{cliente_deb}]]></groupExpression>
+	</group>
+	<group name="COLUMN_4">
+		<groupExpression><![CDATA[$F{COLUMN_4}]]></groupExpression>
+	</group>
+	<group name="pessoa_ind">
+		<groupExpression><![CDATA[$F{pessoa_ind}]]></groupExpression>
+	</group>
+	<group name="pessoa_cpfcnpj">
+		<groupExpression><![CDATA[$F{pessoa_cpfcnpj}]]></groupExpression>
+	</group>
+	<group name="pessoa_nome">
+		<groupExpression><![CDATA[$F{pessoa_nome}]]></groupExpression>
+	</group>
+	<group name="pessoa_email">
+		<groupExpression><![CDATA[$F{pessoa_email}]]></groupExpression>
+	</group>
+	<group name="pesoa_cargo">
+		<groupExpression><![CDATA[$F{pesoa_cargo}]]></groupExpression>
+	</group>
+	<group name="pessoa_endereco">
+		<groupExpression><![CDATA[$F{pessoa_endereco}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="10" width="101" height="39" uuid="b4243394-09c1-4a52-95c6-23b19e0f2ece"/>
+				<textElement>
+					<font size="25"/>
+				</textElement>
+				<text><![CDATA[Clientes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="30" uuid="9769830a-b314-4f64-b0ff-d715aa132efb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f8bb4a9-461e-4365-9565-cc88afa8ca7d"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="15" width="100" height="30" uuid="a37e321a-f8ea-4e92-8595-72fb9f940de0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6f3c46b-267c-4495-806c-f809e1075a48"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[CPF/CNPJ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="20" width="100" height="30" uuid="ca90be73-5249-4a88-824d-d29b2e1623bd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bbc133fa-be73-48e7-89d1-3233f535aad5"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[E-MAIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="20" width="100" height="30" uuid="7d7287dd-a578-481c-b5c7-5991804f10e0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46ceb911-8364-42f3-a422-7e9af66a8348"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[DEBITO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="100" height="30" uuid="f4a9636a-636c-44a0-bac4-87609a97748b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f8bb4a9-461e-4365-9565-cc88afa8ca7d"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="10" width="100" height="30" uuid="2745ba3e-93a8-4b56-8aa2-be0a292e7159">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6f3c46b-267c-4495-806c-f809e1075a48"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_cpfcnpj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="10" width="100" height="30" uuid="8608517b-6f74-4981-8725-170dcc671cb0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bbc133fa-be73-48e7-89d1-3233f535aad5"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="10" width="100" height="30" uuid="5add1f35-05e6-4d15-8407-c78f5b78001d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46ceb911-8364-42f3-a422-7e9af66a8348"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_deb}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

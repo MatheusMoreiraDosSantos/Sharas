@@ -569,7 +569,7 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         int linha = tabAnimal.getSelectedRow();
         String valor = String.valueOf(tabAnimal.getValueAt(linha, 0));
         int animalID = Integer.valueOf(valor);
-        animalDao.consultarAnimalID(animalID, txtanimalid, txtnomeanimal, txtregistro, txtproprietario, data_nascimento, txtsexo, this);
+       // animalDao.consultarAnimalID(animalID, txtanimalid, txtnomeanimal, txtregistro, txtproprietario, data_nascimento, txtsexo, this);
         btncadastrar.setEnabled(false);
         btn_excluiranimal.setEnabled(true);
         btn_alteraranimal.setEnabled(true);
@@ -617,18 +617,18 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         txtnomeanimal.setText("");
         txtregistro.setText("");
         txtproprietario.setText("");
-        txtcriador.setText("");
+       // txtcriador.setText("");
         data_nascimento.setCalendar(null);
         txtsexo.setText("");
-        txtpelagem.setText("");
-        txtmodalidade.setText("");
-        txttreinador.setText("");
-        txtveterinario.setText("");
+        //txtpelagem.setText("");
+        //txtmodalidade.setText("");
+        //txttreinador.setText("");
+        //txtveterinario.setText("");
         animalDao.consultarAnimalNome(txtpesquisa, tabAnimal, this);
     }//GEN-LAST:event_btn_excluiranimalActionPerformed
 
     private void btn_alteraranimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alteraranimalActionPerformed
-        String nome = jnome.getText();
+     /*   String nome = jnome.getText();
         String how = txtnomeanimal.getText();
         animal.setAnimal_nome(txtnomeanimal.getText());
         animal.setAnimal_registro(txtregistro.getText());
@@ -685,6 +685,7 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         }
 
         animalDao.consultarAnimalNome(txtpesquisa, tabAnimal, this);
+        */
     }//GEN-LAST:event_btn_alteraranimalActionPerformed
 
     private void txtpesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpesquisaActionPerformed
@@ -700,13 +701,13 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
         txtnomeanimal.setText("");
         txtregistro.setText("");
         txtproprietario.setText("");
-        txtcriador.setText("");
+     //   txtcriador.setText("");
         data_nascimento.setCalendar(null);
         txtsexo.setText("");
-        txtpelagem.setText("");
-        txtmodalidade.setText("");
-        txttreinador.setText("");
-        txtveterinario.setText("");
+      //  txtpelagem.setText("");
+      //  txtmodalidade.setText("");
+      //  txttreinador.setText("");
+      //  txtveterinario.setText("");
         sem_sexo.setText("");
         sem_pelagem.setText("");
         registerro.setText("");

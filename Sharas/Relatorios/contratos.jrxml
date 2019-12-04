@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d94633b9-afdd-41ad-88ac-079cb3c328bc">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[c2hhcmFzLmNvbnRyYXRvIEFTICw1NiwyOCwyNGU0YjI2OS1mOTU2LTQ0MDAtOGY2My1mY2M3NjEz
+ZjMxOTU7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT sharas.contrato.contrato_id,
+	sharas.contrato.cliente_id,
+	sharas.contrato.contrato_valor,
+	sharas.contrato.contrato_data,
+	sharas.contrato.`contrato_descontoTipo`,
+	sharas.contrato.`desconto_Valor`,
+	sharas.contrato.descontomotivo
+FROM sharas.contrato]]>
+	</queryString>
+	<field name="contrato_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="contrato_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="contrato"/>
+	</field>
+	<field name="cliente_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="cliente_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="contrato"/>
+	</field>
+	<field name="contrato_valor" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.label" value="contrato_valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="contrato"/>
+	</field>
+	<field name="contrato_data" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="contrato_data"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="contrato"/>
+	</field>
+	<field name="contrato_descontoTipo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="contrato_descontoTipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="contrato"/>
+	</field>
+	<field name="desconto_Valor" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.label" value="desconto_Valor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="contrato"/>
+	</field>
+	<field name="descontomotivo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descontomotivo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="contrato"/>
+	</field>
+	<group name="contrato_id">
+		<groupExpression><![CDATA[$F{contrato_id}]]></groupExpression>
+	</group>
+	<group name="cliente_id">
+		<groupExpression><![CDATA[$F{cliente_id}]]></groupExpression>
+	</group>
+	<group name="contrato_valor">
+		<groupExpression><![CDATA[$F{contrato_valor}]]></groupExpression>
+	</group>
+	<group name="contrato_data">
+		<groupExpression><![CDATA[$F{contrato_data}]]></groupExpression>
+	</group>
+	<group name="contrato_descontoTipo">
+		<groupExpression><![CDATA[$F{contrato_descontoTipo}]]></groupExpression>
+	</group>
+	<group name="desconto_Valor">
+		<groupExpression><![CDATA[$F{desconto_Valor}]]></groupExpression>
+	</group>
+	<group name="descontomotivo">
+		<groupExpression><![CDATA[$F{descontomotivo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="190" y="10" width="172" height="47" uuid="1c218700-275b-44ea-8f7c-d5ca0ec15a25">
+					<property name="com.jaspersoft.studio.element.name" value="Contratos "/>
+				</reportElement>
+				<textElement>
+					<font size="37"/>
+				</textElement>
+				<text><![CDATA[Contratos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="30" uuid="49c4d378-6f5d-46a8-beed-6b48209b6de6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="800feb0e-0a92-4763-8a6b-4444d7cd1a1f"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="20" width="100" height="30" uuid="0c001206-e3dc-430b-8a00-7fd2b92a6065">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b85d867a-250e-4cd6-a1e7-78d1eb5e5b8e"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="20" width="100" height="30" uuid="ad4792e5-1cac-4150-89d3-acaff35d2cec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35c2e5dd-d2ed-4728-b662-c88e332e195f"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[DATA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="20" width="110" height="30" uuid="9fd154a6-ebfe-40ba-ab42-9d2132d95fe1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="702aa245-f30d-4c60-a744-ac92ab81c7ef"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[DESCONTO TIPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="20" width="100" height="30" uuid="16402b66-46f7-43c9-a3a8-6ac2a489c123">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73958835-1333-4996-868b-013f518b811e"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[DESCONTO R$]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="58" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="100" height="30" uuid="f40ec7fa-abe6-4e0e-b0ac-20f6a4ebc359">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="800feb0e-0a92-4763-8a6b-4444d7cd1a1f"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contrato_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="10" width="100" height="30" uuid="d41a067a-c443-4ddc-bcb5-7be2c06f018e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b85d867a-250e-4cd6-a1e7-78d1eb5e5b8e"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contrato_valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="10" width="100" height="30" uuid="68136604-37d2-436e-8796-82440924418b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35c2e5dd-d2ed-4728-b662-c88e332e195f"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contrato_data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="10" width="110" height="30" uuid="4f325ebf-86b5-444d-a2bd-9fb4e66bf86c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="702aa245-f30d-4c60-a744-ac92ab81c7ef"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contrato_descontoTipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="10" width="100" height="30" uuid="a85508b6-289f-4a94-a50e-27ef4dbee507">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73958835-1333-4996-868b-013f518b811e"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{desconto_Valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
