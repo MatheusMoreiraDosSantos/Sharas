@@ -59,7 +59,7 @@ public class teste extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                                    Relatorio.Gerar();
+                                    Relatorio.Gerar(1);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

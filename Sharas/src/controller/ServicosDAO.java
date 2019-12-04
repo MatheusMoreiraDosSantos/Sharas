@@ -93,14 +93,13 @@ public class ServicosDAO {
   public void carregarNbaias(JTextField b_d,JTextField b_u,JTextField b_da){
   try{
           con = Conexao.conectar();
-          sql = "select * from n_baias ";
+          sql = "select * from n_baia ";
           pst = con.prepareStatement(sql);
           rs= pst.executeQuery();
           if(rs.next()){
-          b_d.setText(rs.getString("Dispo"));
-          b_u.setText(rs.getString("Uso"));
-          String n = rs.getString("Dani");
-          b_da.setText(n);
+          b_d.setText(rs.getString("dispo"));
+          b_u.setText(rs.getString("uso")); 
+          b_da.setText(rs.getString("dani"));
           Conexao.desconectar();
           }
           }catch(SQLException e){
@@ -109,7 +108,20 @@ public class ServicosDAO {
           }
   
   }
-
+  public void Inserirbaia(){
+    try{
+     con=Conexao.conectar();
+     sql="INSERT INTO baia VALUES (NULL,1)";
+     pst = con.prepareStatement(sql);
+     pst.execute();
+     JOptionPane.showMessageDialog(null,"Baia Adicionada");
+     Conexao.desconectar();
+    }catch(Exception e){
+       Conexao.desconectar();
+        System.out.println(e);
+    }
+  
+  }
   public void Alterarbaia(int local,int status){
    try{
          System.out.println("alterar fase : "+local+" status:"+status);
@@ -153,16 +165,5 @@ public class ServicosDAO {
           }
    } 
     
-    public void inseriBaia(){
-    try{
-     con=Conexao.conectar();
-     sql="INSERT INTO baia VALUES (NULL,1)";
-     pst = con.prepareStatement(sql);
-     pst.execute();
-        JOptionPane.showMessageDialog(null,"Baia inserida");
-    }catch(Exception e){
-        System.out.println(e);
-    }
     
-    }
 }

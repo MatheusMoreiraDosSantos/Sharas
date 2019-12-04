@@ -78,6 +78,22 @@ public class Telas {
     
         
     }
+      public void alterarTelaAnimal(JLabel nome,JLabel registro,JTextField txtregistro,JLabel proprietario,JLabel nasc,JLabel sexo,
+          JCheckBox ch_nome,JCheckBox ch_proprietario,JCheckBox ch_nasc,JCheckBox ch_sexo,JButton cadastrar,JButton alterar,JButton cancelar){
+      nome.setText(mudarTexto(nome));
+      if(registro.isVisible())
+         registro.setVisible(false);
+      else
+          registro.setVisible(true);
+      proprietario.setText(mudarTexto(proprietario));
+      nasc.setText(mudarTexto(nasc));
+      sexo.setText(mudarTexto(sexo));
+          altenarcheck(ch_sexo);
+          altenarcheck(ch_nome);
+          altenarcheck(ch_proprietario);
+          altenarcheck(ch_nasc);
+          altenarbotao(cadastrar, alterar, cancelar);
+      }
       public void alterarTelaservco(JLabel nome,JLabel cat,JLabel preco,JCheckBox ch_nome,JCheckBox ch_cat,JCheckBox ch_preco, JButton cadastrar,JButton alterar,JButton cancelar){
       nome.setText(mudarTexto(nome));
       cat.setText(mudarTexto(cat));
@@ -85,9 +101,7 @@ public class Telas {
           altenarcheck(ch_cat);
           altenarcheck(ch_nome);
           altenarcheck(ch_preco);
-          altenarbotao(alterar);
-          altenarbotao(cadastrar);
-          altenarbotao(cancelar); 
+          altenarbotao(cadastrar,alterar,cancelar);
       }
     public void alterartelaUsuario(JLabel login,JLabel senha,JLabel status,JCheckBox ch_login,JCheckBox ch_senha,JCheckBox ch_status,JButton cad,JButton alterar,JButton cancelar){
     login.setText(mudarTexto(login));
@@ -96,9 +110,9 @@ public class Telas {
         altenarcheck(ch_senha);
         altenarcheck(ch_login);
         altenarcheck(ch_status);
-      altenarbotao(alterar);
-        altenarbotao(cad);
-        altenarbotao(cancelar);
+   
+        altenarbotao(cad,alterar,cancelar);
+    
     }
     public void alterarTelacliente(JLabel nome,JLabel cpf,JLabel email,JLabel tel/*labels*/
     /*checkbox*/,JCheckBox md_nome,JCheckBox md_cpf,JCheckBox md_email,JCheckBox md_tel,JButton cad,JButton alt,JButton cancelar,JPanel painel){
@@ -115,9 +129,8 @@ public class Telas {
     else{
         painel.setVisible(true);
     }
-        altenarbotao(alt);
-        altenarbotao(cad);
-        altenarbotao(cancelar);
+      altenarbotao(cad,alt,cancelar);
+    
     }
     public void altenarcheck(JCheckBox ch){
     if(ch.isVisible())
@@ -125,12 +138,22 @@ public class Telas {
     else 
         ch.setVisible(true);
     }
-    public void altenarbotao(JButton btn){
-    if(btn.isVisible())
-        btn.setVisible(false);
+    public void altenarbotao(JButton cadastrar,JButton alterar,JButton cancelar){
+    if(cadastrar.isVisible())
+        cadastrar.setVisible(false);
     else
-        btn.setVisible(true);
+        cadastrar.setVisible(true);
+     if(alterar.isVisible())
+        alterar.setVisible(false);
+    else
+        alterar.setVisible(true);
+       if(cancelar.isVisible())
+        cancelar.setVisible(false);
+    else
+        cancelar.setVisible(true);
+    
     }
+    
 public String mudarTexto(JLabel lbl){
     String n = lbl.getText();
     String md = "Mudar ";

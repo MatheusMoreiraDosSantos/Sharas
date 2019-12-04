@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import model.Cliente;
 import model.Enderecos;
 import model.Misc;
+import relatorio.Relatorio;
 import view_secundaria.AlterarFuncionario;
 
 /**
@@ -100,6 +101,7 @@ public class JF_Cliente extends javax.swing.JFrame {
         md_email = new javax.swing.JCheckBox();
         md_telefone = new javax.swing.JCheckBox();
         cancelar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         btn_home = new javax.swing.JButton();
         jdata = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
@@ -374,6 +376,12 @@ public class JF_Cliente extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tab_cliente);
 
+        pesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pesquisaKeyReleased(evt);
+            }
+        });
+
         jLabel4.setText("Pesquisar :");
 
         md_cpf.setVisible(false);
@@ -391,6 +399,13 @@ public class JF_Cliente extends javax.swing.JFrame {
         cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Relatorios de cliente ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -461,10 +476,11 @@ public class JF_Cliente extends javax.swing.JFrame {
                             .addComponent(jLabel77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(1092, 1092, 1092))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(jButton1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
@@ -518,7 +534,7 @@ public class JF_Cliente extends javax.swing.JFrame {
                         .addComponent(telefone2_erro, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(183, 183, 183))))
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(ends, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -526,7 +542,8 @@ public class JF_Cliente extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -705,6 +722,7 @@ public class JF_Cliente extends javax.swing.JFrame {
                                             if(campo.CampoTexto(cidade,cidade_erro)){//inicio cidade
                                                 end.setCidde(cidade.getText());
                                                 cliDao.salvarCliente(cliente, this, end);
+                                                cliDao.CarregarTabelacli(tab_cliente, pesquisa);
                                             }
                                         }//fim estado
                                     }//fim de bairro
@@ -731,6 +749,7 @@ public class JF_Cliente extends javax.swing.JFrame {
                     pessoa.AlterarPessoa(cliente, 2);
                 }
             }
+             telas.alterarTelacliente(lbl_nome, lbl_cpf,lbl_email, lbl_tel,md_nome,md_cpf,md_email,md_telefone,cad,alt,cancelar,ends);
                     cliDao.CarregarTabelacli(tab_cliente, pesquisa);
             // TODO add your handling code here:
     }//GEN-LAST:event_altActionPerformed
@@ -739,13 +758,23 @@ public class JF_Cliente extends javax.swing.JFrame {
         int linha = tab_cliente.getSelectedRow();
         String  nome = String.valueOf(tab_cliente.getValueAt(linha, 1));
         String cpf = String.valueOf(tab_cliente.getValueAt(linha, 2));
-        String opcoes[] = {"Debito","Alterar","Deletar","Cancelar"};
+        String opcoes[] = {"Pagar","Alterar","Deletar","Cancelar"};
         int opc = JOptionPane.showOptionDialog(null, "Oque deseja "+nome+"", "Confiraçao"
             , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[3]);
         String ids = String.valueOf(tab_cliente.getValueAt(linha, 0));
         int id=Integer.valueOf(ids);
         switch(opc ){
-            case 0: ;break;
+            case 0: 
+               try{
+                   float valor = Float.parseFloat(JOptionPane.showInputDialog(null, "Digite o Valor de pagamento"));
+                   cliente.setClienteid(id);
+                  float troco = cliDao.pagarDeb(cliente, valor);
+                   cliDao.CarregarTabelacli(tab_cliente, pesquisa);
+                  JOptionPane.showMessageDialog(null, "Pagamento realizado "+"Troco:"+troco);
+               }catch(NumberFormatException e){
+                   JOptionPane.showMessageDialog(null, "Valor invalido");
+               } 
+                break;
             case 1:
             telas.alterarTelacliente(lbl_nome, lbl_cpf,lbl_email, lbl_tel,md_nome,md_cpf,md_email,md_telefone,cad,alt,cancelar,ends);
             cliente.setPessoa_cpfcnpj(cpf);
@@ -762,6 +791,17 @@ public class JF_Cliente extends javax.swing.JFrame {
         cliDao.CarregarTabelacli(tab_cliente, pesquisa);
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Relatorio r = new Relatorio();
+        r.Gerar(1);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void pesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisaKeyReleased
+        cliDao.CarregarTabelacli(tab_cliente, pesquisa);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pesquisaKeyReleased
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {                                         
         telas.alterar(this,1);
     }                                        
@@ -869,6 +909,7 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JPanel ends;
     private javax.swing.JComboBox<String> estado;
     private javax.swing.JTabbedPane home;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;

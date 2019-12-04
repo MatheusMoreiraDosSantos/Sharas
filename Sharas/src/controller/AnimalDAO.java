@@ -5,16 +5,17 @@
  */
 package controller;
 
-import com.toedter.calendar.JDateChooser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import model.Animal;
+import model.Cliente;
+import model.P_c;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -22,7 +23,7 @@ import net.proteanit.sql.DbUtils;
  * @author Matheus Moreira
  */
 public class AnimalDAO {
-
+ 
     Connection con;
     String sql;
     PreparedStatement pst;
@@ -30,159 +31,116 @@ public class AnimalDAO {
 
     //Métodos
     //SALVAR
-    public void salvarAnimal(Animal animal, String nome,String how ,JFrame jfUsuario) {
-
+    public void salvarAnimal(Animal animal) {
         try {
             con = Conexao.conectar();
-            sql = "insert into animal (animal_nome, animal_registro, animal_proprietario,animal_criador,animal_nascimento,animal_sexo,animal_pelagem,animal_modalidade,animal_treinador,animal_veterinario)values(?,?,?,?,?,?,?,?,?,?)";
+            sql = "insert into animal values(null,?,?,?,?,?)";
             pst = con.prepareStatement(sql);
             pst.setString(1, animal.getAnimal_nome());
             pst.setString(2, animal.getAnimal_registro());
-            pst.setString(3, animal.getAnimal_proprietario());
-            pst.setString(4, animal.getAnimal_criador());
-             pst.setDate(5, animal.getAnimal_nascimento());
-            pst.setString(6, animal.getAnimal_sexo());
-            pst.setString(7, animal.getAnimal_pelagem());
-            pst.setString(8, animal.getAnimal_modalidade());
-            pst.setString(9, animal.getAnimal_treinador());
-            pst.setString(10, animal.getAnimal_veterinario());
+            pst.setInt(3, animal.getAnimal_proprietario());
+            pst.setDate(4, animal.getAnimal_nascimento());
+            pst.setString(5, animal.getAnimal_sexo());
             pst.execute();
-
-            try {
-                sql = "insert into log (log_acao, log_usuario, log_entidade, log_time, log_how) values ('CRIOU',?,'ANIMAL',now(), ?); ";
-                pst = con.prepareStatement(sql);
-                pst.setString(1, nome);
-                pst.setString(2 ,how);
-                pst.execute();
-
-                JOptionPane.showMessageDialog(jfUsuario, "Cadastrado com Sucesso!");
-
-                Conexao.desconectar();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(jfUsuario, "Erro ao Cadastrar no log: " + e);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(jfUsuario, "Erro ao Cadastrar: " + e);
+            JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso!");
+           Conexao.desconectar();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao Cadastrar: " + e);
         }
-
     }
 
+    
+
     //ALTERAR
-    public void alterarAnimal(Animal animal, String nome,String how ,JFrame jfUsuario) {
+    public void alterarAnimal(Animal animal,int escolha) {
         try {
             con = Conexao.conectar();
-            sql = "update  animal set animal_nome=?, animal_registro=?, animal_proprietario=?,animal_criador=?,animal_nascimento=?,animal_sexo=?,animal_pelagem=?,animal_modalidade=?,animal_treinador=?,animal_veterinario=? where animal_id=?";
+           switch(escolha){
+               case 1:  sql = "update  animal set animal_nome=? where animal_id=?" ;break;
+               case 2:sql = "update  animal set  animal_proprietario=? where animal_id=?";break;
+               case 3:  sql = "update  animal set  animal_nascimento=? where animal_id=?";break;
+               case 4:  sql = "update  animal set  animal_sexo=? where animal_id=?" ;break;
+           }
             pst = con.prepareStatement(sql);
-            pst.setString(1, animal.getAnimal_nome());
-            pst.setString(2, animal.getAnimal_registro());
-            pst.setString(3, animal.getAnimal_proprietario());
-            pst.setString(4, animal.getAnimal_criador());
-            pst.setDate(5, animal.getAnimal_nascimento());
-            pst.setString(6, animal.getAnimal_sexo());
-            pst.setString(7, animal.getAnimal_pelagem());
-            pst.setString(8, animal.getAnimal_modalidade());
-            pst.setString(9, animal.getAnimal_treinador());
-            pst.setString(10, animal.getAnimal_veterinario());
-            pst.setInt(11, animal.getAnimal_id());
+         switch(escolha){
+             case 1:  pst.setString(1, animal.getAnimal_nome());break;
+             case 2:  pst.setInt(1, animal.getAnimal_proprietario()); break;
+             case 3:  pst.setDate(1, animal.getAnimal_nascimento()); break;
+             case 4:  pst.setString(4, animal.getAnimal_sexo()); break;
+         }
+            pst.setInt(2, animal.getAnimal_id());
             pst.execute();
-
-            JOptionPane.showMessageDialog(jfUsuario, "Alterado com Sucesso!");
-            try {
-                sql = "insert into log (log_acao, log_usuario, log_entidade, log_time, log_how) values ('ALTEROU',?,'ANIMAL',now(), ?); ";
-                pst = con.prepareStatement(sql);
-                pst.setString(1, nome);
-                pst.setString(2 ,how);
-                pst.execute();
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(jfUsuario, "Erro ao Alterar no log: " + e);
-            }
-
+            JOptionPane.showMessageDialog(null, "Alterado com Sucesso!");
             Conexao.desconectar();
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(jfUsuario, "Erro ao Alterar: " + e);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao Alterar: " + e);
         }
     }
 
     //APAGAR
-    public void apagarAnimal(Animal animal, String nome,String how,JFrame jfUsuario) {
-
+    public void apagarAnimal(Animal animal) {
         try {
             con = Conexao.conectar();
             sql = "delete from animal where animal_id = ?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, animal.getAnimal_id());
-
-            if (JOptionPane.showConfirmDialog(jfUsuario, "Deseja Deletar?", "Atenção", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
+            if (JOptionPane.showConfirmDialog(null, "Deseja Deletar?", "Atenção", JOptionPane.YES_NO_CANCEL_OPTION) == 0) {
                 pst.execute();
-                JOptionPane.showMessageDialog(jfUsuario, "Deletado com Sucesso!");
-                try {
-                    sql = "insert into log (log_acao, log_usuario, log_entidade, log_time, log_how) values ('EXCLUIU',?,'ANIMAL',now(), ?); ";
-                pst = con.prepareStatement(sql);
-                pst.setString(1, nome);
-                pst.setString(2 ,how);
-                pst.execute();
-
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(jfUsuario, "Erro ao Excluir no log: " + e);
-                }
+                JOptionPane.showMessageDialog(null, "Deletado com Sucesso!");
                 Conexao.desconectar();
             }
-
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(jfUsuario, "Erro ao deletar: " + e);
+            JOptionPane.showConfirmDialog(null, "Erro ao deletar: " + e);
         }
 
     }
 
-    //CONSULTAR POR NOME
-    public void consultarAnimalNome(JTextField txtPesquisa, JTable tabAnimal, JFrame jfUsuario) {
 
+    public void carregaTab(JTextField txtPesquisa, JTable tabAnimal) {
         try {
             con = Conexao.conectar();
-            sql = "select animal_id as ID, animal_nome as Nome, animal_sexo as Sexo, animal_proprietario as Proprietario from animal where animal_nome like ?";
+            sql = "select Código,Animal,Registro,Proprietario from  vw_animal where Animal like ?";
             pst = con.prepareStatement(sql);
             pst.setString(1, "%" + txtPesquisa.getText() + "%");
             rs = pst.executeQuery();
             tabAnimal.setModel(DbUtils.resultSetToTableModel(rs));
             Conexao.desconectar();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(jfUsuario, "Erro ao consultar: " + e);
+            JOptionPane.showMessageDialog(null, "Erro ao consultar: " + e);
         }
 
     }
 
-    //CONSULTAR POR ID
-    public void consultarAnimalID(int animal_id, JTextField txtanimalid, JTextField txtnomeanimal, JTextField txtregistro, JTextField txtproprietario, JTextField txtcriador, JDateChooser txtnascimento, JTextField txtsexo, JTextField txtpelagem, JTextField txtmodalidade, JTextField txttreinador, JTextField txtveterinario, JFrame JF_Principal1) {
-
-        try {
+    //Carregar proprietarios
+      public void selectCli(JComboBox cb) {
+          try {
             con = Conexao.conectar();
-            sql = "select * from animal where animal_id=?";
+            sql = "select pessoa_id,pessoa_nome from pessoa where pesoa_cargo =2 ";
             pst = con.prepareStatement(sql);
-            pst.setInt(1, animal_id);
             rs = pst.executeQuery();
-
-            if (rs.next()) {
-                txtanimalid.setText(String.valueOf(rs.getInt("animal_id")));
-                txtnomeanimal.setText(rs.getString("animal_nome"));
-                txtregistro.setText(rs.getString("animal_registro"));
-                txtproprietario.setText(rs.getString("animal_proprietario"));
-                txtcriador.setText(rs.getString("animal_criador"));
-                txtnascimento.setDate(rs.getDate("animal_nascimento"));
-                txtsexo.setText(rs.getString("animal_sexo"));
-                txtpelagem.setText(rs.getString("animal_pelagem"));
-                txtmodalidade.setText(rs.getString("animal_modalidade"));
-                txttreinador.setText(rs.getString("animal_treinador"));
-                txtveterinario.setText(rs.getString("animal_veterinario"));
-
-            } else {
-                JOptionPane.showMessageDialog(JF_Principal1, "Nenhum Registro Encontrado");
-            }
-
+            cb.removeAllItems();
+            cb.addItem(new P_c(0,"Selecione..."));
+           while(rs.next()){
+           cb.addItem(new P_c(rs.getInt("pessoa_id"),rs.getString("pessoa_nome")));
+           }
+            Conexao.desconectar();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(JF_Principal1, "Erro ao consultar: " + e);
+            JOptionPane.showMessageDialog(null, "Erro" + e);
         }
-
     }
+      public void carregartabCavalo_cli(Cliente cliente,JTextField pesquisa,JTable cavalo){
+       try {
+            con = Conexao.conectar();
+            sql = "select Código,Animal,Registro from vw_animal where cd_p=? and Animal like ?" ;
+            pst = con.prepareStatement(sql);
+            pst.setString(1,cliente.getPessoa_cpfcnpj());
+            pst.setString(2, "%" + pesquisa.getText() + "%");
+            rs = pst.executeQuery();
+            cavalo.setModel(DbUtils.resultSetToTableModel(rs));
+            Conexao.desconectar();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao consultar: " + e);
+        }
+      
+      }
 }

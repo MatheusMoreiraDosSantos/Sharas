@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cliente" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0fe8d09e-9d57-4b0d-bed2-6e72a7d6cb7e">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\relatorio\conexao.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[Select c.clienteid,p.pessoa_nome,p.pessoa_email,c.cliente_deb FROM cliente c inner join pessoa p where p.pessoa_id=c.pessoa_id and p.pesoa_cargo = 2]]>
+	</queryString>
+	<field name="clienteid" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="clienteid"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<field name="pessoa_nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="pessoa_email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pessoa_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="cliente_deb" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.label" value="cliente_deb"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cliente"/>
+	</field>
+	<variable name="clienteid1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{clienteid}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="20" width="400" height="30" uuid="99463fd6-1970-4381-954a-5b5c9b7c7164"/>
+				<textElement>
+					<font fontName="Arial Black" size="14"/>
+				</textElement>
+				<text><![CDATA[Lista de Clientes Cadastrados ]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-20" y="0" width="140" height="60" uuid="c8d13257-e68e-44bd-88ca-05bb069871f3"/>
+				<imageExpression><![CDATA["src/imagens/SharasHome.png"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="-20" y="60" width="595" height="1" uuid="8568a15a-34e0-43cd-9b67-8a2698caac13"/>
+				<graphicElement>
+					<pen lineWidth="0.45" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="360" y="0" width="100" height="30" uuid="77f07db3-53d7-41cf-8d30-b8d4f658799c"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<text><![CDATA[Retirado dia:]]></text>
+			</staticText>
+			<textField pattern=" dd/MM/ yyyy">
+				<reportElement x="450" y="0" width="140" height="30" uuid="fce2cb8e-44ea-446a-b8b3-0098f6ef33bb"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="-10" y="3" width="80" height="30" uuid="162abf74-2399-4f2b-9818-222c0f36d63b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="38065b66-9d5e-4bd0-b72f-cbd2b754b9da"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="11"/>
+				</textElement>
+				<text><![CDATA[Código ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="3" width="150" height="30" uuid="4ab79c19-3167-40c8-8290-9b4a6ae9ea70">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8524a3a2-9523-4bd7-ac64-6b39f0e44efa"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="11"/>
+				</textElement>
+				<text><![CDATA[Nome ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="3" width="170" height="30" uuid="a8d2f0a4-48bb-4133-a69b-67aa9c500574">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8f7973d5-c784-4c46-91e5-16bdeeada2d0"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="11"/>
+				</textElement>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="3" width="154" height="30" uuid="08b59b93-6d22-4555-b617-4cdb02a269b8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3cdfcf88-4552-471a-8148-270b37e8f2c2"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="11"/>
+				</textElement>
+				<text><![CDATA[Saldo a pagar]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="-10" y="0" width="80" height="30" uuid="ae8764f3-ad5a-47bb-854c-9959960d2cfe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="38065b66-9d5e-4bd0-b72f-cbd2b754b9da"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clienteid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="150" height="30" uuid="9e0cab45-9722-4d49-b0df-5c82c771b0a9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8524a3a2-9523-4bd7-ac64-6b39f0e44efa"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="170" height="30" uuid="40c0323c-17d1-4529-ad10-bca9b026df42">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8f7973d5-c784-4c46-91e5-16bdeeada2d0"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pessoa_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="154" height="30" uuid="e706bb34-e16b-4168-957d-aa160c41865b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0fbbbf8a-b960-461a-9f66-0847b485d5c4"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["R$ "+$F{cliente_deb}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="70" y="0" width="100" height="30" uuid="af496c55-7af3-4079-aa4f-8fd31b8c565c"/>
+				<textFieldExpression><![CDATA[$V{clienteid1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-11" y="0" width="100" height="30" uuid="37b7a8ea-e592-4606-bf9e-e99df36dd708"/>
+				<text><![CDATA[Total de Clientes :]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -28,7 +28,7 @@ Validacoes campo = new Validacoes();
          telas.Resolucao(this);
          servicoDao.CarregarTabelaServ(tab_serv, pesquisa);
          servicoDao.CarregarBaias(1, tab_baias);
-         servicoDao.carregarNbaias(b_d, b_u, b_u1);
+         servicoDao.carregarNbaias(b_d, b_u,b_da);
     }
 
     /**
@@ -51,14 +51,14 @@ Validacoes campo = new Validacoes();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         b_d = new javax.swing.JTextField();
-        b_u = new javax.swing.JTextField();
+        b_da = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tab_baias = new javax.swing.JTable();
         b_todas = new javax.swing.JCheckBox();
         b_dispo = new javax.swing.JCheckBox();
         b_uso = new javax.swing.JCheckBox();
         b_dani = new javax.swing.JCheckBox();
-        b_u1 = new javax.swing.JTextField();
+        b_u = new javax.swing.JTextField();
         ad_baia = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         cat_cat = new javax.swing.JComboBox<>();
@@ -164,11 +164,11 @@ Validacoes campo = new Validacoes();
             }
         });
 
-        b_u.setEditable(false);
-        b_u.setBackground(new java.awt.Color(255, 255, 255));
-        b_u.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        b_u.setForeground(new java.awt.Color(255, 51, 0));
-        b_u.setBorder(javax.swing.BorderFactory.createTitledBorder("Danificada"));
+        b_da.setEditable(false);
+        b_da.setBackground(new java.awt.Color(255, 255, 255));
+        b_da.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        b_da.setForeground(new java.awt.Color(255, 51, 0));
+        b_da.setBorder(javax.swing.BorderFactory.createTitledBorder("Danificada"));
 
         tab_baias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -216,10 +216,10 @@ Validacoes campo = new Validacoes();
             }
         });
 
-        b_u1.setEditable(false);
-        b_u1.setBackground(new java.awt.Color(255, 255, 255));
-        b_u1.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
-        b_u1.setBorder(javax.swing.BorderFactory.createTitledBorder("Em uso"));
+        b_u.setEditable(false);
+        b_u.setBackground(new java.awt.Color(255, 255, 255));
+        b_u.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 14)); // NOI18N
+        b_u.setBorder(javax.swing.BorderFactory.createTitledBorder("Em uso"));
 
         ad_baia.setText("Nova");
         ad_baia.addActionListener(new java.awt.event.ActionListener() {
@@ -239,9 +239,9 @@ Validacoes campo = new Validacoes();
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(b_d, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
-                        .addComponent(b_u1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b_u, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(b_u, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b_da, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ad_baia))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -261,8 +261,8 @@ Validacoes campo = new Validacoes();
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(b_d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(b_u, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(b_u1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(b_da, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(b_u, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ad_baia))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -802,7 +802,9 @@ telas.alterar(this,1);
     }//GEN-LAST:event_b_daniActionPerformed
 
     private void ad_baiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ad_baiaActionPerformed
-            servicoDao.inseriBaia();
+            servicoDao.Inserirbaia();
+            servicoDao.CarregarBaias(1, tab_baias);
+           servicoDao.carregarNbaias(b_d, b_u,b_da);
         // TODO add your handling code here:
     }//GEN-LAST:event_ad_baiaActionPerformed
 
@@ -819,19 +821,22 @@ telas.alterar(this,1);
              if(opc==0){
               servicoDao.Alterarbaia(local, 1);
               servicoDao.CarregarBaias(1, tab_baias);
+              servicoDao.carregarNbaias(b_d, b_u,b_da);
              }
              
              break;
-                case "Manutenção": String opcoes2[] = {"Disponível","Cancelar"};
+                case "Danificada": String opcoes2[] = {"Disponível","Cancelar"};
              opc = JOptionPane.showOptionDialog(null, "Selecionar o estado da Baia", "Modificar Baia"
             , JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes2, opcoes2[1]);
               if(opc==0){
-              servicoDao.Alterarbaia(local, 1);
+              servicoDao.Alterarbaia(local, 2);
               servicoDao.CarregarBaias(1, tab_baias);
+              servicoDao.carregarNbaias(b_d, b_u,b_da);
              }
              break;
                 default: JOptionPane.showMessageDialog(null,"Está baia está em uso" );
             }
+         servicoDao.carregarNbaias(b_d, b_u,b_da);
         // TODO add your handling code here:
     }//GEN-LAST:event_tab_baiasMouseClicked
 
@@ -876,11 +881,11 @@ telas.alterar(this,1);
     private javax.swing.JButton ad_baia;
     private javax.swing.JButton atualiza;
     private javax.swing.JTextField b_d;
+    private javax.swing.JTextField b_da;
     private javax.swing.JCheckBox b_dani;
     private javax.swing.JCheckBox b_dispo;
     private javax.swing.JCheckBox b_todas;
     private javax.swing.JTextField b_u;
-    private javax.swing.JTextField b_u1;
     private javax.swing.JCheckBox b_uso;
     private javax.swing.ButtonGroup baias_tab;
     private javax.swing.JButton btn_animais;

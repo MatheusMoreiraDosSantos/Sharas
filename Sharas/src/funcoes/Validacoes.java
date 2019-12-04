@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import java.sql.Date;
 import java.util.InputMismatchException;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import sun.applet.Main;
 /**
  *
@@ -192,5 +193,13 @@ public boolean campoTelefone(JTextField campo,JLabel erro,String string){
    erro.setText("numero imvalido");
    return(false);
 }  
+public Boolean campoEspescial(JTextField campo,String nome,JLabel erro){
+String valid = JOptionPane.showInputDialog("Digite o "+nome+ "outra vez","Campo Importante");
+if(!campo.getText().equals(valid)&&!campo.getText().equals("")){
+    erro.setText("Confirmação Inválida ");
+    return (false);
+}else 
+return(true);
+}
 
 }

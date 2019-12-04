@@ -614,7 +614,7 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Relatorio relat = new Relatorio();
-        relat.Gerar();
+        relat.Gerar(3);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

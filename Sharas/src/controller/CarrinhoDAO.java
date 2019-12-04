@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import model.Carrinho;
 import net.proteanit.sql.DbUtils;
@@ -26,19 +27,21 @@ public class CarrinhoDAO {
     ResultSet rs;
 
     //carrega os dados da tabela de produto
-       public void InseriCarrinho(Carrinho carrinho){
-      try{
+       public void InseriCarrinho(Carrinho carrinho,boolean v){
+            try{
         con = Conexao.conectar();
         sql = "insert into carrinho values (?,?);";
         pst = con.prepareStatement(sql);
         pst.setInt(1, carrinho.getCarrinhoid());
         pst.setInt(2, carrinho.getServico_id());
-        pst.execute();
+        pst.execute();       
         Conexao.desconectar();
     }catch(SQLException e){
         Conexao.desconectar();
           System.err.println(e);
     }
+     
+  
         }
            public void zerarcarrinho(Carrinho carrinho){
       try{
@@ -53,6 +56,29 @@ public class CarrinhoDAO {
           Conexao.desconectar();
     }
 }
+ public boolean  verificaAlojamento(Carrinho carrinho){
+ 
+     try{
+        con = Conexao.conectar();    
+        sql="SELECT IF(dispo>0,dispo,0)as n from n_baia";
+        pst = con.prepareStatement(sql);
+        rs=pst.executeQuery();
+        if(rs.next()){
+            if(rs.getInt("n")>0){
+                Conexao.desconectar();
+                return (true);
+            } else {
+                 Conexao.desconectar();
+                return (false);
+            }
+        }
+        sql = "UPDATE `baia` SET `baia_status`=2 WHERE (SELECT baia.baia_id from baia WHERE baia.baia_status = 1 limit 1) limit 1 ";
+               return (false);
+   }catch(SQLException e){
+          System.err.println(e);
+          return (false);
+    }
+           }
 
           public void carregarCarrinho(JTable cli,JLabel total){
       try{
@@ -73,6 +99,19 @@ public class CarrinhoDAO {
           System.err.println(e);
     }
         }
-
+public void DeletaItem(Carrinho carrinho){
+        System.err.println(""+carrinho.getCarrinhoid());
+    try{
+        con = Conexao.conectar();
+            sql = "DELETE FROM `carrinho` WHERE carrinhoid=?";
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, carrinho.getCarrinhoid());
+            pst.execute();
+            Conexao.desconectar();
+    }catch(SQLException e){
+          System.err.println(e);
+          Conexao.desconectar();
+    }
+}
 
 }
