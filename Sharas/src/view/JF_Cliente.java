@@ -593,6 +593,11 @@ public class JF_Cliente extends javax.swing.JFrame {
         btn_rh.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btn_rh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/manutencao.png"))); // NOI18N
         btn_rh.setText("R. H.         ");
+        btn_rh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_rhActionPerformed(evt);
+            }
+        });
 
         jSeparator2.setBackground(new java.awt.Color(0, 102, 102));
         jSeparator2.setForeground(new java.awt.Color(0, 102, 102));
@@ -802,6 +807,11 @@ public class JF_Cliente extends javax.swing.JFrame {
         cliDao.CarregarTabelacli(tab_cliente, pesquisa);
         // TODO add your handling code here:
     }//GEN-LAST:event_pesquisaKeyReleased
+
+    private void btn_rhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_rhActionPerformed
+        telas.alterar(this, 11);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_rhActionPerformed
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {                                         
         telas.alterar(this,1);
     }                                        
@@ -834,10 +844,7 @@ private void btn_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {
     private void btn_financeiroActionPerformed(java.awt.event.ActionEvent evt) {                                               
         telas.alterar(this, 10);
     }    
-       private void btn_rhActionPerformed(java.awt.event.ActionEvent evt) {                                       
-       telas.alterar(this, 11);
-        
-    }        
+           
   private void btn_usuarioActionPerformed(java.awt.event.ActionEvent evt) {                                            
     telas.alterar(this, 12);
     }                                           
