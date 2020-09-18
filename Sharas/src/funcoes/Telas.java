@@ -18,7 +18,7 @@ import view.JF_Log;
 import view.JF_Principal1;
 import view.JF_Ususario;
 
-import view.JF_animais;
+//import view.JF_animais;
 import view.JF_calendario;
 
 import view.JF_funcionarios;
@@ -82,7 +82,7 @@ public void SessaoB(JButton haras,JButton log,JButton usuario,JButton rh){
             case 2 : n_tela = new JF_Cliente();break;
             case 3:  n_tela = new JF_Contrato();break;
            case 4:  n_tela = new JF_calendario();break;
-            case 5: n_tela= new JF_animais() ;break;
+           // case 5: n_tela= new JF_animais() ;break;
             case 7 : n_tela = new JF_Haras();break;
              case 11: n_tela = new JF_funcionarios();break;
              case 12:   n_tela = new JF_Ususario() ; break;

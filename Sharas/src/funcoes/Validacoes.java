@@ -12,7 +12,7 @@ import java.sql.Date;
 import java.util.InputMismatchException;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import sun.applet.Main;
+
 /**
  *
  * @author maikon.rosa
